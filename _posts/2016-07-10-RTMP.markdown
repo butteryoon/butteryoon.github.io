@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "RTMP"
+date:   2016-07-10 17:57:30 +0900
+categories: jekyll update
+---
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+
+**SPEC**
+
+* [Adobe 규격](https://www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf)
+* [WiKi](https://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol)
+
+**BASE**
+
+* [RTMP/RTSP 스트리밍비교](http://bit.ly/29pkU8L)
+* [What is Video Streaming ?](https://www.jwplayer.com/blog/what-is-video-streaming/)
+
+**구현방법**
+
+* [VLC 구현](https://wiki.videolan.org/Real_Time_Messaging_Protocol/)
+* [RTMP Handshaking Example](http://bit.ly/29Ai0fQ)
+* [librtmp 에제](http://stackoverflow.com/questions/24749032/librtmp-example-c-programming)
+* [rtmp.c](http://coderepos.org/share/browser/lang/c/librtmp/rtmp.c?rev=28345)
+
+**오픈소스**
+
+* RTMP 서버
+ [C++ RTMP Server](https://github.com/mdavid/crtmpserver)
+ [CrtmpServer Wiki](http://wiki.alessandro.delgallo.net/wiki/index.php/Crtmpserver)
+ [crtmpserver 를 이용한 영상전송](http://www.rasplay.org/?p=5705 )
+
+* RTMP 클라이언트
+* [RTMPDump (클라이언트)](http://rtmpdump.mplayerhq.hu/)
+* [NGINX-RTMP](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
+
+**시험**
+
+* [미디어파일 샘플](http://www.mediacollege.com/adobe/flash/video/tutorial/example-flv.html)
+* [FLV 플레이어](https://www.jwplayer.com/about-jwplayer/)
+
