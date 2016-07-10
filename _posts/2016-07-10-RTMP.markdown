@@ -28,12 +28,10 @@ categories: jekyll update
 
 **오픈소스**
 
-* RTMP 서버
- [C++ RTMP Server](https://github.com/mdavid/crtmpserver)
- [CrtmpServer Wiki](http://wiki.alessandro.delgallo.net/wiki/index.php/Crtmpserver)
- [crtmpserver 를 이용한 영상전송](http://www.rasplay.org/?p=5705 )
+* [C++ RTMP Server](https://github.com/mdavid/crtmpserver)
+* [CrtmpServer Wiki](http://wiki.alessandro.delgallo.net/wiki/index.php/Crtmpserver)
+* [crtmpserver 를 이용한 영상전송](http://www.rasplay.org/?p=5705 )
 
-* RTMP 클라이언트
 * [RTMPDump (클라이언트)](http://rtmpdump.mplayerhq.hu/)
 * [NGINX-RTMP](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
 
