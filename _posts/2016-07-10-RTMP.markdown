@@ -28,15 +28,18 @@ categories: jekyll update
 
 **오픈소스**
 
-* [C++ RTMP Server](https://github.com/mdavid/crtmpserver)
-* [CrtmpServer Wiki](http://wiki.alessandro.delgallo.net/wiki/index.php/Crtmpserver)
-* [crtmpserver 를 이용한 영상전송](http://www.rasplay.org/?p=5705 )
-
-* [RTMPDump (클라이언트)](http://rtmpdump.mplayerhq.hu/)
-* [NGINX-RTMP](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
+* RTMP Server
+  * [C++ RTMP Server](https://github.com/mdavid/crtmpserver)
+  * [CrtmpServer Wiki](http://wiki.alessandro.delgallo.net/wiki/index.php/Crtmpserver)
+  * [crtmpserver 를 이용한 영상전송](http://www.rasplay.org/?p=5705 )
+ 
+* RTMP Client
+  * [RTMPDump (클라이언트)](http://rtmpdump.mplayerhq.hu/)
+  * [NGINX-RTMP](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
 
 **시험**
 
 * [미디어파일 샘플](http://www.mediacollege.com/adobe/flash/video/tutorial/example-flv.html)
 * [FLV 플레이어](https://www.jwplayer.com/about-jwplayer/)
+
 
