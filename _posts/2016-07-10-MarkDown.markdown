@@ -1,6 +1,9 @@
-
-2016년 07월 10일 일 오후  8:36:01
-
+---
+layout: post
+title:  "MarkDown"
+date:   2016-07-10 20:36:01 +0900
+categories: jekyll update
+---
 Markdown testing. 
 
 This is Link : [Link](http://softroom.naver.com)
