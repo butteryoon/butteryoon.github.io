@@ -14,6 +14,7 @@ categories: jekyll update
 * [Adobe 규격](https://www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf)
 * [Adobe Flash Video File Format Spec](http://download.macromedia.com/f4v/video_file_format_spec_v10_1.pdf)
 * [WiKi](https://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol)
+* [Packet Sample](http://thompsonng.blogspot.kr/2010/10/rtmp-part-8-packets-examples.html)
 
 **BASE**
 
