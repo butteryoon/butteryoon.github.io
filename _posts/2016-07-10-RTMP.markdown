@@ -37,6 +37,16 @@ categories: jekyll update
   * [RTMPDump (클라이언트)](http://rtmpdump.mplayerhq.hu/)
   * [NGINX-RTMP](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
 
+* app
+  * [spydroid-ipcamera](https://code.google.com/archive/p/spydroid-ipcamera/) 
+
+* media Server
+  * [OBS](https://obsproject.com/index)
+
+* ETC
+  * [Push Hack](http://www.contextis.com/resources/blog/push-hack-reverse-engineering-ip-camera/)
+  * [FFMpeg for Streaming](https://sonnati.wordpress.com/2011/08/30/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iv/)
+
 **시험**
 
 * [미디어파일 샘플](http://www.mediacollege.com/adobe/flash/video/tutorial/example-flv.html)
