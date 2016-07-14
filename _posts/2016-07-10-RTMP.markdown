@@ -14,7 +14,6 @@ categories: jekyll update
 * [Adobe 규격](https://www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf)
 * [Adobe Flash Video File Format Spec](http://download.macromedia.com/f4v/video_file_format_spec_v10_1.pdf)
 * [WiKi](https://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol)
-* [Packet Sample](http://thompsonng.blogspot.kr/2010/10/rtmp-part-8-packets-examples.html)
 
 **BASE**
 
@@ -38,6 +37,7 @@ categories: jekyll update
 * RTMP Client
   * [RTMPDump (클라이언트)](http://rtmpdump.mplayerhq.hu/)
   * [NGINX-RTMP](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/)
+  * [librtmp Example](http://stackoverflow.com/questions/24749032/librtmp-example-c-programming)
 
 * app
   * [spydroid-ipcamera](https://code.google.com/archive/p/spydroid-ipcamera/) 
@@ -48,6 +48,7 @@ categories: jekyll update
 * ETC
   * [Push Hack](http://www.contextis.com/resources/blog/push-hack-reverse-engineering-ip-camera/)
   * [FFMpeg for Streaming](https://sonnati.wordpress.com/2011/08/30/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iv/)
+  * [Packet Sample](http://thompsonng.blogspot.kr/2010/10/rtmp-part-8-packets-examples.html)
 
 **시험**
 
