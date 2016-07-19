@@ -54,5 +54,8 @@ categories: jekyll update
 
 * [미디어파일 샘플](http://www.mediacollege.com/adobe/flash/video/tutorial/example-flv.html)
 * [FLV 플레이어](https://www.jwplayer.com/about-jwplayer/)
+* [아프리카TV 방송설정](http://m.blog.naver.com/n6825/220495100670)
+* [유튜브 방송설정](https://support.google.com/youtube/answer/2853702?hl=en&ref_topic=6136989)
+*
 
 
