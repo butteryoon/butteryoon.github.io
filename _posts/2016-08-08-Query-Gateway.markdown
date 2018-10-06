@@ -2,6 +2,7 @@
 layout: post
 title:  "Query Gateway"
 desc: "Query Build and Gateway"
+categories: dev
 ---
 
 **Query Builder and Gateway for Oracle DB**

@@ -2,9 +2,8 @@
 layout: post
 title:  "TeamSQL"
 desc: "TeamSQL"
-img: logo-dark@2x.png
 date:   2018-09-30 21:25:30 +0900
-categories: jekyll update
+categories: tools
 ---
 
 MySQL, Oracle, SQL Server, PostgreSQL 을 모두 지원한다.

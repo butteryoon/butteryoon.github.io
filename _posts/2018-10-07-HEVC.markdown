@@ -1,0 +1,88 @@
+---
+layout: post
+title: "HEVC Play using ffplay"
+desc: ""
+img: h265_logo.jpg
+date: 2018-10-06 21:25:30 +0900
+tags: [H.265, HEVC, ffplay, NVIDIA, GTX950M] # add tag
+categories: vision
+---
+
+H.265 RTSP 영상을 CUVID를 이용하여 디코딩 테스팅 진행. 
+노트북에는 nVidia GTX 950M 모델이 있는데 이 모델에서 HEVC_CUVID를 이용해서 GPU 디코딩이 가능한지 확인 필요. 
+
+우선 ffplay로는 재생 실패. 
+
+```
+./ffplay -rtsp_transport tcp -vcodec hevc_cuvid -i rtsp://
+[hevc_cuvid @ 000001a3ca5af800] Codec hevc_cuvid is not supported.
+[rtsp @ 000001a3ca51cbc0] RTP: PT=21: bad cseq 0197 expected=cbae
+[rtsp @ 000001a3ca51cbc0] RTP: PT=21: bad cseq 00ef expected=bf8b
+ 349.57 M-A:  0.000 fd=   0 aq=    0KB vq=    0KB sq=    0B f=0/0
+```
+
+[TECPPOWERUP](https://www.techpowerup.com/gpu-specs/geforce-gtx-950m.c2642)를 보면  GTX 950M의 그래픽 프로세서는 GM107 
+
+nVidia [SPEC](https://www.geforce.com/hardware/notebook-gpus/geforce-gtx-950m/specifications) 페이지의 Display Support 내용 
+```
+Display Support:
+YesVGA Analog display support3 Yes 
+DisplayPort Multimode support3 Yes 
+HDMI Support Yes 
+H.264, VC1, MPEG2 1080p video decoder Yes 
+```
+
+[nVidia GPU 카드 디코딩 지원 목록](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix) 에서 NVDEC Support Matrix를  보면 GM107 CHIP은 H.265을 지원 안함.  
+![NVDEC Suppot Matrix]({{site.baseurl}}/assets/img/nVidia_GM107_matrix.png)
+
+ffmpeg 빌드 버전에서 CUVID 지원 여부 확인 하기 
+```
+$ ./ffmpeg -hwaccels
+ffmpeg version 4.0.2 Copyright (c) 2000-2018 the FFmpeg developers
+  built with gcc 7.3.1 (GCC) 20180722
+  configuration: --enable-gpl --enable-version3 --enable-sdl2 --enable-bzlib --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --enable-libmfx --enable-amf --enable-ffnvcodec --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth
+  libavutil      56. 14.100 / 56. 14.100
+  libavcodec     58. 18.100 / 58. 18.100
+  libavformat    58. 12.100 / 58. 12.100
+  libavdevice    58.  3.100 / 58.  3.100
+  libavfilter     7. 16.100 /  7. 16.100
+  libswscale      5.  1.100 /  5.  1.100
+  libswresample   3.  1.100 /  3.  1.100
+  libpostproc    55.  1.100 / 55.  1.100
+Hardware acceleration methods:
+cuda
+dxva2
+qsv
+d3d11va
+qsv
+CUVID
+```
+
+```
+$ ./ffmpeg -decoders | grep cuvid
+ffmpeg version 4.0.2 Copyright (c) 2000-2018 the FFmpeg developers
+  built with gcc 7.3.1 (GCC) 20180722
+  configuration: --enable-gpl --enable-version3 --enable-sdl2 --enable-bzlib --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --enable-libmfx --enable-amf --enable-ffnvcodec --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth
+  libavutil      56. 14.100 / 56. 14.100
+  libavcodec     58. 18.100 / 58. 18.100
+  libavformat    58. 12.100 / 58. 12.100
+  libavdevice    58.  3.100 / 58.  3.100
+  libavfilter     7. 16.100 /  7. 16.100
+  libswscale      5.  1.100 /  5.  1.100
+  libswresample   3.  1.100 /  3.  1.100
+  libpostproc    55.  1.100 / 55.  1.100
+ V..... h264_cuvid           Nvidia CUVID H264 decoder (codec h264)
+ V..... hevc_cuvid           Nvidia CUVID HEVC decoder (codec hevc)
+ V..... mjpeg_cuvid          Nvidia CUVID MJPEG decoder (codec mjpeg)
+ V..... mpeg1_cuvid          Nvidia CUVID MPEG1VIDEO decoder (codec mpeg1video)
+ V..... mpeg2_cuvid          Nvidia CUVID MPEG2VIDEO decoder (codec mpeg2video)
+ V..... mpeg4_cuvid          Nvidia CUVID MPEG4 decoder (codec mpeg4)
+ V..... vc1_cuvid            Nvidia CUVID VC1 decoder (codec vc1)
+ V..... vp8_cuvid            Nvidia CUVID VP8 decoder (codec vp8)
+ V..... vp9_cuvid            Nvidia CUVID VP9 decoder (codec vp9)
+```
+
+
+[jekyll]: https://jekyllrb-ko.github.io
+[GitHubPages]: https://pages.github.com 
+

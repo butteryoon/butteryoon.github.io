@@ -5,7 +5,7 @@ desc: ""
 img: software.jpg
 date: 2018-09-27 21:25:30 +0900
 tags: [GitHub, 블로그, Jekyll, 마크다운] # add tag
-categories: jekyll update
+categories: blog
 ---
 
 다시 블로그가 궁금해졌다. 
