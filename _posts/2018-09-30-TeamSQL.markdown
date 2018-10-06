@@ -2,6 +2,7 @@
 layout: post
 title:  "TeamSQL"
 desc: "TeamSQL"
+img: logo-dark@2x.png
 date:   2018-09-30 21:25:30 +0900
 categories: jekyll update
 ---
