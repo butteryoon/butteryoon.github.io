@@ -1,0 +1,40 @@
+---
+layout: post
+title: "HEVC Play using ffplay.exe"
+desc: ""
+img: h265_logo.jpg
+date: 2018-09-27 21:25:30 +0900
+tags: [H.265, HEVC, ffplay, NVIDIA, GTX950M] # add tag
+categories: hevc 
+---
+
+H.265 RTSP 영상을 CUVID를 이용하여 디코딩 테스팅 진행. 
+노트북에는 nVidia GTX 950M 모델이 있는데 이 모델에서 HEVC_CUVID를 이용해서 GPU 디코딩이 가능한지 확인 필요. 
+
+우선 ffplay로는 재생 실패. 
+```
+./ffplay -rtsp_transport tcp -vcodec hevc_cuvid -i rtsp://
+[hevc_cuvid @ 000001a3ca5af800] Codec hevc_cuvid is not supported.
+[rtsp @ 000001a3ca51cbc0] RTP: PT=21: bad cseq 0197 expected=cbae
+[rtsp @ 000001a3ca51cbc0] RTP: PT=21: bad cseq 00ef expected=bf8b
+ 349.57 M-A:  0.000 fd=   0 aq=    0KB vq=    0KB sq=    0B f=0/0
+```
+
+[TECPPOWERUP](https://www.techpowerup.com/gpu-specs/geforce-gtx-950m.c2642)를 보면  GTX 950M의 그래픽 프로세서는 GM107 
+
+nVidia [SPEC](https://www.geforce.com/hardware/notebook-gpus/geforce-gtx-950m/specifications) 페이지의 Display Support 내용 
+```
+Display Support:
+YesVGA Analog display support3 Yes 
+DisplayPort Multimode support3 Yes 
+HDMI Support Yes 
+H.264, VC1, MPEG2 1080p video decoder Yes 
+```
+
+[nVidia GPU 카드 디코딩 지원 목록](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix) 에서 NVDEC Support Matrix를  보면 GM107 CHIP은 H.265을 지원 안함.  
+![NVDEC Suppot Matrix]({{site.baseurl}}/assets/img/nVidia_GM107_matrix.png)
+
+음! 결국 노트북의 GTX 950M 모델에서는 hevc_cuvid를 이용해서 재생 불가 .. 
+ 
+[jekyll]: https://jekyllrb-ko.github.io
+[GitHubPages]: https://pages.github.com 
