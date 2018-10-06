@@ -3,7 +3,7 @@ layout: post
 title: "HEVC Play using ffplay.exe"
 desc: ""
 img: h265_logo.jpg
-date: 2018-09-27 21:25:30 +0900
+date: 2018-10-07 21:25:30 +0900
 tags: [H.265, HEVC, ffplay, NVIDIA, GTX950M] # add tag
 categories: hevc 
 ---

@@ -36,7 +36,7 @@ categories: jekyll update
 * [jekyll][jekyll] 공식사이트 [Themes](https://jekyllrb-ko.github.io/docs/themes/) 페이지 참고
 * [테마 적용하기](https://nesoy.github.io/articles/2016-12/github-Jekyll) 블로그 
 * 현재는 http://artemsheludko.com/flexible-jekyll/ 블로그의 테마를 적용하고 있다. 
-
+* 파비콘을 적용하려면 [Favicon & App Icon Generator]https://www.favicon-generator.org)을 참고
 
 [jekyll]: https://jekyllrb-ko.github.io
 [GitHubPages]: https://pages.github.com 
