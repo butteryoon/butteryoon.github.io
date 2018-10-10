@@ -5,7 +5,7 @@ date:   2018-10-10 20:05:00 +0900
 categories: dev
 ---
 
-아이폰 엔터프라이즈 앱의 인하우스 배로를 위해서는 도메인이 필요하다네 .. 
+아이폰 엔터프라이즈 앱의 인하우스 배포를 위해서는 도메인이 필요하다네 .. 
 그래서 letsencrypt 무료 인증서를 받아 사용하기로 한다. 
 회사 웹서버는 호스팅을 하고 있고 음! 어디서?? 모르겠고 ..
 우선 인증서만 받아 인하우스 배포를 시험하기로 한다. 
@@ -19,14 +19,13 @@ lets encrypt 에서 인증서를 받기 위한 절차는 아래와 같다.
 3. 인증서는 90일 마다 갱신해야 한다. 
 4. 끝. 
 
-git 저장소에서 letsencrypt를 clone .. 
+git 저장소에서 letsencrypt를 clone 하고
 
 ```
 git repository : origin https://github.com/letsencrypt/letsencrypt
 ```
 
 설치 후 인증서만 다운로드 하기 위해 아래의 명령어를 실행. 
-
 ```
 [@localhost letsencrypt]$ ./letsencrypt-auto certonly --manual
 Requesting to rerun ./letsencrypt-auto with root privileges...
@@ -48,11 +47,9 @@ Are you OK with your IP being logged?
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 (Y)es/(N)o: y
 ```
-
 도메인 입력 후 인증 과정을 거친다. 
-letsencrypt에서 아래의 URL로 요청했을 때 지정된 문자열을 응답으로 보내야 한다. 
-임시로 해당 문서를 생성. 
-
+letsencrypt에서 아래의 URL로 요청했을 때 지정된 문자열을 응답으로 보내야 한다.  
+임시로 해당 경로에 문서를 생성. 
 ```
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Create a file containing just this data:
@@ -73,10 +70,7 @@ python -m SimpleHTTPServer 8000
 ```
 위 명령어를 실행하면 간단하게 8000 번 포트로 웹서버를 구동할 수 있다. 
 
-지정된 디렉토리에 안내된 이름으로 지정된 데이타가 포함된 파일을 만들면
-
-지정된 디렉토리에 개인키와 공개키가 생성된다. 
-
+지정된 디렉토리에 안내된 이름으로 지정된 데이타가 포함된 파일을 만들면 지정된 디렉토리에 개인키와 공개키가 생성된다. 
 ```
 Press Enter to Continue
 Waiting for verification...
