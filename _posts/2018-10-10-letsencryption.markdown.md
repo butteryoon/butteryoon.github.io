@@ -5,14 +5,21 @@ date:   2018-10-10 20:05:00 +0900
 categories: dev
 ---
 
-lets encrypt 에서 인증서를 받기 위한 절차를 적어본다. 
+아이폰 엔터프라이즈 앱의 인하우스 배로를 위해서는 도메인이 필요하다네 .. 
+그래서 letsencrypt 무료 인증서를 받아 사용하기로 한다. 
+회사 웹서버는 호스팅을 하고 있고 음! 어디서?? 모르겠고 ..
+우선 인증서만 받아 인하우스 배포를 시험하기로 한다. 
+
+lets encrypt 에서 인증서를 받기 위한 절차는 아래와 같다. 
+
+생각보다 간단하다. 
 
 1. 인증서를 받기 위해 도메인이 있어야 한다. 
 2. 메뉴얼 모드로 인증서를 받는다. 
-3. 인증서는 90마다 갱신해야 한다. 
+3. 인증서는 90일 마다 갱신해야 한다. 
 4. 끝. 
 
-git 저장소에서 letsencrypt를 설치한다. 
+git 저장소에서 letsencrypt를 clone .. 
 
 ```
 git repository : origin https://github.com/letsencrypt/letsencrypt
@@ -21,7 +28,7 @@ git repository : origin https://github.com/letsencrypt/letsencrypt
 설치 후 인증서만 다운로드 하기 위해 아래의 명령어를 실행. 
 
 ```
-[lcsapp@localhost letsencrypt]$ ./letsencrypt-auto certonly --manual
+[@localhost letsencrypt]$ ./letsencrypt-auto certonly --manual
 Requesting to rerun ./letsencrypt-auto with root privileges...
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
@@ -30,7 +37,7 @@ to cancel): iws.iptime.org
 Cert is due for renewal, auto-renewing...
 Renewing an existing certificate
 Performing the following challenges:
-http-01 challenge for iws.iptime.org
+http-01 challenge for host.iptime.org
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 NOTE: The IP of this machine will be publicly logged as having requested this
@@ -56,11 +63,18 @@ And make it available on your web server at this URL:
 
 http://iws.iptime.org/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0FftQI4
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -git repository : origin https://github.com/letsencrypt/letsencrypt
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
+웹서버를 호스팅하거나 접근하기 어려운 경우 파이썬으로 간단하게 처리 .. 
 
-끝. 
-성공했다는 응답
+별도의 서버가 없어도 파이썬 `SimpleHTTPServer` 모듈로 가능. 
+```
+python -m SimpleHTTPServer 8000
+```
+위 명령어를 실행하면 간단하게 8000 번 포트로 웹서버를 구동할 수 있다. 
+
+지정된 디렉토리에 안내된 이름으로 지정된 데이타가 포함된 파일을 만들면
+
 지정된 디렉토리에 개인키와 공개키가 생성된다. 
 
 ```
