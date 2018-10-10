@@ -11,5 +11,14 @@ Bold : **Bold**
 
 List
 * list
-  *list1
-  *list1
+* list1
+* list2
+
+’’’
+문장 그대로 쓰기기
+줄바꿈
+’’’
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTE5NDY2NDAwNywtMzgwODQwMDAyXX0=
+-->
