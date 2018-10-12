@@ -1,0 +1,11 @@
+---
+layout: post
+title: "vim 에서 REST 시험"
+date:   2018-10-12 00:51:00 +0900
+categories: dev
+---
+vim에서 HTTP REST API 시험을 위한 확장기능이고 [Vundle](https://github.com/VundleVim/Vundle.vim/blob/master/README_KR.md)로 제공한다.
+
+[vial-http](https://github.com/baverman/vial-http/blob/master/README.md) github 페이지 
+
+일단 킵...
