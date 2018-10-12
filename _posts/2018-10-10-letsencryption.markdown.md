@@ -95,4 +95,10 @@ IMPORTANT NOTES:
 
 끝.
 
-※ 참고 [Lets' Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
+참고 [Lets' Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
+
+[인증서갱신](https://letsencrypt.readthedocs.io/en/latest/using.html#re-creating-and-updating-existing-certificates)
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTU2MDY0NzcxMV19
+-->

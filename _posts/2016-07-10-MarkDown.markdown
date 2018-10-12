@@ -1,18 +1,49 @@
 ---
 layout: post
 title:  "MarkDown"
+img: markdown.png
 date:   2016-07-10 20:36:01 +0900
 categories: dev
 ---
-Markdown testing. 
 
-This is Link : [Link](http://softroom.naver.com)
-Bold : **Bold**
+# 마크다운을 공부하기 위한 포스팅. 
 
-List
+
+**마크다운 에디터**
+
+내가 원하는건 아이폰에서 간단하게 작성한 글을 github 페이지에 올리는 건데. 
+
+우선 butteryoon.github.io 의 소스는 Dropbox에 저장되어 있고 마크다운 에디터로 폅집 후 push 하면 끝. 
+
+
+1. 아이폰용 마크다운 에디터 
+ - 요건 찾아보면 많은데 .. 
+2. Dropbox 연동이 되어야 하고
+ - 기능은 되는데 인터페이스 들이 죄다 맘에 안들어 . 
+3. github에 push 할 수 있어야 하고 
+ - 요건 없는 듯. 
+ - git 클라이언트 중 Dropbox를 지원하는 건 없나? 
+4. Windows에서는 [gvim](https://www.vim.org/download.php) markdown mode를 사용. 
+ - [markdown Mode](https://github.com/plasticboy/vim-markdown/) github 페이지
+ - 다른 좋은 에디터들도 많지만 그냥..
+
+
+**Markdown testing**
+
+인용문
+> 아래 구문정도만 알면 일반적인 글을 적는데는 문제 없을 듯 .. 
+
+ **Bold** `**Bold**`
+
+**List**
+
 * list
 * list1
 * list2
+
+[네이버블로그](http://softroom.blog.me) 링크
+
+[Facebook](https://m.facebook.com/softroom75) 링크 
 
 ```
 문장 그대로 쓰기
@@ -21,7 +52,19 @@ List
 아이폰에서 쓰다보니 ‘’’ 게 아니었네..
 ```
 
-[Facebook](https://m.facebook.com/softroom75)
+코드블럭은 
+```c
+void Hello() {
+	printf("Hello markdown\n");
+	}
+```
+
+테이블은 [Tables Generator](vhttp://www.tablesgenerator.com/markdown_tables) .. 
+
+**참고URL**
+[놀부의 마크다운 사용법](https://nolboo.kim/blog/2014/04/15/how-to-use-markdown/)
+[마크다운 작성법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
+[Markdown 마크다운 문법](https://simhyejin.github.io/2016/06/30/Markdown-syntax/#index)
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTE5NDY2NDAwNywtMzgwODQwMDAyXX0=
