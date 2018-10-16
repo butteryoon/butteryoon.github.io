@@ -62,10 +62,7 @@ void Hello() {
 테이블은 [Tables Generator](vhttp://www.tablesgenerator.com/markdown_tables) .. 
 
 **참고URL**
-[놀부의 마크다운 사용법](https://nolboo.kim/blog/2014/04/15/how-to-use-markdown/)
-[마크다운 작성법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
-[Markdown 마크다운 문법](https://simhyejin.github.io/2016/06/30/Markdown-syntax/#index)
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NDY2NDAwNywtMzgwODQwMDAyXX0=
--->
+- [놀부의 마크다운 사용법](https://nolboo.kim/blog/2014/04/15/how-to-use-markdown/) 
+- [마크다운 작성법](https://gist.github.com/ihoneymon/652be052a0727ad59601) 
+- [Markdown 마크다운 문법](https://simhyejin.github.io/2016/06/30/Markdown-syntax/#index)
+
