@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "시스템 모니터링"
-img: markdown.png
+img: monitoring.jpg
 date: 2018-10-14 03:00:01 +0900
 categories: dev
 ---
