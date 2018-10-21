@@ -35,12 +35,17 @@ categories: blog
 - [jekyll][jekyll] 공식사이트 [Themes](https://jekyllrb-ko.github.io/docs/themes/) 페이지 참고
 - [테마 적용하기](https://nesoy.github.io/articles/2016-12/github-Jekyll) 블로그 
 - 현재는 http://artemsheludko.com/flexible-jekyll/ 블로그의 테마를 적용하고 있다. 
+- feed, categorie 기능 제공한다. 
 - 파비콘을 적용하려면 [Favicon & App Icon Generator]https://www.favicon-generator.org)을 참고
 
 **TODO**
 1. 새 파일을 만들때 기본 헤더정보를 자동으로 만들어주는 스크립트
  - YYYY-MM-DD-title.md 형식으로 만들고
  - layout, title, desc, img, date, tags, categories 를 입력 받는다. 
+ - [포스트작성하기](https://jekyllrb-ko.github.io/docs/posts/)
+
+2. RSS Feed 만들기
+ - [플러그인 없이 Jekyll RSS Feed 만들기](http://dveamer.github.io/homepage/RSS-Feed.html)
 
 
 [jekyll]: https://jekyllrb-ko.github.io

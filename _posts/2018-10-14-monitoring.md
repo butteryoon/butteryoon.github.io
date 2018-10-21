@@ -3,6 +3,7 @@ layout: post
 title:  "리눅스 시스템 모니터링"
 img: monitoring.jpg
 date: 2018-10-14 03:00:01 +0900
+tags: [리눅스, top, sar, awk, netstat] # add tag
 categories: dev
 ---
 
@@ -66,4 +67,5 @@ $ sar -n SOCK -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00
 ## 참고 URL
 - [SAR(System Activity Reporter)를 이용한 시스템 모니터](http://www.cubrid.com/CUBRIDwiki/71317)
 - [sar 이용하여 시스템 모니터링하기](http://wiki.tunelinux.pe.kr/pages/viewpage.action?pageId=884938&desktop=true)
-- 
+- [리눅스 서버 60초안에 상황파악하기](https://b.luavis.kr/server/linux-performance-analysis)
+-
