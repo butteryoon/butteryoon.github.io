@@ -24,8 +24,12 @@ categories: dev
 2. vmstat
 3. iostat
  - [io/vmstat examples](https://www.thegeekstuff.com/2011/07/iostat-vmstat-mpstat-examples/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%253A+TheGeekStuff+%2528The+Geek+Stuff%2529) 
-4. netstat
+4. netstat 
  - 요즘은 ss 명령어를 사용한다.
+
+```
+$ netstat -anpo | grep PROCESS_NMAE 
+``` 
 
 5. sar
  - sar 명령어로는 특정시점의 시스템자원 사용률에 대한 정보를 얻을 수 있다. 
@@ -58,14 +62,23 @@ $ sar -P ALL -S -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00
 
 ## Network device Usage
 > mbps = kilobytes * 8 / 1024
+
 ```
 $ sar -n DEV -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00 | egrep 'IFACE|bond0' | awk '{print $0" "$5*8/1024" Mbps"}'
 $ sar -n EDEV -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00 | egrep 'IFACE|bond0'
 $ sar -n SOCK -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00
+```
+> 실시간으로 모니터링 
+
+```
+$ sar -n DEV 1 | egrep --line-buffered 'em2' | awk '{print $0" "$6*8/1024" Mbps"}'
 ```
 
 ## 참고 URL
 - [SAR(System Activity Reporter)를 이용한 시스템 모니터](http://www.cubrid.com/CUBRIDwiki/71317)
 - [sar 이용하여 시스템 모니터링하기](http://wiki.tunelinux.pe.kr/pages/viewpage.action?pageId=884938&desktop=true)
 - [리눅스 서버 60초안에 상황파악하기](https://b.luavis.kr/server/linux-performance-analysis)
--
+
+
+
+
