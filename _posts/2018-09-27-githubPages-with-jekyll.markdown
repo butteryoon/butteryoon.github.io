@@ -37,6 +37,7 @@ categories: blog
 - 현재는 http://artemsheludko.com/flexible-jekyll/ 블로그의 테마를 적용하고 있다. 
 - feed, categorie 기능 제공한다. 
 - 파비콘을 적용하려면 [Favicon & App Icon Generator]https://www.favicon-generator.org)을 참고
+- [Github-Pages 에 Jekyll 설치하기](http://dveamer.github.io/homepage/JekyllOnGithubPages.html)
 
 **TODO**
 1. 새 파일을 만들때 기본 헤더정보를 자동으로 만들어주는 스크립트
