@@ -27,7 +27,7 @@ categories: dev
 4. netstat 
  - 요즘은 ss 명령어를 사용한다.
 
-```
+```bash
 $ netstat -anpo | grep PROCESS_NMAE 
 ``` 
 
@@ -37,40 +37,40 @@ $ netstat -anpo | grep PROCESS_NMAE
  - 보통 리눅스를 설치하면 기본으로 설정되어 있음.
 
 ## 개별 CPU Usage 
-```
+```bash
 $ sar -P ALL  -u -f /var/log/sa/sa16 -s 09:00:00 -e 14:00:00 | awk '{if ( $3 > 10 ) print $0}'
 ```
 
 ## 개별 CPU Usage (Top 10)
 > awk를 이용해서 특정값 보다 큰 row만 출력 하고 CPU Usage top10을 출력.
 
-```
+```bash
 $ sar -P ALL -u -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00 | awk '{if ( $3 > 1 ) print $0}' | sort -k3 | tail -n 10
 ```
 
 ## MEM Usage 
 > 실 메모리 사용량 = used - ( buffer + cache ) 
 
-```
+```bash
 $ sar -P ALL -r -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00 | awk '{print $0" "($3-$5-$6)/1024/1024 GB}'
 ```
 
 ## SWAP Usage
-```
+```bash
 $ sar -P ALL -S -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00 
 ```
 
 ## Network device Usage
 > mbps = kilobytes * 8 / 1024
 
-```
+```bash
 $ sar -n DEV -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00 | egrep 'IFACE|bond0' | awk '{print $0" "$5*8/1024" Mbps"}'
 $ sar -n EDEV -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00 | egrep 'IFACE|bond0'
 $ sar -n SOCK -f /var/log/sa/sa16 -s 09:00:00 -e 12:00:00
 ```
 > 실시간으로 모니터링 
 
-```
+```bash
 $ sar -n DEV 1 | egrep --line-buffered 'em2' | awk '{print $0" "$6*8/1024" Mbps"}'
 ```
 
