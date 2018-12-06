@@ -27,7 +27,8 @@ $ tar cvf - server.c | ssh lcsapp@192.168.0.103 tar xvf - -C /LCS/APP/WEBAPP/pub
 - 사용자 계정으로 1024보다 작은 포트에 바인딩 할 수 있도록 설정 
 
 > node.js 인경우 HTTPS 포트를 443으로 설정하려면 root 권한이 필요함.
-> 서비스 계정으로 구동하려면 아래와 같이 해당 프로세스에 권한을 부여한다. 
+> 서비스 계정으로 구동하려면 아래와 같이 해당 프로세스에 권한을 부여한다.  
+
 ```
 setcap 'cap_net_bind_service=+ep' /LCS/TOOL/node-v4.6.1-linux-x64/bin/node
 ```
