@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "letsencrypt 인증서 사용"
+img: "letsencryption.png"
 date:   2018-10-10 20:05:00 +0900
+tags: [letsencrypt, HTTPS, 인증서] 
 categories: dev
 ---
 

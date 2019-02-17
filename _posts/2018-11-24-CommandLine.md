@@ -46,7 +46,6 @@ $ setcap 'cap_net_bind_service=+ep' /LCS/TOOL/node-v4.6.1-linux-x64/bin/node
 cat test.txt | awk -F'[]:.[]' '{print $1" "$2" "$3" "$4" "$5}'
 ```
 
-
 - tshark 패킷 캡쳐  
 > 요건 따로 정리해야 겠다. 
 
@@ -55,7 +54,6 @@ cat test.txt | awk -F'[]:.[]' '{print $1" "$2" "$3" "$4" "$5}'
 - [Bash scripting cheatsheet](https://devhints.io/bash.html)
 - [Node.js; Error: listen EACCES 0.0.0.0:80](https://geunhokhim.wordpress.com/2016/03/29/nodejs-error-listen-eacces-0-0-0-0-80/)
 - [아카이브 생성 및 해제(linux tar) 사용법](https://jdm.kr/blog/14)
--
 
 
 [Bash]: https://www.gnu.org/software/bash/
