@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Adnroid Studio 없이 adb 사용하기"
+title: "Android Studio 없이 adb 사용하기"
 img: android-adb.jpg
 date: 2019-01-30 18:38:00 +0900
 tags: [android, 안드로이드, adb] # add tag
@@ -16,9 +16,10 @@ Android Studio가 설치되어 있는 개발자 환경이 아니고 adb로 안�
 
 ## 1. adb 명령어 라인 툴 설치 
 
--  [Minimal ADB and Fastboot](https://forum.xda-developers.com/showthread.php?t=2317790) 에서 minimal_adb_fastboot_1.4.3_portable.zip 다운로드 후 압축을 풀면 아래와 같이 adb와 dll이 보인다. 
+-  [Minimal ADB and Fastboot](https://forum.xda-developers.com/showthread.php?t=2317790) 에서 [minimal_adb_fastboot_1.4.3_portable.zip](https://androidfilehost.com/?fid=962187416754459552) 다운로드 후 특정폴더에 압축을 풀면 아래와 같이 adb와 dll이 보인다. 
 
 > 설치된 디렉토리로 이동하여 쓸 수도 있지만  "제어판\시스템 및 보안\시스템 > 고급 시스템 설정 > 환경변수 에 ADB_PATH를 추가하고 Path 사용자변수에 추가하면 편리하다.
+> Windows 10의 경우 왼쪽 하단 검색툴에서 "시스템 환경 변수 편집"으로 검색한다. 
 
 ```
 $ ls
@@ -27,7 +28,7 @@ adb.exe*  AdbWinApi.dll*  AdbWinUsbApi.dll*  cmd-here.exe*  Disclaimer.txt  fast
 
 ## 2. adb 안드로이드 디바이스 연결. 
 
-- [logcat](https://developer.android.com/studio/command-line/logcat?hl=ko)  사용자 가이드를 읽어두자. 
+- [logcat](https://developer.android.com/studio/command-line/logcat?hl=ko) 사용자 가이드를 읽어두자. 
 
 ```
 $ adb devices
@@ -38,6 +39,9 @@ LMX415Lc366ec0b offline
 > 위와같이 adb devices 결과 offline 으로 보이면 안드로이드 개발자 옵션에서 USB 디버깅 항목을 다시 활성화 시킨 후 USB를 연결한다. 
 > USB를 연결할 때 USB 디버깅 확인 팝업이 보여야 한다. 
 
+- 안드로이드 단말에서 "개발자 옵션"이 활성화되지 않으면 아래와 같이 offline 으로 표시된다. 
+- 그러면 "설정 > 일반 > 휴대폰 정보 > 소프트웨어 정보"에서  "빌드 번호"를 7번정도 연속해서 눌러준다. 
+
 ```
 $ adb devices
 List of devices attached
@@ -45,15 +49,17 @@ LMX415Lc366ec0b device
 ```
 
 > 위와 같이 디바이스 시리얼번호 와 device 로 나와야 logcat을 실행 할 수 있다. 
+> 준비 끝. 
 
 
 ## 3. logcat 사용. 
 
 ```
-$adb -s SERIALNO logcat 
+$ adb -s SERIALNO logcat 
 ```
 
-> 연결된 디바이스가 1개이면 adb logcat 과 같이 단말의 시리얼번호를 명기하지 않아도 되다. 
+> 연결된 디바이스가 1개이면 adb logcat 과 같이 단말의 시리얼번호를 명기하지 않아도 된다. 
+> 디바이스가 여러개일 경우  "-s 시리얼번호"와 같이 특정 디바이스를 선택한다. 
 
 ## 4. mLogCat
 
