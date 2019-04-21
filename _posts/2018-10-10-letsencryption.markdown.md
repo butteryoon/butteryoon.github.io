@@ -2,7 +2,7 @@
 layout: post
 title: "letsencrypt 인증서 사용"
 img: "letsencryption.png"
-date:   2018-10-10 20:05:00 +0900
+date:   2019-04-20 20:05:00 +0900
 tags: [letsencrypt, HTTPS, 인증서] 
 categories: dev
 ---
@@ -28,8 +28,22 @@ git repository : origin https://github.com/letsencrypt/letsencrypt
 ```
 
 설치 후 인증서만 다운로드 하기 위해 아래의 명령어를 실행. 
+> git pull로 최신버전 다운로드 이후 아래와 같이 Bootstrap 관련 경고가 발생하여 --no-Bootstrap 옵션 추가 
+
 ```
-[@localhost letsencrypt]$ ./letsencrypt-auto certonly --manual
+[root@localhost letsencrypt]# ./letsencrypt-auto certonly --manual
+Bootstrapping dependencies for RedHat-based OSes... (you can skip this with --no-bootstrap)
+yum is /bin/yum
+To use Certbot, packages from the EPEL repository need to be installed.
+Enable the EPEL repository and try running Certbot again.
+[root@localhost letsencrypt]# ./letsencrypt-auto certonly --manual --no-bootstrap
+```
+
+> 이후는 동일하게 진행한다(root 계정에서 실행)
+> 완료이후 /etc/letsencrypt/live/도메인 디렉토리에 인증서가 생성된다. 
+
+```
+[@localhost letsencrypt]# ./letsencrypt-auto certonly --manual --no-bootstrap
 Requesting to rerun ./letsencrypt-auto with root privileges...
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
@@ -67,9 +81,12 @@ http://iws.iptime.org/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0FftQ
 웹서버를 호스팅하거나 접근하기 어려운 경우 파이썬으로 간단하게 처리 .. 
 
 별도의 서버가 없어도 파이썬 `SimpleHTTPServer` 모듈로 가능. 
+> python 3.6.7 버전에서는 모듈을 찾을 수 없다는 오류가 발생한다. (2.7.x 에서는 Ok) 
+
 ```
 python -m SimpleHTTPServer 8000
-```
+``` 
+
 위 명령어를 실행하면 간단하게 8000 번 포트로 웹서버를 구동할 수 있다. 
 
 지정된 디렉토리에 안내된 이름으로 지정된 데이타가 포함된 파일을 만들면 지정된 디렉토리에 개인키와 공개키가 생성된다. 
