@@ -82,9 +82,12 @@ http://iws.iptime.org/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0FftQ
 
 별도의 서버가 없어도 파이썬 `SimpleHTTPServer` 모듈로 가능. 
 > python 3.6.7 버전에서는 모듈을 찾을 수 없다는 오류가 발생한다. (2.7.x 에서는 Ok) 
+> python3 에서 SimpleHTTPServer는 http.server 안에 통합되었다. (http://bit.ly/2Zt39My)
 
 ```
-python -m SimpleHTTPServer 8000
+python -m SimpleHTTPServer 8000 
+or 
+python3 -m http.server 8000
 ``` 
 
 위 명령어를 실행하면 간단하게 8000 번 포트로 웹서버를 구동할 수 있다. 
