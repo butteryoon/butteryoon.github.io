@@ -7,7 +7,7 @@ tags: [packet, tshark] # add tag
 categories: dev
 ---
 
-## 리눅스에서 GUI없이 tshark 컴파일
+## 리눅스에서 tshark only 컴파일
 
 설치환경 
 
