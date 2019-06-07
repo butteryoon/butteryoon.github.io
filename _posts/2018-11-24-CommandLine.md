@@ -2,10 +2,13 @@
 layout: post
 title: "리눅스 터미널 명령어 라인 사용하기"
 img: command.png
-date: 2018-11-24 04:00:00 +0900
+date: 2019-06-07 04:00:00 +0900
 tags: [리눅스, bash, command line] # add tag
 categories: dev
 ---
+
+리눅스서버를 운영하기 위해 명령행 툴의 사용법을 기능별로 정리해본다. 
+
 
 ## tar룰 이용한 파일관리
 
@@ -48,7 +51,8 @@ cat test.txt | awk -F'[]:.[]' '{print $1" "$2" "$3" "$4" "$5}'
 ```
 
 - awk 이전 행의 특정 값과 차이 비교
-> DATA SET
+> 아래의 DATA는 RTP Seq의 텍스트라인으로 구성되어 있다.  
+
 ```
 PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=487, Time=2269510870 
 PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=488, Time=2269510870 
@@ -65,10 +69,10 @@ PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=505, Time=2269510870
 PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=506, Time=2269510870 
 ```
 
-> Seq 값을 분리하기 위해 = 와 , 구분자로 분리 : -F[=,] 
-> 초기 BASE값은 0으로 설정 : BEGIN {BASE=0};
-> 이전 Seq 값과 5이상 차이나면 출력 : {if (GAP>5 || BASE>$6) print $0" "GAP" "BASE};
-> 이후 Seq 값을 BASE 변수에 저장 : {BASE=$6}
+> Seq 값을 분리하기 위해 = 와 , 구분자로 분리 : -F[=,]  
+> 초기 BASE값은 0으로 설정 : BEGIN {BASE=0};  
+> 이전 Seq 값과 5이상 차이나면 출력 : {if (GAP>5 || BASE>$6) print $0" "GAP" "BASE};  
+> 이후 Seq 값을 BASE 변수에 저장 : {BASE=$6}  
 
 ```
 $ cat data.set | awk -F[=,] 'BEGIN {BASE=0}; {GAP=$6-BASE}; {if (GAP>5 || BASE>$6) print $0" "GAP" "BASE}; {BASE=$6}'  
