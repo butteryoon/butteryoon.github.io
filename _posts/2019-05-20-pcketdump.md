@@ -3,7 +3,7 @@ layout: post
 title: "tshark을 이용한 패킷덤프"
 img: wireshark.png
 date: 2019-05-20 00:00:00 +0900
-tags: [packet, tshark, wireshark] # add tag
+tags: [packet, tshark, wireshark, setcap, dumpcap] # add tag
 categories: dev
 ---
 
@@ -13,7 +13,8 @@ categories: dev
 ## root 권한 없이 tshark 사용하기
 
 리눅스 서버에 root 권한이 없을 때 tshark 사용하려면 아래와 같이 일반유저에게 권한을 부여해준다. 
-> 특정유저에게 권한을 부여하는 부분은 아래 [Platform-Specific information about capture privileges](https://wiki.wireshark.org/CaptureSetup/CapturePrivileges) 참고한다. 
+> 특정유저에게 권한을 부여하는 부분은 아래 [Platform-Specific information about capture privileges](https://wiki.wireshark.org/CaptureSetup/CapturePrivileges) 참고한다.  
+> root 계정으로 아래의 명령을 실행한다.  
 
 ```
 # setcap cap_net_raw,cap_net_admin+eip /usr/sbin/dumpcap
@@ -21,27 +22,33 @@ categories: dev
 
 ## tshark을 이용한 패킷 저장. 
 
-> -P : Decode and display packets even while writing raw packet data using the -w option.
-> -b : 600초 마다 파일 변경
+> -P : Decode and display packets even while writing raw packet data using the -w option.  
+> -b duration:600 600초 마다 파일 변경  
+> -b filesize:10240 1MB마다 파일 변경  
 
 ```
-tshark -ta -P -i em2 port 38010 
+$ tshark -ta -P -i em2 port 38010 
 	-b duration:600 
 	-w stream.pcap
 ```
 
 ## tshark 명령행으로 특정 프로토콜 분석
-> HTTP 8080 URL을 캠쳐하면서 http 디코더로 프로토콜 분석
+> HTTP 8080 URL을 캠쳐하면서 http 디코더로 프로토콜 분석  
+> Wireshark 에서 "Decode As" 기능과 동일하다.  
 
 ```
-tshark -P -ta -i em2 port 8080 -d tcp.port==8080,http
+$ tshark -P -ta -i em2 port 8080 -d tcp.port==8080,http
 ```
 
-## tshark 명령행으로 DTLS Application Data 분석
-> dtls.record.content_type == 23 : Application Data
+## tshark 명령행으로 DTLS Application Data 분석을
+> TLS 패킷 분석을 위해서는 개인키가 필요하며 IP:PORT 정의와 분석할 프로토콜을 정의한다. 
+> -o "dtls.keys_list:IPADDR,PORT,PROTOCOL,private_key.pem"  
+>
+> dtls.record.content_type==23 : Application Data  
+> dtls.record.content_type==22 : TLS Handshaek  
 
 ```
-tshark -P -ta -i em2 port 38010 
+$ tshark -P -ta -i em2 port 38010 
 	-o "ssl.debug_file:ssldebug.log" 
 	-o "ssl.desegment_ssl_records: TRUE" 
 	-o "ssl.desegment_ssl_application_data: TRUE"  
