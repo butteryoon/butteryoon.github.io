@@ -84,7 +84,8 @@ PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=500, Time=2269510870  7 493
 ## tshark 패킷 캡쳐  
 
 - 사용자 계정으로 tshark 사용하기. 
-- [tshark을 이용한 패킷 덤프](https://butteryoon.github.io/dev/2019/05/19/pcketdump.html) 참고. 
+- [tshark을 이용한 패킷 덤프](https://butteryoon.github.io/dev/2019/05/19/pcketdump.html) 참고.  
+
 ```
 # setcap cap_net_raw,cap_net_admin+eip /usr/sbin/dumpcap
 ```
