@@ -10,7 +10,7 @@ categories: dev
 리눅스서버를 운영하기 위해 명령행 툴의 사용법을 기능별로 정리해본다. 
 
 
-## tar룰 이용한 파일관리
+## tar를 이용한 파일관리
 
 
 - tar를 이용한 디렉토리 복사 
@@ -25,7 +25,7 @@ $ tar cvf - server.c | ssh lcsapp@192.168.0.103 tar xvf - -C /LCS/APP/WEBAPP/pub
 > 동일 서버에서 속성을 유지하면서 디렉토리를 복사할 때  
 
 ```
-$tar cvf - * | tar xvf - -C ../DATA_COPY/
+$ tar cvf - * | tar xvf - -C ../DATA_COPY/
 ```
 
 - 사용자 계정으로 1024보다 작은 포트에 바인딩 할 수 있도록 설정 
@@ -47,10 +47,11 @@ $ setcap 'cap_net_bind_service=+ep' /LCS/TOOL/node-v4.6.1-linux-x64/bin/node
 > 그럴때는 "-F'[][]' 와 같이 사용한다. (왜 그런지 까지는 확인 하지 못함)  
 
 ```
-cat test.txt | awk -F'[]:.[]' '{print $1" "$2" "$3" "$4" "$5}'
+$ cat test.txt | awk -F'[]:.[]' '{print $1" "$2" "$3" "$4" "$5}'
 ```
 
 - awk 이전 행의 특정 값과 차이 비교
+
 > 아래의 DATA는 RTP Seq의 텍스트라인으로 구성되어 있다.  
 
 ```
