@@ -42,6 +42,7 @@ LMX415Lc366ec0b offline
 - 안드로이드 단말에서 "개발자 옵션"이 활성화되지 않으면 아래와 같이 offline 으로 표시된다. 
 - 그러면 "설정 > 일반 > 휴대폰 정보 > 소프트웨어 정보"에서  "빌드 번호"를 7번정도 연속해서 눌러준다. 
 
+
 ```
 $ adb devices
 List of devices attached
@@ -56,14 +57,36 @@ LMX415Lc366ec0b device
 
 ```
 $ adb -s SERIALNO logcat 
+$ adb -s LMX415Lc366ec0b logcat 
 ```
 
 > 연결된 디바이스가 1개이면 adb logcat 과 같이 단말의 시리얼번호를 명기하지 않아도 된다. 
 > 디바이스가 여러개일 경우  "-s 시리얼번호"와 같이 특정 디바이스를 선택한다. 
 
-## 4. mLogCat
+## 4. adb Server 연결 실패
+
+> 아래와 같이 ADB Server 연결이 안되는 경우 kill/start-server 명령어로 재시작 한다.  
+
+```
+adb devices
+List of devices attached
+* daemon not running; starting now at tcp:5037
+could not read ok from ADB Server
+* failed to start daemon
+error: cannot connect to daemon 
+
+adb kill-Server
+adb start-server
+```
+
+- 간혹 로컬 프로세스가 5037 포트를 점유하고 있는 경우가 있는데 이런 경우 해당 프로세스를 죽인 후 다시 시작한다. 
+- adb 서버의 포트를 변경하는 방법은 확인 필요. 
+
+
+## 5. mLogCat
 
 > 윈도우즈 cmd 창이 익숙하지 않으면 mLogCat과 같은 GUI 툴을 사용할 수 있다. 
+
 
 ## 참고 URL 
 
