@@ -16,7 +16,7 @@ Windows의 기본 cmd 창이 드디어 쓸만한 도구로 바뀌고 있는 듯 
 ## 설정파일은 수동으로 편집 한다. (프리뷰니까.. ) 
 ![Terminal Setting]({{site.bashurl}}/assets/img/WindowsTerminal_setting.png)
  
-> 아래의 경로에 Profiles.json 경로은 아래 .. 
+> 아래의 경로에 Profiles.json
 > C:\Users\CHOI\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json 
 
 ## ssh 터미널을 연결 하려면 아래와 같이 cmd 를 설정한다.  
