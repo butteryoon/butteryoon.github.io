@@ -87,6 +87,19 @@ adb start-server
 
 > 윈도우즈 cmd 창이 익숙하지 않으면 mLogCat과 같은 GUI 툴을 사용할 수 있다. 
 
+## 6. WiFi Connect 
+
+> 동일 WiFi 환경에서 무선으로 logcat 사용하기 
+
+```
+1. 안드로이드 단말을 USB로 ADB 연결 후 아래의 명령어 실행
+2. > adb -s R33M100M79 tcpip 8888
+     restarting in TCP mode port: 8888
+3. 안드로이드 단말에서 USB 연결 허용 팝업 확인 
+4. USB 연결 제거 후 
+5. > adb connect 192.168.0.47:8888
+     connected to 192.168.0.47:8888
+```
 
 ## 참고 URL 
 
