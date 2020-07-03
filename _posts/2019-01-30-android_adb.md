@@ -101,6 +101,27 @@ adb start-server
      connected to 192.168.0.47:8888
 ```
 
+## 7. APK Install 
+
+> adb 로 APK 설치하기  
+
+```
+app installation:
+ install [-lrtsdg] PACKAGE
+ install-multiple [-lrtsdpg] PACKAGE...
+     push package(s) to the device and install them
+     -l: forward lock application
+     -r: replace existing application
+     -t: allow test packages
+     -s: install application on sdcard
+     -d: allow version code downgrade (debuggable packages only)
+     -p: partial application install (install-multiple only)
+     -g: grant all runtime permissions
+ uninstall [-k] PACKAGE
+     remove this app package from the device
+     '-k': keep the data and cache directories
+```
+
 ## 참고 URL 
 
 > adb and mLogcat 설치 및 환경설정 참고. 
