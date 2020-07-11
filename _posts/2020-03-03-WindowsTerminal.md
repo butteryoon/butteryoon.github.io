@@ -85,7 +85,7 @@ Windows Terminal 에서 git를 쓸 때 명령어 프롬프트에 상태를 표�
 
 [자습서: Windows 터미널에서 Powerline 설정](https://docs.microsoft.com/ko-kr/windows/terminal/tutorials/powerline-setup)를 참고한다. 
 
-![powerline]({{site.baseurl}}/assets/img/wt_powerline.png)
+![powerline]({{site.baseurl}}/assets/img/wt_powerline-01.png)
 
 ### 화면분할 설정
 
