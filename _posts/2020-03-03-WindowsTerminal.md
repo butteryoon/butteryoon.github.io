@@ -21,7 +21,7 @@ Windows의 기본 cmd 창이 드디어 쓸만한 도구로 바뀌고 있는 듯 
 
 ## ssh 터미널을 연결 하려면 아래와 같이 cmd 를 설정한다.  
 
-> guid는 따로 설정 안해도 됨. 
+> guid는 별도로 설정해야 한다고 하는데 없어도 우선 설정은 된다. 
 ``` 
 {
 	"hidden": false,
@@ -79,7 +79,23 @@ Windows의 기본 cmd 창이 드디어 쓸만한 도구로 바뀌고 있는 듯 
         ]
     },
 ``` 
+### PSReadLine 플러그인. 
 
+Windows Terminal 에서 git를 쓸 때 명령어 프롬프트에 상태를 표시해주는 플러그인 
+
+[자습서: Windows 터미널에서 Powerline 설정](https://docs.microsoft.com/ko-kr/windows/terminal/tutorials/powerline-setup)를 참고한다. 
+
+![powerline]({{site.baseurl}}/assets/img/wt_powerline.png)
+
+### 화면분할 설정
+
+기본 명령어 터미널과 파워쉘 그리고 WSL창을 분할하여 구성할 수 있다. 
+[Windows 터미널에 명령줄 인수 사용](https://docs.microsoft.com/ko-kr/windows/terminal/command-line-arguments?tabs=windows) 참고. 
+
+```
+wt new-tab "cmd" `; split-pane -p "Windows PowerShell" `; split-pane -H wsl.exe
+```
 
 ## 참고 URL
 -  [Windows Terminal Preview 릴리즈](https://www.lesstif.com/pages/viewpage.action?pageId=71401723)
+-  [execution of scripts is disabled on this system.](https://www.hahwul.com/2017/08/powershell-execution-of-scripts-is.html)
