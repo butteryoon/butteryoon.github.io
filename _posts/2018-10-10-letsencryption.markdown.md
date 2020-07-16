@@ -48,7 +48,7 @@ Requesting to rerun ./letsencrypt-auto with root privileges...
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
 Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
-to cancel): iws.iptime.org
+to cancel): test.domain.com
 Cert is due for renewal, auto-renewing...
 Renewing an existing certificate
 Performing the following challenges:
@@ -74,7 +74,7 @@ h70rfIM6APUpoMV-1afecuZfUgBw3Bdy4EMq0FftQI4.......tyLmv3IZf3ebDBsJhI
 
 And make it available on your web server at this URL:
 
-http://iws.iptime.org/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0FftQI4
+http://test.domain.com/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0FftQI4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
@@ -100,9 +100,9 @@ Cleaning up challenges
 
 IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at:
-   /etc/letsencrypt/live/iws.iptime.org/fullchain.pem
+   /etc/letsencrypt/live/test.domain.com/fullchain.pem
    Your key file has been saved at:
-   /etc/letsencrypt/live/iws.iptime.org/privkey.pem
+   /etc/letsencrypt/live/test.domain.com/privkey.pem
    Your cert will expire on 2019-01-08. To obtain a new or tweaked
    version of this certificate in the future, simply run
    letsencrypt-auto again. To non-interactively renew *all* of your
@@ -117,10 +117,9 @@ IMPORTANT NOTES:
 
 끝.
 
-참고 [Lets' Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
+참고 
+[Lets' Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
+[Let's encrypt 의 인증서를 생성할 때 주의사항](https://findstar.pe.kr/2018/09/08/lets-encrypt-certificates-rate-limit/)
 
 [인증서갱신](https://letsencrypt.readthedocs.io/en/latest/using.html#re-creating-and-updating-existing-certificates)
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2MDY0NzcxMV19
--->
