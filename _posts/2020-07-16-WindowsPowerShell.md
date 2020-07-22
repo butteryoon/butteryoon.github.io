@@ -52,6 +52,7 @@ D:\App\Dropbox\Public\butteryoon.github.io\_posts
 ```
 
 > Uninstall-Package : 설치된 프로그램 삭제 
+> Get-Package -Name Ahn* 명령어로 프로그램 이름을 찾은 후 삭제한다.
 
 ```
 ❯ Uninstall-Package -Name ipMonitor10
@@ -64,7 +65,75 @@ ipMonitor10                    10.9.1
 ```
 
 > Stop-Process -Name "프로그램 이름"
-> 
+> 파일의 내용이나 정보 확인. (cmd 에서는 type이었던거 같은데)
+
+```
+❯ Get-Content .\.wakatime.cfg
+[settings]
+debug = false
+hidefilenames = false
+ignore =
+    COMMIT_EDITMSG$
+    PULLREQ_EDITMSG$
+    MERGE_MSG$
+    TAG_EDITMSG$
+    api_key=0e64xxxx-xxxx-xxxx-xxxx-xxxx2865xxxx
+```
+
+> Get-Process : 특정 포트를 사용하는 프로세스 찾기. 
+
+```
+❯ Get-Process -Id (Get-NetTCPConnection -LocalPort 58803).OwningProcess
+
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+    247      22     9216      20540       1.45  11060   1 python
+```
+
+> 실행중인 프로세스 파일버전 표시. 
+
+```
+❯ Get-Process liveview -FileVersionInfo
+
+ProductVersion   FileVersion      FileName
+--------------   -----------      --------
+1.0.0.1          1.0.0.1          C:\IIOT-LIVEVIEW\LIVEVIEW.exe
+```
+
+> Resolv-DnsName : 도메인의 IP 찾기. 
+> nslookup 명령어를 사용해도 된다. 
+
+```
+❯ Resolve-DnsName softroom.duckdns.org
+
+Name                                           Type   TTL   Section    IPAddress
+----                                           ----   ---   -------    ---------
+softroom.duckdns.org                           A      60    Answer     106.xxx.xxx.xxx
+
+Name      : duckdns.org
+QueryType : NS
+TTL       : 572
+Section   : Authority
+NameHost  : ns1.duckdns.org
+
+
+Name      : duckdns.org
+QueryType : NS
+TTL       : 572
+Section   : Authority
+NameHost  : ns3.duckdns.org
+
+
+Name      : duckdns.org
+QueryType : NS
+TTL       : 572
+Section   : Authority
+NameHost  : ns2.duckdns.org
+
+ns1.duckdns.org                                A      43093 Additional 54.187.92.222
+ns2.duckdns.org                                A      43093 Additional 54.191.117.119
+ns3.duckdns.org                                A      43093 Additional 52.26.169.94
+```
 
 ## 참고 URL
 -  [Windows Terminal Preview 릴리즈](https://www.lesstif.com/pages/viewpage.action?pageId=71401723)
