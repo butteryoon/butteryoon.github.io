@@ -35,32 +35,47 @@ tags: [Jekyll, 마크다운] # add tag
 
 인용문
 > 아래 구문정도만 알면 일반적인 글을 적는데는 문제 없을 듯 .. 
+>
 
- **Bold** `**Bold**`
+ **Bold**  
+
+ ``` **
+  **Bold** 
+ ```
 
 **List**
 
 * list
 * list1
-* list2
-
-[네이버블로그](http://softroom.blog.me) 링크
-
-[Facebook](https://m.facebook.com/softroom75) 링크 
+* list2 
 
 ```
-문장 그대로 쓰기
+* list
+* list1
+* list2 
+```
+
+[네이버블로그](http://softroom.blog.me) 링크   
+
+```
+[네이버블로그](http://softroom.blog.me) 
+```
+
+문장 그대로 쓰기 
+
+```
 줄바꿈
 응! 줄바꿈이 안되는데.. 
 아이폰에서 쓰다보니 ‘’’ 게 아니었네..
 ```
 
-코드블럭은 
+**코드블럭은** 
+
 ```c
 void Hello() {
 	printf("Hello markdown\n");
 	}
-```
+``` 
 
 테이블은 [Tables Generator](vhttp://www.tablesgenerator.com/markdown_tables) .. 
 
