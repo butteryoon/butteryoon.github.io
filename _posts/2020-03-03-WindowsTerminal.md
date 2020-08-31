@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows Terminal 써보기"
-img: "M_WindowsTerminalPreview.jpg"
+img: "M_WindowsTerminalPreview.png"
 date: 2020-03-03 11:36:00 +0900
 tags: [Windows Terminal Preview] # add tag
 categories: tools
