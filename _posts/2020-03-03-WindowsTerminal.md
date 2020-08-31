@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Windows Terminal 써보기"
-img: "M_WindowsTerminalPreview.png"
+img: "M_WindowsTerminal_setting.jpg"
 date: 2020-03-03 11:36:00 +0900
-tags: [Windows Terminal Preview] # add tag
+tags: [Windows, Terminal] # add tag
 categories: tools
 ---
 
@@ -15,12 +15,9 @@ WSL2를 쓰려면 신규 Tminal을 쓰는걸 권장한다.
 
 ## 설정파일은 수동으로 편집 한다. (프리뷰니까.. )    
 
-> 아래의 경로에 Profiles.json
-> C:\Users\CHOI\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json  
+아래의 경로에 Profiles.json
+C:\Users\CHOI\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json  
 
-
-![Terminal Setting]({{site.bashurl}}/assets/img/M_WindowsTerminal_setting.jpg)
- 
 ## Remote SSH 터미널 
 
 > LocalPortForwarding 기능이 지원되려나. 
