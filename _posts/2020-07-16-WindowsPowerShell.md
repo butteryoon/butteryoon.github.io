@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Windows PowerShell"
-img: PowerSehll.png
+img: "M_PowerSehll.jpg"
 date: 2020-07-16 13:29:00 +0900
-tags: [Windows PowerShell] # add tag
+tags: [Windows, PowerShell, comlet] # add tag
 categories: dev
 ---
 
@@ -18,7 +18,20 @@ Windows의 GUI 환경은 좋지만 가끔은 마우스로 원하는 기능을 �
 
 > PowerShell, cmd, wsl2 터미널 이렇게 세개의 창을 배치. 
 
-![Terminal Layout]({{site.bashurl}}/assets/img/Terminal_Layout.png)
+![Terminal Layout]({{site.bashurl}}/assets/img/Terminal_Layout.png) 
+
+## 기본 환경 변수
+
+```
+⚡ softroom@YOON-IP700  C:\>
+❯ $PROFILE | select *
+
+AllUsersAllHosts       : C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
+AllUsersCurrentHost    : C:\Windows\System32\WindowsPowerShell\v1.0\Microsoft.PowerShell_profile.ps1
+CurrentUserAllHosts    : D:\App\Dropbox\WindowsPowerShell\profile.ps1
+CurrentUserCurrentHost : D:\App\Dropbox\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+Length                 : 65
+```
  
 ## 도움말 
 
@@ -31,17 +44,16 @@ Windows의 GUI 환경은 좋지만 가끔은 마우스로 원하는 기능을 �
 Name                              Category  Module                    Synopsis
 ----                              --------  ------                    --------
 Uninstall-Package                 Cmdlet    PackageManagement         Uninstall-Package...
-Uninstall-Module                  Function  PowerShellGet             ...
-Uninstall-Script                  Function  PowerShellGet             ...
-Start-OSUninstall                 Cmdlet    Dism                      Start-OSUninstall...
-Uninstall-Dtc                     Function  MsDtc                     ...
-Uninstall-ProvisioningPackage     Cmdlet    Provisioning              Uninstall-ProvisioningPackag...
-Uninstall-TrustedProvisioningC... Cmdlet    Provisioning              Uninstall-TrustedProvisionin...
 ```
+
+## alias 
+
+> Get-Alias  
+
 
 ## 주로 쓰는 명령어 정리 
 
-> Get-Location : 현재 위치 표시
+> Get-Location : 현재 디렉토리 위치이며 보통 스크립트에서 현재 디렉토리 확인시 사용한다. 
 
 ```
 ❯ Get-Location :
@@ -100,8 +112,9 @@ ProductVersion   FileVersion      FileName
 1.0.0.1          1.0.0.1          C:\IIOT-LIVEVIEW\LIVEVIEW.exe
 ```
 
-> Resolv-DnsName : 도메인의 IP 찾기. 
+> Resolv-DnsName : 도메인의 IP 찾기.   
 > nslookup 명령어를 사용해도 된다. 
+> 가끔 도메인이 필요할 때가 있어 duckdns.org 서비스를 이용하는데 내 랩탑의 IP가 제대로 업데이트 되었는지 확인 할 때 사용한다. 
 
 ```
 ❯ Resolve-DnsName softroom.duckdns.org
@@ -109,32 +122,8 @@ ProductVersion   FileVersion      FileName
 Name                                           Type   TTL   Section    IPAddress
 ----                                           ----   ---   -------    ---------
 softroom.duckdns.org                           A      60    Answer     106.xxx.xxx.xxx
-
-Name      : duckdns.org
-QueryType : NS
-TTL       : 572
-Section   : Authority
-NameHost  : ns1.duckdns.org
-
-
-Name      : duckdns.org
-QueryType : NS
-TTL       : 572
-Section   : Authority
-NameHost  : ns3.duckdns.org
-
-
-Name      : duckdns.org
-QueryType : NS
-TTL       : 572
-Section   : Authority
-NameHost  : ns2.duckdns.org
-
-ns1.duckdns.org                                A      43093 Additional 54.187.92.222
-ns2.duckdns.org                                A      43093 Additional 54.191.117.119
-ns3.duckdns.org                                A      43093 Additional 52.26.169.94
 ```
 
 ## 참고 URL
--  [Windows Terminal Preview 릴리즈](https://www.lesstif.com/pages/viewpage.action?pageId=71401723)
+-  [](https://www.lesstif.com/pages/viewpage.action?pageId=71401723)
 -  [execution of scripts is disabled on this system.](https://www.hahwul.com/2017/08/powershell-execution-of-scripts-is.html)
