@@ -7,24 +7,25 @@ tags: [Windows Terminal Preview] # add tag
 categories: tools
 ---
 
-## Windows Terminal Preview
-
 Windows의 기본 cmd 창이 드디어 쓸만한 도구로 바뀌고 있다. 
 
 WSL2를 쓰려면 신규 Tminal을 쓰는걸 권장한다. 
 
 [마이크로소프트 스토어](https://www.microsoft.com/ko-kr/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)에서 설치한다. 
 
-## 설정파일은 수동으로 편집 한다. (프리뷰니까.. ) 
+## 설정파일은 수동으로 편집 한다. (프리뷰니까.. )    
+
+> 아래의 경로에 Profiles.json
+> C:\Users\CHOI\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json  
+
+
 ![Terminal Setting]({{site.bashurl}}/assets/img/M_WindowsTerminal_setting.jpg)
  
-> 아래의 경로에 Profiles.json
-> C:\Users\CHOI\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json 
-
 ## Remote SSH 터미널 
 
 > LocalPortForwarding 기능이 지원되려나. 
-> guid는 별도로 설정해야 한다고 하는데 없어도 우선 설정은 된다. 
+> guid는 별도로 설정해야 한다고 하는데 없어도 우선 설정은 된다.  
+
 ``` 
 {
 	"hidden": false,
