@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows Terminal 써보기"
-img: M_WindowsTerminalPreview.jpg
+img: "M_WindowsTerminalPreview.jpg"
 date: 2020-03-03 11:36:00 +0900
 tags: [Windows Terminal Preview] # add tag
 categories: tools
@@ -21,7 +21,7 @@ WSL2를 쓰려면 신규 Tminal을 쓰는걸 권장한다.
 > 아래의 경로에 Profiles.json
 > C:\Users\CHOI\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json 
 
-## Remote SSH 터미널을 연결 하려면 아래와 같이 commandline: 을 설정한다.  
+## Remote SSH 터미널 
 
 > LocalPortForwarding 기능이 지원되려나. 
 > guid는 별도로 설정해야 한다고 하는데 없어도 우선 설정은 된다. 
