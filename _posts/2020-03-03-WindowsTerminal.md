@@ -16,7 +16,7 @@ WSL2를 쓰려면 신규 Tminal을 쓰는걸 권장한다.
 [마이크로소프트 스토어](https://www.microsoft.com/ko-kr/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)에서 설치한다. 
 
 ## 설정파일은 수동으로 편집 한다. (프리뷰니까.. ) 
-![Terminal Setting]({{site.bashurl}}/assets/img/WindowsTerminal_setting.png)
+![Terminal Setting]({{site.bashurl}}/assets/img/M_WindowsTerminal_setting.jpg)
  
 > 아래의 경로에 Profiles.json
 > C:\Users\CHOI\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json 
@@ -63,7 +63,7 @@ Windows Terminal 에서 git를 쓸 때 명령어 프롬프트에 상태를 표�
 
 [자습서: Windows 터미널에서 Powerline 설정](https://docs.microsoft.com/ko-kr/windows/terminal/tutorials/powerline-setup)를 참고한다. 
 
-![powerline]({{site.baseurl}}/assets/img/wt_powerline-01.png)
+![powerline]({{site.baseurl}}/assets/img/M_wt_powerline-01.jpg)
 
 ### 화면분할 설정
 
