@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windwos에서 TCP 연결 정보 확인하기"
-img: "M_photo-1520869562399-e772f042f422.webp"
+img: "M_photo-cabling.jpg"
 date: 2020-08-28 15:29:00 +0900
 tags: [Windows, PowerShell, comlet, netstat] # add tag
 categories: tools
