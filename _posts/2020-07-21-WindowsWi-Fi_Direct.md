@@ -42,31 +42,31 @@ hostednetwork 설정은 제대로 되는데 아래처럼 시작이 안된다.
 
 호스트된 네트워크 설정
 -----------------------
-    모드                   : 허용
-    SSID 이름              : "WIFI-D"
-    최대 클라이언트 수  : 100
-    인증         : WPA2-개인
-    암호                 : CCMP
+모드                   : 허용
+SSID 이름              : "WIFI-D"
+최대 클라이언트 수      : 100
+인증                   : WPA2-개인
+암호                   : CCMP
 
 호스트된 네트워크 상태
 ---------------------
-    상태                 : 사용할 수 없음 
+상태                   : 사용할 수 없음 
 
 ❯ netsh wlan start hostednetwork
 호스트된 네트워크를 시작할 수 없습니다.
 그룹 또는 리소스가 요청된 작업을 실행할 올바른 상태에 있지 않습니다.
 ```
 
-무선랜 드라이버 정보를 보니 "호스트된 네트워크 지원 : 아니요" 라고 나온다.   
+무선랜 드라이버 정보를 보니 "호스트된 네트워크 지원 : 아니요" 라고 나온다.    
 드라이버 문제인지 하드웨어 문제인지 모르겠다.  
 
 > netsh wlan show drivers 결과 
 
-![netsh wlan show drivers]({{site.bashurl}}/assets/img/hostednetwork-1.png)
+![netsh wlan show drivers]({{site.bashurl}}/assets/img/M_hostednetwork.jpg)
 
 Windows 10 에서 기본 제공하는 모바일 핫스팟 설정은 잘 되는 듯 . 
 
-![Mobile HotSpot]({{site.bashurl}}/assets/img/Windows10_mobilehotspot.png)
+![Mobile HotSpot]({{site.bashurl}}/assets/img/M_W10_mobilehotspot.jpg)
 
 ## Feem 
 
