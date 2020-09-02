@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "tshark을 이용한 패킷덤프"
-img: M_wireshark.jpg
+img: "M_wireshark.jpg"
 date: 2019-05-20 00:00:00 +0900
 tags: [packet, tshark, wireshark, setcap, dumpcap] # add tag
 categories: dev
@@ -9,7 +9,8 @@ categories: dev
 
 패킷분석이라고 하면 보통 [Wireshark][Wireshark]을 떠올린다.  
 Windows, Linux, MacOS등 대부분의 OS에서 동일한 모양의 GUI 인터페이스를 제공하고 tshark 이라는 명령행 프로그램도 제공한다.  
-tshark은 리눅스 터미널에서 wireshark과 동일한 필터를 사용할 수 있고 GUI를 쓰지 않고 터미널에서 바로 분석을 할 수 있다.  
+tshark은 리눅스 터미널에서 wireshark과 동일한 필터를 사용할 수 있고 GUI를 쓰지 않고 터미널에서 바로 분석을 할 수 있다.   
+
 > [Packt>](packtpub.com) 에서 제공하는 eBook의 [샘플페이지](https://subscription.packtpub.com/book/networking_and_servers/9781782165385/1/ch01lvl1sec08/capturing-data-with-tshark-must-know)를 보면 아래는 안봐도 될 듯..   
 
 ## root 권한 없이 tshark 사용하기
@@ -22,16 +23,16 @@ tshark은 리눅스 터미널에서 wireshark과 동일한 필터를 사용할 �
 # setcap cap_net_raw,cap_net_admin+eip /usr/sbin/dumpcap 
 ```
 
-> 특정유저에게 권한을 부여하는 부분은 아래 [Platform-Specific information about capture privileges](https://wiki.wireshark.org/CaptureSetup/CapturePrivileges) 참고한다.  
-> 아래는 tshark 그룹을 만들고 bmerino 유저에게 패킷덤프 권한을 주는 명령어이다  
+특정유저에게 권한을 부여하는 부분은 아래 [Capture privileges](https://wiki.wireshark.org/CaptureSetup/CapturePrivileges) 참고한다.  
+아래는 tshark 그룹을 만들고 bmerino 유저에게 패킷덤프 권한을 주는 명령어이다  
 
 ```bash
-root@Mordor:~# groupadd tshark
-root@Mordor:~# usermod -a -G tshark bmerino
-root@Mordor:~# chgrp tshark /usr/bin/dumpcap
-root@Mordor:~# chmod 750 /usr/bin/dumpcap
-root@Mordor:~# setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
-root@Mordor:~# getcap /usr/bin/dumpcap
+# groupadd tshark
+# usermod -a -G tshark bmerino
+# chgrp tshark /usr/bin/dumpcap
+# chmod 750 /usr/bin/dumpcap
+# setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
+# getcap /usr/bin/dumpcap
 /usr/bin/dumpcap = cap_net_admin,cap_net_raw+eip
 ```
 
@@ -48,7 +49,8 @@ $ tshark -ta -P -i em2 port 38010
 	-w stream.pcap
 ```
 
-## tshark 명령행으로 특정 프로토콜 분석
+## tshark 명령행으로 특정 프로토콜 분석 
+
 > HTTP 8080 URL을 캠쳐하면서 http 디코더로 프로토콜 분석  
 > Wireshark 에서 "Decode As" 기능과 동일하다.  
 
@@ -56,20 +58,21 @@ $ tshark -ta -P -i em2 port 38010
 $ tshark -P -ta -i em2 port 8080 -d tcp.port==8080,http
 ```
 
-## tshark 명령행으로 DTLS Application Data 분석
-> TLS 패킷 분석을 위해서는 개인키가 필요하며 IP:PORT 정의와 분석할 프로토콜을 정의한다.  
-> -o "dtls.keys_list:IPADDR,PORT,PROTOCOL,private_key.pem"  
->
+## tshark 명령행으로 DTLS Application Data 분석 
+
+TLS 패킷 분석을 위해서는 개인키가 필요하며 IP:PORT 정의와 분석할 프로토콜을 정의한다.  
+
+-R 디스플레이 필터 설정
 > dtls.record.content_type==23 : Application Data  
 > dtls.record.content_type==22 : TLS Handshaek  
 
 ```bash
 $ tshark -P -ta -i em2 port 38010 
-	-o "ssl.debug_file:ssldebug.log" 
-	-o "ssl.desegment_ssl_records: TRUE" 
-	-o "ssl.desegment_ssl_application_data: TRUE"  
-	-o "dtls.keys_list:192.168.0.123,38010,rtp,private_key.pem" 
-	-R "dtls.record.content_type == 23"
+-o "ssl.debug_file:ssldebug.log" 
+-o "ssl.desegment_ssl_records: TRUE" 
+-o "ssl.desegment_ssl_application_data: TRUE"  
+-o "dtls.keys_list:192.168.0.123,38010,rtp,private_key.pem" 
+-R "dtls.record.content_type == 23"
 ```
 
 ## 참고 URL
