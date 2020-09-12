@@ -48,8 +48,8 @@ softroom@localhost's password: input password
 
 ### 2-1. HOST:A 에서 22번 포트 연결 상태 확인  
 
-> 22번으로 엱결된 Connection을 보면 아래와 같이 RemoteAddress 
-
+> 22번으로 연결된 Established 상태의 세션을 보면 ::1 (loopback) 주소로 표시된다.  
+> 다른 Address에서 연결이 되면 RemoteAddress에 실제 접속한 IP가 표시된다.  
 
 ```powershell
 ❯ Get-NetTCPConnection | Where-Object {$_.LocalPort -eq 22} 
@@ -61,6 +61,9 @@ LocalAddress   LocalPort RemoteAddress  RemotePort State       AppliedSetting Ow
 0.0.0.0        22        0.0.0.0        0          Listen                     5584
 ```
 
+방화벽으로 내부 연결이 막혀 있을 경우 접속한 터널링 연결을 이용해서 접속을 요청한 클라이언트에 접속 할 수 있는 방법이다. 
+
 ### 참고 URL
 -  [What Is Reverse SSH Tunneling?](https://bit.ly/2Dm4ONU)
 -  [What is Reverse SSH Port Forwarding](https://blog.devolutions.net/2017/3/what-is-reverse-ssh-port-forwarding)
+-  [What is IP Address '::1'](https://stackoverflow.com/questions/4611418/what-is-ip-address-1)
