@@ -40,7 +40,11 @@ exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
 include:
   - _static
 
+# text highlighter로 rouge이용
 highlighter: rouge
+
+# Navigation bar link를 보여줄건지 여부
+navigation: True
 
 gist:
   noscript: false

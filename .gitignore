@@ -1,3 +1,4 @@
+### Jekyll ###
 _site
 .sass-cache
 .jekyll-metadata
@@ -31,4 +32,8 @@ Icon
 .AppleDesktop
 Network Trash Folder
 Temporary Items
-.apdisk
+.apdisk 
+
+# editor
+.MWebMetaData 
+.vs
