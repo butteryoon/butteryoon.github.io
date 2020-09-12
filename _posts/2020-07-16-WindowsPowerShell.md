@@ -20,20 +20,12 @@ Windows의 GUI 환경은 휼륭하다(최소한 Windows 10버전은) 하지만 �
 먼저 도움말을 찾으려면 버전을 정확히 알고 있어야 한다.  
 Windows 10에는 기본으로 5.1 버전이 설치되어 있다. 
 
-{% gist butteryoon/5b0b7b848b4e14b452e9bca19f80d3b5 %} 
-
 ```powershell
 PS C:\Users\softr> Write-Output $PSVersionTable 
 Name                           Value
 ----                           -----
 PSVersion                      5.1.18362.752
-PSEdition                      Desktop
-PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
-BuildVersion                   10.0.18362.752
-CLRVersion                     4.0.30319.42000
-WSManStackVersion              3.0
-PSRemotingProtocolVersion      2.3
-SerializationVersion           1.1.0.1
+생락
 ```
 
 ## 기본 환경 변수
@@ -57,20 +49,7 @@ Visual Studio Code를 사용한다면 터미널에서 code $PROFILE 하면 로�
 
 아래와 같이 인코딩 설정과 기본 Function을 정의해서 사용한다. 
 
-```powershell
-$env:LC_ALL='C.UTF-8'
-$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
-
-#[System.Console]::InputEncoding = [System.Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
-Function CD32 {Set-Location -Path C:\Windows\System32} 
-Function export {Get-ChildItem -Path Env:\}
-Function cdhome {Set-Location -Path $Env:USERPROFILE}
-Function ver {Write-Output $PSVersionTable}
-
-Set-Alias vi -Value vim
-```
-
+{% gist butteryoon/5b0b7b848b4e14b452e9bca19f80d3b5 %} 
 
 ## 도움말 
 
