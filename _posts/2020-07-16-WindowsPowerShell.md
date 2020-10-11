@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Windows PowerShell 기본"
-img: "M_PowerSehll.jpg"
+img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
 tags: [Windows, PowerShell, ps1, script] # add tag
+related: powershell
 categories: dev
 ---
 
@@ -25,7 +26,6 @@ PS C:\Users\softr> Write-Output $PSVersionTable
 Name                           Value
 ----                           -----
 PSVersion                      5.1.18362.752
-생락
 ```
 
 ## 기본 환경 변수
@@ -68,7 +68,8 @@ Uninstall-Package                 Cmdlet    PackageManagement         Uninstall-
 
 ## 주로 쓰는 명령어 정리 
 
-> Uninstall-Package : 설치된 프로그램 삭제 
+### Uninstall-Package : 설치된 프로그램 삭제  
+
 > Get-Package -Name Ahn* 명령어로 프로그램 이름을 찾은 후 삭제한다.
 
 ```powershell
@@ -81,7 +82,8 @@ Name                           Version          Source
 ipMonitor10                    10.9.1
 ```
 
-> Stop-Process -Name "프로그램 이름"
+### Get-Content : 파일 정보 확인 및 출력
+
 > 파일의 내용이나 정보 확인. (cmd 에서는 type이었던거 같은데)
 
 ```powershell
@@ -97,7 +99,19 @@ ignore =
     api_key=0e64xxxx-xxxx-xxxx-xxxx-xxxx2865xxxx
 ```
 
-> Get-Process : 특정 포트를 사용하는 프로세스 찾기. 
+> cat 명령어도 Alias 설정되 되어 있다. 
+
+```powershell
+PS > get-alias cat
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           cat -> Get-Content
+```
+
+### Get-Process : 프로세스 정보 조회
+
+> 로컬포트를 사용하는 프로세스 Id를 검색 하고 "Stop-Process -Name" 명령어로 Kill 할 수 있다. 
 
 ```powershell
 ❯ Get-Process -Id (Get-NetTCPConnection -LocalPort 58803).OwningProcess
@@ -117,9 +131,10 @@ ProductVersion   FileVersion      FileName
 1.0.0.1          1.0.0.1          C:\IIOT-LIVEVIEW\LIVEVIEW.exe
 ```
 
-> Resolv-DnsName : 도메인의 IP 찾기.   
-> nslookup 명령어를 사용해도 된다. 
-> 가끔 도메인이 필요할 때가 있어 duckdns.org 서비스를 이용하는데 내 랩탑의 IP가 제대로 업데이트 되었는지 확인 할 때 사용한다. 
+### Resolv-DnsName : 도메인의 IP 찾기.    
+
+nslookup 명령어를 사용해도 된다.  
+가끔 도메인이 필요할 때가 있어 duckdns.org 서비스를 이용하는데 내 랩탑의 IP가 제대로 업데이트 되었는지 확인 할 때 사용한다. 
 
 ```powershell
 ❯ Resolve-DnsName softroom.duckdns.org
@@ -129,13 +144,15 @@ Name                                           Type   TTL   Section    IPAddress
 softroom.duckdns.org                           A      60    Answer     106.xxx.xxx.xxx
 ```
 
-## 파일 찾기 
+### 디렉토리나 파일 찾기
 
-❯ Get-ChildItem -Directory
-❯ Get-ChildItem -File 
+css 이름을 가진 디렉토리 찾기  
+
+> Get-ChildItem -Directory
+> Get-ChildItem -File
 
 ```powershell
-PS D:\Dropbox\Public\butteryoon.github.io> Get-ChildItem -Directory | Where-Object { $_.Name -eq 'css' }
+❯ Get-ChildItem -Directory | Where-Object { $_.Name -eq 'css' }
 
     디렉터리: D:\Dropbox\Public\butteryoon.github.io
 
@@ -144,6 +161,35 @@ Mode                LastWriteTime         Length Name
 da----     2020-09-05   오후 7:32                css
 ```
 
+지정한 하위 디렉토리 전체에서 특정이름을 가진 파일을 찾기
+
+```powershell
+❯ Get-ChildItem -Path C:\ -Include svccare* -Recurse 
+
+디렉터리: C:\Program Files (x86)\infitec
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2017-12-13   오후 3:31         219520 svccare.exe
+
+디렉터리: C:\Windows\Prefetch
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      2020-09-09   오후 2:11          10298 SVCCARE.EXE-642142C3.pf
+```
+
+### 인터넷에서 파일 다운로드 
+
+wget 명령어가 Invoke-WebRequest로 Alias 설정되어 있다. 
+
+```powershell
+wget http://ax.itunes.apple.com/detection/itmsCheck.js -o itemsCheck.js
+
+PS D:\Dropbox\tools\CustomURL> Get-Alias wget
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           wget -> Invoke-WebRequest
+```
 
 ## 참고 URL
 - [1장 - PowerShell 시작](https://docs.microsoft.com/ko-kr/powershell/scripting/learn/ps101/01-getting-started?view=powershell-5.1)
