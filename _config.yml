@@ -32,8 +32,10 @@ plugins:
   - jekyll-gist
   - jemoji
 
-paginate: 8
+paginate: 10
 paginate_path: "/page/:num"
+
+excerpt_separator: <!--more-->
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
 
