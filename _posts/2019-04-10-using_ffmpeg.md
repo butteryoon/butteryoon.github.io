@@ -4,6 +4,7 @@ title: "ffmpeg로 영상 변환하기"
 img: ffmpeg.png
 date: 2019-04-10 17:06:00 +0900
 tags: [ffmpeg] # add tag
+related: ffmpeg
 categories: dev
 ---
 

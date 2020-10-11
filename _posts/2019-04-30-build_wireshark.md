@@ -4,6 +4,7 @@ title: "Build tshark"
 img: "M_wireshark.jpg"
 date: 2019-04-30 15:32:00 +0900
 tags: [packet, tshark] # add tag
+related: tshark
 categories: dev
 ---
 

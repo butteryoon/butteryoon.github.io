@@ -16,7 +16,7 @@ Android Studio가 설치되어 있는 개발자 환경이 아니고 adb로 안�
 
 ## 1. adb 명령어 라인 툴 설치 
 
--  [Minimal ADB and Fastboot](https://forum.xda-developers.com/showthread.php?t=2317790) 에서 [minimal_adb_fastboot_1.4.3_portable.zip](https://androidfilehost.com/?fid=962187416754459552) 다운로드 후 특정폴더에 압축을 풀면 아래와 같이 adb와 dll이 보인다. 
+[Minimal ADB and Fastboot](https://forum.xda-developers.com/showthread.php?t=2317790) 에서 [minimal_adb_fastboot_1.4.3_portable.zip](https://androidfilehost.com/?fid=962187416754459552) 다운로드 후 특정폴더에 압축을 풀면 아래와 같이 adb와 dll이 보인다. 
 
 > 설치된 디렉토리로 이동하여 쓸 수도 있지만  "제어판\시스템 및 보안\시스템 > 고급 시스템 설정 > 환경변수 에 ADB_PATH를 추가하고 Path 사용자변수에 추가하면 편리하다.
 > Windows 10의 경우 왼쪽 하단 검색툴에서 "시스템 환경 변수 편집"으로 검색한다. 
@@ -25,6 +25,16 @@ Android Studio가 설치되어 있는 개발자 환경이 아니고 adb로 안�
 $ ls
 adb.exe*  AdbWinApi.dll*  AdbWinUsbApi.dll*  cmd-here.exe*  Disclaimer.txt  fastboot.exe*
 ```
+
+## 1-1. 제조자 USB 드라이버 설치 
+
+제조사별 드라이버를 설치하면 Android 기기를 연결했을 때 장치관리자에 "Android Device"가 표시되어야 한다. 
+
+아래 제조사별 USB 드라이버룰 설치한다. 
+
+ - [LG](https://www.mylgphones.com/lg-android-usb-device-drivers) 
+ - [SAMSUNG](https://developer.samsung.com/mobile/file/68b2dc40-3833-4a8b-b58e-32f7aca25c00)
+ - [GOOGLE](developer.android.com/studio/run/win-usb?hl=ko) 
 
 ## 2. adb 안드로이드 디바이스 연결. 
 
@@ -36,8 +46,8 @@ List of devices attached
 LMX415Lc366ec0b offline
 ```
 
-> 위와같이 adb devices 결과 offline 으로 보이면 안드로이드 개발자 옵션에서 USB 디버깅 항목을 다시 활성화 시킨 후 USB를 연결한다. 
-> USB를 연결할 때 USB 디버깅 확인 팝업이 보여야 한다. 
+위와같이 adb devices 결과 offline 으로 보이면 안드로이드 개발자 옵션에서 USB 디버깅 항목을 다시 활성화 시킨 후 USB를 연결한다. 
+USB를 연결할 때 USB 디버깅 확인 팝업이 보여야 한다. 
 
 - 안드로이드 단말에서 "개발자 옵션"이 활성화되지 않으면 아래와 같이 offline 으로 표시된다. 
 - 그러면 "설정 > 일반 > 휴대폰 정보 > 소프트웨어 정보"에서  "빌드 번호"를 7번정도 연속해서 눌러준다. 
@@ -49,8 +59,8 @@ List of devices attached
 LMX415Lc366ec0b device
 ```
 
-> 위와 같이 디바이스 시리얼번호 와 device 로 나와야 logcat을 실행 할 수 있다. 
-> 준비 끝. 
+위와 같이 디바이스 시리얼번호 와 device 로 나와야 logcat을 실행 할 수 있다. 
+준비 끝. 
 
 
 ## 3. logcat 사용. 
@@ -85,7 +95,8 @@ adb start-server
 
 ## 5. mLogCat
 
-> 윈도우즈 cmd 창이 익숙하지 않으면 mLogCat과 같은 GUI 툴을 사용할 수 있다. 
+> 윈도우즈 cmd 창이 익숙하지 않으면 [mLogCat](https://mlogcat.tistory.com)과 같은 GUI 툴을 사용할 수 있다. 
+
 
 ## 6. WiFi Connect 
 
@@ -124,10 +135,11 @@ app installation:
 
 ## 참고 URL 
 
-> adb and mLogcat 설치 및 환경설정 참고. 
+> adb and mLogcat 설치 및 환경설정 참고.  
 
 - [Minimal ADB and Fastboot](https://forum.xda-developers.com/showthread.php?t=2317790)
 - [Minimal ADB and Fastboot Tool with mLogcat](https://www.utest.com/articles/android-log-capture-minimal-adb-and-fastboot-tool-with-mlogcat)  
+- [Universal ADB Drivers](https://adb.clockworkmod.com)
 
 
 

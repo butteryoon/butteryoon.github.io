@@ -46,9 +46,16 @@ categories: blog
  - [포스트작성하기](https://jekyllrb-ko.github.io/docs/posts/)
 
 2. RSS Feed 만들기
- - [플러그인 없이 Jekyll RSS Feed 만들기](http://dveamer.github.io/homepage/RSS-Feed.html)
+ - [플러그인 없이 Jekyll RSS Feed 만들기](http://dveamer.github.io/homepage/RSS-Feed.html) 
+  
+3. gist Code 템플릿 변경 
+ - 
 
+## 참고 URL
+ - [jekyll 더 알아보기](https://ehfgk78.github.io/2017/12/27/jekyll-detail/)
+ - [Prose.io](https://theorydb.github.io/envops/2019/05/04/envops-blog-posting-prose-io/)
 
 [jekyll]: https://jekyllrb-ko.github.io
 [GitHubPages]: https://pages.github.com 
+
 

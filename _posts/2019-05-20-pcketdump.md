@@ -4,6 +4,7 @@ title: "tshark을 이용한 패킷덤프"
 img: "M_david-clode-o3r7oVPZnZI-unsplash.jpg"
 date: 2019-05-20 00:00:00 +0900
 tags: [packet, tshark, wireshark, setcap, dumpcap] # add tag
+related: tshark
 categories: dev
 ---
 

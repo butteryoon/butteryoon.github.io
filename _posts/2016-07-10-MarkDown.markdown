@@ -77,6 +77,24 @@ void Hello() {
 	}
 ``` 
 
+**Liquid 코드**  
+
+{% raw %}  
+```liquid
+{% for tag in site.tags %}
+  <h3>{{ tag[0] }}</h3>
+  <ul>
+    {% for post in tag[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor % }
+  </ul>
+{% endfor %}
+```
+{% endraw %} 
+
+**테이블** 
+
+
 테이블은 [Tables Generator](vhttp://www.tablesgenerator.com/markdown_tables) .. 
 
 **참고URL**
