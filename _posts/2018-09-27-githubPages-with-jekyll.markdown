@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "jekyll을 이용하여 Github Page 만들기"
-desc: ""
 img: software.jpg
 date: 2018-09-27 21:25:30 +0900
-tags: [GitHub, 블로그, Jekyll, 마크다운] # add tag
+tags: [gitHub, 블로그, jekyll, 마크다운] # add tag
+related: jekyll
 categories: blog
 ---
 
@@ -40,6 +40,7 @@ categories: blog
 - [Github-Pages 에 Jekyll 설치하기](http://dveamer.github.io/homepage/JekyllOnGithubPages.html)
 
 **TODO**
+
 1. 새 파일을 만들때 기본 헤더정보를 자동으로 만들어주는 스크립트
  - YYYY-MM-DD-title.md 형식으로 만들고
  - layout, title, desc, img, date, tags, categories 를 입력 받는다. 
