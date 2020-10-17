@@ -3,7 +3,8 @@ layout: post
 title: "리눅스 터미널 명령어 라인 사용하기"
 img: command.png
 date: 2019-06-07 04:00:00 +0900
-tags: [리눅스, bash, command line] # add tag
+tags: [리눅스, bash, command-line] # add tag
+related: command-line
 categories: dev
 ---
 
@@ -119,6 +120,6 @@ PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=500, Time=2269510870  7 493
 - [아카이브 생성 및 해제(linux tar) 사용법](https://jdm.kr/blog/14)
 - [tshark을 이용한 패킷 덤프](https://butteryoon.github.io/dev/2019/05/19/pcketdump.html)
 - [Date time in Linux bash](https://unix.stackexchange.com/questions/85982/date-time-in-linux-bash)
-
+- [일정 기간내 수정된 파일 찾기](http://thompsonng.blogspot.com/2020/04/linux-find-last-modified-fie-from-n-day.html)
 
 [Bash]: https://www.gnu.org/software/bash/
