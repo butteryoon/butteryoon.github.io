@@ -3,7 +3,7 @@ layout: post
 title: "Windows PowerShell 기본"
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
-tags: [Windows, PowerShell, ps1, script] # add tag
+tags: [Windows, powershell, ps1, script] # add tag
 related: powershell
 categories: dev
 ---
@@ -189,6 +189,16 @@ PS D:\Dropbox\tools\CustomURL> Get-Alias wget
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Alias           wget -> Invoke-WebRequest
+```
+
+### Widows Uptime
+
+```powershell
+PS C:\Users\softr> Get-WmiObject -Class Win32_OperatingSystem | Select-Object @{n='LastBoot';e={$_.ConvertToDateTime($_.LastBootUpTime)}}
+
+LastBoot
+--------
+2020-10-14 오후 4:09:40
 ```
 
 ## 참고 URL
