@@ -1,12 +1,10 @@
 title: Awesome Life   
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-  #permalink: ':title/'
+  이 블로그는 윈도우즈 및 리눅스 환경에서 시스템 구성 및 모니터링 관련 정보를 공유하기 위한 블로그 입니다. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://butteryoon.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: softroom #if your site has a twitter account, enter it here
+#permalink: ':title/'
 
 # Author Settings
 author: James Yoon # add your name
