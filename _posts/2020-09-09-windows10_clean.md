@@ -106,4 +106,11 @@ Failures
 PS C:\Users\softr> choco install winrar --checksum64 B79A53D84C41F50AAD0CB38D091CB26726F512502529503D8C94B47B3D070FA5
 ```
 
+## putty 설정 파일 저장 
+
+```
+regedit /E "putty-settings.reg" HKEY_CURRENT_USER\Software\SimonTatham
+```
+
+
 # 참고 URL 
