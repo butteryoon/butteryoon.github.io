@@ -35,7 +35,7 @@ HOST:A $ ssh -R 43022:localhost:22 id@HOST:B -p 53022
 ssh 연결 후 명령 실행이 필요 없을 경우 "-f -n -T" 명령어를 사용하면 실행 후 바로 백그라운드로 동작한다. 
 
 ```bash
-HOST:A $ ssh -f -n -T -R 43022:localhost:22 id@HOST:B -p 53022
+HOST:A $ ssh -f -N -T -R 43022:localhost:22 id@HOST:B -p 53022
 ```
 
 ### 1-1. HOST:B 에서 43022 LISTEN 포트 확인 
