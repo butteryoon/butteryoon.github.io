@@ -89,12 +89,7 @@ butteryoon@YOON-IP700:~/letsencrypt$ sudo ./letsencrypt-auto certonly --manual -
 To learn how to fix them, visit https://community.letsencrypt.org/t/certbot-auto-deployment-best-practices/91979/
 Creating virtual environment...
 usage: virtualenv [--version] [--with-traceback] [-v | -q] [--app-data APP_DATA] [--clear-app-data] [--discovery {builtin}] [-p py] [--creator {builtin,cpython2-posix}] [--seeder {app-data,pip}] [--no-seed] [--activators comma_sep_list]
-                  [--clear] [--system-site-packages] [--symlinks | --copies] [--download | --no-download] [--extra-search-dir d [d ...]] [--idna version] [--distlib version] [--msgpack version] [--lockfile version] [--pytoml version]
-                  [--retrying version] [--requests version] [--setuptools version] [--pep517 version] [--chardet version] [--webencodings version] [--CacheControl version] [--ipaddr version] [--certifi version] [--urllib3 version]                  [--wheel version] [--appdirs version] [--packaging version] [--html5lib version] [--six version] [--pip version] [--colorama version] [--progress version] [--pkg_resources version] [--pyparsing version]
-                  [--contextlib2 version] [--distro version] [--no-idna] [--no-distlib] [--no-msgpack] [--no-lockfile] [--no-pytoml] [--no-retrying] [--no-requests] [--no-setuptools] [--no-pep517] [--no-chardet] [--no-webencodings]
-                  [--no-CacheControl] [--no-ipaddr] [--no-certifi] [--no-urllib3] [--no-wheel] [--no-appdirs] [--no-packaging] [--no-html5lib] [--no-six] [--no-pip] [--no-colorama] [--no-progress] [--no-pkg_resources] [--no-pyparsing]
-                  [--no-contextlib2] [--no-distro] [--symlink-app-data] [--prompt prompt] [-h]
-                  dest
+ . . . 생략 . . .
 virtualenv: error: unrecognized arguments: --no-site-packages
 Traceback (most recent call last):
   File "<stdin>", line 27, in <module>
