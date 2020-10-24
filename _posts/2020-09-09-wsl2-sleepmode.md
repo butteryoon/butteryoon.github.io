@@ -3,7 +3,7 @@ layout: post
 title: "Sleep 모드 이후 WSL 네트워크 안됨"
 img: wsl.png
 date: 2020-09-09 20:00:00 +0900
-tags: [WSL, WSL2, wslconfig] # add tag
+tags: [wsl, wsl2, wslconfig] # add tag
 categories: dev
 ---
 
