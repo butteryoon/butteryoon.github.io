@@ -51,10 +51,10 @@ last_modified_at: 2020-10-22 18:00:00 +0900
 
 [jekyll/jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap) 플러그인을 사용하면 내용에 변경이 생기면 sitemap.xml 파일이 만들어진다. 
 
-"jekyll-sitenap" 플러그인의 "lastmod" 생성 정책은 아래와 같다. 
+"jekyll-sitemap" 플러그인의 "lastmod" 생성 정책은 아래와 같다. 
 
 ```html
-  <lastmod> tag
+<lastmod> tag
 The <lastmod> tag in the sitemap.xml will reflect by priority:
 
 1. The modified date of the file as reported by the filesystem if you have jekyll-last-modified-at plugin installed (not compatible with GitHub Pages auto building)

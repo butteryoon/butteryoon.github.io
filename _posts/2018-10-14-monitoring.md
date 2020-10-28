@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "sar 를 이용한 리눅스 시스템 모니터링"
+title: "sar 를 이용한 리눅스 시스템 모니터링"
+description: "sar 를 이용한 리눅스 시스템 모니터링"
 img: monitoring.jpg
 date: 2018-10-14 09:00:01 +0900
-tags: [리눅스, top, sar, awk, netstat, ss] # add tag
+tags: [linux, top, sar, awk, netstat, ss] # add tag
+related: monitoring
 categories: dev
 ---
 
@@ -30,7 +32,7 @@ $ netstat -anpo | grep PROCESS_NMAE
 $ ss -anpo | grep ESTAB 
 ``` 
 
-# sar 명령어  
+## sar 명령어  
 
 - sar 명령어로는 특정시점의 시스템자원 사용률에 대한 정보를 얻을 수 있다. 
 - sar 정보는 crontab 에 보통 10분간격으로 통계값을 sar일자 파일로 저장되고 저장된 파일에서 특정 사간범위의 값을 얻을 수 있다. 

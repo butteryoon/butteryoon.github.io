@@ -50,7 +50,7 @@ ffmpeg -i input.mp4 -codec copy putput.mp4 > /dev/null 2>&1
 
 ## 참고 URL
 - [StreamingGuide-FFmpeg](https://trac.ffmpeg.org/wiki/StreamingGuide)
-- [re-stream](https://www.wowza.com/docs/how-to-restream-using-ffmpeg-with-wowza-streaming-engine) 
+- [Re-stream using FFmpeg with Wowza Streaming Engine](https://www.wowza.com/docs/how-to-restream-using-ffmpeg-with-wowza-streaming-engine) 
 - [Video streaming with ffmpeg](https://www.acmesystems.it/ffmpeg)
 
 
