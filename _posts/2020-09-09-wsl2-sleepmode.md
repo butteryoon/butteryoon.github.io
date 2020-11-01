@@ -4,7 +4,8 @@ title: "Sleep 모드 이후 WSL 네트워크 안됨"
 img: wsl.png
 date: 2020-09-09 20:00:00 +0900
 tags: [wsl, wsl2, wslconfig] # add tag
-categories: dev
+related: wsl
+categories: tools
 ---
 
 Windows 10 Sleep mode (보통은 노트북을 쓰다가 덮게를 덮으면 최대절전모드로 바뀐다) 이후 WSL2를 사용하려고 하면 네트워킹이 안되는 현상이 있다. 
