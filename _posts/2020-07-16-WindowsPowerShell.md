@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Windows PowerShell 기본"
+title: "Windows PowerShell 기본 명령어 익히기"
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
 tags: [Windows, powershell, ps1, script] # add tag
@@ -28,10 +28,9 @@ Name                           Value
 PSVersion                      5.1.18362.752
 ```
 
-## 기본 환경 변수
+## 파워쉘 프로파일 설정 
 
-PowerShell 기본 설정은 아래의 명령어로 확인 할 수 있다.  
-자신만의 명령어를 정의하려면 CurrentUserCurrentHost 파일에 설정한다. 
+Linux 최초 구동시 ".bashrc"와 같이 PowerShell 기본 설정은 아래의 명령어로 확인 할 수 있고 자신만의 명령어를 정의하려면 "CurrentUserCurrentHost" 파일에 추가한다. 
 
 ```powershell
 PS C:\Users\softr> $PROFILE | select *
@@ -42,10 +41,9 @@ CurrentUserCurrentHost : C:\Users\softr\Documents\WindowsPowerShell\Microsoft.Po
 Length                 : 75
 ```
 
-## 기본 환경 설정  
+## 기본 환경 설정 및 수정
 
-
-Visual Studio Code를 사용한다면 터미널에서 code $PROFILE 하면 로그인 사용자의 기본  설정파일이 열린다.  
+Visual Studio Code를 사용한다면 터미널에서 code $PROFILE 하면 로그인 사용자의 기본 설정파일이 열린다.  
 
 아래와 같이 인코딩 설정과 기본 Function을 정의해서 사용한다. 
 
@@ -68,9 +66,19 @@ Uninstall-Package                 Cmdlet    PackageManagement         Uninstall-
 
 ## 주로 쓰는 명령어 정리 
 
+Linux 명령어 쉘에 익숙하다면 "Get-Alias" 명령어를 찾아보면 파워쉘의 기본 명령어를 알아볼 수 있다. 
+
+```powershell
+❯ Get-Alias curl
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           curl -> Invoke-WebRequest
+```
+
 ### Uninstall-Package : 설치된 프로그램 삭제  
 
-> Get-Package -Name Ahn* 명령어로 프로그램 이름을 찾은 후 삭제한다.
+Get-Package -Name Ahn* 명령어로 프로그램 이름을 찾은 후 삭제한다.
 
 ```powershell
 ❯ Uninstall-Package -Name ipMonitor10
@@ -84,7 +92,9 @@ ipMonitor10                    10.9.1
 
 ### Get-Content : 파일 정보 확인 및 출력
 
-> 파일의 내용이나 정보 확인. (cmd 에서는 type이었던거 같은데)
+파일의 내용이나 정보 확인. (cmd 에서는 type이었던거 같은데)
+
+> cat, type 명령어도 모두 "Get-Content"와 매핑되어 있다. 
 
 ```powershell
 ❯ Get-Content .\.wakatime.cfg
@@ -99,7 +109,9 @@ ignore =
     api_key=0e64xxxx-xxxx-xxxx-xxxx-xxxx2865xxxx
 ```
 
-> cat 명령어도 Alias 설정되 되어 있다. 
+cat 명령어도 Alias 설정 되어 있다. 
+
+> ls, grep 등등 명령어로 get-alias 명령어로 찾아보면 파워쉘의 기본 명령어를 찾을 수 있다. 
 
 ```powershell
 PS > get-alias cat
@@ -111,7 +123,7 @@ Alias           cat -> Get-Content
 
 ### Get-Process : 프로세스 정보 조회
 
-> 로컬포트를 사용하는 프로세스 Id를 검색 하고 "Stop-Process -Name" 명령어로 Kill 할 수 있다. 
+로컬포트를 사용하는 프로세스 Id를 검색 하고 "Stop-Process -Name" 명령어로 Kill 할 수 있다. 
 
 ```powershell
 ❯ Get-Process -Id (Get-NetTCPConnection -LocalPort 58803).OwningProcess
@@ -121,7 +133,7 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
     247      22     9216      20540       1.45  11060   1 python
 ```
 
-> 실행중인 프로세스 파일버전 표시. 
+### 실행중인 프로세스 파일버전 표시. 
 
 ```powershell
 ❯ Get-Process liveview -FileVersionInfo
@@ -144,9 +156,9 @@ Name                                           Type   TTL   Section    IPAddress
 softroom.duckdns.org                           A      60    Answer     106.xxx.xxx.xxx
 ```
 
-### 디렉토리나 파일 찾기
+### 디렉토리나 이름 및 파일 찾기
 
-css 이름을 가진 디렉토리 찾기  
+디렉토리에서 css 이름을 가진 디렉토리 찾기  
 
 > Get-ChildItem -Directory
 > Get-ChildItem -File
@@ -179,7 +191,9 @@ Mode                 LastWriteTime         Length Name
 
 ### 인터넷에서 파일 다운로드 
 
-wget 명령어가 Invoke-WebRequest로 Alias 설정되어 있다. 
+wget 명령어가 "Invoke-WebRequest"로 Alias 설정되어 있다. 
+
+> wget.exe를 받아서 쓰는게 속 편하긴 하다. 
 
 ```powershell
 wget http://ax.itunes.apple.com/detection/itmsCheck.js -o itemsCheck.js
@@ -193,8 +207,10 @@ Alias           wget -> Invoke-WebRequest
 
 ### Widows Uptime
 
+Linux의 uptime 명령어와 같은 기능이며 파워쉘 함수로 등록해서 사용한다. 
+
 ```powershell
-PS C:\Users\softr> Get-WmiObject -Class Win32_OperatingSystem | Select-Object @{n='LastBoot';e={$_.ConvertToDateTime($_.LastBootUpTime)}}
+Function uptime {Get-WmiObject -Class Win32_OperatingSystem | Select-Object @{n='LastBoot';e={$_.ConvertToDateTime($_.LastBootUpTime)}}}
 
 LastBoot
 --------

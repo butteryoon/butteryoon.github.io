@@ -32,7 +32,9 @@ PingReplyDetails (RTT) : 0 ms
 
 ## 대상 Host의 특정 서비스 포트 확인. 
 
-리눅스에에서 "nc -v -z localhost 4000" 명령어와 같이 동작한다. 
+리눅스에에서 "nc -v -z localhost 4000" 명령어와 같이 동작하며 TCP 접속 후 종료 상태를 확인한다. 
+
+> 간편한 방법으로 telnet 클라이언트를 이용해서 접속이 되는지 확인할 수도 있다. 
 
 ```powershell
 PS D:\Dropbox\Public\butteryoon.github.io> Test-NetConnection -ComputerName 111.111.111.111 -Port 4000

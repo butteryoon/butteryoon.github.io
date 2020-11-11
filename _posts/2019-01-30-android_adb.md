@@ -3,7 +3,9 @@ layout: post
 title: "Android Studio 없이 adb 사용하기"
 img: android-adb.jpg
 date: 2019-01-30 18:38:00 +0900
+last_modified_at: 2020-11-03 00:00:00 +0900
 tags: [android, 안드로이드, adb] # add tag
+related: android
 categories: dev
 ---
 
@@ -21,7 +23,7 @@ Android Studio가 설치되어 있는 개발자 환경이 아니고 adb로 안�
 > 설치된 디렉토리로 이동하여 쓸 수도 있지만  "제어판\시스템 및 보안\시스템 > 고급 시스템 설정 > 환경변수 에 ADB_PATH를 추가하고 Path 사용자변수에 추가하면 편리하다.
 > Windows 10의 경우 왼쪽 하단 검색툴에서 "시스템 환경 변수 편집"으로 검색한다. 
 
-```
+```powershell
 $ ls
 adb.exe*  AdbWinApi.dll*  AdbWinUsbApi.dll*  cmd-here.exe*  Disclaimer.txt  fastboot.exe*
 ```
@@ -40,7 +42,7 @@ adb.exe*  AdbWinApi.dll*  AdbWinUsbApi.dll*  cmd-here.exe*  Disclaimer.txt  fast
 
 - [logcat](https://developer.android.com/studio/command-line/logcat?hl=ko) 사용자 가이드를 읽어두자. 
 
-```
+```powershell
 $ adb devices
 List of devices attached
 LMX415Lc366ec0b offline
@@ -53,7 +55,7 @@ USB를 연결할 때 USB 디버깅 확인 팝업이 보여야 한다.
 - 그러면 "설정 > 일반 > 휴대폰 정보 > 소프트웨어 정보"에서  "빌드 번호"를 7번정도 연속해서 눌러준다. 
 
 
-```
+```powershell
 $ adb devices
 List of devices attached
 LMX415Lc366ec0b device
@@ -65,7 +67,7 @@ LMX415Lc366ec0b device
 
 ## 3. logcat 사용. 
 
-```
+```powershell
 $ adb -s SERIALNO logcat 
 $ adb -s LMX415Lc366ec0b logcat 
 ```
@@ -77,7 +79,7 @@ $ adb -s LMX415Lc366ec0b logcat
 
 > 아래와 같이 ADB Server 연결이 안되는 경우 kill/start-server 명령어로 재시작 한다.  
 
-```
+```powershell
 adb devices
 List of devices attached
 * daemon not running; starting now at tcp:5037
@@ -102,8 +104,7 @@ adb start-server
 
 > 동일 WiFi 환경에서 무선으로 logcat 사용하기 
 
-```
-1. 안드로이드 단말을 USB로 ADB 연결 후 아래의 명령어 실행
+```powershell
 2. > adb -s R33M100M79 tcpip 8888
      restarting in TCP mode port: 8888
 3. 안드로이드 단말에서 USB 연결 허용 팝업 확인 
@@ -114,9 +115,16 @@ adb start-server
 
 ## 7. APK Install 
 
-> adb 로 APK 설치하기  
+"adb install/uninstall" 명령어로 패키지를 설치/삭제할 수 있다. 
 
+```powershell
+"adb uninstall com.samples.vdc"
+"adb install COM.SAMPLES.VDC.apk"
 ```
+
+세부 옵션은 아래와 같다. 
+
+```powershell
 app installation:
  install [-lrtsdg] PACKAGE
  install-multiple [-lrtsdpg] PACKAGE...
@@ -131,6 +139,39 @@ app installation:
  uninstall [-k] PACKAGE
      remove this app package from the device
      '-k': keep the data and cache directories
+```
+
+### 7.1 APK 파일 버전 정보 확인하기 
+
+"adb shell dumpsys" 명령어를 이용해 apk 파일의 정보를 확인하고 "Select-String" 명령어로 "version" 패턴을 검색한다. 
+
+```powershell
+❯ adb shell dumpsys package com.samples.vdc | Select-String -Pattern version
+
+    versionCode=35 minSdk=24 targetSdk=24
+    versionName=00.05.22
+    apkSigningVersion=1
+```
+
+## 화면 캡쳐 
+
+"adb shell screencap" 파라미터로 화면 캡쳐하여 지정된 위치에 이미지를 저장한다. 
+
+Windows에서는 capture.cmd 파일을 만들고 아래의 명령어를 입력하면 "캡쳐 - 다운로드 - 삭제" 과정이 순서대로 진행된다. 
+
+```powershell
+adb shell screencap -p /sdcard/screen.png
+adb pull /sdcard/screen.png
+adb shell rm /sdcard/screen.png
+```
+
+## 파일 업로드 
+
+"adb push 파일이름 경로"명령어로 파일을 옮길 수 있다. 
+
+```powershell
+❯ adb push samples.apk /sdcard/Download
+samples.apk: 1 file pushed. 34.1 MB/s (31098455 bytes in 0.869s)
 ```
 
 ## 참고 URL 
