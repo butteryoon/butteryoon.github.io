@@ -10,9 +10,12 @@ related: ffmpeg
 categories: dev
 ---
 
-## MP4 영상 스트리밍시 seek 가 안되는 경우 
+ffmpeg을 이용해서 인코딩된 영상 저장 및 변환을 위한 명령어를 알아본다. 
 
-mp4 영상을 ffprobe로 보면 아래와 같이 start 값이 영상의 길이보다 큰 경우가 있다. 
+## 영상 다시 생성하기 
+
+MP4 영상 vod 스트리밍시 seek 가 안되는 경우 mp4 영상을 ffprobe로 보면 아래와 같이 start 값이 영상의 길이보다 큰 경우가 있다.  
+
 이런 경우에 seek를 하여 재생위치를 변경하면 초기 위치부터 재생이 된다. 
 
 ```powershell
@@ -39,19 +42,18 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'filename.mp4':
 ffmpeg -i input.mp4 -codec copy output.mp4 > /dev/null 2>&1
 ```
 
-## 영상 자르기 
+## CCTV 실시간 영상 보관하기
 
 CCTV와 같은 계속되는 영상을 1시간 단위로 1일동안 보관하고자 할 때 아래와 같이 segment 기능으로 영상을 잘라서 보관할 수 있다. 
 
-> -f segment : 파일을 분할하여 저장
-> -segment_list out.list : 파일목록 기록
-> -segment_time 3600 : 분할단위는 초(3600초, 1시간)
-> -segment_wrap 24 : 분할단위기준으로 파일 개수(파일개수가 넘으면 000번 파일로 다시 기록된다.)
+> -f segment : 파일을 분할하여 저장  
+> -segment_list out.list : 파일목록 기록  
+> -segment_time 3600 : 분할단위는 초(3600초, 1시간)  
+> -segment_wrap 24 : 분할단위기준으로 파일 개수(파일개수가 넘으면 000번 파일로 다시 기록된다.)   
 
 아래는 약 10분짜리 영상을 60초 단위로 분할한다. 
 
-```poewrshell
-
+```powershell
 ❯ ffmpeg.exe -i .\BigBuckBunny.mp4 -codec copy -f segment -segment_list out.list -segment_time 60 -segment_wrap 24 out%03d.mp4
 
 ffmpeg version 4.3.1-2020-10-01-full_build-www.gyan.dev Copyright (c) 2000-2020 the FFmpeg developers
@@ -104,7 +106,6 @@ Press [q] to stop, [?] for help
 frame=14315 fps=0.0 q=-1.0 Lsize=N/A time=00:09:56.45 bitrate=N/A speed=1.36e+03x
 video:144985kB audio:9144kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
 ```
-
 
 ## 참고 URL
 - [StreamingGuide-FFmpeg](https://trac.ffmpeg.org/wiki/StreamingGuide)
