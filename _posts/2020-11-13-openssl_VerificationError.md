@@ -5,8 +5,8 @@ description: "openssl 명령어를 이용해서 HTTPS 오류 및 인증서 관�
 img: "letsencryption.png"
 date: 2020-11-16 11:00:00 +0900
 last_modified_at: 2020-11-16 11:00:00 +0900
-tags: [openssl, letsencypt] # add tag
-related: letsencypt
+tags: [openssl, letsencrypt] # add tag
+related: letsencrypt
 categories: tools
 ---
 
