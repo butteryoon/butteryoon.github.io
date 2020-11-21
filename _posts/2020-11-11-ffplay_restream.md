@@ -2,9 +2,9 @@
 layout: post
 title: "ffmpeg을 이용한 RTMP 영상 스트리밍"
 description: "Windows에서 ffmpeg을 이용해서 mp4파일을 실시간으로 읽고 트랜스코딩 해서 RTMP로 실시간 전송하는 방법을 알아본다."
-img: ffmpeg.png
+img: m_ffmpeg_title.webp
 date: 2020-11-11 09:00:00 +0900
-last_modified_at: 2020-11-11 09:00:01 +0900
+last_modified_at: 2020-11-21 17:00:01 +0900
 tags: [ffmpeg, ffplay, rtsp, rtmp] # add tag
 related: ffmpeg
 categories: dev
@@ -65,14 +65,15 @@ frame= 5984 fps= 24 q=-1.0 Lsize=   66544kB time=00:04:09.77 bitrate=2182.5kbits
 video:62435kB audio:3829kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.423518%
 ```
 
-## RTSP 영상스트림 실시간 RTMP 전송
+## RTSP 영상스트림(HEVC코덱) 실시간 RTMP 전송
+
+RTMP 전송 프로토콜에서 사용하는 flv 미디어포맷은 HEVC(h.265) 코덱을 지원하지 않아 AVC(h.264) 코덱으로 변경이 필요하다. 
 
 RTSP 영상스트림을 입력(-i)받아 실시간(-re)으로 읽고 음성코덱은 AAC(-c:a aac), 영상코덱은 h264(-c:v h264)로 트랜스코딩 하고 RTMP 전송을 위해 영상포맷을 변경(-f flv)해서 RTMP 서버로 전송한다. 
 
-RTMP 전송 프로토콜에서 사용하는 flv 미디어포맷은 HEVC(h.265) 코덱을 지원하지 않아 AVC(h.264) 코덱으로 변경한다. 
 
 ```powershell
-❯ ffmpeg.exe -re -i rtsp://iws.localdomain.com:50554/main -c:a aac -c:v h264 -f flv rtmp://192.168.0.92:1955/application/stream
+❯ ffmpeg.exe -re -i rtsp://iws.localdomain.com:50554/main -c:a aac -c:v h264 -f flv rtmp://192.168.0.92:1955/application/stream_key
 
 [rtsp @ 0000028c8198dcc0] method SETUP failed: 461 Unsupported Transport
 Guessed Channel Layout for Input Stream #0.1 : mono
@@ -116,3 +117,4 @@ frame=35154 fps= 25 q=28.0 size=  209602kB time=00:23:27.23 bitrate=1220.2kbits/
 - [FFmpeg for streaming](https://sonnati.wordpress.com/2011/08/30/ffmpeg-–-the-swiss-army-knife-of-internet-streaming-–-part-iv/)
 - [Easily transcode any media to any format using FFmpeg](https://duduf.com/easily-transcode-any-media-to-any-format-using-ffmpeg/)
 - [Video Transcoding and Optimization for web with FFmpeg made easy](https://medium.com/abraia/video-transcoding-and-optimization-for-web-with-ffmpeg-made-easy-511635214df0)
+- [Re-stream using FFmpeg with Wowza Streaming Engine](https://www.wowza.com/docs/how-to-restream-using-ffmpeg-with-wowza-streaming-engine)
