@@ -1,25 +1,29 @@
 ---
 layout: post
 title: "letsencrypt 인증서 발급하기"
+description: "letsencrypt 인증서 발급하기"
 img: "letsencryption.png"
 date: 2019-04-20 20:05:00 +0900
+last_modified_at: 2020-12-10 20:05:00 +0900
 tags: [letsencrypt, HTTPS, 인증서] 
 related: letsencrypt
 categories: dev
 ---
 
-아이폰 엔터프라이즈 앱의 인하우스 배포를 위해서는 도메인이 필요하다 .. 
-그래서 letsencrypt 무료 인증서를 받아 사용하기로 한다. 
-회사 웹서버는 호스팅을 하고 있고 음! 어디서?? 모르겠고 ..
-우선 인증서만 받아 인하우스 배포를 시험하기로 한다. 
+아이폰 엔터프라이즈 앱의 인하우스 배포를 위해서는 도메인이 필요하다.
 
-lets encrypt 에서 인증서를 받기 위한 절차는 아래와 같다. 
+그래서 letsencrypt 무료 인증서를 받아 사용하기로 한다.
 
-생각보다 간단하다. 
+회사 웹서버는 호스팅을 하고 있고 수정이 피곤하여 배포시험을 위한 임시 서버에 인증서만 받아 인하우스 배포를 시험하기로 한다.
+
+letsencrypt 에서 인증서를 받기 위한 절차는 아래와 같다.
+
+생각보다 간단하다.
 
 1. 인증서를 받기 위해 도메인이 있어야 한다. 
 2. 메뉴얼 모드로 인증서를 받는다. 
 3. 인증서는 90일 마다 갱신해야 한다. 
+   - 자동화 스크립트 설정이 가능하다. 
 4. 끝. 
 
 
@@ -29,7 +33,15 @@ lets encrypt 에서 인증서를 받기 위한 절차는 아래와 같다.
 git clone https://github.com/letsencrypt/letsencrypt
 ```
 
+## 인증서 신규 발급 
+
+> certonly --manual  
+> nginx 또는 아파치 웹서버 구동 환경에서는 "certbot-auto" 스크립트를 사용하여 자동으로 적용까지 가능하다.  
+
+
 설치 후 인증서만 다운로드 하기 위해 아래의 명령어를 실행. 
+
+> ./letsencrypt-auto certonly --manual
 
 ```bash
 [root@localhost letsencrypt]# ./letsencrypt-auto certonly --manual
@@ -39,7 +51,7 @@ To use Certbot, packages from the EPEL repository need to be installed.
 Enable the EPEL repository and try running Certbot again.
 ```
 
-git pull로 최신버전 다운로드 이후 아래와 같이 Bootstrap 관련 경고가 발생하여 --no-Bootstrap 옵션 추가   
+git pull로 최신버전 다운로드 이후 아래와 같이 Bootstrap 관련 경고가 발생하여 **--no-Bootstrap** 옵션 추가   
 이후는 동일하게 진행한다(root 계정에서 실행)
 완료이후 /etc/letsencrypt/live/도메인 디렉토리에 인증서가 생성된다. 
 
@@ -65,26 +77,24 @@ Are you OK with your IP being logged?
 (Y)es/(N)o: y
 ```
 
-도메인 입력 후 인증 과정을 거친다. 
-letsencrypt에서 아래의 URL로 요청했을 때 지정된 문자열을 응답으로 보내야 한다.  
-임시로 해당 경로에 문서를 생성. 
+## 도메인 소유 인증 
+
+letsencrypt에서는 도메인소유 인증을 위해 지정한 도메인의 특정 URL로 요청하여 지정된 문자열을 확인한다. 
+
 ```
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Create a file containing just this data:
-
 h70rfIM6APUpoMV-1afecuZfUgBw3Bdy4EMq0FftQI4.......tyLmv3IZf3ebDBsJhI
-
 And make it available on your web server at this URL:
-
 http://test.domain.com/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0FftQI4
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
-웹서버를 호스팅하거나 접근하기 어려운 경우 파이썬으로 간단하게 처리 .. 
 
-별도의 서버가 없어도 파이썬 `SimpleHTTPServer` 모듈로 가능. 
-> python 3.6.7 버전에서는 모듈을 찾을 수 없다는 오류가 발생한다. (2.7.x 에서는 Ok) 
-> python3 에서 SimpleHTTPServer는 http.server 안에 통합되었다. (http://bit.ly/2Zt39My)
+실서버의 구조를 바꾸기 어려운 경우 파이썬으로 임시 웹서버를 구동하여 진행한다. 
+
+간단하게 파이썬 **SimpleHTTPServer** 모듈로 가능하다   
+> python3 에서 SimpleHTTPServer는 http.server 안에 통합되었다. (http://bit.ly/2Zt39My) 
 
 ```bash
 python -m SimpleHTTPServer 8000 
@@ -92,11 +102,23 @@ or
 python3 -m http.server 8000
 ``` 
 
-위 명령어를 실행하면 간단하게 8000 번 포트로 웹서버를 구동할 수 있다. 
+도메인소유 인증을 시도하면 아래와 같은 웹 로그를 확인할 수 있다.  
+> 4개의 호스트에서 접속을 시도를 한다.  
 
-지정된 디렉토리에 안내된 이름으로 지정된 데이타가 포함된 파일을 만들면 지정된 디렉토리에 개인키와 공개키가 생성된다.  
-
+```bash
+python -m SimpleHTTPServer 8803
+Serving HTTP on 0.0.0.0 port 8803 ...
+34.211.6.84 - - [10/Dec/2020 18:20:42] "GET /.well-known/acme-challenge/DC1WQ5Mdx6C0ffJnFuuizBFqM5wD28wtb-cXioT-O30 HTTP/1.1" 200 -
+3.22.70.135 - - [10/Dec/2020 18:20:42] "GET /.well-known/acme-challenge/DC1WQ5Mdx6C0ffJnFuuizBFqM5wD28wtb-cXioT-O30 HTTP/1.1" 200 -
+18.196.96.172 - - [10/Dec/2020 18:20:42] "GET /.well-known/acme-challenge/DC1WQ5Mdx6C0ffJnFuuizBFqM5wD28wtb-cXioT-O30 HTTP/1.1" 200 -
+66.133.109.36 - - [10/Dec/2020 18:20:42] "GET /.well-known/acme-challenge/DC1WQ5Mdx6C0ffJnFuuizBFqM5wD28wtb-cXioT-O30 HTTP/1.1" 200 -
 ```
+
+## 인증서 생성 확인 
+
+도메인 소유 인증이 성공하면 아래와같이 간단한 설명을 보여주며 갱신할때는 renew 옵션을 사용한다. 
+
+```bash
 Press Enter to Continue
 Waiting for verification...
 Cleaning up challenges
@@ -106,7 +128,7 @@ IMPORTANT NOTES:
    /etc/letsencrypt/live/test.domain.com/fullchain.pem
    Your key file has been saved at:
    /etc/letsencrypt/live/test.domain.com/privkey.pem
-   Your cert will expire on 2019-01-08. To obtain a new or tweaked
+   Your cert will expire on 2021-03-10. To obtain a new or tweaked
    version of this certificate in the future, simply run
    letsencrypt-auto again. To non-interactively renew *all* of your
    certificates, run "letsencrypt-auto renew"
@@ -116,7 +138,35 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 ```
 
-공개키와 개인키를 원하는 웹서버에 설치하여 사용한다. 
+etc 디렉토리에 아래처럼 4개의 인증서파일이 생성된다 
+
+```bash
+[root@localhost letsencrypt]# sudo ls -ltr /etc/letsencrypt/live/test.domain.com
+합계 4
+-rw-r--r-- 1 root root 682  7월 30  2018 README
+lrwxrwxrwx 1 root root  41 12월 10 18:20 privkey.pem -> ../../archive/test.domain.com/privkey7.pem
+lrwxrwxrwx 1 root root  43 12월 10 18:20 fullchain.pem -> ../../archive/test.domain.com/fullchain7.pem
+lrwxrwxrwx 1 root root  39 12월 10 18:20 chain.pem -> ../../archive/test.domain.com/chain7.pem
+lrwxrwxrwx 1 root root  38 12월 10 18:20 cert.pem -> ../../archive/test.domain.com/cert7.pem
+```  
+
+
+## 기존 인증서 재발급 (renew) 
+
+기존에 발급 받은 인증서를 90일 이전에 재발급 할 경우에는 아래와 같이 **--renew-by-default** 옵션을 추가한다.  
+
+```bash
+[root@localhost letsencrypt]# ./letsencrypt-auto certonly --renew-by-default --manual --no-bootstrap
+./letsencrypt-auto has insecure permissions!
+To learn how to fix them, visit https://community.letsencrypt.org/t/certbot-auto-deployment-best-practices/91979/
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator manual, Installer None
+Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
+to cancel): test.domain.com
+Renewing an existing certificate for test.domain.com
+Performing the following challenges:
+http-01 challenge for test.domain.com
+```
 
 끝.
 
@@ -124,6 +174,7 @@ IMPORTANT NOTES:
 - [Lets' Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
 - [Let's encrypt 의 인증서를 생성할 때 주의사항](https://findstar.pe.kr/2018/09/08/lets-encrypt-certificates-rate-limit/)
 - [인증서갱신](https://letsencrypt.readthedocs.io/en/latest/using.html#re-creating-and-updating-existing-certificates)
+- [Install Let's Encrypt to Create SSL Certificates](https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/)
 
 ## 이슈
 - [Ubuntu 20.04 LTS on WSL](https://github.com/jitsi/jitsi-meet/issues/6356)
