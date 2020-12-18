@@ -4,8 +4,8 @@ title: "netsh를 이용하여 WSL2 서비스 포트포워딩 설정하기"
 description: "Windows 10에서 netsh 포트프록시 명령을 사용하여 포트포워딩을 설정하고 파워쉘 함수로 등록한다."
 img: ms_loves_linux.png
 date: 2020-10-28 11:00:00 +0900
-last_modified_at: 2020-10-28 11:00:00 +0900
-tags: [netsh, wsl, windows] # add tag
+last_modified_at: 2020-12-18 11:00:00 +0900
+tags: [netsh, wsl, windows, powershell] # add tag
 related: wsl
 categories: tools
 ---
@@ -49,7 +49,11 @@ WSL2 서비스는 항상 운영되는게 아니기 때문에 필요할 때 명�
 
 > localhost로 테스트는 가능하지만 "duckdns.org"와 같은 도메인 테스트가 필요한 경우에 사용한다. 
 
-명령어 이름은 "Set-ForwardRules"로 정하고 파라미터 정의는 "-On"로 설정을 추가하고 파라미터가 없으면 해당 규칙을 삭제한다. 
+명령어 이름은 "Set-ForwardRules"로 정하고 파라미터 정의는 "-add"로 설정을 추가하고 "-del" 로 규칙을 삭제한다.  
+
+> Set-ForwardRules -add 4000 : 4000번 포트를 WSL로 포트프록시 연결 설정 추가.  
+> Set-ForwardRules -del 4000 : 4000번 포트를 WSL로 포트프록시 연결 설정 삭제.   
+
 
 {% gist butteryoon/792e38aabd2a9cfe817bd9ec4cb45377 %} 
 
@@ -57,4 +61,3 @@ WSL2 서비스는 항상 운영되는게 아니기 때문에 필요할 때 명�
 ## 참고 URL
 - [Netsh 인터페이스 포트 프록시 명령](https://docs.microsoft.com/ko-kr/windows-server/networking/technologies/netsh/netsh-interface-portproxy){:target="_blank"}
 - [Connecting to WSL2 server via local network](https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network){:target="_blank"}
-- 
