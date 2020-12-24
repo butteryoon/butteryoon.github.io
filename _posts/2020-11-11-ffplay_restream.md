@@ -118,3 +118,4 @@ frame=35154 fps= 25 q=28.0 size=  209602kB time=00:23:27.23 bitrate=1220.2kbits/
 - [Easily transcode any media to any format using FFmpeg](https://duduf.com/easily-transcode-any-media-to-any-format-using-ffmpeg/)
 - [Video Transcoding and Optimization for web with FFmpeg made easy](https://medium.com/abraia/video-transcoding-and-optimization-for-web-with-ffmpeg-made-easy-511635214df0)
 - [Re-stream using FFmpeg with Wowza Streaming Engine](https://www.wowza.com/docs/how-to-restream-using-ffmpeg-with-wowza-streaming-engine)
+- [FFmpeg Live Streaming – What Professional Broadcasters Need to Know](https://www.dacast.com/blog/how-to-broadcast-live-stream-using-ffmpeg/)

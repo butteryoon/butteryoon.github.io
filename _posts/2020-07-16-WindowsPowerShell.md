@@ -217,6 +217,26 @@ LastBoot
 2020-10-14 오후 4:09:40
 ```
 
+## HASH 
+
+Linux에서 해시값을 구할 때 쓰는 md5sum, sha256 과 동일한 cmdlet 이다. 
+
+
+```powershell
+❯ Get-FileHash -Algorithm md5 .\README.md
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+MD5             327FD51206F4DA87C368F467B067A73F                                       D:\Dropbox\tools\README.md
+
+❯ Get-FileHash -Algorithm sha256 .\README.md
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          88F9ED20AB1ACDC0C8699A63174903C994670AEEB67B1725E147A937E8236B78       D:\Dropbox\tools\README.md
+```
+
+
 ## 참고 URL
 - [1장 - PowerShell 시작](https://docs.microsoft.com/ko-kr/powershell/scripting/learn/ps101/01-getting-started?view=powershell-5.1)
 - [PowerShell이란?](https://docs.microsoft.com/ko-kr/powershell/scripting/overview?view=powershell-7)
