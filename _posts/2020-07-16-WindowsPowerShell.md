@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "Windows PowerShell 기본 명령어 익히기"
+description: "Windows PowerShell 에서 쓸 수 있는 기본 명령어들을 알아보고 Linux 명령어와 비교해본다."
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
+last_modified_at: 2020-12-24 14:00:00 +0900
 tags: [Windows, powershell, ps1, script] # add tag
 related: powershell
 categories: dev
@@ -215,6 +217,16 @@ Function uptime {Get-WmiObject -Class Win32_OperatingSystem | Select-Object @{n=
 LastBoot
 --------
 2020-10-14 오후 4:09:40
+```
+
+"PowerShell7"에서는 "Get-WmiObject" 대신 "Get-CimInstance" cmdlet을 사용한다.  
+
+```powershell
+❯ Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object LastBootUpTime
+
+LastBootUpTime
+--------------
+2020-12-21 오후 3:34:05
 ```
 
 ## HASH 
