@@ -54,7 +54,7 @@ Windows의 내장 GDI ScreenGrabber를 이용하고 인코딩은 nVidia의 NVENC
 > -f mpegts "udp://localhost:8888"  
 
 ```powershell
-❯ ffmpeg -f gdigrab -framerate 30 -i desktop -c:v h264_nvenc -c:a aac -f mpegts "udp://localhost:8888"
+❯ ffmpeg -f gdigrab -framerate 30 -i desktop -c:v h264_nvenc -c:a aac -f mpegts "udp://localhost:8888?pkt_size=1316"
 
 ffmpeg version 4.3.1-2020-10-01-full_build-www.gyan.dev Copyright (c) 2000-2020 the FFmpeg developers
   built with gcc 10.2.0 (Rev3, Built by MSYS2 project)
