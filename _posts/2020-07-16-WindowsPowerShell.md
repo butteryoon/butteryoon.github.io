@@ -4,7 +4,7 @@ title: "Windows PowerShell 기본 명령어 익히기"
 description: "Windows PowerShell 에서 쓸 수 있는 기본 명령어들을 알아보고 Linux 명령어와 비교해본다."
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
-last_modified_at: 2020-12-24 14:00:00 +0900
+last_modified_at: 2021-01-14 17:00:00 +0900
 tags: [Windows, powershell, ps1, script] # add tag
 related: powershell
 categories: dev
@@ -248,6 +248,22 @@ Algorithm       Hash                                                            
 SHA256          88F9ED20AB1ACDC0C8699A63174903C994670AEEB67B1725E147A937E8236B78       D:\Dropbox\tools\README.md
 ```
 
+## Symbolic Link 
+
+리눅스에서 "ln -s" 과 동일한 심볼릭링크 명령어.   
+
+> New-Item -ItemType SymbolicLink -Path "Link" -Target "Target"   
+
+```PowerShell 
+⨯ ⚡ softr@YOON-IP700  ~                                                                                [17:49]
+❯ New-Item -ItemType SymbolicLink -Path Dropbox -Target D:\Dropbox\
+
+    Directory: C:\Users\softr
+
+    Mode                 LastWriteTime         Length Name
+    ----                 -------------         ------ ----
+    l----        2021-01-14  오후 5:49                Dropbox -> D:\Dropbox\
+```
 
 ## 참고 URL
 - [1장 - PowerShell 시작](https://docs.microsoft.com/ko-kr/powershell/scripting/learn/ps101/01-getting-started?view=powershell-5.1)
