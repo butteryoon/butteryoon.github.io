@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "ffmpeg로 영상 변환하기"
-description: "ffmpeg로 영상 변환하기"
+title: "ffmpeg command line으로 영상 다루기."
+description: "ffmpeg을 이용하여 명령어라인으로 영상을 처리하는 예를 정리한다."
 img: ffmpeg.png
 date: 2019-04-10 17:06:00 +0900
 last_modified_at: 2020-11-11 14:00:00 +0900
@@ -35,7 +35,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'filename.mp4':
       handler_name    : VideoHandler
 ```
 
-아래 ffmpeg으로 영상을 재생성하면 start 값이 0 으로 설정된다. 
+아래 ffmpeg으로 영상을 재생성하면 start 값이 0 으로 설정된다.   
+
 > 그냥 실행하면 터미널에 로그를 찍느라 시간이 오래 걸리므로 로그는 /dev/null 로 보내버린다. 
 
 ```powershell
@@ -107,10 +108,25 @@ frame=14315 fps=0.0 q=-1.0 Lsize=N/A time=00:09:56.45 bitrate=N/A speed=1.36e+03
 video:144985kB audio:9144kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
 ```
 
+## 썸네일 이미지 저장
+
+지정된 경로에 주어진 시간 간젹으로 확장자의 이미지 포맷으로 썸네일을 생성한다. 
+
+> -vf fps=1 : 1초에 한장씩 이미지 출력. 
+> -vf fps=1/60 : 1분에 한장씩 이미지 출력. 
+
+```powershell
+❯ ffmpeg.exe -i .\BigBuckBunny.mp4 -vf fps=1 Thumbnails/B3_%02d.png
+... skip information 
+frame=  596 fps= 16 q=-0.0 Lsize=N/A time=00:09:56.00 bitrate=N/A speed=15.8x
+```
+
+
 ## 참고 URL
 - [StreamingGuide-FFmpeg](https://trac.ffmpeg.org/wiki/StreamingGuide)
 - [Re-stream using FFmpeg with Wowza Streaming Engine](https://www.wowza.com/docs/how-to-restream-using-ffmpeg-with-wowza-streaming-engine) 
 - [Video streaming with ffmpeg](https://www.acmesystems.it/ffmpeg)
 - [Record fragments of 10 seconds using FFMPEG and DSHOW from webcam](https://superuser.com/questions/1019303/record-fragments-of-10-seconds-using-ffmpeg-and-dshow-from-webcam)
+- [Create a thumbnail image every X seconds of the video](https://trac.ffmpeg.org/wiki/Create%20a%20thumbnail%20image%20every%20X%20seconds%20of%20the%20video)
 
 
