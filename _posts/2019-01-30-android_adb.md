@@ -3,7 +3,7 @@ layout: post
 title: "Android Studio 없이 adb 사용하기"
 img: android-adb.jpg
 date: 2019-01-30 18:38:00 +0900
-last_modified_at: 2020-11-03 00:00:00 +0900
+last_modified_at: 2021-01-22 14:00:00 +0900
 tags: [android, 안드로이드, adb] # add tag
 related: android
 categories: dev
@@ -104,14 +104,40 @@ adb start-server
 
 > 동일 WiFi 환경에서 무선으로 logcat 사용하기 
 
+### 1. 안드로이드 단말과 USB가 연결된 상태에서 디버깅할 안드로이드 단말의 TCP포트를 설정한다. 
+
 ```powershell
-2. > adb -s R33M100M79 tcpip 8888
+> adb -s R33M100M79 tcpip 8888
      restarting in TCP mode port: 8888
-3. 안드로이드 단말에서 USB 연결 허용 팝업 확인 
-4. USB 연결 제거 후 
-5. > adb connect 192.168.0.47:8888
+```
+### 2. 안드로이드 단말에서 USB 연결 디버깅 허용 팝업이 표시되면 확인을 선택한다. 
+
+### 3. 안드로이드 WiFi IP주소 확인 
+
+```powershell 
+❯ adb shell ip addr show wlan0
+36: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 3000
+    link/ether 7c:f3:1b:b6:99:67 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.97/24 brd 192.168.0.255 scope global wlan0
+      valid_lft forever preferred_lft forever
+    inet6 fe80::7ef3:1bff:feb6:9967/64 scope link
+      valid_lft forever preferred_lft forever
+```
+
+### 4. USB 연결 제거 후 "adb connect" 명령어로 안드로이드 단말의 Adb서버에 연결한다.  
+
+```powershell
+> adb connect 192.168.0.47:8888
      connected to 192.168.0.47:8888
 ```
+
+### 5. "adb devices" 명령어로 연결 정보를 확인한다.  
+
+```powershell
+❯ adb devices
+List of devices attached
+192.168.0.97:8803       device
+``` 
 
 ## 7. APK Install 
 
