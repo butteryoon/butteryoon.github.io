@@ -10,26 +10,32 @@ related: oci
 categories: tools
 ---
 
-오라클 클라우드 [상시 무료 클라우드](https://www.oracle.com/kr/cloud/free/#always-free) 서비스를 이용하여 무료로 쓸 수 있는 서버를 만들고 [duckdns](https://www.duckdns.org) 서비스를 이용해 도메인으로 접속해본다. 
-
-> 상시무료 : 무제한으로 이용하실 수 있는 서비스입니다. ( 제한된 범위 내에서 무제한 입니다. )
+오라클 클라우드 [상시 무료 클라우드](https://www.oracle.com/kr/cloud/free/#always-free) 서비스를 이용하여 무료로 쓸 수 있는 서버를 만들고 [duckdns](https://www.duckdns.org) 서비스를 이용해 도메인으로 접속할 수 있는 환경을 구성해본다.  
 
 프리티어 소개 페이지에는 AWS 클라우드 프리티어과 비교하여 오라클 클라우드의 이점이 잘 나와 있다. 
 
-> 개인용 웹서버나 개발서버로 쓰기에는 부족함이 없어 보인다.
+> 개인용 웹서버나 개발서버로 용도로 사용하기 좋으나 최대로 뽑아낸다면 가벼운 서비스는 충분히 돌릴 수 있을거 같다. 
+
+![oci Freetier]({{site.baseurl}}/assets/img/m_oci-freetier.webp)
 
 <!--more-->
 
 ## 인스턴스 생성. 
 
-프리티어 인스턴스는 2개를 만들 수 있고 이미지는 선택 가능한데 기본으로 오라클리눅스 7.9가 제공된다.
+[프리티어 인스턴스](https://cloud.oracle.com/compute/instances)는 2개를 만들 수 있고 이미지는 선택 가능한데 기본으로 오라클리눅스 7.9가 제공된다.
 
 두개의 인스턴스를 만들 수 있으니 1개는 기본 오라클 리눅스르 설정하고 다른 한개는 우분투 20.04 LTS를 설치하기로 한다. 
 
-오라클 클라우드 인스턴스에 접속할 수 있는 공인IP가 기본으로 제공되는데 인스턴스를 재부팅해도 유지된다. 
 
+## 공인 IP  
 
-## node.js 설치 
+오라클 클라우드 인스턴스에 접속할 수 있는 공인IP가 기본으로 제공되는데 인스턴스를 재부팅해도 유지되지만 기본으로 제공되는 공인IP는 임시로 할당되는 IP로 인스턴스 재시작에 따라 바뀔 수 있다고 한다. 
+
+프리티어에서도 변경되지 않는 "[예약된 공용 IP 주소](https://cloud.oracle.com/networking/ip-management/public-ips)"를 1개 설정할 수 있다. 
+
+> 네트워킹 >> IP 관리 >> 공용 IP
+
+## 테스트 서비스 설정
 
 간단한 API서버를 위해 우분투 인스턴스에 node.js를 설치하기로 하고 패키지 관리자는 snap을 써보기로 한다.
 
@@ -38,6 +44,13 @@ ubuntu@instance-20210116-0003:~$ sudo snap install node --classic --channel=14
 Download snap "core" (10583) from channel "stable" ( ... skip )
 ... (skip)
 node (14/stable) 14.15.4 from OpenJS Foundation (iojs✓) installed
+```
+
+파이썬 웹서버 모듈을 이용해서 간단하게 설정할 수도 있다. 
+
+```bash
+ubuntu@instance-20210116-0003:~$ python3 -m http.server 3000
+Serving HTTP on 0.0.0.0 port 3000 (http://0.0.0.0:3000/) ...
 ```
 
 ## 서비스 "수신 규칙" 추가 
@@ -49,7 +62,7 @@ node (14/stable) 14.15.4 from OpenJS Foundation (iojs✓) installed
 > 위치 : 네트워킹 >> 가상 클라우드 네트워크 >> vcn-20210115-1556 >> 보안 목록 세부정보 >> 수신 규칙  
 > ssh 접속을 위한 22번 설정이 되어 있으니 참고한다. 
 
-![opc_add rules]({{site.baseurl}}/assets/img/opc_add_rules.png)
+![opc_add rules]({{site.baseurl}}/assets/img/m_opc_add_rules.webp)
 
 ## 오라클 리눅스 방화벽 정책 추가 
 
@@ -113,9 +126,12 @@ $ sudo service iptables restart
 
 ## duckdns.org 서비스 
 
-무료 도메인이 필요한 경우에는 "duckdns.org"서비스에서 5개 까지 도메인을 만들 수 있고 [Install](https://www.duckdns.org/install.jsp)메뉴에 보면 각 OS에서 사용할 수 있는 툴 및 스크립트를 볼 수 있으며 오라클 인스턴스에서는 cron을 이용할 수 있다. 
+무료 도메인이 필요한 경우에는 "duckdns.org"서비스에서 5개 까지 서브 도메인을 만들 수 있고 [Install](https://www.duckdns.org/install.jsp)메뉴에 보면 각 OS에서 사용할 수 있는 업데이트 툴 및 스크립트를 볼 수 있으며 오라클 인스턴스에서는 cron을 이용할 수 있다.  
 
-아래의 내용을 쉘 스크립트로 만들고 약 5분 주기로 설정한다. 
+아래의 내용을 쉘 스크립트로 만들고 약 5분 주기로 설정하면 해당 서버의 공인IP가 바뀌었을 때 duckdns 도메인의 IP가 업데이트 된다. 
+
+> duckdns 페이지에 로그인하고 할당된 token을 사용한다.  
+> 공인IP가 바뀌면 duckdns 페이지에서 IP를 입력한 후 업데이트를 할 수 도 있다. 
 
 ```bash
 echo url="https://www.duckdns.org/update?domains=exampledomain&token=a7c4d0ad-ba1d-d217904a50f2&ip=" | curl -k -o ~/duckdns/duck.log -K -
@@ -123,8 +139,9 @@ echo url="https://www.duckdns.org/update?domains=exampledomain&token=a7c4d0ad-ba
 
 duckdns.org 페이지에 로그인해 보면 등록한 도메인 현황을 볼 수 있다. 
 
+## TL;DR  
 
-위 설정으로 간단한 웹 서비스를 구동하고 인터넷에서 자신의 도메인으로 서비스 접속이 가능하며 [Letsencrypt](https://letsencrypt.org) 서비스로 인증서를 받아 https 서비스도 가능하다. 
+위 설정으로 간단한 웹 서비스를 구동하고 인터넷에서 자신의 도메인으로 서비스 접속이 가능하며 [Letsencrypt](https://letsencrypt.org) 서비스로 인증서를 받아 https 서비스도 가능한 서버를 만들 수 있다. 
 
 
 
