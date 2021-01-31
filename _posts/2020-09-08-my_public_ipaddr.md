@@ -4,7 +4,8 @@ title: "외부 공인 IP 확인하여 슬랙에 공유하기"
 fig-caption: "외부 공인 IP 확인하여 슬랙에 공유하기"
 img: "M_photo-cabling.jpg"
 date: 2020-09-08 21:00:00 +0900
-tags: [duckdns, ipify, slack, webhook] # add tag
+tags: [duckdns, ipify, slack, webhook, terminal] # add tags 
+related: terminal
 categories: tools
 ---
 

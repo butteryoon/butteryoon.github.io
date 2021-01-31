@@ -5,7 +5,7 @@ description: "오라클 클라우드 프리티어 인스턴스를 만들고 기�
 img: cloud-title.webp
 date: 2021-01-18 19:00:00 +0900
 last_modified_at: 2021-01-18 19:00:00 +0900
-tags: [oci, oracle cloud, oracle Linux, firewalld, iptables] # add tag
+tags: [oci, oracle cloud, oracle Linux, firewalld, iptables, tag1] # add tag
 related: oci
 categories: tools
 ---
@@ -145,6 +145,7 @@ duckdns.org 페이지에 로그인해 보면 등록한 도메인 현황을 볼 �
 
 
 
-## 참고 URL
-  -  [Linux Firewall: (firewalld, firewall-cmd, firewall-config)](https://oracle-base.com/articles/linux/linux-firewall-firewalld){:target="_blank"}
--  [Linux firewalls: What you need to know about iptables and firewalld](https://opensource.com/article/18/9/linux-iptables-firewalld){:target="_blank"}
+## 참고 url
+- [OCI Free Tier 계정 등록](http://taewan.kim/oci_docs/10_quickstart/how_to_sign_up_oci/){:target="_blank"}
+- [Linux Firewall: (firewalld, firewall-cmd, firewall-config)](https://oracle-base.com/articles/linux/linux-firewall-firewalld){:target="_blank"}
+- [Linux firewalls: What you need to know about iptables and firewalld](https://opensource.com/article/18/9/linux-iptables-firewalld){:target="_blank"}
