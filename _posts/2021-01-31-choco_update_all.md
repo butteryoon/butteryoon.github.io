@@ -58,7 +58,7 @@ Upgraded:
 
 ## 업그레이드 과정 확인 영상.
 
-{% youtube "https://youtu.be/MPWg6l171jo" %}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MPWg6l171jo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## 참고 URL
 - [Chocolatey Upgrade](https://docs.chocolatey.org/en-us/choco/commands/upgrade#mainContent){:target="_blank"}
