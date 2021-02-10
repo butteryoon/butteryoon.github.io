@@ -16,7 +16,7 @@ categories: tools
 
 물론 테이블의 속성유형을 선택 이나 다중선택으로 하고 이모지를 이용해서 태그를 만들어 놓아도 되지만 간단한 수식으로 필들를 만들어 놓으면 다른 필드 선택에 의해 자동으로 원하는 우선순위를 지정할 수 있다. 
 
-![notion task]({{site.baseurl}}/assets/img/notion_priority_task.png) 
+![notion task]({{site.baseurl}}/assets/img/notion_priority_task.png)
 
 ## 긴급, 중요 체크박스 필드 
 
@@ -36,8 +36,8 @@ if(prop("긴급"),
 
 우선순위 필드를 생성하는 과정을 정리.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kQ1AZA61hfA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+ {% youtube "https://www.youtube.com/watch?v=kQ1AZA61hfA" %}
 
 ## 참고 URL
 - [Notion Formulas: Prioritize Tasks Automatically](https://www.notion.vip/notion-formulas-prioritize-tasks-automatically/){:target="_blank"}
