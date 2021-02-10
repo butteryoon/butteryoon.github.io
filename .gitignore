@@ -2,10 +2,12 @@
 _site
 .sass-cache
 .jekyll-metadata
+.jekyll-cache
 yarn.lock
 Gemfile.lock
 package-lock.json
 node_modules/
+_drafts/
 
 ### macOS ###
 *.DS_Store
@@ -36,4 +38,6 @@ Temporary Items
 
 # editor
 .MWebMetaData 
-.vs
+.vscode
+*.vs
+*.swp

@@ -12,6 +12,11 @@ categories: dev
 
 ffmpeg을 이용해서 인코딩된 영상 저장 및 변환을 위한 명령어를 알아본다. 
 
+## FFmpeg Windows Builds
+
+Windows용 ffmpeg은 [FFmpeg Windows Builds](https://www.gyan.dev/ffmpeg/builds/)에서 git를 이용하거나 release 링크를 통해 다운로드 받을 수 있다. 
+
+
 ## 영상 다시 생성하기 
 
 MP4 영상 vod 스트리밍시 seek 가 안되는 경우 mp4 영상을 ffprobe로 보면 아래와 같이 start 값이 영상의 길이보다 큰 경우가 있다.  
@@ -39,8 +44,16 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'filename.mp4':
 
 > 그냥 실행하면 터미널에 로그를 찍느라 시간이 오래 걸리므로 로그는 /dev/null 로 보내버린다. 
 
-```powershell
+### for Linux 
+
+```bash
 ffmpeg -i input.mp4 -codec copy output.mp4 > /dev/null 2>&1
+```
+
+### for Windows  
+
+```powershell
+ffmpeg -i choco_upgrade_all.mp4 -codec copy output.mp4 > $null
 ```
 
 ## CCTV 실시간 영상 보관하기
@@ -55,7 +68,7 @@ CCTV와 같은 계속되는 영상을 1시간 단위로 1일동안 보관하고�
 아래는 약 10분짜리 영상을 60초 단위로 분할한다. 
 
 ```powershell
-❯ ffmpeg.exe -i .\BigBuckBunny.mp4 -codec copy -f segment -segment_list out.list -segment_time 60 -segment_wrap 24 out%03d.mp4
+> ffmpeg.exe -i .\BigBuckBunny.mp4 -codec copy -f segment -segment_list out.list -segment_time 60 -segment_wrap 24 out%03d.mp4
 
 ffmpeg version 4.3.1-2020-10-01-full_build-www.gyan.dev Copyright (c) 2000-2020 the FFmpeg developers
   built with gcc 10.2.0 (Rev3, Built by MSYS2 project)

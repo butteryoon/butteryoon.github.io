@@ -36,8 +36,9 @@ if(prop("긴급"),
 
 우선순위 필드를 생성하는 과정을 정리.
 
-
- {% youtube "https://www.youtube.com/watch?v=kQ1AZA61hfA" %}
+<div class='embed-container'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kQ1AZA61hfA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## 참고 URL
 - [Notion Formulas: Prioritize Tasks Automatically](https://www.notion.vip/notion-formulas-prioritize-tasks-automatically/){:target="_blank"}

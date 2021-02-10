@@ -121,7 +121,13 @@ $ sudo vi /etc/iptables/rules.v4
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 3000 -j ACCEPT
 ... (skip)
 
-$ sudo service iptables restart
+$ sudo service iptables restart 
+```
+
+현재 설정된 iptables 규칙은 아래의 명령어로 저장할 수 있다. 
+
+```bash
+sudo sh -c "iptables-save > /etc/iptables/rules.v4" 
 ```
 
 ## duckdns.org 서비스 
