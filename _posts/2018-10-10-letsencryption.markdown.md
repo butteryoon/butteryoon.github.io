@@ -4,7 +4,7 @@ title: "letsencrypt 인증서 발급하기"
 description: "letsencrypt 인증서 발급하기"
 img: "letsencryption.png"
 date: 2019-04-20 20:05:00 +0900
-last_modified_at: 2020-12-10 20:05:00 +0900
+last_modified_at: 2021-02-19 14:05:00 +0900
 tags: [letsencrypt, HTTPS, 인증서] 
 related: letsencrypt
 categories: dev
@@ -41,7 +41,7 @@ git clone https://github.com/letsencrypt/letsencrypt
 
 설치 후 인증서만 다운로드 하기 위해 아래의 명령어를 실행. 
 
-> ./letsencrypt-auto certonly --manual
+> ./letsencrypt-auto certonly --manual  
 
 ```bash
 [root@localhost letsencrypt]# ./letsencrypt-auto certonly --manual
@@ -51,12 +51,13 @@ To use Certbot, packages from the EPEL repository need to be installed.
 Enable the EPEL repository and try running Certbot again.
 ```
 
-git pull로 최신버전 다운로드 이후 아래와 같이 Bootstrap 관련 경고가 발생하여 **--no-Bootstrap** 옵션 추가   
-이후는 동일하게 진행한다(root 계정에서 실행)
-완료이후 /etc/letsencrypt/live/도메인 디렉토리에 인증서가 생성된다. 
+git pull로 최신버전 다운로드 이후 아래와 같이 Bootstrap 관련 경고가 발생하여 **--no-Bootstrap** 옵션을 추가 한다.    
+성공하면 /etc/letsencrypt/live/도메인 디렉토리에 인증서가 생성된다. 
+
+> ./letsencrypt-auto certonly --manual --no-bootstrap -d test.duckdns.org
 
 ```bash
-[@localhost letsencrypt]# ./letsencrypt-auto certonly --manual --no-bootstrap
+[@localhost letsencrypt]# ./letsencrypt-auto certonly --manual --no-bootstrap -d test.duckdns.org
 Requesting to rerun ./letsencrypt-auto with root privileges...
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
@@ -81,7 +82,7 @@ Are you OK with your IP being logged?
 
 letsencrypt에서는 도메인소유 인증을 위해 지정한 도메인의 특정 URL로 요청하여 지정된 문자열을 확인한다. 
 
-```
+```bash
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Create a file containing just this data:
 h70rfIM6APUpoMV-1afecuZfUgBw3Bdy4EMq0FftQI4.......tyLmv3IZf3ebDBsJhI
@@ -93,7 +94,8 @@ http://test.domain.com/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0Fft
 
 실서버의 구조를 바꾸기 어려운 경우 파이썬으로 임시 웹서버를 구동하여 진행한다. 
 
-간단하게 파이썬 **SimpleHTTPServer** 모듈로 가능하다   
+간단하게 파이썬 **SimpleHTTPServer** 모듈로 가능하다    
+
 > python3 에서 SimpleHTTPServer는 http.server 안에 통합되었다. (http://bit.ly/2Zt39My) 
 
 ```bash
@@ -102,7 +104,7 @@ or
 python3 -m http.server 8000
 ``` 
 
-도메인소유 인증을 시도하면 아래와 같은 웹 로그를 확인할 수 있다.  
+도메인소유 인증을 시도하면 아래와 같은 웹 로그를 확인할 수 있다.    
 > 4개의 호스트에서 접속을 시도를 한다.  
 
 ```bash
@@ -155,6 +157,8 @@ lrwxrwxrwx 1 root root  38 12월 10 18:20 cert.pem -> ../../archive/test.domain.
 
 기존에 발급 받은 인증서를 90일 이전에 재발급 할 경우에는 아래와 같이 **--renew-by-default** 옵션을 추가한다.  
 
+> 친절하게 메일을 보내준다.  
+
 ```bash
 [root@localhost letsencrypt]# ./letsencrypt-auto certonly --renew-by-default --manual --no-bootstrap
 ./letsencrypt-auto has insecure permissions!
@@ -168,7 +172,26 @@ Performing the following challenges:
 http-01 challenge for test.domain.com
 ```
 
-끝.
+## 인증서 발급 및 갱신 실패 
+
+개발용을 쓰고 있던 test.iptime.org DDNS로 갱신을 하려고 하니 아래와 같이 CAA record 오류가 발생한다. 
+
+"iptime.org"와 같은 DDNS 서비스인 경우 letsencrypt에서 발급가능한 서브 도메인 개수가 정해져 있어서 그럴 수 있다고 하는데 다시 해보고 안되면 인증서 발급 제한정책을 알아봐야겠다. 
+
+```bash
+Waiting for verification...
+Challenge failed for domain test.iptime.org
+http-01 challenge for test.iptime.org
+Cleaning up challenges
+Some challenges have failed.
+
+IMPORTANT NOTES:
+ - The following errors were reported by the server:
+ -
+ - Domain: test.iptime.org
+ - Type:   caa
+ - Detail: CAA record for test.iptime.org prevents issuance.
+``` 
 
 ## 참고 
 - [Lets' Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
