@@ -4,7 +4,7 @@ title: "letsencrypt 인증서 발급하기"
 description: "letsencrypt 인증서 발급하기"
 img: "letsencryption.png"
 date: 2019-04-20 20:05:00 +0900
-last_modified_at: 2021-02-19 14:05:00 +0900
+last_modified_at: 2021-03-23 15:05:00 +0900
 tags: [letsencrypt, HTTPS, 인증서] 
 related: letsencrypt
 categories: dev
@@ -193,9 +193,45 @@ IMPORTANT NOTES:
  - Detail: CAA record for test.iptime.org prevents issuance.
 ``` 
 
+### CAA 인증 
+
+인증기관은 인증서를 발급하기 전에 CAA RR(리소스 레코드)를 확인하고 처리해야 하며 Let's Encrypt는 2020년 6월 이후 [End of Life Plan for ACMEv1](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) 정책에 따라 ACMEv2로 변경되면서 CAA RR을 확인할 수 없는 도메인에서는 SSL 인증서를 발급받을 수 없다고 한다. 
+
+> CAA는 사이트 소유자가 도메인 이름을 포함한 인증서를 발급할 수 있는 CA(인증기관)을 지정할 수 있도록 하는 DNS 레코드 유형 입니다.  
+> 참고 : [인증기관 허가](https://letsencrypt.org/ko/docs/caa/) 
+ 
+
+"iptime.org" 의 CAA RR을 확인해 보면 아래와 같이 ";"로 설정되어 있는데 인증기관에서 확인을 할 수 없어서 거부되는걸로 보인다. 
+
+> iptime에서 CAA에 letsencrypt 인증서를 허가하도록 설정해야 하는데 아무래도 안하겠지 !! 
+
+```powershell
+❯ wsl dig caa iptime.org
+. . . 
+;; QUESTION SECTION:
+;iptime.org.                    IN      CAA
+
+;; ANSWER SECTION:
+iptime.org.             33548   IN      CAA     0 issue ";"
+iptime.org.             33548   IN      CAA     0 issuewild ";"
+```
+
+한가지 궁금한건 "duckdns.org"를 보면 아래와 같이 CAA RR 정보가 안보이는데 인증서발급이 되는걸 보면 없으면 모두 허용인가? 
+
+```powershell
+❯ wsl dig caa duckdns.org
+. . .
+;; QUESTION SECTION:
+;duckdns.org.                   IN      CAA
+
+;; AUTHORITY SECTION:
+duckdns.org.            597     IN      SOA     ns3.duckdns.org. hostmaster.duckdns.org. 2020191202 6000 120 2419200 600
+```
+
 ## 참고 
-- [Lets' Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
-- [Let's encrypt 의 인증서를 생성할 때 주의사항](https://findstar.pe.kr/2018/09/08/lets-encrypt-certificates-rate-limit/)
+- [Let's Encrypt 시작하기](https://letsencrypt.org/ko/getting-started/)
+- [Let's Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
+- [Let's encrypt의 인증서를 생성할 때 주의사항](https://findstar.pe.kr/2018/09/08/lets-encrypt-certificates-rate-limit/)
 - [인증서갱신](https://letsencrypt.readthedocs.io/en/latest/using.html#re-creating-and-updating-existing-certificates)
 - [Install Let's Encrypt to Create SSL Certificates](https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/)
 
