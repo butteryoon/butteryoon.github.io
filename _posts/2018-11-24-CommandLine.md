@@ -112,7 +112,22 @@ PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=500, Time=2269510870  7 493
 # setcap cap_net_raw,cap_net_admin+eip /usr/sbin/dumpcap
 ```
 
-##
+## fc 커멘드라인 명령어 수정. 
+
+명령어라인으로 파라미터가 많은 명령어를 내렸을 때 오타가 있거나 수정해야 할 부분이 있을 때 사용한다. "fc" 명령어로 단독으로 쓰면 바로 이전 명령어가 에디터로 열리고 수정하여 실행할 수 있고 "fc -e - 4248"과 같이 이전 명령어 히스토리 번호로 이전 명령어를 바로 실행할 수도 있다. 
+
+> "fc -l" 히스토리 목록은 "history" 명령어의 목록과 동일하다. 
+
+```bash 
+$ fc -l
+ 4248  bundle exec jekyll serve --host 0.0.0.0 --port 4000 --no-watch
+ 4249  fc -l
+ 4250  man bash
+$ fc 4248
+ edit command line 
+ run 
+$ fc -e - 4248 
+```
 
 ## 참고 URL
 - [Bash scripting cheatsheet](https://devhints.io/bash.html)
@@ -121,5 +136,6 @@ PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=500, Time=2269510870  7 493
 - [tshark을 이용한 패킷 덤프](https://butteryoon.github.io/dev/2019/05/19/pcketdump.html)
 - [Date time in Linux bash](https://unix.stackexchange.com/questions/85982/date-time-in-linux-bash)
 - [일정 기간내 수정된 파일 찾기](http://thompsonng.blogspot.com/2020/04/linux-find-last-modified-fie-from-n-day.html)
+- [Linux and Unix fc command tutorial with examples](https://shapeshed.com/unix-fc/)
 
 [Bash]: https://www.gnu.org/software/bash/
