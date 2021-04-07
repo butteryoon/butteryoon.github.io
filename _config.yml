@@ -1,11 +1,6 @@
 title: Awesome Life   
 description: > # this means to ignore newlines until "baseurl:"
-  이 블로그는 윈도우즈 및 리눅스 환경에서 시스템 구성 및 모니터링 관련 정보를 공유하기 위한 블로그 입니다.  
-  - Windows10 Pro, Windows Terminal, PowerShell 7.1 
-  - WSL Ubunto 20.04 Distro, Oh-My-Zsh
-  - VSCode, gvim with Vundle
-  - MS PowerToy, Chocolatey
-  - Slack, Notion
+  윈도우즈 및 리눅스 터미널 환경에서 할 수 있는 것들에 대한 정보를 공유하기 위한 블로그입니다. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://butteryoon.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: softroom #if your site has a twitter account, enter it here
