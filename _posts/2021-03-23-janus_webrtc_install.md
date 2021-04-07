@@ -25,16 +25,19 @@ WebRTC의 기술적인 사양은 차차 공부해가기로 하고 "WebRTC Server
 
 서버는 오라클 인스턴스 프리티어에 설치된 우분투 20.04 배포를 사용한다. 
 > Server : Oracle Cloud Instance Ubuntu 20.04 LTE Free Tier   
+> 도메인은 duckdns.org 
+> 인증서는 letsencrypt
 > WSL 또는 MacOS에서도 설치 가능. 
 
-Ubuntu 20.04 환경에 맞지 않는 부분만 기록해본다. 
+OCI 환경의 Ubuntu 20.04 LTS 환경에 맞지 않는 부분만 기록해본다. 
 
 ## 필수 라이브러리 설치 
 
 "aptitude"를 이용해서 기본 라이브러리 패키지를 설치한다. 
 
-> aptitude는 Ncurses 인터페이스로 패키지를 관리할 수 있다. 
-> libsrtp-dev는 수동 설치한다. 
+> aptitude는 Ncurses 인터페이스로 패키지를 관리할 수 있다.   
+> README 파일에서는 "libsrtp-dev"를 설치하라고 하는데 Ubuntu 20.04 LTS에서는 찾을 수 없어 libsrtp2-dev를 설치했다. 
+
 
 ```bash
 sudo aptitude install \
@@ -46,9 +49,7 @@ sudo aptitude install \
 
 ## libsrtp-dev v2.2.0
 
-README 파일에서는 "libsrtp-dev"를 설치하라고 하는데 Ubuntu 20.04 LTS에서는 찾을 수 없어 libsrtp2-dev를 설치했다. 
-
-libsrtp-dev는 Janus WebRTC서버에서 Data Channel 데모에서 사용하는데 Ubuntu 20.04에서는 오류가 생겨서 수동으로 기존 libsrtp2-dev를 삭제하고 수동으로 패키지를 설치해야 한다. 
+libsrtp-dev는 Janus WebRTC서버에서 Data Channel 데모에서 사용하는데 Ubuntu 20.04에서는 오류가 생겨서 수동으로 기존 libsrtp2-dev를 삭제하고 수동으로 패키지를 설치해야 한다.
 
 libsrtp2-dev는 "2.3.x"버전인데 아래의 이슈가 있어 "2.2.0"버전으로 설치. 
 
@@ -63,6 +64,14 @@ tar xfv v2.2.0.tar.gz
 cd libsrtp-2.2.0
 ./configure --prefix=/usr --enable-openssl
 make shared_library && sudo make install
+```
+
+## libnice
+
+```bash
+git clone https://gitlab.freedesktop.org/libnice/libnice
+cd libnice
+meson --prefix=/usr build && ninja -C build && sudo ninja -C build install
 ```
 
 ## SSL 라이브러리 
@@ -84,9 +93,21 @@ cd usrsctp
 make && sudo make install
 ```
 
+## etc .. 
+
+libwebsockets, MQTT, libnanomsg-dev, rabbitmq-c 라이브러리는 README 대로 설치한다. 
+
+doxygen, graphviz는 PASS. 
+
+
 ## Janus Gateway compile
 
-/opt/janus 디렉토리에 패키지를 설치한다. 특정기능을 사용하지 않을 수도 있지만 데모 확인을 위해 기본 설정으로 진행한다. 
+/opt/janus 디렉토리에 패키지를 설치한다. 특정기능을 사용하지 않을 수도 있지만 데모 확인을 위해 기본 설정으로 진행한다.  
+
+> 기본 EchoTest만 시험하려면 아래처럼 부가기능은 제외한다.  
+> ./configure --disable-websockets --disable-data-channels --disable-rabbitmq --disable-mqtt 
+
+
 
 ```bash
 git clone https://github.com/meetecho/janus-gateway.git
@@ -104,6 +125,7 @@ Janus WebRTC Gateway를 위한 기본 설정파일은 "/opt/janus/etc/janus" 디
 
  - janus.jcfg
  - janus.transport.http.jcfg
+
 
 ### - janus.jcfg  
 
@@ -126,22 +148,29 @@ certificates: {
 
 "Janus WebRTC Gateway" 서버와 웹서버가 동일서버에 있고 localhost로 테스트 한다면 https 설정과 인증서 설정은 하지 않아도 된다. 
 
-하지만 외부 웹서버에서 WebRTC 디바이스를 오픈하려면 HTTPS가 설정이 필요하다. (크롬 보안설정에서 바꿀 수 있는지는 모르겠다. )
+하지만 localhost가 아닌 외부 웹페이지에서 WebRTC 디바이스를 오픈하려면 HTTPS가 설정이 필요하다. (크롬 보안설정에서 바꿀 수 있는지는 모르겠다. )
 
-> 인증서는 "Let's Encrypt"에서 발급. 
+> 인증서는 "Let's Encrypt" 사용한다. [letsencrypt 인증서 발급하기]({{ site.baseurl }}{% link _posts/2018-10-10-letsencryption.markdown.md %})
+
 
 ```bash
 general: {
+  ... (skip)
   https = true              # Whether to enable HTTPS (default=false)
   secure_port = 8089        # Web server HTTPS port, if enabled
+  ... (skip)
 }
 admin: {
+  ... (skip)
   admin_https = true        # Whether to enable HTTPS (default=false)
   admin_secure_port = 7889  # Admin/monitor web server HTTPS port, if enabled
+  ... (skip)
 }
 certificates: {}
+  ... (skip)
   cert_pem = "/usr/local/antmedia/conf/fullchain.pem"
   cert_key = "/usr/local/antmedia/conf/privkey.pem"
+  ... (skip)
 }
 ```
 
@@ -170,7 +199,8 @@ Testing STUN server: message is of 20 bytes
 
 각 플러그인의 초기화 로그 아래 각 REST-API를 처리하기 위한 웹서버 포트 정보와 상태가 표시된다. 
 
-> 웹서버가 https면 "janus gateway" REST요 서버도 https로 호출된다.   
+> 웹서버가 https면 "janus gateway" REST 서버도 https로 호출된다. 
+
 
 ```bash 
 . . . (skip plugin log)
@@ -192,9 +222,14 @@ WebSockets thread started
 
 ## Demos 웹 서비스 
 
-"Janus WebRTC Gateway"를 구동했으면 DEMO 페이지를 띄워보자. 데모는 "/opt/janus/share/janus/demos/" 디렉토리에 js, html 파일이 있어 Static 웹서버를 구동하여 띄울 수 있다. 
+"Janus WebRTC Gateway"를 구동했으면 DEMO 페이지를 띄워보자.
+
+데모는 "/opt/janus/share/janus/demos/" 디렉토리에 js, html 파일이 있어 Static 웹서버를 구동하여 띄울 수 있다. 
 
 시험을 위해 "python3"로 웹서버를 띄우고 https를 위해 아래와 같이 인증서를 설정해준다. 
+
+demos 디렉토리에서 아래의 파이썬 스크립트를 실행한다. 
+
 
 ```python
 from http.server import HTTPServer, SimpleHTTPRequestHandler
@@ -218,7 +253,7 @@ ubuntu@instance-20210116-0003:/opt/janus$ tree -d
 .
 ├── bin                     # janus 바이너리. 
 ├── etc
-│   └── janus               # make configs로 만들어지는 기본 설정파일
+│   └── janus               # make configs로 만들어지는 기본 설정파일.
 ├── include
 │   └── janus
 │       ├── events
@@ -231,12 +266,12 @@ ubuntu@instance-20210116-0003:/opt/janus$ tree -d
 │       ├── loggers
 │       ├── plugins
 │       └── transports
-├── log
+├── log                     # 데몬으로 띄웠을 때 로그 디렉토리.
 └── share         
     ├── doc
     │   └── janus-gateway
     ├── janus
-    │   ├── demos            # 데모 페이지 
+    │   ├── demos            # 데모 페이지. 
     │   │   ├── css
     │   │   ├── docs
     │   │   ├── surround
@@ -263,8 +298,6 @@ ubuntu@instance-20210116-0003:/opt/janus$ tree -d
 [ERR] [dtls.c:janus_dtls_srtp_incoming_msg:924] [6715407664108631]  -- 1 (srtp_err_status_fail)
 [janus.plugin.textroom-0x7f80fc003e10] No WebRTC media anymore
 ```
-
-
 
 aptitude로 설치된 패키지 삭제 후 v2.2.0버전을 컴파일하여 설치한다. 
 
