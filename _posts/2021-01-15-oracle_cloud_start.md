@@ -26,14 +26,28 @@ categories: tools
 
 두개의 인스턴스를 만들 수 있으니 1개는 기본 오라클 리눅스르 설정하고 다른 한개는 우분투 20.04 LTS를 설치하기로 한다. 
 
+### Image and shape
+
+- 인스턴스 생성화면에서 "Change Image" 버튼을 누르면 만들 이미지를 선택할 수 있다. 
+
+![oci image]({{site.baseurl}}/assets/img/m_oci_create_instances.webp)
+
+### 생성된 인스턴스 확인
+
+ - 오라클 리눅스 와 우분투 인스턴스 생성 결과 
+
+![oci instances]({{site.baseurl}}/assets/img/oci_instances.png)
 
 ## 공인 IP  
 
 오라클 클라우드 인스턴스에 접속할 수 있는 공인IP가 기본으로 제공되는데 인스턴스를 재부팅해도 유지되지만 기본으로 제공되는 공인IP는 임시로 할당되는 IP로 인스턴스 재시작에 따라 바뀔 수 있다고 한다. 
 
-프리티어에서도 변경되지 않는 "[예약된 공용 IP 주소](https://cloud.oracle.com/networking/ip-management/public-ips)"를 1개 설정할 수 있다. 
+프리티어에서도 변경되지 않는 "예약된 공용 IP 주소"를 1개 설정할 수 있다. 
 
-> 네트워킹 >> IP 관리 >> 공용 IP
+> [네트워킹 >> IP 관리 >> 공용 IP](https://cloud.oracle.com/networking/ip-management/public-ips){:target="_blank"}   
+> [OCI VM 고정 IP 설정](http://taewan.kim/oci_docs/10_quickstart/compute/linux_vm_with_reserved_ip/){:target="_blank"} 페이지 참고.   
+
+![oci public ips]({{site.baseurl}}/assets/img/oci_publicip.png) 
 
 ## 테스트 서비스 설정
 
@@ -145,10 +159,17 @@ echo url="https://www.duckdns.org/update?domains=exampledomain&token=a7c4d0ad-ba
 
 duckdns.org 페이지에 로그인해 보면 등록한 도메인 현황을 볼 수 있다. 
 
+## 비용 확인 
+
+"프리티어"인 경우 비용이 청구되지 않는게 기본인데 네트워크 트래픽이 제한을 넘었을 경우 어떻게 처리되는지 모르겠다. 
+
+[비용추정](https://www.oracle.com/cloud/cost-estimator.html) 링크에서 사용한 비용을 확인할 수 있다. 
+
+![oci Cost Esimator]({{site.baseurl}}/assets/img/m_oci_cost_estimator.webp)
+
 ## TL;DR  
 
 위 설정으로 간단한 웹 서비스를 구동하고 인터넷에서 자신의 도메인으로 서비스 접속이 가능하며 [Letsencrypt](https://letsencrypt.org) 서비스로 인증서를 받아 https 서비스도 가능한 서버를 만들 수 있다. 
-
 
 
 ## 참고 url

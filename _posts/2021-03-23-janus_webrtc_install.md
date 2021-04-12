@@ -246,6 +246,20 @@ httpd.serve_forever()
 
 ![demo_about]({{site.baseurl}}/assets/img/janus_demos_list.webp)
 
+## OCI iptables rules
+
+"Janus gateway demo"를 위해 설정한 iptables 규칙은 아래와 같다. 
+
+```bash
+-A INPUT -p udp -m udp --dport 5000:65000 -j ACCEPT                   # DATA Channel
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 58803 -j ACCEPT   # DEMO Static Web Site
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 7088 -j ACCEPT    # REST-API for HTTP
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 7889 -j ACCEPT    # REST-API for HTTPS
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT    # Admin for HTTP
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 8089 -j ACCEPT    # Admin for HTTPS
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 8188 -j ACCEPT    # WebSocket
+```
+
 ## Janus Directory 
 
 ```bash
