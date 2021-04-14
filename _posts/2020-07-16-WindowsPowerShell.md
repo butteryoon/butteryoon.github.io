@@ -5,8 +5,8 @@ description: "Windows PowerShell 에서 쓸 수 있는 기본 명령어들을 �
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
 last_modified_at: 2021-01-14 17:00:00 +0900
-tags: [Windows, powershell, ps1, script] # add tag
-related: powershell
+tags: [Windows10, powershell, ps1, script] # add tag
+related: Windows10
 categories: dev
 ---
 

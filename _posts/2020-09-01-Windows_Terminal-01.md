@@ -1,9 +1,12 @@
 ---
 layout: post
 title: "Windows Terminal"
+description: "새로운 Windows Terminal 활용하기."
 img: "M_WindowsTerminalPreview.png"
 date: 2020-09-01 21:00:00 +0900
-tags: [Windows, Terminal, wsl2] # add tag
+last_modified_at: 2021-04-14 22:00:00 +0900
+tags: [Windows10, Terminal, wsl2] # add tag
+related: Windows10
 categories: tools
 ---
 
@@ -70,7 +73,7 @@ Windows Terminal의 설정은 json 파일로 되어 있어 편집이 가능하�
 
 > 설정파일 : settings.json 
 
-```
+```powershell
 C:\Users\사용자
 \AppData\Local\Packages
 \Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState

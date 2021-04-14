@@ -5,8 +5,8 @@ description: "Windwos PowerSheel에서 TCP 연결 정보 및 관련 프로세스
 img: "M_photo-cabling.jpg"
 date: 2020-08-28 15:29:00 +0900
 last_modified_at: 2020-10-28 19:00:00 +0900
-tags: [windows, powershell, comlet, netstat] # add tag
-related: powershell
+tags: [Windows10, powershell, comlet, netstat] # add tag
+related: Windows10
 categories: tools
 ---
 
