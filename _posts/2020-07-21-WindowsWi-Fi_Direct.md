@@ -1,9 +1,12 @@
 ---
 layout: post
 title: "Windows 10 Wi-Fi Direct"
+description: "윈도우즈10 에서 Wi-Fi 다이렉트 기능 확인."
 img: WiFi-Direct-Cover.png
 date: 2020-07-21 18:24:00 +0900
+last_modified_at: 2021-04-14 22:00:00 +0900
 tags: [Windows10, Wi-Fi, Direct, wireless, hotspot] # add tag
+related: Windows10
 categories: dev
 ---
 
@@ -18,7 +21,7 @@ Windows 10 에서 Wi-Fi Direct 기능 설정을 위한 숟가락질 ..
 설정 > 네트워크 및 인터넷 > Wi-Fi 설정에 Wi-Fi Direct 설정이 보이지 않는다. 
 Windows의 IP 설정에는 Adapter가 보이는데. 
 
-```
+```powershell
 ❯ ipconfig /all 
 
 무선 LAN 어댑터 로컬 영역 연결* 2:
@@ -37,7 +40,7 @@ Windows의 IP 설정에는 Adapter가 보이는데.
 
 hostednetwork 설정은 제대로 되는데 아래처럼 시작이 안된다.  
 
-```
+```powershell
 > netsh wlan show hostednetwork
 
 호스트된 네트워크 설정
@@ -76,5 +79,5 @@ Feem 설치 후 Wi-Fi Direct On으로 하니 Wi-Fi Direct 인터페이스 설정
 [Feem Download](https://www.feem.io/#download)
 
 ## 참고 URL
--  [Windows 10 into a wireless hotspot](https://www.windowscentral.com/how-turn-your-windows-10-pc-wireless-hotspot)
--  [WiFi Driect for Windows 10](https://www.windowsinside.com/wifi-direct-windows-10)
+- [Windows 10 into a wireless hotspot](https://www.windowscentral.com/how-turn-your-windows-10-pc-wireless-hotspot)
+- [WiFi Driect for Windows 10](https://www.windowsinside.com/wifi-direct-windows-10)

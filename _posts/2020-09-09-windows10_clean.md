@@ -68,9 +68,11 @@ PSDrive      : HKLM
 PSProvider   : Microsoft.PowerShell.Core\Registry
 ```
 
-## https://chocolatey.org
+## [chocolatey](https://chocolatey.org)
 
 윈도우즈 패키지 관리자로 터미널에서 패키지 설치/삭제/업데이트 관리를 할 수 있다. 
+
+> WinRAR 패키지 찾아보기 
 
 ```powershell
 PS C:\Users\softr> choco search winRAR
@@ -81,6 +83,11 @@ winrar 5.91 [Approved] Downloads cached for licensed users
 Did you know Pro / Business automatically syncs with Programs and
  Features? Learn more about Package Synchronizer at
  https://chocolatey.org/compare
+```
+
+검색결과 버전이 다른 패키지가 있을 경우 "--version" 파라미터로 특정 버전을 설치할 수 있다. 
+
+```powershell
 PS C:\Users\softr> choco install winrar --version 5.91
 Chocolatey v0.10.15
 Installing the following packages:
@@ -123,4 +130,6 @@ regedit /E "putty-settings.reg" HKEY_CURRENT_USER\Software\SimonTatham
 ```
 
 
-# 참고 URL 
+## 참고 URL  
+
+- [Install Chocolatey](https://chocolatey.org/install)

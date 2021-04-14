@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Windows 10 키 매핑"
+title: "Windows 10 키 매핑 바꾸기"
 description: "윈도우즈 10 에서 PowerToys로 키보드 매핑을 바꾸는 방법"
 img: image-title.jpg
 date: 2021-04-13 12:00:00 +0900
@@ -16,13 +16,13 @@ MACOS를 쓰다보면 한/영 전환키가 "CapsLock" 키로 되어 있어 Windo
 
 [Microsoft PowerToys](https://docs.microsoft.com/en-us/windows/powertoys/)로 기존 키 매핑을 간단하게 바꿀 수 있다. 
 
-[AutoHotKey](https://www.autohotkey.com)를 이용하는 방법도 있는데 키 매핑만 변경하려면 PowerToys가 더 간단하다. 
+> [AutoHotKey](https://www.autohotkey.com)를 이용하는 방법도 있는데 키 매핑만 변경하려면 PowerToys가 더 간단하다. 
 
 ## MS PowerToy 설치 
 
 [PowerToys](https://docs.microsoft.com/ko-kr/windows/powertoys/install) 페이지에서 실행파일로 설치한다. 
 
-[Chocolatey](https://community.chocolatey.org/packages/powertoys)를 사용하면 아래와 같이 명령어로 간단하게 설치할 수 있다. 
+> [Chocolatey](https://community.chocolatey.org/packages/powertoys)를 사용하면 아래와 같이 명령어로 간단하게 설치할 수 있다. 
 
 ```powershell
 choco install powertoys
