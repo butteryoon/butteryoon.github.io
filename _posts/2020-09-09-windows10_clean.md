@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Windows10 Clean"
+title: "Windows 10 Clean"
 description: "Windows 10 PC 깔끔하게 관리하기"
 img: "vscode-title.jpg"
 date: 2020-09-08 20:00:00 +0900
