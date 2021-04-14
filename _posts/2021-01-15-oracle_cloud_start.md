@@ -32,9 +32,18 @@ categories: tools
 
 ![oci image]({{site.baseurl}}/assets/img/m_oci_create_instances.webp)
 
+### Add SSH Keys 
+
+오라클 클라이언트 리눅스 인스턴스는 SSH 키 로그인만 제공하기 때문에 반드시 키를 설정해야 한다. 
+
+> 인스턴스 생성시 SSH Key pair를 만들고 "Private Key"는 다운로드 하고 SSH 접속시 설정한다.   
+> 인스턴스 생성후 설정하는 방법은 못찾았다.
+
+![oci add ssh Keys]({{site.baseurl}}/assets/img/m_oci_create_instances_add_ssh_keys.webp)
+
 ### 생성된 인스턴스 확인
 
- - 오라클 리눅스 와 우분투 인스턴스 생성 결과 
+- 오라클 리눅스 와 우분투 인스턴스 생성 결과와 실행상태를 확인할 수 있다. 
 
 ![oci instances]({{site.baseurl}}/assets/img/oci_instances.png)
 

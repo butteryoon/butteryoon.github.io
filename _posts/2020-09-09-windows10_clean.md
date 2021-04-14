@@ -3,7 +3,7 @@ layout: post
 title: "Windows10 Clean"
 img: "vscode-title.jpg"
 date: 2020-09-08 20:00:00 +0900
-tags: [Visual Studio Code, vscode, Font, D2Coding] # add tag
+tags: [Windows10, Visual Studio Code, vscode, Font, D2Coding] # add tag
 related: Windows10
 categories: tools
 ---
