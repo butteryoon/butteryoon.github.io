@@ -1,18 +1,22 @@
 ---
 layout: post
 title: "Windows10 Clean"
+description: "Windows 10 PC 깔끔하게 관리하기"
 img: "vscode-title.jpg"
 date: 2020-09-08 20:00:00 +0900
+last_modified_at: 2024-04-14 18:00:00 +0900
 tags: [Windows10, Visual Studio Code, vscode, Font, D2Coding] # add tag
 related: Windows10
 categories: tools
 ---
 
+Windows 10 PC를 사용하면서 필요한 것들을 기억나는대로 정리해본다. 
+
+<!--more-->
 
 ## svccare.exe 삭제. 
 
-언재부터인가 PC가 이상한 느낌이 들어 찾아보면 돌고 있다.  
-Google에 검색해도 별 정보가 없어서 그냥 지우기로 한다.  
+언재부터인가 PC가 이상한 느낌이 들어 찾아보면 돌고 있는 프로세스. Google에 검색해도 별 정보가 없어서 그냥 지우기로 한다.  
 
 아래 디렉토리는 모두 지운다. 
 
@@ -39,6 +43,8 @@ Mode                 LastWriteTime         Length Name
 
 ## Windows 10 sshd
 
+Windows 10 PC에 SSH 서버 설정. 데스크탑으로 쓸 때는 거의 필요 없는데 WSL을 설치하면서 간단한 스크립트 테스트용으로 쓴다. 
+
 [Windows의 OpenSSH](https://docs.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_overview)
 [Configure SSH Server With Windows 10 Native Way](https://medium.com/rkttu/set-up-your-ssh-server-in-windows-10-native-way-1aab9021c3a6)
 [Windows 10 네이티브 방식으로 SSH 서버 설정하기](https://medium.com/beyond-the-windows-korean-edition/windows-10-네이티브-방식으로-ssh-서버-설정하기-64988d87349)
@@ -63,6 +69,8 @@ PSProvider   : Microsoft.PowerShell.Core\Registry
 ```
 
 ## https://chocolatey.org
+
+윈도우즈 패키지 관리자로 터미널에서 패키지 설치/삭제/업데이트 관리를 할 수 있다. 
 
 ```powershell
 PS C:\Users\softr> choco search winRAR
@@ -107,6 +115,8 @@ PS C:\Users\softr> choco install winrar --checksum64 B79A53D84C41F50AAD0CB38D091
 ```
 
 ## putty 설정 파일 저장 
+
+putty 세션설정 정보 백업, 설정이 레지스트리에 등록되어 있다. 
 
 ```
 regedit /E "putty-settings.reg" HKEY_CURRENT_USER\Software\SimonTatham
