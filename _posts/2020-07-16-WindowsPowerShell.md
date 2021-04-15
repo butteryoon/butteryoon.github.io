@@ -4,13 +4,13 @@ title: "Windows PowerShell 기본 명령어 익히기"
 description: "Windows PowerShell 에서 쓸 수 있는 기본 명령어들을 알아보고 Linux 명령어와 비교해본다."
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
-last_modified_at: 2021-01-14 17:00:00 +0900
+last_modified_at: 2021-04-15 21:00:00 +0900
 tags: [Windows10, powershell, ps1, script] # add tag
 related: Windows10
 categories: dev
 ---
 
-Windows의 GUI 환경은 휼륭하다(최소한 Windows 10버전은) 하지만 가끔은 마우스로 원하는 기능을 찾기가 정말 힘들 때가 있다. 
+Windows의 GUI 환경은 휼륭(최소한 Windows 10버전은)하지만 가끔은 마우스로 원하는 기능을 찾기가 정말 힘들 때가 있다. 
 
 특히 Windows에서 시험환경이나 반복되는 작업을 할 경우에는 아무래도 명령어라인 콘솔이 있으면 더 편리하게 작업을 할 수 있다. 
 
@@ -30,7 +30,7 @@ Name                           Value
 PSVersion                      5.1.18362.752
 ```
 
-## 파워쉘 프로파일 설정 
+## PowerShell 프로파일 설정 
 
 Linux 최초 구동시 ".bashrc"와 같이 PowerShell 기본 설정은 아래의 명령어로 확인 할 수 있고 자신만의 명령어를 정의하려면 "CurrentUserCurrentHost" 파일에 추가한다. 
 
@@ -66,21 +66,47 @@ Name                              Category  Module                    Synopsis
 Uninstall-Package                 Cmdlet    PackageManagement         Uninstall-Package...
 ```
 
-## 주로 쓰는 명령어 정리 
+## 명령어 정리 
 
-Linux 명령어 쉘에 익숙하다면 "Get-Alias" 명령어를 찾아보면 파워쉘의 기본 명령어를 알아볼 수 있다. 
+PowerShell Comlet은 리눅스 bash 환경의 명령어와는 형식이 달라 접근하기가 어렵지만 명령어 뒤에 하이픈(-)을 치고 탭을 누르면 파라미터 목록들을 확인할 수 있는 등 편리한 기능들이 많다. 
+
+Windows Terminal에서 주로 쓰는 명령어를 정리해본다. 
+
+### alias
+
+PowerShell에서는 Linux 명령어 형식의 명령어를 사용할 수 있는데 주요 명령어들이 Alias로 정의되어 있고 "Get-Alias"로 목록을 볼 수 있다. 
 
 ```powershell
-❯ Get-Alias curl
+❯ Get-Alias ls, md, cp, rm, history, kill, man, cat, grep
 
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Alias           curl -> Invoke-WebRequest
+CommandType     Name                          Version    Source
+-----------     ----                          -------    ------
+Alias           ls -> Get-ChildItem
+Alias           md -> mkdir
+Alias           cp -> Copy-Item
+Alias           rm -> Remove-Item
+Alias           history -> Get-History
+Alias           kill -> Stop-Process
+Alias           man -> help
+Alias           cat -> Get-Content
+Alias           grep -> Select-String
+```
+
+"Set-Alias"로 자신의 명령어를 정의할 수 있다. 
+
+```powershell
+Set-Alias vi -Value vim
+Set-Alias python -Value 'C:\Python39\python.exe'
+Set-Alias grep -Value select-string
+Set-Alias hash -Value Get-FileHash
 ```
 
 ### Uninstall-Package : 설치된 프로그램 삭제  
 
-Get-Package -Name Ahn* 명령어로 프로그램 이름을 찾은 후 삭제한다.
+"Get-Package -Name Ahn*" 명령어로 프로그램 이름을 찾을 수 있고 "Uninstall-Packages"로 설치된 패키지를 지울 수 있다. 
+
+> PowerShell 7에서는 Install-Packages로 설치한 패키지만 볼 수 있다. 
+
 
 ```powershell
 ❯ Uninstall-Package -Name ipMonitor10
@@ -94,7 +120,7 @@ ipMonitor10                    10.9.1
 
 ### Get-Content : 파일 정보 확인 및 출력
 
-파일의 내용이나 정보 확인. (cmd 에서는 type이었던거 같은데)
+파일의 내용이나 정보 확인한다. (cmd 에서는 type이었던거 같은데)
 
 > cat, type 명령어도 모두 "Get-Content"와 매핑되어 있다. 
 
@@ -111,21 +137,11 @@ ignore =
     api_key=0e64xxxx-xxxx-xxxx-xxxx-xxxx2865xxxx
 ```
 
-cat 명령어도 Alias 설정 되어 있다. 
-
-> ls, grep 등등 명령어로 get-alias 명령어로 찾아보면 파워쉘의 기본 명령어를 찾을 수 있다. 
-
-```powershell
-PS > get-alias cat
-
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Alias           cat -> Get-Content
-```
-
 ### Get-Process : 프로세스 정보 조회
 
-로컬포트를 사용하는 프로세스 Id를 검색 하고 "Stop-Process -Name" 명령어로 Kill 할 수 있다. 
+PowerShell Comlet의 결과는 Object로 관리되고 해당 변수의 값을 가져올 수 있다. 
+
+로컬PC에서 특정 TCP포트를 사용하는 프로세스 Id를 검색 하고 "Stop-Process -Name" 명령어로 Kill 할 수 있다. 
 
 ```powershell
 ❯ Get-Process -Id (Get-NetTCPConnection -LocalPort 58803).OwningProcess
@@ -136,6 +152,8 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 ```
 
 ### 실행중인 프로세스 파일버전 표시. 
+
+특정 프로세스의 바이너리 정보를 확인할 때 사용한다. 
 
 ```powershell
 ❯ Get-Process liveview -FileVersionInfo
@@ -148,7 +166,7 @@ ProductVersion   FileVersion      FileName
 ### Resolv-DnsName : 도메인의 IP 찾기.    
 
 nslookup 명령어를 사용해도 된다.  
-가끔 도메인이 필요할 때가 있어 duckdns.org 서비스를 이용하는데 내 랩탑의 IP가 제대로 업데이트 되었는지 확인 할 때 사용한다. 
+가끔 도메인이 필요할 때가 있어 duckdns.org 서비스를 이용하는데 내 노트북의 IP가 제대로 업데이트 되었는지 확인 할 때 사용한다. 
 
 ```powershell
 ❯ Resolve-DnsName softroom.duckdns.org
@@ -195,7 +213,8 @@ Mode                 LastWriteTime         Length Name
 
 wget 명령어가 "Invoke-WebRequest"로 Alias 설정되어 있다. 
 
-> wget.exe를 받아서 쓰는게 속 편하긴 하다. 
+> 스크립트가 아니고 터미널에서 쓸 때는 wget.exe를 쓰는게 좋다.  
+> 반응이 쫌 느리다.  
 
 ```powershell
 wget http://ax.itunes.apple.com/detection/itmsCheck.js -o itemsCheck.js
@@ -207,7 +226,7 @@ CommandType     Name                                               Version    So
 Alias           wget -> Invoke-WebRequest
 ```
 
-### Widows Uptime
+### Windows Uptime
 
 Linux의 uptime 명령어와 같은 기능이며 파워쉘 함수로 등록해서 사용한다. 
 
@@ -231,8 +250,7 @@ LastBootUpTime
 
 ## HASH 
 
-Linux에서 해시값을 구할 때 쓰는 md5sum, sha256 과 동일한 cmdlet 이다. 
-
+Linux에서 해시값을 구할 때 쓰는 md5sum, sha256 과 동일한 기능이다. 
 
 ```powershell
 ❯ Get-FileHash -Algorithm md5 .\README.md
@@ -250,12 +268,11 @@ SHA256          88F9ED20AB1ACDC0C8699A63174903C994670AEEB67B1725E147A937E8236B78
 
 ## Symbolic Link 
 
-리눅스에서 "ln -s" 과 동일한 심볼릭링크 명령어.   
+리눅스에서 "ln -s" 과 동일한 심볼릭링크 명령어로 링크를 걸 수 있다. 
 
 > New-Item -ItemType SymbolicLink -Path "Link" -Target "Target"   
 
-```PowerShell 
-⨯ ⚡ softr@YOON-IP700  ~                                                                                [17:49]
+```powershell
 ❯ New-Item -ItemType SymbolicLink -Path Dropbox -Target D:\Dropbox\
 
     Directory: C:\Users\softr
