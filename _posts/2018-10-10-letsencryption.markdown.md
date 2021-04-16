@@ -4,7 +4,7 @@ title: "letsencrypt 인증서 발급하기"
 description: "letsencrypt 인증서 발급하기"
 img: "letsencryption.png"
 date: 2019-04-20 20:05:00 +0900
-last_modified_at: 2021-03-23 15:05:00 +0900
+last_modified_at: 2021-04-16 11:05:00 +0900
 tags: [letsencrypt, HTTPS, 인증서] 
 related: letsencrypt
 categories: dev
@@ -16,6 +16,10 @@ categories: dev
 
 회사 웹서버는 호스팅을 하고 있고 수정이 피곤하여 배포시험을 위한 임시 서버에 인증서만 받아 인하우스 배포를 시험하기로 한다.
 
+<!--more-->
+
+## letsencrypt 발급절차 
+
 letsencrypt 에서 인증서를 받기 위한 절차는 아래와 같다.
 
 생각보다 간단하다.
@@ -26,7 +30,6 @@ letsencrypt 에서 인증서를 받기 위한 절차는 아래와 같다.
    - 자동화 스크립트 설정이 가능하다. 
 4. 끝. 
 
-
 ## git 저장소에서 letsencrypt clone 
 
 ```bash
@@ -35,11 +38,7 @@ git clone https://github.com/letsencrypt/letsencrypt
 
 ## 인증서 신규 발급 
 
-> certonly --manual  
-> nginx 또는 아파치 웹서버 구동 환경에서는 "certbot-auto" 스크립트를 사용하여 자동으로 적용까지 가능하다.  
-
-
-설치 후 인증서만 다운로드 하기 위해 아래의 명령어를 실행. 
+nginx 또는 아파치 웹서버 구동 환경에서는 "certbot-auto" 스크립트를 사용하여 자동으로 적용까지 가능하지만 메뉴얼으로 인증서만 받기로 한다. 
 
 > ./letsencrypt-auto certonly --manual  
 
@@ -92,19 +91,20 @@ http://test.domain.com/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0Fft
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
 
-실서버의 구조를 바꾸기 어려운 경우 파이썬으로 임시 웹서버를 구동하여 진행한다. 
+실서버의 구조를 바꾸기 어려운 경우 파이썬으로 임시 웹서버를 구동하여 인증절차를 진행하며 확인은 80포트로 진행되기 때문에 NAT환경이라면 공유기 포트포워딩 설정으로 80포트를 원하는 서버로 설정해야 한다. 
 
-간단하게 파이썬 **SimpleHTTPServer** 모듈로 가능하다    
+간단하게 파이썬 **SimpleHTTPServer** 모듈로 가능하다.    
 
 > python3 에서 SimpleHTTPServer는 http.server 안에 통합되었다. (http://bit.ly/2Zt39My) 
 
 ```bash
-python -m SimpleHTTPServer 8000 
+python -m SimpleHTTPServer 8803 
 or 
-python3 -m http.server 8000
+python3 -m http.server 8803
 ``` 
 
 도메인소유 인증을 시도하면 아래와 같은 웹 로그를 확인할 수 있다.    
+
 > 4개의 호스트에서 접속을 시도를 한다.  
 
 ```bash
@@ -193,7 +193,13 @@ IMPORTANT NOTES:
  - Detail: CAA record for test.iptime.org prevents issuance.
 ``` 
 
-### CAA 인증 
+## 인증서 정보 확인 
+
+letsencrypt에서 발급받은 인증서는 "[crt.sh](https://crt.sh)"에서 확인할 수 있다. 
+
+![crt.sh]({{site.baseurl}}/assets/img/lete_crt.sh.png)
+
+## CAA 인증 
 
 인증기관은 인증서를 발급하기 전에 CAA RR(리소스 레코드)를 확인하고 처리해야 하며 Let's Encrypt는 2020년 6월 이후 [End of Life Plan for ACMEv1](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) 정책에 따라 ACMEv2로 변경되면서 CAA RR을 확인할 수 없는 도메인에서는 SSL 인증서를 발급받을 수 없다고 한다. 
 
