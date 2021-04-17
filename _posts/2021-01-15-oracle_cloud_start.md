@@ -12,11 +12,13 @@ categories: tools
 
 오라클 클라우드 [상시 무료 클라우드](https://www.oracle.com/kr/cloud/free/#always-free) 서비스를 이용하여 무료로 쓸 수 있는 서버를 만들고 [duckdns](https://www.duckdns.org) 서비스를 이용해 도메인으로 접속할 수 있는 환경을 구성해본다.  
 
-프리티어 소개 페이지에는 AWS 클라우드 프리티어과 비교하여 오라클 클라우드의 이점이 잘 나와 있다. 
+오라클 클라우드 프리티어는 2개의 인스턴스가 상시무료로 제공되고 AWS에 비해 기본 제공 저장용량이 크다. 아웃바운드 대역폭 비용이 1/4 이라면 스트리밍 서비스등에서는 고려해 볼 만하다.
 
-> 개인용 웹서버나 개발서버로 용도로 사용하기 좋으나 최대로 뽑아낸다면 가벼운 서비스는 충분히 돌릴 수 있을거 같다. 
+![oci Freetier]({{site.baseurl}}/assets/img/m_oci_aws_compare.webp){:width="800px"}
 
-![oci Freetier]({{site.baseurl}}/assets/img/m_oci-freetier.webp)
+개인용 웹서버나 개발서버로 용도로 가벼운 서비스는 충분히 돌릴 수 있을거 같다. 
+
+![oci Freetier]({{site.baseurl}}/assets/img/m_oci-freetier.webp){:width="800px"}
 
 <!--more-->
 
@@ -24,20 +26,22 @@ categories: tools
 
 [프리티어 인스턴스](https://cloud.oracle.com/compute/instances)는 2개를 만들 수 있고 이미지는 선택 가능한데 기본으로 오라클리눅스 7.9가 제공된다.
 
-두개의 인스턴스를 만들 수 있으니 1개는 기본 오라클 리눅스르 설정하고 다른 한개는 우분투 20.04 LTS를 설치하기로 한다. 
+두개의 인스턴스를 만들 수 있으니 1개는 기본 오라클 리눅스르 설정하고 다른 한개는 우분투 20.04 LTS를 설치하기로 한다. ( *윈도우즈 서버는 프리티어에서 제공되지 않는다.* )
 
 ### Image and shape
 
 - 인스턴스 생성화면에서 "Change Image" 버튼을 누르면 만들 이미지를 선택할 수 있다. 
+- 프리티어로 제공되는 "VM.Standard.E2.1.Micro" shape는 OCPU 1, MEM 1GB, Bandwidth 480Mbps가 제공된다. 
+- **VM.Standard.E2.1.Micro** : Processor: AMD EPYC 7551. Base frequency 2.0 GHz, max boost frequency 3.0 GHz. *[Compute Shapes](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm#Compute_Shapes)*
 
-![oci image]({{site.baseurl}}/assets/img/m_oci_create_instances.webp)
+![oci image]({{site.baseurl}}/assets/img/m_oci_create_instances.webp){:width="800px"}
 
 ### Add SSH Keys 
 
 오라클 클라이언트 리눅스 인스턴스는 SSH 키 로그인만 제공하기 때문에 반드시 키를 설정해야 한다. 
 
 > 인스턴스 생성시 SSH Key pair를 만들고 "Private Key"는 다운로드 하고 SSH 접속시 설정한다.   
-> 인스턴스 생성후 설정하는 방법은 못찾았다.
+> 인스턴스 생성후 설정방법은 없는거 같고 최초 접속시 one time 패스워드가 제공된다고 한다. 
 
 ![oci add ssh Keys]({{site.baseurl}}/assets/img/m_oci_create_instances_add_ssh_keys.webp)
 
@@ -47,11 +51,11 @@ categories: tools
 
 ![oci instances]({{site.baseurl}}/assets/img/oci_instances.png)
 
-## 공인 IP  
+## 공인 IP
 
 오라클 클라우드 인스턴스에 접속할 수 있는 공인IP가 기본으로 제공되는데 인스턴스를 재부팅해도 유지되지만 기본으로 제공되는 공인IP는 임시로 할당되는 IP로 인스턴스 재시작에 따라 바뀔 수 있다고 한다. 
 
-프리티어에서도 변경되지 않는 "예약된 공용 IP 주소"를 1개 설정할 수 있다. 
+프리티어에서도 변경되지 않는 "예약된 공용 IP 주소"를 1개 설정할 수 있다.
 
 > [네트워킹 >> IP 관리 >> 공용 IP](https://cloud.oracle.com/networking/ip-management/public-ips){:target="_blank"}   
 > [OCI VM 고정 IP 설정](http://taewan.kim/oci_docs/10_quickstart/compute/linux_vm_with_reserved_ip/){:target="_blank"} 페이지 참고.   
@@ -82,14 +86,15 @@ Serving HTTP on 0.0.0.0 port 3000 (http://0.0.0.0:3000/) ...
 
 인스턴스를 생성할 때 VCN을 같게 설정하면 동일한 네트워크에서 인스턴스간 통신을 허용할 수 있고 동일한 수신정책을 적용할 수 있다. 
 
-> 위치 : 네트워킹 >> 가상 클라우드 네트워크 >> vcn-20210115-1556 >> 보안 목록 세부정보 >> 수신 규칙  
+- 메뉴 : 네트워킹 >> 가상 클라우드 네트워크 >> vcn-20210115-1556 >> 보안 목록 세부정보 >> 수신 규칙  
 > ssh 접속을 위한 22번 설정이 되어 있으니 참고한다. 
 
 ![opc_add rules]({{site.baseurl}}/assets/img/m_opc_add_rules.webp)
 
-## 오라클 리눅스 방화벽 정책 추가 
 
 AWS와 마찬가지로 오라클 클라우드도 "수신규칙"을 추가한 후 리눅스 인스턴스의 방화벽정책을 추가해주어야 한다. 
+
+### 오라클 리눅스 방화벽 정책 추가 
 
 오라클 리눅스 인스턴스에는 firewalld 서비스가 기본으로 동작하므로 firewall-cmd 명령어로 규칙을 추가한다. 
 
@@ -114,7 +119,7 @@ ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:22 ctstate
 ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:3000 ctstate NEW,UNTRACKED
 ```
 
-## 우분투 리눅스 방화벽 정책 추가 
+### 우분투 리눅스 방화벽 정책 추가 
 
 우분투 리눅스의 경우에는 iptables 명령어로 직접 추가하거나 rules 저장파일을 편집하여 포트를 추가한다. 
 
@@ -163,14 +168,14 @@ sudo sh -c "iptables-save > /etc/iptables/rules.v4"
 > 공인IP가 바뀌면 duckdns 페이지에서 IP를 입력한 후 업데이트를 할 수 도 있다. 
 
 ```bash
-echo url="https://www.duckdns.org/update?domains=exampledomain&token=a7c4d0ad-ba1d-d217904a50f2&ip=" | curl -k -o ~/duckdns/duck.log -K -
+echo url="https://www.duckdns.org/update?domains=exampledomain&token=a7c4d0ad-xxxx-d217904a50f2&ip=" | curl -k -o ~/duckdns/duck.log -K -
 ```
 
 duckdns.org 페이지에 로그인해 보면 등록한 도메인 현황을 볼 수 있다. 
 
 ## 비용 확인 
 
-"프리티어"인 경우 비용이 청구되지 않는게 기본인데 네트워크 트래픽이 제한을 넘었을 경우 어떻게 처리되는지 모르겠다. 
+"프리티어"인 경우 비용이 청구되지 않는게 기본인데 네트워크 트래픽이 제한을 넘었을 경우 어떻게 처리되는지 모르겠다. (생각해보니 대역폭 최대가 480Mbps 내에서만 제공될거 같다.)
 
 [비용추정](https://www.oracle.com/cloud/cost-estimator.html) 링크에서 사용한 비용을 확인할 수 있다. 
 
