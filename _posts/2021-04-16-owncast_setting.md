@@ -17,16 +17,9 @@ categories: dev
 
 ## Owncast [Quickstart](https://owncast.online/quickstart) 
 
-Owncast는 인스톨 스크립트를 제공하고 curl로 간단하게 설치 가능한데 아래의 필수 유틸리티는 꼭 있어야 한다. 
+Owncast는 인스톨 스크립트를 제공하고 curl로 간단하게 설치 가능한데 아래의 필수 유틸리티는 꼭 있어야 한다.
 
-```bash
-  requireTool "curl"
-  requireTool "unzip"
-  requireTool "tar"
-  requireTool "which"
-```
-
-ffmpeg은 install.sh 스크립트에서 체크하여 미 설치 상태이면 다운로드 한다. 
+> "curl", "unzip", "tar", "which" 
 
 ```bash
 ubuntu@instance-20210116-0003:~$ curl -s https://owncast.online/install.sh | bash
@@ -34,6 +27,22 @@ Owncast Installer v0.0.6
 
 Created directory  [✓]
 Downloaded Owncast v0.0.6 for linux  [✓]
+
+Success! Run owncast by changing to the owncast directory and run ./owncast.
+The default port is 8080 and the default streaming key is abc123.
+Visit https://owncast.online/docs/configuration/ to learn how to configure your new Owncast server.
+```
+
+Path에 ffmpeg이 없으면 owncast 디렉토리에 "4.3.1-static" 빌드가 다운로드 된다. 
+
+```bash
+[opc@instance-20210115-1556 ~]$ curl -s https://owncast.online/install.sh | bash
+Owncast Installer v0.0.6
+
+Created directory  [✓]
+Downloaded Owncast v0.0.6 for linux  [✓]
+which: no ffmpeg in (/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin)
+Downloaded ffmpeg because it was not found on your system [✓]
 
 Success! Run owncast by changing to the owncast directory and run ./owncast.
 The default port is 8080 and the default streaming key is abc123.
@@ -83,17 +92,27 @@ OBS 방송 시작 후 스트림이 Owncast 서버로 정상 스트리밍 되면 
 
 ![owscast Status]({{site.baseurl}}/assets/img/m_owncast_status.webp)
 
-## Streaming View
+## Streaming Play and Chat
 
 http://hostname:8080 으로 접속하면 아래처럼 영상플레이어에서 영상이 재생되고 오른쪽에서 채팅을 할 수 있다. 채팅 이력은 admin 페이지에서 확인 가능하다.  
 
+> HTML 플레이어는 "[video.js](https://videojs.com)"를 쓰는거 같다.  
+
 ![owscast Stream View]({{site.baseurl}}/assets/img/m_owncast_rtmp_stream.webp)
+
+## Testing
+
+오라클 클라우드 프리티어 인스턴스에서 FullHD 해상도로 스트리밍을 하면 CPU Full 상태가 된다. 720p로 스트리밍하고 Owncast 어드민 페이지의 "Video Configuration"에서 "Stream output" 설정에서 "CPU Usage"를 Low로 설정하면 어느정도 테스트가 가능했다. 
+
+- **VM.Standard.E2.1.Micro** : Processor: AMD EPYC 7551. Base frequency 2.0 GHz, max boost frequency 3.0 GHz. *[Compute Shapes](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm#Compute_Shapes)*
+- [Owncast 트러블슈팅](https://owncast.online/docs/troubleshooting/?source=admin) 가이드 문서를 참고한다. 
+
+
+![owscast Video Configuration]({{site.baseurl}}/assets/img/m_owncast_video_config.webp)
 
 ## TL;DR
 
-오라클 클라이언트 인스턴스 프리티어가 메모리가 1GB 뿐이라 FullHD 해상도로 스트리밍을 하면 메모리 Full 상태가 된다. 720p로 스트리밍하면 간당간당하게 버티는 듯 하다. 
-
-개인용도의 실시간 스트리밍 서버로 사용을 위해 간단하게 구축하기 적합한 걸로 보인다. 설치 및 설정도 간단하게 적용되고 S3 스토리지와 연동도 가능하다, 
+Owncast의 컨셉처럼 개인용도의 실시간 스트리밍 서버로 구축하기 적합한 걸로 보인다. 설치 및 설정도 간단하게 적용되고 S3 스토리지와 연동도 가능하다. 
 
 기본으로 제공되는 커스터마이징 기능과 WebHook 기능도 시간되면 확인 해보자.
 
