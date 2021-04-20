@@ -4,6 +4,9 @@
 
   <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
 
+  {% if page.url %}
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {% endif %}
     <meta content="{{ site.title }}" property="og:site_name">
   {% if page.title %}
     <meta content="{{ page.title }}" property="og:title">
