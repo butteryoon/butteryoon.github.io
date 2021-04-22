@@ -107,6 +107,9 @@ http://hostname:8080 으로 접속하면 아래처럼 영상플레이어에서 �
 - **VM.Standard.E2.1.Micro** : Processor: AMD EPYC 7551. Base frequency 2.0 GHz, max boost frequency 3.0 GHz. *[Compute Shapes](https://docs.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm#Compute_Shapes)*
 - [Owncast 트러블슈팅](https://owncast.online/docs/troubleshooting/?source=admin) 가이드 문서를 참고한다. 
 
+| Processor | Base Frequency | Max Boost Frequency |
+| :---: | :---: | :---: |
+| AMD EPYC 7551 | 2.0 GHz | 3.0 GHz |
 
 ![owscast Video Configuration]({{site.baseurl}}/assets/img/m_owncast_video_config.webp)
 
