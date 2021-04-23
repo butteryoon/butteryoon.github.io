@@ -82,10 +82,10 @@ me.jpg JPEG 155x108 155x108+0+0 8-bit sRGB 6843B 0.000u 0:00.000
 
 고해상도 이미지를 특정 사이즈로 변경 하고 이미지의 가운데를 기준으로 아래쪽으로 100픽셀을 잘라낸다. 이미지 사이즈를 줄이기위해 이미지 포맷은 webp로 변환한다. 
 
-> -resize 900x600
-> -gravity Center
-> -crop 900x600-0-100
-> 변환 이미지 포맷은 확장자로 정해진다. 
+> -resize 900x600  
+> -gravity Center  
+> -crop 900x600-0-100  
+> 변환 이미지 포맷은 확장자로 정해진다.         
 
 ```powershell
 ❯ magick .\almos-bechtold-AJ_Mou1FUS8-unsplash.jpg -resize 900x600 -gravity Center -crop 900x600-0-100 imagemagick_title_crop.webp

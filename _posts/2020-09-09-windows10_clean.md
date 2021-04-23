@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows 10 Clean"
-description: "Windows 10 PC 깔끔하게 관리하기"
+description: "Windows 10 PC를 깔끔하게 관리하기위해 불필요한 앱들을 삭제하고 필요한 기본 패키지를 설치 및 서비스 설정등을 정리한다."
 img: "vscode-title.jpg"
 date: 2020-09-08 20:00:00 +0900
 last_modified_at: 2024-04-14 18:00:00 +0900
@@ -10,8 +10,7 @@ related: Windows10
 categories: tools
 ---
 
-Windows 10 PC를 사용하면서 필요한 것들을 기억나는대로 정리해본다. 
-
+Windows 10 PC를 깔끔하게 관리하기위해 불필요한 앱들을 삭제하고 필요한 기본 패키지를 설치 및 서비스 설정등을 정리한다.
 <!--more-->
 
 ## svccare.exe 삭제. 
