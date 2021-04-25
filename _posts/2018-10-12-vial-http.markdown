@@ -1,11 +1,78 @@
 ---
 layout: post
-title: "vim 에서 REST 시험"
-date:   2018-10-12 00:51:00 +0900
+title: "vim에서 REST-API 테스트" 
+description: "vim 에디터에서 REST-API 테스트를 위한 도구인 vial-http를 설치하고 간단한 예재를 실행해본다. "
+img: image-title.jpg
+date: 2018-10-12 00:51:00 +0900
+last_modified_at: 2021-04-25 20:00:00 +0900
+tags: [Windows10, gvim, rest, vial-http] # add tag
+related: Windows10
 categories: dev
 ---
-vim에서 HTTP REST API 시험을 위한 확장기능이고 [Vundle](https://github.com/VundleVim/Vundle.vim/blob/master/README_KR.md)로 제공한다.
 
-[vial-http](https://github.com/baverman/vial-http/blob/master/README.md) github 페이지 
+vim 에디터에서 REST-API 테스트를 위한 도구인 "vial-http"를 설치하고 간단한 예재를 실행해본다.
 
-일단 킵...
+REST API 시험을 위한 확장기능이고 [Vundle](https://github.com/VundleVim/Vundle.vim/blob/master/README_KR.md)로 설치 가능하다. 
+
+[vial-http](https://github.com/baverman/vial-http/blob/master/README.md) github 페이지를 참고한다. 
+
+<!--more-->
+
+## vial-http 모듈 설치
+
+".vimrc" 파일에 Vundle을 설치를 위한 플러그인 설정을 추가하고 ":BundleUpdate"으로 모듈을 설치한다. 
+
+```powershell
+...(skip)
+Plugin 'baverman/vial-http'
+Plugin 'phanviet/vim-monokai-pro'                                                                                  
+...(skip)
+```
+
+### \__init__.py 오류 
+
+설치 후 Windows Powershell 환경에서 vim을 실행하려고 하니 아래와 같이 "\__init__.py"에서 오류가 생긴다. 
+
+```powershell
+Error detected while processing VimEnter Autocommands for "*":
+  File "<string>", line 1, in <module>
+Press ENTER or type command to continue
+Error detected while processing VimEnter Autocommands for "*":
+  File "d:\Dropbox\Config\.vim\bundle\vial\vial\__init__.py", line 31, in init
+Press ENTER or type command to continue
+```
+
+"\__init__.py" 파일을 보니 "/tmp" 디렉토리에 에러로그를 쓰는 부분에서 오류가 나고 있다.  
+
+```python
+  27 def init():
+  28     import logging
+  29     root_logger = logging.getLogger()
+  30     root_logger.handlers[:] = []
+  31     root_logger.addHandler(logging.FileHandler('/tmp/vial-error.log'))
+  32     root_logger.addHandler(VimLoggingHandler())
+ ```
+
+Windows의 디렉토리 설정을 맞추기 위해 아래와 같이 "c:\Temp" 디렉토리를 심볼릭링크를 만들어주니 정상 실행된다. 
+
+```powershell
+❯ New-Item -ItemType SymbolicLink -Path tmp -Target C:\Temp\
+
+    Directory: C:\
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+l----        2021-04-25 오후 10:30                tmp -> C:\Temp\
+```
+
+## Examples
+
+[examples](https://github.com/baverman/vial-http/blob/master/doc/tutorial.rst#id1)에 있는 HTTP 헤더를 지정하고 GET 명령어로 헤더를 가져오는 예제를 실행해 보니 아래처럼 결과를 가져와서 가로분할된 창에 결과를 표시한다. 
+
+필수 헤더를 설정하고 GET 라인에서 명령어모드로 전환하고 :VialHttp 명령어를 주면 된다. 
+
+![vial-http examples]({{site.baseurl}}/assets/img/vim_vial-http.png)
+
+## 참고
+
+- [vial-http](https://github.com/baverman/vial-http/blob/master/README.md)
