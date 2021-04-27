@@ -4,7 +4,7 @@ title: "Windows Terminal"
 description: "새로운 Windows Terminal 활용하기."
 img: "M_WindowsTerminalPreview.png"
 date: 2020-09-01 21:00:00 +0900
-last_modified_at: 2021-04-14 22:00:00 +0900
+last_modified_at: 2021-04-27 18:00:00 +0900
 tags: [Windows10, Terminal, wsl2] # add tag
 related: Windows10
 categories: tools
@@ -65,13 +65,13 @@ PowerShell, cmd, wsl2 터미널 이렇게 세개의 창을 배치하고 WSL 창�
 
 ![Terminal Layout]({{site.bashurl}}/assets/img/Terminal_Layout.png) 
 
-## Setting 
-
-![Terminal Setting]({{site.bashurl}}/assets/img/WindowsTerminal_setting.png)   
+## 터미널 설정
 
 Windows Terminal의 설정은 json 파일로 되어 있어 편집이 가능하다. (json 확장자를 Visual Studio Code로 연결해 놓으면 편하게 설정 가능하다.)  
 
-> 설정파일 : settings.json 
+![Terminal Setting]({{site.bashurl}}/assets/img/WindowsTerminal_setting.png)   
+
+아래의 경로에서 설정파일(settings.json)을 직접 편집해도 된다. 
 
 ```powershell
 C:\Users\사용자
@@ -79,6 +79,16 @@ C:\Users\사용자
 \Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
 \settings.json 
 ```
+
+## 터미널 설정 UI
+
+Windows Termninal [1.7.1033.0](https://mspoweruser.com/microsoft-windows-terminal-1-7-1033-0-changelog/) 버전에서는 UI로 설정할 수 있다. 
+
+```powershell
+choco upgrade microsoft-windows-terminal --version=1.7.1033.0
+```
+
+![Terminal Setting-01]({{site.bashurl}}/assets/img/WindowsTerminal_setting-01.webp)   
 
 ## 명령 팔레트 
 
