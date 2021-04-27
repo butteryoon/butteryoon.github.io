@@ -29,21 +29,23 @@ HOST:A(SSHD:22) <--> Firewall <--> Internet <--> HOST:B(SSHD:53022)
 
 ## Reverse Tunneling  
 
+아래 HOST:A는 Windows 10 환경에 SSHD 서버가 설정되어 있고 HOST:B는 레드햇 리눅스 환경이다. 
+
 ### 1. HOST:A 에서 HOST:B로 SSH 연결
 
 man ssh 에서 "-R [bind_address:]port:host:hostport"를 보면 아래와 같이 -R 옵션으로 리모트 서버에 소켓을 열 수 있고 해당 포트로 연결된 SSH 채널로 연결을 할 수 있다. 
 
 ```bash
-     -R [bind_address:]port:host:hostport
-     -R [bind_address:]port:local_socket
-     -R remote_socket:host:hostport
-     -R remote_socket:local_socket
-             Specifies that connections to the given TCP port or Unix socket on the remote (server) host are to
-             be forwarded to the given host and port, or Unix socket, on the local side.  This works by allocat‐
-             ing a socket to listen to either a TCP port or to a Unix socket on the remote side.  Whenever a
-             connection is made to this port or Unix socket, the connection is forwarded over the secure chan‐
-             nel, and a connection is made to either host port hostport, or local_socket, from the local
-             machine.
+-R [bind_address:]port:host:hostport
+-R [bind_address:]port:local_socket
+-R remote_socket:host:hostport
+-R remote_socket:local_socket
+    Specifies that connections to the given TCP port or Unix socket on the remote (server) host are to
+    be forwarded to the given host and port, or Unix socket, on the local side.  This works by allocat‐
+    ing a socket to listen to either a TCP port or to a Unix socket on the remote side.  Whenever a
+    connection is made to this port or Unix socket, the connection is forwarded over the secure chan‐
+    nel, and a connection is made to either host port hostport, or local_socket, from the local 
+    machine.
 ```
 
 아래와 같이 HOST:A 에서 HOST:B로 SSH 연결을 하면 HOST:B에 43022 포트가 열리고 43022 포트로 연결을 하면 HOST:A의 localhost의 22번 포트로 연결된다. 
@@ -88,7 +90,7 @@ sftp>
 
 ### 2-1. HOST:A 에서 22번 포트 연결 상태 확인  
 
-HOST:A 에서 22번으로 연결된 Established 상태의 세션을 보면 ::1 (loopback) 주소로 표시된다.  
+HOST:A 에서 PowerShell 명령어로 22번으로 연결된 Established 상태의 세션을 보면 ::1 (loopback) 주소로 표시된다.  
 
 > SSH 채널을 이용하지 않고 직접 연결이 되면 RemoteAddress에 실제 접속한 IP가 표시된다.  
 
@@ -102,9 +104,11 @@ LocalAddress   LocalPort RemoteAddress  RemotePort State       AppliedSetting Ow
 0.0.0.0        22        0.0.0.0        0          Listen                     5584
 ```
 
-## tl;dr 
+## TL;DR 
 
-방화벽 하단에 있는 서버로 연결이 막혀 있을 경우 내부 서버에서 외부로 연결한 SSH 터널링 연결을 이용해서 접속을 요청한 서버에 접속 할 수 있는 방법이다. 
+방화벽 하단에 있는 서버로 연결이 막혀 있을 경우 내부 서버에서 외부로 연결한 SSH 터널링 연결을 이용해서 외부 서버에서 접속을 요청한 서버에 접속 할 수 있는 방법이다.  
+
+보안상 이슈가 있을 수 있어 필요시에만 쓰는걸로 .. 
 
 
 ## 참고
