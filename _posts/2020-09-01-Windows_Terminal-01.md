@@ -88,7 +88,7 @@ Windows Termninal [1.7.1033.0](https://mspoweruser.com/microsoft-windows-termina
 choco upgrade microsoft-windows-terminal --version=1.7.1033.0
 ```
 
-![Terminal Setting-01]({{site.bashurl}}/assets/img/WindowsTerminal_setting-01.webp)   
+![Terminal Setting-01]({{site.bashurl}}/assets/img/windowsterminal_setting-01.webp)   
 
 ## 명령 팔레트 
 
