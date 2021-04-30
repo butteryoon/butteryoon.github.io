@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "letsencrypt 인증서 발급하기"
-description: "letsencrypt 인증서 발급하기"
+description: "letsencrypt-auto 스크립트로 처음 인증서 발급하는 과정과 90일이 이후 재발급 하는 방법을 설명한다."
 img: "letsencryption.png"
 date: 2019-04-20 20:05:00 +0900
-last_modified_at: 2021-04-16 11:05:00 +0900
-tags: [letsencrypt, HTTPS, 인증서] 
+last_modified_at: 2021-04-30 17:05:00 +0900
+tags: [letsencrypt, HTTPS, 인증서, duckdns.org] 
 related: letsencrypt
 categories: dev
 ---
@@ -57,6 +57,7 @@ git pull로 최신버전 다운로드 이후 아래와 같이 Bootstrap 관련 �
 
 ```bash
 [@localhost letsencrypt]# ./letsencrypt-auto certonly --manual --no-bootstrap -d test.duckdns.org
+
 Requesting to rerun ./letsencrypt-auto with root privileges...
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
@@ -79,21 +80,23 @@ Are you OK with your IP being logged?
 
 ## 도메인 소유 인증 
 
-letsencrypt에서는 도메인소유 인증을 위해 지정한 도메인의 특정 URL로 요청하여 지정된 문자열을 확인한다. 
+letsencrypt에서는 도메인소유 인증을 위해 지정한 도메인의 특정 URL로 요청하여 지정된 문자열을 확인하는 관정을 거친다. 
+
+아래와 같이 ".well-known/acme-challenge/" 디렉토리 아래 안내된 문자열이 있는 파일을 만들고 Enter로 진행한다. 
 
 ```bash
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Create a file containing just this data:
 h70rfIM6APUpoMV-1afecuZfUgBw3Bdy4EMq0FftQI4.......tyLmv3IZf3ebDBsJhI
 And make it available on your web server at this URL:
 http://test.domain.com/.well-known/acme-challenge/h70rfIM6APUpoMV-......4EMq0FftQI4
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue
 ```
 
 실서버의 구조를 바꾸기 어려운 경우 파이썬으로 임시 웹서버를 구동하여 인증절차를 진행하며 확인은 80포트로 진행되기 때문에 NAT환경이라면 공유기 포트포워딩 설정으로 80포트를 원하는 서버로 설정해야 한다. 
 
-간단하게 파이썬 **SimpleHTTPServer** 모듈로 가능하다.    
+파이썬 **SimpleHTTPServer** 모듈로 웹서버를 띄우고 인증을 진행한다. 
 
 > python3 에서 SimpleHTTPServer는 http.server 안에 통합되었다. (http://bit.ly/2Zt39My) 
 
@@ -118,10 +121,9 @@ Serving HTTP on 0.0.0.0 port 8803 ...
 
 ## 인증서 생성 확인 
 
-도메인 소유 인증이 성공하면 아래와같이 간단한 설명을 보여주며 갱신할때는 renew 옵션을 사용한다. 
+도메인 소유 인증이 성공하면 아래와같이 간단한 설명을 보여주며 갱신할때는 renew 옵션을 사용하라고 안내해준다. 
 
 ```bash
-Press Enter to Continue
 Waiting for verification...
 Cleaning up challenges
 
@@ -140,7 +142,7 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 ```
 
-etc 디렉토리에 아래처럼 4개의 인증서파일이 생성된다 
+**/etc/letsencrypt/live/test.domain.com** 디렉토리에 아래처럼 4개의 인증서파일이 생성된다 
 
 ```bash
 [root@localhost letsencrypt]# sudo ls -ltr /etc/letsencrypt/live/test.domain.com
@@ -152,31 +154,38 @@ lrwxrwxrwx 1 root root  39 12월 10 18:20 chain.pem -> ../../archive/test.domain
 lrwxrwxrwx 1 root root  38 12월 10 18:20 cert.pem -> ../../archive/test.domain.com/cert7.pem
 ```  
 
+## 인증서 재발급 (renew) 
 
-## 기존 인증서 재발급 (renew) 
+기존에 발급 받은 인증서를 90일 이전에 재발급 할 경우에는 아래와 같이 **--renew-by-default** 옵션을 추가하고 진행과정은 초기와 동일하다. 
 
-기존에 발급 받은 인증서를 90일 이전에 재발급 할 경우에는 아래와 같이 **--renew-by-default** 옵션을 추가한다.  
-
-> 친절하게 메일을 보내준다.  
+> **Let's Encrypt Expiry Bot <expiry@letsencrypt.org>**이 친절하게 메일을 보내준다.  
 
 ```bash
-[root@localhost letsencrypt]# ./letsencrypt-auto certonly --renew-by-default --manual --no-bootstrap
+[root@localhost letsencrypt]# ./letsencrypt-auto certonly --renew-by-default --manual --no-bootstrap -d test.domain.com
+
 ./letsencrypt-auto has insecure permissions!
 To learn how to fix them, visit https://community.letsencrypt.org/t/certbot-auto-deployment-best-practices/91979/
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
-Plugins selected: Authenticator manual, Installer None
-Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
-to cancel): test.domain.com
+Plugins selected: Authenticator manual, Installer None Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c' to cancel): test.domain.com
 Renewing an existing certificate for test.domain.com
 Performing the following challenges:
 http-01 challenge for test.domain.com
 ```
 
+## 인증서 정보 확인 
+
+letsencrypt에서 발급받은 인증서는 "[crt.sh](https://crt.sh)"에서 확인할 수 있다. 
+
+![crt.sh]({{site.baseurl}}/assets/img/lete_crt.sh.png)
+
+
 ## 인증서 발급 및 갱신 실패 
 
-개발용을 쓰고 있던 test.iptime.org DDNS로 갱신을 하려고 하니 아래와 같이 CAA record 오류가 발생한다. 
+개발용으로 쓰고 있던 test.iptime.org DDNS로 갱신을 하려고 하니 아래와 같이 CAA record 오류가 발생한다. 
 
 "iptime.org"와 같은 DDNS 서비스인 경우 letsencrypt에서 발급가능한 서브 도메인 개수가 정해져 있어서 그럴 수 있다고 하는데 다시 해보고 안되면 인증서 발급 제한정책을 알아봐야겠다. 
+
+> 지금은 duckdns.org를 쓴다. 5개까지 만들 수 있다. 
 
 ```bash
 Waiting for verification...
@@ -193,20 +202,13 @@ IMPORTANT NOTES:
  - Detail: CAA record for test.iptime.org prevents issuance.
 ``` 
 
-## 인증서 정보 확인 
+## CAA 인증 오류
 
-letsencrypt에서 발급받은 인증서는 "[crt.sh](https://crt.sh)"에서 확인할 수 있다. 
-
-![crt.sh]({{site.baseurl}}/assets/img/lete_crt.sh.png)
-
-## CAA 인증 
-
-인증기관은 인증서를 발급하기 전에 CAA RR(리소스 레코드)를 확인하고 처리해야 하며 Let's Encrypt는 2020년 6월 이후 [End of Life Plan for ACMEv1](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) 정책에 따라 ACMEv2로 변경되면서 CAA RR을 확인할 수 없는 도메인에서는 SSL 인증서를 발급받을 수 없다고 한다. 
+인증서 발급시 인증기관은 인증서를 발급하기 전에 CAA RR(리소스 레코드)를 확인하고 처리해야 하며 Let's Encrypt는 2020년 6월 이후 [End of Life Plan for ACMEv1](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) 정책에 따라 ACMEv2로 변경되면서 CAA RR을 확인할 수 없는 도메인에서는 SSL 인증서를 발급받을 수 없다고 한다. 
 
 > CAA는 사이트 소유자가 도메인 이름을 포함한 인증서를 발급할 수 있는 CA(인증기관)을 지정할 수 있도록 하는 DNS 레코드 유형 입니다.  
 > 참고 : [인증기관 허가](https://letsencrypt.org/ko/docs/caa/) 
  
-
 "iptime.org" 의 CAA RR을 확인해 보면 아래와 같이 ";"로 설정되어 있는데 인증기관에서 확인을 할 수 없어서 거부되는걸로 보인다. 
 
 > iptime에서 CAA에 letsencrypt 인증서를 허가하도록 설정해야 하는데 아무래도 안하겠지 !! 
@@ -235,6 +237,7 @@ duckdns.org.            597     IN      SOA     ns3.duckdns.org. hostmaster.duck
 ```
 
 ## 참고 
+
 - [Let's Encrypt 시작하기](https://letsencrypt.org/ko/getting-started/)
 - [Let's Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
 - [Let's encrypt의 인증서를 생성할 때 주의사항](https://findstar.pe.kr/2018/09/08/lets-encrypt-certificates-rate-limit/)
@@ -242,4 +245,5 @@ duckdns.org.            597     IN      SOA     ns3.duckdns.org. hostmaster.duck
 - [Install Let's Encrypt to Create SSL Certificates](https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/)
 
 ## 이슈
+
 - [Ubuntu 20.04 LTS on WSL](https://github.com/jitsi/jitsi-meet/issues/6356)
