@@ -32,5 +32,6 @@ categories: tools
 
 ## 참고 URL
 
+- [바이낸스 아카데미](https://academy.binance.com/ko/start-here){:target="_blank}
 - [초딩도 이해하는 블록체인](https://steemkr.com/kr/@tintom/2fgvq8){:target="_blank"}
 - [메타마스크 사용방법](https://academy.binance.com/ko/articles/how-to-use-metamask){:target="_blank"}
