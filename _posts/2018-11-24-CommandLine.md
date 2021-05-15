@@ -1,16 +1,16 @@
 ---
 layout: post
 title: "리눅스 터미널 명령어 라인 사용하기"
-description: "리눅스 서버를 운영하기 위한 명령어 라인 툴의 사용법을 기능별로 정리해본다."
+description: "리눅스서버 관리를 위한 유용한 명령어 라인 툴의 사용법을 정리해본다."
 img: command.png
 date: 2019-06-07 04:00:00 +0900
 last_modified_at: 2020-05-06 18:00:00 +0900
-tags: [linux, bash, command-line] # add tag
+tags: [command-line, linux, bash, script] # add tag
 related: command-line
 categories: dev
 ---
 
-리눅스서버를 운영에 도움을 줄 수 있는 명령행 툴의 사용법을 기능별로 정리해본다. 리눅스에 기본으로 포함되서 배포되는 툴들도 있지만 별도로 설치해야 하는 툴들도 있다. 
+리눅스서버 운영에 도움을 줄 수 있는 명령행 툴의 사용법을 기능별로 정리해본다. 리눅스에 기본으로 포함되서 배포되는 툴들도 있지만 별도로 설치해야 하는 툴들도 있다. 
 
 <!--more-->
 
@@ -49,19 +49,20 @@ $ tar cvf - * | ssh root@[Target address] tar xf - -C [Target directory]
 $ tar cvf - server.c | ssh lcsapp@192.168.0.103 tar xvf - -C /LCS/APP/WEBAPP/public/packages
 ``` 
 
-> 동일 서버에서 속성을 유지하면서 디렉토리를 복사할 때  
+- 동일 서버에서 속성을 유지하면서 디렉토리를 복사할 때  
 
 ```bash
 $ tar cvf - * | tar xvf - -C ../DATA_COPY/
 ```
 
-- 사용자 계정으로 1024보다 작은 포트에 바인딩 할 수 있도록 설정 
+## 사용자 계정으로 1024보다 작은 포트에 바인딩 할 수 있도록 설정 
 
-> node.js 인경우 HTTPS 포트를 443으로 설정하려면 root 권한이 필요하다.  
-> 서비스 계정으로 구동하려면 아래와 같이 해당 프로세스에 권한을 부여한다.  
+node.js 인경우 HTTPS 포트를 443으로 설정하려면 root 권한이 필요하다. 
+
+루트가 아닌 서비스 계정으로 구동하려면 아래와 같이 해당 프로세스에 권한을 부여한다.  
 
 ```bash
-$ setcap 'cap_net_bind_service=+ep' /LCS/TOOL/node-v4.6.1-linux-x64/bin/node
+# setcap 'cap_net_bind_service=+ep' /LCS/TOOL/node-v4.6.1-linux-x64/bin/node
 ```
 
 ## awk를 이용한 로그 분석하기 
@@ -120,7 +121,7 @@ PT=MPEG-II transport streams, SSRC=0x5CE8F21A, Seq=500, Time=2269510870  7 493
 
 ## fc 커멘드라인 명령어 수정. 
 
-명령어라인으로 파라미터가 많은 명령어를 내렸을 때 오타가 있거나 수정해야 할 부분이 있을 때 사용한다. "fc" 명령어로 단독으로 쓰면 바로 이전 명령어가 에디터로 열리고 수정하여 실행할 수 있고 "fc -e - 4248"과 같이 이전 명령어 히스토리 번호로 이전 명령어를 바로 실행할 수도 있다. 
+명령어라인에서 파라미터가 많은 명령어를 내렸을 때 오타가 있거나 수정해야 할 부분이 있을 때 사용한다. "fc" 명령어 단독으로 쓰면 바로 이전 명령어가 에디터로 열리고 수정하여 실행할 수 있고 "fc -e - 4248"과 같이 이전 명령어 히스토리 번호로 이전 명령어를 바로 실행할 수도 있다. 
 
 > "fc -l" 히스토리 목록은 "history" 명령어의 목록과 동일하다. 
 
@@ -129,6 +130,10 @@ $ fc -l
  4248  bundle exec jekyll serve --host 0.0.0.0 --port 4000 --no-watch
  4249  fc -l
  4250  man bash
+```
+
+
+```bash
 $ fc 4248
  edit command line 
  run 
@@ -136,12 +141,15 @@ $ fc -e - 4248
 ```
 
 ## 참고 URL
-- [Bash scripting cheatsheet](https://devhints.io/bash.html)
-- [Node.js; Error: listen EACCES 0.0.0.0:80](https://geunhokhim.wordpress.com/2016/03/29/nodejs-error-listen-eacces-0-0-0-0-80/)
-- [아카이브 생성 및 해제(linux tar) 사용법](https://jdm.kr/blog/14)
-- [tshark을 이용한 패킷 덤프](https://butteryoon.github.io/dev/2019/05/19/pcketdump.html)
-- [Date time in Linux bash](https://unix.stackexchange.com/questions/85982/date-time-in-linux-bash)
-- [일정 기간내 수정된 파일 찾기](http://thompsonng.blogspot.com/2020/04/linux-find-last-modified-fie-from-n-day.html)
-- [Linux and Unix fc command tutorial with examples](https://shapeshed.com/unix-fc/)
-- [An Illustrated Guide to Some Useful Command Line Tools](https://www.wezm.net/technical/2019/10/useful-command-line-tools/)
+- [Bash scripting cheatsheet](https://devhints.io/bash.html){:target="_blank"}
+- [Node.js; Error: listen EACCES 0.0.0.0:80](https://geunhokhim.wordpress.com/2016/03/29/nodejs-error-listen-eacces-0-0-0-0-80/){:target="_blank"}
+- [아카이브 생성 및 해제(linux tar) 사용법](https://jdm.kr/blog/14){:target="_blank"}
+- [tshark을 이용한 패킷 덤프](https://butteryoon.github.io/dev/2019/05/19/pcketdump.html){:target="_blank"}
+- [Date time in Linux bash](https://unix.stackexchange.com/questions/85982/date-time-in-linux-bash){:target="_blank"}
+- [일정 기간내 수정된 파일 찾기](http://thompsonng.blogspot.com/2020/04/linux-find-last-modified-fie-from-n-day.html){:target="_blank"}
+- [Linux and Unix fc command tutorial with examples](https://shapeshed.com/unix-fc/){:target="_blank"}
+- [An Illustrated Guide to Some Useful Command Line Tools](https://www.wezm.net/technical/2019/10/useful-command-line-tools/){:target="_blank"}
+- [My Favorite One Liners](https://muhammadraza.me/2021/Oneliners/){:target="_blank"}
+
+
 [Bash]: https://www.gnu.org/software/bash/

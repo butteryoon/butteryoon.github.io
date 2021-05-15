@@ -99,7 +99,7 @@ me.jpg JPEG 155x108 155x108+0+0 8-bit sRGB 6843B 0.000u 0:00.000
 
 ## WSL Ubuntu 20.04
 
-WSL 환경에서는 apt 명령어로 설치하고 아래와 같이 "convert" 명령어를 사용한다. 
+WSL 환경에서는 apt 명령어로 설치하고 아래와 같이 **"convert"** 명령어를 사용한다. 
 
 ```bash
 sudo apt update
@@ -116,8 +116,26 @@ sudo apt install imagemagick
 me_profile.svg: SVG Scalable Vector Graphics image
 ```
 
+## Save command output to an image
+
+명령어의 결과를 이미지로 만들 수 있는데 아래와 같은 오류가 생기면 **"/etc/ImageMagick-6/policy.xml"** 에서 아래의 정책을 주석처리 한다. 
+
+```bash
+❯ sudo vi /etc/ImageMagick-6/policy.xml
+...(skip)
+<!-- <policy domain="path" rights="none" pattern="@*"/> -->
+...(skip)
+```
+
+```bash
+❯ sudo ps aux | convert label:@- process.png
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `@-' @ error/property.c/InterpretImageProperties/3666.
+convert-im6.q16: no images defined `process.png' @ error/convert.c/ConvertImageCommand/3258.
+```
+
 ## 참고 URL
 - [Install ImageMagick in Ubuntu 20.04 LTS](https://techpiezo.com/linux/install-imagemagick-in-ubuntu-20-04-lts/){:target="_blank"}
 - [How to Install ImageMagick 7 on Debian and Ubuntu](https://www.tecmint.com/install-imagemagick-on-debian-ubuntu/){:target="_blank"}
 - [How to convert a SVG to a PNG with ImageMagick?](https://stackoverflow.com/questions/9853325/how-to-convert-a-svg-to-a-png-with-imagemagick){:target="_blank"}
 - [Anatomy of the Command-line](https://imagemagick.org/script/command-line-processing.php){:target="_blank"}
+- [Save Linux Command Output To An Image Or A Text File](https://ostechnix.com/save-linux-command-output-image-file/){:target="_blank"}
