@@ -4,7 +4,7 @@ title: "Windows PowerShell 기본 명령어 익히기"
 description: "Windows PowerShell 에서 쓸 수 있는 기본 명령어들을 알아보고 Linux 명령어와 비교해본다."
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
-last_modified_at: 2021-04-15 21:00:00 +0900
+last_modified_at: 2021-05-17 18:00:00 +0900
 tags: [Windows10, powershell, ps1, script] # add tag
 related: Windows10
 categories: dev
@@ -34,6 +34,8 @@ PSVersion                      5.1.18362.752
 
 Linux 최초 구동시 ".bashrc"와 같이 PowerShell 기본 설정은 아래의 명령어로 확인 할 수 있고 자신만의 명령어를 정의하려면 "CurrentUserCurrentHost" 파일에 추가한다. 
 
+Alias 또는 function을 정의할 수 있다. 
+
 ```powershell
 PS C:\Users\softr> $PROFILE | select *
 AllUsersAllHosts       : C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
@@ -53,7 +55,7 @@ Visual Studio Code를 사용한다면 터미널에서 code $PROFILE 하면 로�
 
 ## 도움말 
 
-PowerShell의 명령어(cmdlet)는 익숙하지가 않아 무조건 찾아본다. 
+PowerShell의 명령어(cmdlet)는 익숙하지가 않아 무조건 찾아보는 편인데 명령어를 입력하고 Tab을 누르면 해당 구문으로 시작하는 명령어를 보여준다. (파라미터도 동일하게 - 을 입력후 Tab)
 
 > "Get-Help -Name 검색어"  
 > -Online 옵션을 사용하면 도움말 사이트로 연결된다. 
@@ -72,7 +74,7 @@ PowerShell Comlet은 리눅스 bash 환경의 명령어와는 형식이 달라 �
 
 Windows Terminal에서 주로 쓰는 명령어를 정리해본다. 
 
-### alias
+### Get/Set-Alias
 
 PowerShell에서는 Linux 명령어 형식의 명령어를 사용할 수 있는데 주요 명령어들이 Alias로 정의되어 있고 "Get-Alias"로 목록을 볼 수 있다. 
 
@@ -282,7 +284,27 @@ SHA256          88F9ED20AB1ACDC0C8699A63174903C994670AEEB67B1725E147A937E8236B78
     l----        2021-01-14  오후 5:49                Dropbox -> D:\Dropbox\
 ```
 
+## 네트워크 재시작 
+
+WiFi와 이더넷 환경을 전환하다보면 인터넷이 연결이 되지 않는 경우가 있는데 이럴 때는 "어뎁터 설정 변경" 메뉴에서 특정 연결을 "사용안함"으로 바꿨다가 "사용"으로 하면 해결될 때가 있는데 이 기능을 터미널 상에서 하는 방법이다. 
+
+이더넷 어뎁터의 목록을 확인하고 (Get-NetAdapter) 이더넷 디바이스를 재시작(Restart-NetAdapter) 한다. 
+
+```powershell
+❯ Get-NetAdapter
+
+Name                      InterfaceDescription                    ifIndex Status       MacAddress        LinkSpeed
+----                      --------------------                    ------- ------       ----------        ---------
+vEthernet (WSL)           Hyper-V Virtual Ethernet Adapter             52 Up           00-15-5D-A5-83-9E   10 Gbps
+Wi-Fi                     Qualcomm Atheros QCA9377 Wireless Netw…       7 Disconnected 74-DF-BF-69-F5-19  200 Mbps
+이더넷                    Realtek PCIe GbE Family Controller            4 Up           54-EE-75-AB-61-E9    1 Gbps
+로컬 영역 연결             NexG SSL VPN Virtual Adapter - VPN            3 Disconnected 5E-84-92-54-22-4D  100 Mbps
+
+❯ Restart-NetAdapter -Name "이더넷"
+```
+
 ## 참고 URL
+
 - [1장 - PowerShell 시작](https://docs.microsoft.com/ko-kr/powershell/scripting/learn/ps101/01-getting-started?view=powershell-5.1)
 - [PowerShell이란?](https://docs.microsoft.com/ko-kr/powershell/scripting/overview?view=powershell-7)
 - [Windows Terminal Preview 릴리스](https://www.lesstif.com/pages/viewpage.action?pageId=71401723)
