@@ -4,7 +4,7 @@ title: "ImageMagick CLI 명령어 사용하기"
 description: "Windows Terminal 환경에서 imagemagick을 설치하고 CLI 명령어를 이용해서 이미지를 변환하는 방법을 알아본다."
 img: imagemagick_title_crop.webp
 date: 2021-04-22 18:00:00 +0900
-last_modified_at: 2021-04-22 18:00:00 +0900
+last_modified_at: 2021-05-21 01:00:00 +0900
 tags: [Windows10, imagemagick, convert, magick] # add tag
 related: Windows10
 categories: tools
@@ -20,7 +20,9 @@ imagemagick의 [Basic Usage](https://legacy.imagemagick.org/Usage/basics)를 참
 
 ## imagemagick 설치
 
-"Chocolatey" 에서 "imagemagick" 패키지를 검색하면 여러가지가 나오는데 "--version" 옵션으로 특정 버전을 설치할 수 있다. 
+"Chocolatey" 패키지관리자 또는 [공식 웹페이지](https://imagemagick.org/script/download.php#windows)에서 다운로드하여 설치할 수 있다. 
+
+"Chocolatey" 에서 "imagemagick" 패키지를 검색하면 여러가지가 나오는데 "--version" 옵션으로 특정 버전을 설치한다. 
 
 ```powershell
 ❯ choco search imagemagick
@@ -48,11 +50,11 @@ Features: Cipher DPC HDRI Modules OpenCL OpenMP(2.0)
 Delegates (built-in): bzlib cairo flif freetype gslib heic jng jp2 jpeg jxl lcms lqr lzma openexr pangocairo png ps raw rsvg tiff webp xml zip zlib
 ```
 
-### Alias 
+### 실행파일 alias 설정 
 
-윈도우즈 환경변수에 path에 추가해도 되지만 PowerShell에 Alias를 설정하기로 한다. 
+윈도우즈 환경변수에 "path"에 추가해도 되지만 PowerShell에 Alias를 설정하기로 한다. (터미널 환경에서 사용할 거라..)
 
-> $PROFILE을 편집기로 열고 Set-Alias로 설정. 
+> $PROFILE을 편집기로 열고 Set-Alias로 magick.exe의 경로를 지정한다. 
 
 ```powershell
 > code $PROFILE 
@@ -82,6 +84,8 @@ me.jpg JPEG 155x108 155x108+0+0 8-bit sRGB 6843B 0.000u 0:00.000
 
 고해상도 이미지를 특정 사이즈로 변경 하고 이미지의 가운데를 기준으로 아래쪽으로 100픽셀을 잘라낸다. 이미지 사이즈를 줄이기위해 이미지 포맷은 webp로 변환한다. 
 
+*이 페이지의 타이틀 이미지를 아래의 옵션으로 crop 해서 잘랐다.*
+
 > -resize 900x600  
 > -gravity Center  
 > -crop 900x600-0-100  
@@ -96,6 +100,23 @@ me.jpg JPEG 155x108 155x108+0+0 8-bit sRGB 6843B 0.000u 0:00.000
 ❯ magick identify .\imagemagick_title_crop.webp
 .\imagemagick_title_crop.webp WEBP 900x500 900x500+0+0 8-bit sRGB 25492B 0.000u 0:00.008
 ```
+
+## 이미지 자르기 기준 
+
+이미지를 왼쪽/오른쪽 또는 위/아래 기준으로 자르고 싶을 때 아래와 같이 "-crop" 옵션을 사용한다. 
+
+> -crop -500-0 : 오른쪽 500픽셀 자름.   
+> -crop +500-0 : 왼쪽 500픽셀 자름. 
+
+```powershell
+❯ magick identify .\main_screen.png
+.\main_screen.png PNG 2400x1080 2400x1080+0+0 8-bit sRGB 2.00877MiB 0.000u 0:00.000
+
+❯ magick .\main_screen.png -gravity center -crop -500-0 m5_main_screen.png
+❯ magick .\main_screen.png -gravity center -crop +500-0 m6_main_screen.png
+```
+
+![magick-crop]({{site.baseurl}}/assets/img/m_imagemagick_crop.webp){:width="800px"}
 
 ## WSL Ubuntu 20.04
 
