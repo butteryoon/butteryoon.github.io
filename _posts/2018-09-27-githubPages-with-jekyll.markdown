@@ -32,7 +32,8 @@ categories: blog
 
 **테마적용**
 
-- [jekyll][jekyll] 공식사이트 [Themes](https://jekyllrb-ko.github.io/docs/themes/) 페이지 참고
+- [jekyll][jekyll] 공식사이트 
+- [Themes](https://jekyllrb-ko.github.io/docs/themes/) 페이지 참고
 - [테마 적용하기](https://nesoy.github.io/articles/2016-12/github-Jekyll) 블로그 
 - 현재는 http://artemsheludko.com/flexible-jekyll/ 블로그의 테마를 적용하고 있다. 
 - feed, categorie 기능 제공한다. 
@@ -50,12 +51,14 @@ categories: blog
  - [플러그인 없이 Jekyll RSS Feed 만들기](http://dveamer.github.io/homepage/RSS-Feed.html) 
   
 3. gist Code 템플릿 변경 
- - 
+ - [Better-Gist](https://gist.github.com/jnrbsn/578379)
 
 ## 참고 URL
+
  - [jekyll 더 알아보기](https://ehfgk78.github.io/2017/12/27/jekyll-detail/)
  - [Prose.io](https://theorydb.github.io/envops/2019/05/04/envops-blog-posting-prose-io/)
-
+ - [Jekyll: Disqus 연결부터 마이그레이션까지](https://xho95.github.io/blog/jekyll/disqus/migration/2017/01/21/Add-Disqus-to-Jekyll.html)
+ 
 [jekyll]: https://jekyllrb-ko.github.io
 [GitHubPages]: https://pages.github.com 
 
