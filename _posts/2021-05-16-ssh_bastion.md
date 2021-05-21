@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "SSH 멀티플렉싱 기능을 이용하여 내부 서버에 SSH 접속하기"
 description: "SSH 멀티플렉싱 기능으로 Bastion 호스트의 터널링을 통해 내부 서버에 안전하게 접속하는 방법을 알아본다."
 img: "M_ssh_tunneling.jpg"
