@@ -52,7 +52,7 @@ Delegates (built-in): bzlib cairo flif freetype gslib heic jng jp2 jpeg jxl lcms
 
 ### 실행파일 alias 설정 
 
-윈도우즈 환경변수에 "path"에 추가해도 되지만 PowerShell에 Alias를 설정하기로 한다. (터미널 환경에서 사용할 거라..)
+터미널 환경에서 "magick"만 사용할거라 환경변수에 "path"에 추가하는 대신 "PowerShell"에서 Alias를 설정하기로 한다. 
 
 > $PROFILE을 편집기로 열고 Set-Alias로 magick.exe의 경로를 지정한다. 
 
@@ -68,7 +68,7 @@ Set-Alias magick -Value 'C:\Program Files\ImageMagick-7.0.11-Q16-HDRI\magick.exe
 
 ## 이미지를 svg로 변환 
 
-jpg 또는 png 이미지를 지정된 크기의 svg 이미지로 변환하고 변환된 파일의 정보를 확인해 본다. 
+jpg 또는 png 이미지를 지정된 크기의 svg 이미지로 변환하고 변환된 파일의 정보를 확인해 본다. magick는 확장자를 보고 이미지의 포맷을 결정한다. 
 
 ```powershell
 > magick .\me.jpg -resize 100x100 .\me.svg
@@ -118,6 +118,20 @@ me.jpg JPEG 155x108 155x108+0+0 8-bit sRGB 6843B 0.000u 0:00.000
 
 ![magick-crop]({{site.baseurl}}/assets/img/m_imagemagick_crop.webp){:width="800px"}
 
+## 명령어 결과 이미지로 저장 
+
+윈도우즈 터미널에서 파워쉘 명령어의 결과를 이미지로 저장하고 싶을 때는 아래와 같이 명령어의 결과를 "Out-String"로 변환하여 magick로 보낸다. 
+
+*magick -font D2Coding label:@- cmdlet-img.png*
+
+```powershell
+❯ Get-Process | Where-Object {$_.mainWindowTItle} |format-table id,name,mainwindowtitle | Out-String | magick -font D2Coding label:@- cmdlet-img.png
+❯ magick identify .\cmdlet-img.png
+.\cmdlet-img.png PNG 685x239 685x239+0+0 8-bit Gray 256c 12973B 0.000u 0:00.000
+```
+
+![magick-textimg]({{site.baseurl}}/assets/img/cmdlet-img.png){:width="800px"}
+
 ## WSL Ubuntu 20.04
 
 WSL 환경에서는 apt 명령어로 설치하고 아래와 같이 **"convert"** 명령어를 사용한다. 
@@ -141,6 +155,8 @@ me_profile.svg: SVG Scalable Vector Graphics image
 
 명령어의 결과를 이미지로 만들 수 있는데 아래와 같은 오류가 생기면 **"/etc/ImageMagick-6/policy.xml"** 에서 아래의 정책을 주석처리 한다. 
 
+*윈도우즈에서는 기본으로 주석처리 되어 있다*
+
 ```bash
 ❯ sudo vi /etc/ImageMagick-6/policy.xml
 ...(skip)
@@ -155,6 +171,7 @@ convert-im6.q16: no images defined `process.png' @ error/convert.c/ConvertImageC
 ```
 
 ## 참고 URL
+
 - [Install ImageMagick in Ubuntu 20.04 LTS](https://techpiezo.com/linux/install-imagemagick-in-ubuntu-20-04-lts/){:target="_blank"}
 - [How to Install ImageMagick 7 on Debian and Ubuntu](https://www.tecmint.com/install-imagemagick-on-debian-ubuntu/){:target="_blank"}
 - [How to convert a SVG to a PNG with ImageMagick?](https://stackoverflow.com/questions/9853325/how-to-convert-a-svg-to-a-png-with-imagemagick){:target="_blank"}
