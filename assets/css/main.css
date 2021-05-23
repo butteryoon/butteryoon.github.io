@@ -776,6 +776,7 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
+  font-size: 1.1em;
   color: #515151;
   background-color: #fbfbfb;
   margin: 0;
@@ -809,6 +810,7 @@ blockquote {
   padding-left: 1.1rem;
   margin-left: 1rem;
   font-style: italic;
+  font-size: 0.9em;
   color: #ada8a8;
 }
 
@@ -821,6 +823,7 @@ pre {
 }
 
 pre code {
+  font-size: 0.9em;
   border: 0;
   padding-right: 0;
   padding-left: 0;
@@ -1175,6 +1178,7 @@ footer .copyright {
 
 .post .post-content p {
   margin-top: 0;
+  font-size: 0.9em;
 }
 
 a.older-posts, a.newer-posts {
