@@ -101,7 +101,7 @@ LocalAddress   LocalPort RemoteAddress  RemotePort State       AppliedSetting Ow
 
 ## TL;DR 
 
-내부서버로의 연결이 방화벽으로 막혀 있을 경우 내부서버에서 외부 SSH 터널을 연결하고 외부 서버에서 접속을 요청한 서버로 접속 할 수 있는 방법이다.  
+내부서버로의 연결이 방화벽으로 막혀 있을 경우 내부서버에서 외부로 SSH 터널을 연결하고 외부 서버에서 접속을 요청한 서버로 접속 할 수 있는 방법이다.  
 
 보안상 이슈가 있을 수 있어 필요시에만 쓰는걸로 .. 
 
