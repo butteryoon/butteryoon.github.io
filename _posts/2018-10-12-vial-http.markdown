@@ -5,8 +5,8 @@ description: "vim 에디터에서 REST-API 테스트를 위한 도구인 vial-ht
 img: image-title.jpg
 date: 2018-10-12 00:51:00 +0900
 last_modified_at: 2021-04-25 20:00:00 +0900
-tags: [Windows10, gvim, rest, vial-http] # add tag
-related: Windows10
+tags: [devtool, gvim, rest, vial-http] # add tag
+related: devtool
 categories: dev
 ---
 

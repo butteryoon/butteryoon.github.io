@@ -5,8 +5,8 @@ description: "Windows 10 환경에서 gvim의 컬러스킴을 변경하는 방�
 img: vim-title.webp
 date: 2021-01-14 17:00:00 +0900
 last_modified_at: 2021-01-14 17:00:00 +0900
-tags: [vim, windows10] # add tag
-related: vim
+tags: [devtool, vim, plugin] # add tag
+related: devtool
 categories: tools
 ---
 
