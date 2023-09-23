@@ -59,6 +59,8 @@ Visual Studio Code를 사용한다면 터미널에서 code $PROFILE 하면 로�
 
 아래와 같이 인코딩 설정과 기본 Function을 정의해서 사용한다. 
 
+> $PROFILE에 내용을 수정한 후 **". $PROFILE"** 명령어로 변경 내용을 적용할 수 있다. 
+
 {% gist butteryoon/5b0b7b848b4e14b452e9bca19f80d3b5 %} 
 
 ## PowerShell 도움말 
@@ -169,6 +171,42 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 -------  ------    -----      -----     ------     --  -- -----------
     247      22     9216      20540       1.45  11060   1 python
+
+❯ Get-Process | Where-Object WorkingSet -GT 200MB
+
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+    553      29   294220     371320       4.17   2940   1 chrome
+    384      24   169596     228740       2.17   3516   1 chrome
+    885      37   350068     333012     161.72   4800   1 chrome
+    782      40   310540     268384     420.88   6356   1 chrome
+    720      38   188112     227416       5.66   7220   1 chrome
+    484      33   254968     326592       5.41   8676   1 chrome
+    560      30   268180     332336      21.13   8840   1 chrome
+    386      25   181316     234008       9.19   9856   1 chrome
+    517      28   266468     347180       6.02  14944   1 chrome
+   3847     117   456432     409476   2,551.25  23436   1 chrome
+   1234      78   473476     401984      97.58  23764   1 chrome
+```
+
+## 윈도우즈에서 열려있는 창의 목록을 확인
+
+아래와 같이 **Get-Title** 함수를 $PROFILE에 추가할 수있다. 
+
+> Function Get-Title { Get-Process | Where-Object {$_.mainWindowTitle} | Format-Table Id, Name, mainWindowtitle -AutoSize } 
+
+```powershell
+Get-Process | Where-Object {$_.mainWindowTitle} | Format-Table Id, Name, mainWindowtitle -AutoSize
+
+   Id Name                 MainWindowTitle
+   -- ----                 ---------------
+22624 ApplicationFrameHost 설정
+23436 chrome               Get-Process (Microsoft.PowerShell.Management) - PowerShell | Microsoft Learn - Chrome
+23536 KakaoTalk            카카오톡
+19884 stsess               AhnLab Safe Transaction - Windows의 hosts 파일 변경이 탐지되었습니다. 악성코드에 의한 hosts 파일이 변경...
+27088 SystemSettings       설정
+16128 TextInputHost        Windows 입력 환경
+ 9032 WindowsTerminal      Windows PowerShell
 ```
 
 ### 실행중인 프로세스 파일버전 표시. 
@@ -322,8 +360,6 @@ Wi-Fi               Qualcomm Atheros QCA9377 Wireless Netw…     7      Disconn
 
 ❯ Restart-NetAdapter -Name "이더넷"
 ```
-
-
 
 
 ## 참고 URL
