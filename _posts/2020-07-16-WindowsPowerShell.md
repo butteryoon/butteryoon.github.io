@@ -4,7 +4,7 @@ title: "Windows PowerShell 기본 명령어 익히기"
 description: "Windows PowerShell 에서 쓸 수 있는 기본 명령어들을 알아보고 Linux 명령어와 비교해본다."
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
-last_modified_at: 2022-09-23 22:00:00 +0900
+last_modified_at: 2022-10-03 16:00:00 +0900
 tags: [Windows10, powershell, 파워쉘, ps1, script, Invoke-WebRequest] # add tag
 related: Windows10
 categories: dev
@@ -193,10 +193,14 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 
 아래와 같이 **Get-Title** 함수를 $PROFILE에 추가할 수있다. 
 
-> Function Get-Title { Get-Process | Where-Object {$_.mainWindowTitle} | Format-Table Id, Name, mainWindowtitle -AutoSize } 
+```
+Function Get-Title { Get-Process | Where-Object {$_.mainWindowTitle} | Format-Table Id, Name, mainWindowtitle -AutoSize } 
+```
+
+**Get-Process** 결과에서 윈도우즈 타이틀 오브젝트를 선택하고 테이블 포맷으로 변경해서 표시한다. 
 
 ```powershell
-Get-Process | Where-Object {$_.mainWindowTitle} | Format-Table Id, Name, mainWindowtitle -AutoSize
+> Get-Process | Where-Object {$_.mainWindowTitle} | Format-Table Id, Name, mainWindowtitle -AutoSize
 
    Id Name                 MainWindowTitle
    -- ----                 ---------------
