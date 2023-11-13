@@ -4,8 +4,8 @@ comments: true
 title: "TailScale을 이용한 개인 네트워크 구성하기" 
 description: "tailscale 서비스를 이용해서 프라이빗 네트워크를 구성해보자."
 img: "M_ssh_tunneling.jpg"
-date: 2023-11-11 11:00:00 +0900
-last_modified_at: 2023-11-11 23:00:00 +0900
+date: 2023-11-14 01:00:00 +0900
+last_modified_at: 2023-11-14 01:00:00 +0900
 tags: [ssh, tailscale, CloudFlare, remote desktop] # add tag
 related: ssh
 categories: tools
