@@ -1,10 +1,11 @@
 ---
 layout: post
+comments: true
 title: "Jekyll 블로그에 수정일자 표시하기"
 description: "블로그 페이지와 sitemap.xml의 lastmod 태그를 수정일자로 변경"
 img: jekyll-title.png
 date: 2020-10-16 18:00:00 +0900
-last_modified_at: 2020-10-23 01:00:00 +0900
+last_modified_at: 2023-11-17 00:00:00 +0900
 tags: [jekyll, sitemap, last-modified-at] # add tag
 related: jekyll
 categories: tools

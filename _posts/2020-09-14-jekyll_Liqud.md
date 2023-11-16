@@ -1,10 +1,11 @@
 ---
 layout: post
+comments: true
 title: "Jekyll 블로그에서 관련글 목록 구성하기"
 description: "Jekyll 블로그에서 관련글 목록 구성하기"
 img: jekyll-title.png
 date: 2020-10-09 20:00:00 +0900
-last_modified_at: 2020-10-24 16:00:00 +0900
+last_modified_at: 2023-11-17 00:00:00 +0900
 tags: [jekyll, liquid] # add tag
 related: jekyll
 categories: tools
