@@ -128,5 +128,5 @@ bash 스크립트 문법은 항상 헷갈리니 GPT를 잘 활용하자..
 
 
 ## 참고 URL
-- [고급 Bash 스크립팅 가이드](https://wiki.kldp.org/HOWTO/html/Adv-Bash-Scr-HOWTO/)
-- [bash - LinuxOPsys](https://linuxopsys.com/?s=bash)
+- [고급 Bash 스크립팅 가이드](https://wiki.kldp.org/HOWTO/html/Adv-Bash-Scr-HOWTO/){:target="_blank"} 
+- [bash - LinuxOPsys](https://linuxopsys.com/?s=bash){:target="_blank"} 
