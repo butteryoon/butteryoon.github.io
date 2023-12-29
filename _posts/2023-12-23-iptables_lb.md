@@ -21,7 +21,7 @@ categories: tools
 
 서비스 포트는 8081 하나로 구성되는 환경이 외부에 노출된 API 서버 인터페이스로 서비스 요청이 되면 로컬 서버 포트로 전달하여 서비스하는 환경에서 적용된다.  
 
-![process loadbalnce]({{site.baseurl}}/assets/img/process_lb.png){:height="80px" width="100px"}
+![process loadbalnce]({{site.baseurl}}/assets/img/process_lb.png)
 
 일반적으로 로컬에서 자기 자신의 IP로 접근하는 경우 라우팅 테이블을 거치지 않고 로컬 루프백(lo) 인터페이스로 바로 전달되기 때문에 아래와 같이 로컬 포워딩 설정을 한다. 
 
