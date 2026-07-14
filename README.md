@@ -1,37 +1,33 @@
-# Flexible-Jekyll is a simple and clean theme for Jekyll
+# Awesome Life
 
-![](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg?raw=true)
+윈도우즈 및 리눅스 터미널 환경에서 할 수 있는 것들에 대한 정보를 공유하는 기술 블로그입니다.
 
-## Demo
+- 사이트: <https://butteryoon.github.io>
+- 작성자: James Yoon ([@butteryoon](https://github.com/butteryoon))
 
-Check the theme in action [Demo](https://artemsheludko.github.io/flexible-jekyll/)
+## 기술 스택
 
-The main page would look like this:
+- [Jekyll](https://jekyllrb.com/) + GitHub Pages (`master` 브랜치에서 자동 배포)
+- 테마: [Flexible-Jekyll](https://github.com/artemsheludko/flexible-jekyll) (Artem Sheludko)
+- 플러그인: jekyll-sitemap, jekyll-paginate, jekyll-gist, jemoji, jekyll-youtube
+- 댓글: Disqus / 분석: Google Analytics, MS Clarity
 
-![Main page preview](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/home-page.jpg?raw=true)
+## 로컬 실행
 
-The post page would look like this:
+```bash
+bundle install
+bundle exec jekyll serve            # http://localhost:4000
+bundle exec jekyll serve --drafts   # _drafts 포함
+```
 
-![Post page preview](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/post-example.jpg?raw=true)
+## 글 작성
 
-## Features
-
-- [Google Fonts](https://fonts.google.com/)
-- [Font Awesome](http://fontawesome.io/)
-- [Disqus](https://disqus.com/)
-- [Analytics](https://analytics.google.com/analytics/web/)
-- Support Emoji
-
-## Installation:
-
-Fork the ``master`` branch and follow the [Jekyll Installation Documentation](https://jekyllrb.com/docs/installation/).
+1. `_drafts/0000-00-00-templete.md` 템플릿을 복사해 `_posts/YYYY-MM-DD-제목.md`로 저장
+2. front matter의 `title`, `description`, `img`, `date`(`+0900`), `tags`, `categories` 작성
+3. 요약 구분자 `<!--more-->`를 본문 도입부 뒤에 삽입
+4. 이미지는 `assets/img/`에 추가
+5. `master`에 push하면 GitHub Pages가 자동 빌드
 
 ## License
 
-GNU General Public License v3.0
-
-## Donate
-
-<p>If you want to show your appreciation, buy me one <a href="https://www.buymeacoffee.com/artemsheludko" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> ! Every five cups of coffee and a new theme for Jekyll is ready 😋</p>
-<p>Either way, your support is a way to thank me ❤️</p>
-<p align="center"><b>Thank you for your support!</b></p>
+[GNU General Public License v3.0](LICENSE) — 테마 원본 라이선스를 따릅니다.
