@@ -1,8 +1,8 @@
 # Awesome Life
 
-윈도우즈 및 리눅스 터미널 환경에서 할 수 있는 것들에 대한 정보를 공유하는 기술 블로그입니다.
+윈도우즈 및 리눅스 터미널 환경에서 할 수 있는 것들에 대한 기록이자 AI를 이용하여 블로그 관리하는 목적으로 사용한다. 
 
-- 사이트: <https://butteryoon.github.io>
+- 사이트: [https://butteryoon.github.io](https://butteryoon.github.io)
 - 작성자: James Yoon ([@butteryoon](https://github.com/butteryoon))
 
 ## 기술 스택
@@ -11,6 +11,7 @@
 - 테마: [Flexible-Jekyll](https://github.com/artemsheludko/flexible-jekyll) (Artem Sheludko)
 - 플러그인: jekyll-sitemap, jekyll-paginate, jekyll-gist, jemoji, jekyll-youtube
 - 댓글: Disqus / 분석: Google Analytics, MS Clarity
+- Orca 환경에서 클로드 코드를 이용하여 조안 작성
 
 ## 로컬 실행
 
