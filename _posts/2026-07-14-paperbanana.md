@@ -11,7 +11,7 @@ related: llm
 categories: tools
 ---
 
-기술 문서나 블로그 글을 쓸 때 아키텍처 다이어그램을 그리는 일이 은근히 손이 많이 간다. draw.io나 [Python Diagrams]({{site.baseurl}}/tools/2021/05/13/python_diagrams.html) 같은 도구를 써왔는데, 이번에는 문장으로 설명만 하면 다이어그램을 만들어주는 **PaperBanana**라는 서비스를 소개한다.
+기술 문서나 블로그 글을 쓸 때 아키텍처 다이어그램을 그리는 일이 은근히 손이 많이 간다. draw.io나 [Python Diagrams](https://diagrams.mingrammer.com/) 같은 도구를 써왔는데, 이번에는 문장으로 설명만 하면 다이어그램을 만들어주는 **PaperBanana**라는 서비스를 소개한다.
 
 <!--more-->
 
