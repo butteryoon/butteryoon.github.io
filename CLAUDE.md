@@ -20,6 +20,7 @@ Publishing = commit and push to `master`; GitHub Pages builds automatically. Plu
 - Use `_drafts/0000-00-00-templete.md` as the front matter template. Required front matter: `layout: post`, `comments: true`, `title`, `description`, `img` (thumbnail in `assets/img/`), `date` and `last_modified_at` (with `+0900` timezone), `tags`, `related`, `categories`.
 - Summaries are cut at `<!--more-->` (`excerpt_separator`) — every post should include it after the intro paragraph.
 - Update `last_modified_at` when editing an existing post (recent commits show this convention).
+- `date` must not be in the future: GitHub Pages excludes future-dated posts from the build (no `future: true` in config), so the post silently won't appear on the site. When writing a new post, set `date` to the current time or earlier (KST, `+0900`).
 - Reference site assets as `{{site.baseurl}}/assets/img/...`.
 
 ## Structure
