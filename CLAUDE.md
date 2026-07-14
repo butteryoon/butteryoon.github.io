@@ -11,7 +11,6 @@ Korean-language tech blog (butteryoon.github.io) built with Jekyll on the Flexib
 - `bundle exec jekyll serve` — build and serve locally with live reload (Windows: `wdm` gem handles file watching).
 - `bundle exec jekyll build` — build to `_site/`.
 - `bundle exec jekyll serve --drafts` — include `_drafts/` posts.
-- Gulp (`gulp`) exists for Sass/imagemin/browser-sync but uses gulp 3 and is legacy; normal workflow is plain Jekyll.
 
 Publishing = commit and push to `master`; GitHub Pages builds automatically. Plugins used (sitemap, paginate, gist, jemoji, jekyll-youtube) are all GitHub Pages–whitelisted.
 
