@@ -4,8 +4,8 @@ comments: true
 title: "Claude Code로 블로그 정리하기"
 description: "Dependabot 취약점 해소 및 저장소 정리 작업 기록"
 img: jekyll-title.png
-date: 2026-07-14 22:00:00 +0900
-last_modified_at: 2026-07-14 22:00:00 +0900
+date: 2026-07-14 21:00:00 +0900
+last_modified_at: 2026-07-14 21:00:00 +0900
 tags: [jekyll, github pages, dependabot, claude code, bundler] # add tag
 related: jekyll
 categories: tools
