@@ -4,7 +4,7 @@ title: "letsencrypt 인증서 재발급 실패(SERVFAIL)"
 description: "letsencrypt-auto 스크립트로 인증서를 재발급할 때 SERVFAIL로 실패하는 경우에 대해 기술한다."
 img: "letsencryption.png"
 date: 2021-05-11 15:05:00 +0900
-last_modified_at: 2021-05-11 15:05:00 +0900
+last_modified_at: 2026-07-15 15:20:00 +0900
 tags: [letsencrypt, HTTPS, 인증서, duckdns.org, cloudflare] 
 related: letsencrypt
 categories: dev
@@ -14,13 +14,20 @@ categories: dev
 
 <!--more-->
 
+> **[2026-07-15 업데이트]** 두 가지가 바뀌었다.  
+> 1. 이 글에서 사용한 `letsencrypt-auto` 스크립트는 2021년에 지원이 중단되어 더 이상 쓸 수 없다. 지금은 snap으로 설치한 **certbot**을 사용한다. (`sudo snap install --classic certbot`) 아래 명령들은 certbot 기준으로 바꿔 적었으며, SERVFAIL 오류의 원인과 해결방법(DNSSEC 지원 네임서버로 변경) 자체는 지금도 유효하다.  
+> 2. 본문에 언급한 만료 안내 메일(Expiry Bot)은 **2025년 6월부터 발송이 중단**되었다. 만료 관리는 certbot 자동갱신(systemd timer)에 맡기면 된다.
+
 ## 인증서 재발급 (renew) 
 
-Letsencrypt로 기존에 발급 받은 인증서를 90일 이전에 재발급 할 경우에는 아래와 같이 **--renew-by-default** 옵션으로 실행하며 진행과정은 초기와 동일하다. 
+Letsencrypt로 기존에 발급 받은 인증서를 90일 이전에 재발급 할 경우에는 아래와 같이 **--force-renewal** 옵션(구 letsencrypt-auto의 `--renew-by-default`에 해당)으로 실행하며 진행과정은 초기와 동일하다. 
 
-> **Let's Encrypt Expiry Bot <expiry@letsencrypt.org>**이 친절하게 메일을 보내준다.  
+> ~~**Let's Encrypt Expiry Bot <expiry@letsencrypt.org>**이 친절하게 메일을 보내준다.~~ (2025년 6월부터 만료 안내 메일은 발송되지 않는다.)  
 
 ```bash
+sudo certbot certonly --force-renewal --manual -d test.domain.com
+
+# (당시 letsencrypt-auto 명령)
 [root@localhost letsencrypt]# ./letsencrypt-auto certonly --renew-by-default --manual --no-bootstrap -d test.domain.com
 
 ./letsencrypt-auto has insecure permissions!

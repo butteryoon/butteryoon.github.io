@@ -3,6 +3,7 @@ layout: post
 title: "WSL Ubuntu 20.04 LTS에서 letsencrypt-auto 오류"
 img: "letsencryption.png"
 date: 2020-10-09 12:00:00 +0900
+last_modified_at: 2026-07-15 15:20:00 +0900
 tags: [letsencrypt, HTTPS, 인증서, ubuntu, wsl] 
 related: letsencrypt 
 categories: tools
@@ -14,6 +15,10 @@ categories: tools
 윈도우즈를 재설치 하면서 WSL을 Ubuntu 20.04로 설치한 후 다시 동일한 과정으로 인증서를 발급하려 하는데 기존 Ubuntu 18.04에서는 문제 없이 동작하던 스크립트가 파이썬 관련 에러가 발생하여 확인한 내용을 기술한다. 
 
 발생원인을 정확히 파악하지 않고 스크립트 오류 부분만 발생하지 않도록 수정해 보기로 한다. 
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** 이 글의 `letsencrypt-auto` 스크립트는 2021년에 지원이 중단되고 저장소에서 제거되어, 아래의 Python 2 / virtualenv 우회 방법은 **더 이상 재현할 수 없다.** 지금의 WSL Ubuntu에서는 snap(`sudo snap install --classic certbot`) 또는 pip으로 certbot을 설치해서 쓰면 되고, 이 글에서 겪은 문제 자체가 발생하지 않는다. 자세한 방법은 [certbot 공식 설치 안내](https://certbot.eff.org/instructions)와 [letsencrypt 인증서 발급하기]({{site.baseurl}} {% link _posts/2018-10-10-letsencryption.markdown.md %}) 글의 갱신된 발급절차를 참고한다. 아래 본문은 당시 기록으로 남겨둔다.
 
 ### 파이썬 virtualenv 실행 관련 오류 
 

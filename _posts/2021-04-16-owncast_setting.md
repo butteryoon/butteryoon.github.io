@@ -4,7 +4,7 @@ title: "owncast 라이브스트리밍 서버"
 description: "Owncast 라이브스트리밍 서버 설치 및 테스트"
 img: m_owncast_title.webp
 date: 2021-04-16 18:00:00 +0900
-last_modified_at: 2021-04-16 20:00:00 +0900
+last_modified_at: 2026-07-15 15:20:00 +0900
 tags: [streaming, owncast, rtmp] # add tag
 related: streaming
 categories: dev
@@ -14,6 +14,16 @@ categories: dev
 
 오라클 클라우드 인트턴스(Ubuntu 20.04 Free tier)에 Owncast를 설치하고 간단하게 동작을 테스트 해 본다. 
 <!--more-->
+
+> **[2026-07-15 업데이트]** 이 글은 Owncast **v0.0.6** 기준으로 작성했다. 2026년 7월 현재 최신 버전은 **v0.2.5**(2026-04 릴리스)이며 설치 스크립트 방식은 그대로 유지되고 있다.
+> ```bash
+> curl -s https://owncast.online/install.sh | bash
+> ```
+> 도커 이미지([owncast/owncast](https://hub.docker.com/r/owncast/owncast))로도 간단히 구동할 수 있다.
+> ```bash
+> docker run -v `pwd`/data:/app/data -p 8080:8080 -p 1935:1935 -it owncast/owncast
+> ```
+> 설정은 지금도 설정파일이 아닌 웹 admin 페이지(/admin)에서 하는 구조 그대로다. 다만 0.1.x부터 **admin 패스워드와 스트림 키가 분리**되었고 스트림 키를 여러 개 등록할 수 있다. 웹 UI도 전면 개편(React 기반)되어 아래 스크린샷과는 화면이 다르다. 전체적인 흐름(설치 → admin 설정 → OBS 송출)은 여전히 유효하니 최신 절차는 [공식 Quickstart](https://owncast.online/quickstart/)를 참고한다.
 
 ## Owncast [Quickstart](https://owncast.online/quickstart) 
 
@@ -72,6 +82,8 @@ http://hostname:8080/admin 페이지에서 기본 설정을 확인할 수 있고
 **Configuration > Server Setup** 메뉴에서 "Stream Key" 를 설정한다.   
 
 "Stream Key"는 admin 페이지 접속과 RTMP 스트림키로 사용되기 때문에 바꾸고 나머지 포트는 기본설정으로 둔다. 
+
+> **[2026-07-15]** 당시(v0.0.6)에는 스트림 키가 admin 패스워드를 겸했지만, 현재 버전에서는 admin 패스워드와 스트림 키가 분리되어 각각 따로 설정하며 스트림 키는 여러 개 만들 수 있다. 
 
 > 오라클 클라우드에서는 방화벽정책을 추가해야 한다. 
 

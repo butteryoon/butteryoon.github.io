@@ -4,7 +4,7 @@ title: "Janus WebRTC Gateway 서버 시험"
 description: "OCI(오라클 클라우드 인스턴스) Ubuntu 20.04 LTS 배포에 Janus WebRTC Server를 설치하고 시험해본다."
 img: webrtc-title.webp
 date: 2021-04-03 16:00:00 +0900
-last_modified_at: 2021-04-03 16:00:00 +0900
+last_modified_at: 2026-07-15 15:20:00 +0900
 tags: [Janus, webrtc, streaming] # add tag
 related: streaming
 categories: dev
@@ -18,6 +18,35 @@ WebRTC는 기존으로 P2P방식으로 사용자간 실시간 커뮤니케이션
 
 WebRTC의 기술적인 사양은 차차 공부해가기로 하고 "WebRTC Server Gateway" 구현체인 "[Janus WebRTC Gateway](https://github.com/meetecho/janus-gateway)"를 설치하고 시험해 보기로 한다. 
 <!--more-->
+
+> **[2026-07-15 업데이트]** 이 글은 Janus **0.x** + Ubuntu 20.04 기준의 기록이다. 2026년 7월 현재는 다음이 달라졌다.
+>
+> - Janus는 **1.x(multistream)** 버전이 현재 라인이고 0.x는 레거시가 되었다. 
+> - Ubuntu 20.04는 표준 지원이 종료(2025-05 EOL)되었으니 **Ubuntu 22.04/24.04** 기준으로 설치하는 것을 권장한다. 
+> - 본문의 **libsrtp 2.2.0 다운그레이드 워크어라운드는 더 이상 필요 없다.** 당시 이슈([#2024](https://github.com/meetecho/janus-gateway/issues/2024))는 배포판 libsrtp2가 openssl 지원 없이 빌드된 것이 원인이었고, 지금은 최신 배포판의 `libsrtp2-dev` 패키지 또는 libsrtp 2.x 최신 버전을 `--enable-openssl` 옵션으로 소스 빌드하면 된다. 
+> - libnice는 지금도 Meson/Ninja로 소스 빌드하는 것을 권장한다.
+>
+> Janus 본체 빌드는 [GitHub README](https://github.com/meetecho/janus-gateway#readme) 기준으로 여전히 autotools(autogen/configure) 방식이 공식 절차다. 현재 기준 최소 빌드 절차는 아래와 같다.
+> ```bash
+> # 의존 라이브러리 (Ubuntu 22.04/24.04)
+> sudo apt install libmicrohttpd-dev libjansson-dev libssl-dev libsrtp2-dev \
+>   libsofia-sip-ua-dev libglib2.0-dev libopus-dev libogg-dev \
+>   libcurl4-openssl-dev liblua5.3-dev libconfig-dev \
+>   pkg-config libtool automake meson ninja-build
+>
+> # libnice (Meson 빌드)
+> git clone https://gitlab.freedesktop.org/libnice/libnice
+> cd libnice
+> meson setup --prefix=/usr build && ninja -C build && sudo ninja -C build install
+>
+> # Janus 빌드
+> git clone https://github.com/meetecho/janus-gateway.git
+> cd janus-gateway
+> sh autogen.sh
+> ./configure --prefix=/opt/janus
+> make && sudo make install && sudo make configs
+> ```
+> 아래 본문과 트러블슈팅 내용은 **당시(2021년) 기록**으로 남겨둔다.
 
 ## Janus WebRTC Server install  
 
@@ -47,7 +76,9 @@ sudo aptitude install \
   pkg-config gengetopt libtool automake
 ```
 
-## libsrtp-dev v2.2.0
+## libsrtp-dev v2.2.0 (당시 기록)
+
+> **[2026-07-15]** 아래 다운그레이드는 현재는 불필요하다. 최신 배포판의 libsrtp2 패키지를 그대로 사용하면 된다.
 
 libsrtp-dev는 Janus WebRTC서버에서 Data Channel 데모에서 사용하는데 Ubuntu 20.04에서는 오류가 생겨서 수동으로 기존 libsrtp2-dev를 삭제하고 수동으로 패키지를 설치해야 한다.
 
@@ -299,7 +330,9 @@ ubuntu@instance-20210116-0003:/opt/janus$ tree -d
         └── man1
 ```
 
-## Oops, error creating inbound SRTP session ..  
+## Oops, error creating inbound SRTP session .. (당시 기록)
+
+> **[2026-07-15]** 아래 트러블슈팅은 2021년 Ubuntu 20.04 당시의 기록이며 현재 버전에서는 발생하지 않는다.
 
 - [issue](https://github.com/meetecho/janus-gateway/issues/2024)
 

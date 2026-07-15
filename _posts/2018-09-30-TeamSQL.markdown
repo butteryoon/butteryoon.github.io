@@ -3,24 +3,27 @@ layout: post
 title:  "TeamSQL"
 desc: "TeamSQL"
 date:   2018-09-30 21:25:30 +0900
+last_modified_at: 2026-07-15 15:20:00 +0900
 categories: tools
 ---
 
 MySQL, Oracle, SQL Server, PostgreSQL 을 모두 지원한다.
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** TeamSQL은 2019년에 서비스가 종료되었다. 개발팀도 종료 공지에서 다른 툴로 갈아탈 것을 권장했다. 현재 사용할 수 있는 무료 SQL GUI 툴로는 [DBeaver](https://dbeaver.io/) (80종 이상의 DB 지원, 오픈소스), [Beekeeper Studio](https://www.beekeeperstudio.io/) (가볍고 UI가 깔끔한 오픈소스), 그리고 MySQL/MariaDB 위주라면 [HeidiSQL](https://www.heidisql.com/) 이 있다. 아래 본문은 기록용으로 남겨둔다.
 
 JAVA로 만들어져 좀 무겁기는 하지만 개발환경이 넉넉하고 여러종류의 DB를 사용해야 할 때는 유용할 듯
 
 
 **Installation**
 
-* [다운로드](https://jekyllrb.com/docs/step-by-step/08-blogging/)
+* ~~다운로드~~ (서비스 종료로 다운로드 불가)
 
-Windows 10에서 별 문제없이 설치 완료. 
+Windows 10에서 별 문제없이 설치 완료.
 
-Toad나 HeidisQL과 비교하면 쫌 불편.. 
+Toad나 HeidisQL과 비교하면 쫌 불편..
 
-그리고 요즘 프로그램 답게 유료 Plan 이 있는 듯. 
+그리고 요즘 프로그램 답게 유료 Plan 이 있는 듯.
 
-우선 조금 써보고 판단 해 보자 ... 
-
-
+우선 조금 써보고 판단 해 보자 ...

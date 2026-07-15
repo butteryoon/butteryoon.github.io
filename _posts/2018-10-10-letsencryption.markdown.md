@@ -4,7 +4,7 @@ title: "letsencrypt 인증서 발급하기"
 description: "letsencrypt-auto 스크립트로 처음 인증서 발급하는 과정과 90일이 이후 재발급 하는 방법을 설명한다."
 img: "letsencryption.png"
 date: 2019-04-20 20:05:00 +0900
-last_modified_at: 2021-04-30 17:05:00 +0900
+last_modified_at: 2026-07-15 15:20:00 +0900
 tags: [letsencrypt, HTTPS, 인증서, duckdns.org] 
 related: letsencrypt
 categories: dev
@@ -18,25 +18,73 @@ categories: dev
 
 <!--more-->
 
-## letsencrypt 발급절차 
+> **[2026-07-15 업데이트]** 이 글에서 사용한 `letsencrypt-auto` / `certbot-auto` 스크립트는 2021년에 지원이 중단(deprecated)되었고 저장소에서도 제거되어 더 이상 사용할 수 없다. 지금은 **snap으로 certbot을 설치**해서 사용하는 것이 공식 권장 방법이다. 아래 "letsencrypt 발급절차" 섹션을 현재 방법 기준으로 다시 정리했고, 기존 letsencrypt-auto 기반 내용은 "당시 방법"으로 남겨둔다.
+
+## letsencrypt 발급절차 (2026년 기준)
 
 letsencrypt 에서 인증서를 받기 위한 절차는 아래와 같다.
 
 생각보다 간단하다.
 
 1. 인증서를 받기 위해 도메인이 있어야 한다. 
-2. 메뉴얼 모드로 인증서를 받는다. 
-3. 인증서는 90일 마다 갱신해야 한다. 
-   - 자동화 스크립트 설정이 가능하다. 
-4. 끝. 
+2. certbot을 snap으로 설치한다. 
+3. standalone 또는 webroot 방식으로 인증서를 받는다. 
+4. 인증서는 90일 마다 갱신해야 한다. 
+   - snap 설치 시 systemd timer(또는 cron)로 자동갱신이 함께 설정된다. 
+5. 끝. 
 
-## git 저장소에서 letsencrypt clone 
+### certbot 설치 (snap)
+
+예전처럼 git으로 letsencrypt 저장소를 clone 하는 방식은 더 이상 사용하지 않는다. [certbot 공식 안내](https://certbot.eff.org/instructions?ws=other&os=snap)에 따라 snap으로 설치한다. 
+
+```bash
+# 기존 OS 패키지로 설치한 certbot이 있다면 제거
+sudo apt remove certbot        # (RedHat 계열은 dnf/yum remove certbot)
+
+# snap으로 certbot 설치
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/local/bin/certbot
+```
+
+### 인증서 발급
+
+웹서버를 잠시 내릴 수 있으면 **standalone** 방식이 제일 간단하다. certbot이 임시 웹서버를 직접 띄워 도메인 소유 인증을 처리해 준다. (이 글에서 파이썬 SimpleHTTPServer로 하던 일을 대신해 준다) 
+
+```bash
+sudo certbot certonly --standalone -d test.duckdns.org
+```
+
+이미 웹서버가 돌고 있으면 **webroot** 방식으로 서비스 중단 없이 발급할 수 있다. 
+
+```bash
+sudo certbot certonly --webroot -w /var/www/html -d test.duckdns.org
+```
+
+인증서는 예전과 동일하게 `/etc/letsencrypt/live/도메인/` 아래에 생성된다. 
+
+### 자동 갱신
+
+snap 설치 시 systemd timer 또는 cron으로 자동갱신 작업이 함께 등록되므로 별도 설정이 필요 없다. 
+
+```bash
+# 갱신 timer 확인
+systemctl list-timers | grep certbot
+
+# 갱신 테스트
+sudo certbot renew --dry-run
+```
+
+---
+
+이하는 글 작성 당시 letsencrypt-auto 스크립트를 사용하던 방법이다. **지금은 동작하지 않으므로** 기록용으로만 참고한다. 
+
+## git 저장소에서 letsencrypt clone (당시 방법)
 
 ```bash
 git clone https://github.com/letsencrypt/letsencrypt
 ```
 
-## 인증서 신규 발급 
+## 인증서 신규 발급 (당시 방법)
 
 nginx 또는 아파치 웹서버 구동 환경에서는 "certbot-auto" 스크립트를 사용하여 자동으로 적용까지 가능하지만 메뉴얼으로 인증서만 받기로 한다. 
 
@@ -154,11 +202,12 @@ lrwxrwxrwx 1 root root  39 12월 10 18:20 chain.pem -> ../../archive/test.domain
 lrwxrwxrwx 1 root root  38 12월 10 18:20 cert.pem -> ../../archive/test.domain.com/cert7.pem
 ```  
 
-## 인증서 재발급 (renew) 
+## 인증서 재발급 (renew, 당시 방법) 
 
 기존에 발급 받은 인증서를 90일 이전에 재발급 할 경우에는 아래와 같이 **--renew-by-default** 옵션을 추가하고 진행과정은 초기와 동일하다. 
 
 > **Let's Encrypt Expiry Bot <expiry@letsencrypt.org>**이 친절하게 메일을 보내준다.  
+> (2026-07-15 추가: Let's Encrypt는 2025년 6월부터 만료 안내 메일 발송을 중단했다. 지금은 `sudo certbot renew` 및 자동갱신 timer로 관리하면 된다.)  
 
 ```bash
 [root@localhost letsencrypt]# ./letsencrypt-auto certonly --renew-by-default --manual --no-bootstrap -d test.domain.com
@@ -241,7 +290,8 @@ duckdns.org.            597     IN      SOA     ns3.duckdns.org. hostmaster.duck
 - [Let's Encrypt 시작하기](https://letsencrypt.org/ko/getting-started/)
 - [Let's Encrypt로 무료로 HTTPS 지원하기](https://blog.outsider.ne.kr/1178) 
 - [Let's encrypt의 인증서를 생성할 때 주의사항](https://findstar.pe.kr/2018/09/08/lets-encrypt-certificates-rate-limit/)
-- [인증서갱신](https://letsencrypt.readthedocs.io/en/latest/using.html#re-creating-and-updating-existing-certificates)
+- [인증서갱신](https://eff-certbot.readthedocs.io/en/stable/using.html#re-creating-and-updating-existing-certificates)
+- [certbot 설치 안내 (공식)](https://certbot.eff.org/instructions)
 - [Install Let's Encrypt to Create SSL Certificates](https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/)
 
 ## 이슈

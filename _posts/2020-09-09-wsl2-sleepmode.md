@@ -6,9 +6,14 @@ date: 2020-09-09 20:00:00 +0900
 tags: [wsl, wsl2, wslconfig] # add tag
 related: wsl
 categories: tools
+last_modified_at: 2026-07-15 15:20:00 +0900
 ---
 
 Windows 10 Sleep mode (보통은 노트북을 쓰다가 덮게를 덮으면 최대절전모드로 바뀐다) 이후 WSL2를 사용하려고 하면 네트워킹이 안되는 현상이 있다. 
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** Microsoft Store 배포판 WSL(현재 표준)에서는 `LxssManager` 서비스가 `WslService`로 대체되었다. 지금은 `Restart-Service WslService` 또는 `wsl --shutdown` 후 재시작이 현재 방법이다. 아래 명령어 블록에 신구 방법을 함께 정리했다. 
 
 microsoft/WSL github에 아래와 같은 issue가 Open 상태에 있다. 
 
@@ -31,7 +36,20 @@ Restart-NetAdapter -Name vEthernet*
 
 **그러나!! Sleep Mode 문제는 해결이 안된다.**
 
-> 관리자: cmd 명령어  
+> 현재 방법 (Store 배포판 WSL): 서비스 이름이 `WslService`로 바뀌었다. 관리자 PowerShell에서 실행한다. 
+
+```
+PS❯ Restart-Service -Name WslService
+```
+
+또는 서비스 재시작 없이 WSL 자체를 완전히 내렸다가 다시 실행해도 된다. 
+
+```
+PS❯ wsl --shutdown
+PS❯ wsl
+```
+
+> 과거 방법 (구버전 inbox WSL, `LxssManager`) — 관리자: cmd 명령어  
 
 ```
 sc query LxssManager
