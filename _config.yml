@@ -41,6 +41,9 @@ exclude: []
 include:
   - _static
 
+# 빌드 시간대 (미설정 시 GitHub Pages는 UTC로 빌드되어 오전 9시 이전 글의 URL 날짜가 하루 밀림)
+timezone: Asia/Seoul
+
 # text highlighter로 rouge이용
 highlighter: rouge
 

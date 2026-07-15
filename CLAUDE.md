@@ -21,6 +21,7 @@ Publishing = commit and push to `master`; GitHub Pages builds automatically. Plu
 - Summaries are cut at `<!--more-->` (`excerpt_separator`) — every post should include it after the intro paragraph.
 - Update `last_modified_at` when editing an existing post (recent commits show this convention).
 - `date` must not be in the future: GitHub Pages excludes future-dated posts from the build (no `future: true` in config), so the post silently won't appear on the site. When writing a new post, set `date` to the current time or earlier (KST, `+0900`).
+- `_config.yml` sets `timezone: Asia/Seoul` so post URLs use KST dates. Do not remove it — without it GitHub Pages builds in UTC and posts published before 09:00 KST get URLs dated one day earlier, breaking internal links.
 - Reference site assets as `{{site.baseurl}}/assets/img/...`.
 
 ## Structure
