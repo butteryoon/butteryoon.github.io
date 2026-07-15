@@ -5,7 +5,14 @@ img: icloud.png
 date: 2019-03-04 17:00:00 +0900
 tags: [iCloud, 아이클라우드] # add tag
 categories: apple
+last_modified_at: 2026-07-15 15:40:00 +0900
 ---
+
+Windows에 iCloud를 설치하다 만난 Media Player 관련 오류와 해결 과정을 정리한다.
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** 현재 Windows용 iCloud는 Microsoft Store를 통해서만 설치할 수 있다. 이 글에서 다룬 독립 설치 파일(standalone installer)의 Media Player 오류는 더 이상 발생하지 않는다. [Microsoft Store의 iCloud](https://apps.microsoft.com/detail/9pktq5699m62)에서 설치하면 된다. 아래 내용은 당시 기록으로 남겨둔다.
 
 ## Windows용 iCloud를 설치하려면 Media Player가 필요함. 
 

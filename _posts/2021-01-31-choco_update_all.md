@@ -4,7 +4,7 @@ title: "choco upgrade all -y"
 description: "Windows 패키지 관리자 Chocolatey로 설치된 패키지 전체 업데이트"
 img: m_choco_title.webp
 date: 2021-01-31 22:00:00 +0900
-last_modified_at: 2021-01-31 22:00:00 +0900
+last_modified_at: 2026-07-15 15:40:00 +0900
 tags: [terminal, chocolatey] # add tag
 related: terminal
 categories: tools
@@ -12,6 +12,8 @@ categories: tools
 
 Windows 패키지 관리자 Chocolatey로 설치된 패키지 전체 업데이트를 해보고 영상으로 남겨둔다. 
 <!--more-->
+
+> **[2026-07-15 업데이트]** `choco upgrade all -y` 명령은 지금도 그대로 쓸 수 있다. 다만 현재 Chocolatey는 2.x 버전대라 아래 캡처(v0.10.15)와는 출력 형식이 다소 다르다. 또한 지금은 Windows에 기본 패키지 관리자인 **winget**이 내장되어 있어 동일한 전체 업데이트를 `winget upgrade --all` 명령으로도 할 수 있다.
 
 ## 업그레이드 전체 패키지
 

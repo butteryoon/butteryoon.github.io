@@ -4,7 +4,7 @@ title: "Windows 10 Clean"
 description: "Windows 10 PC를 깔끔하게 관리하기위해 불필요한 앱들을 삭제하고 필요한 기본 패키지를 설치 및 서비스 설정등을 정리한다."
 img: "vscode-title.jpg"
 date: 2020-09-08 20:00:00 +0900
-last_modified_at: 2024-04-14 18:00:00 +0900
+last_modified_at: 2026-07-15 15:40:00 +0900
 tags: [Windows10, Visual Studio Code, vscode, Font, D2Coding] # add tag
 related: Windows10
 categories: tools
@@ -12,6 +12,8 @@ categories: tools
 
 Windows 10 PC를 깔끔하게 관리하기위해 불필요한 앱들을 삭제하고 필요한 기본 패키지를 설치 및 서비스 설정등을 정리한다.
 <!--more-->
+
+> **[2026-07-15 업데이트]** Windows 10은 2025년 10월에 지원이 종료되었다. 이제 PC를 새로 설치한다면 Windows 11 기준으로 진행하는 것을 권장한다. 앱 일괄 설치도 현재는 Windows에 기본 내장된 winget이 표준이다. 기존 PC에서 `winget export -o apps.json`으로 설치된 앱 목록을 내보내고, 새 PC에서 `winget import -i apps.json`으로 한 번에 설치할 수 있다. 아래의 chocolatey 방식도 여전히 동작하는 대안이라 그대로 남겨둔다.
 
 ## svccare.exe 삭제. 
 
@@ -44,7 +46,7 @@ Mode                 LastWriteTime         Length Name
 
 Windows 10 PC에 SSH 서버 설정. 데스크탑으로 쓸 때는 거의 필요 없는데 WSL을 설치하면서 간단한 스크립트 테스트용으로 쓴다. 
 
-[Windows의 OpenSSH](https://docs.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_overview)
+[Windows의 OpenSSH](https://learn.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_overview)
 [Configure SSH Server With Windows 10 Native Way](https://medium.com/rkttu/set-up-your-ssh-server-in-windows-10-native-way-1aab9021c3a6)
 [Windows 10 네이티브 방식으로 SSH 서버 설정하기](https://medium.com/beyond-the-windows-korean-edition/windows-10-네이티브-방식으로-ssh-서버-설정하기-64988d87349)
 

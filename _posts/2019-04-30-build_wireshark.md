@@ -6,7 +6,14 @@ date: 2019-04-30 15:32:00 +0900
 tags: [packet, tshark, command-line] # add tag
 related: command-line
 categories: dev
+last_modified_at: 2026-07-15 15:40:00 +0900
 ---
+
+RHEL6 환경에서 Wireshark 2.6 소스로 tshark만 빌드해 본 기록이다.
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** 당시 환경(RHEL 6, Wireshark 2.6)은 모두 EOL이다(RHEL6은 2020년, Wireshark 2.6은 2020년 지원 종료). 현재는 소스 빌드보다 배포판 패키지(`dnf install wireshark-cli` 등)나 [공식 빌드 가이드](https://www.wireshark.org/docs/wsdg_html_chunked/)를 사용하는 것을 권장한다. 아래 내용은 당시의 빌드 실패 기록으로 남겨둔다.
 
 ## 리눅스에서 tshark only 컴파일
 

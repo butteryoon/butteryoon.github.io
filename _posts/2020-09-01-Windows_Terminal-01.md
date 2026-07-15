@@ -4,7 +4,7 @@ title: "Windows Terminal"
 description: "새로운 Windows Terminal 활용하기."
 img: "M_WindowsTerminalPreview.png"
 date: 2020-09-01 21:00:00 +0900
-last_modified_at: 2021-04-27 18:00:00 +0900
+last_modified_at: 2026-07-15 15:40:00 +0900
 tags: [Windows10, Terminal, wsl2] # add tag
 related: Windows10
 categories: tools
@@ -17,12 +17,17 @@ CMD 창으로 할 수 있었던 일은 ipconfig 로 IP확인하기, 업무용을
 Windows 터미널은 사실 뭔가 새로운 걸 쓰기를 좋아하지 않는 이들에게는 별다른 감흥이 없을 수 있다. 
 
 나도 사실 WSL을 써보려고 하기 전에는 Windows에서 터미널은 거의 필요가 없는 도구였지만 지금은 Windows Terminal은 거의 필수 구동 프로그램이 되었다. 
+<!--more-->
 
-[Windows 터미널이란?](https://docs.microsoft.com/ko-kr/windows/terminal/) 한번 읽어두자. 
+> **[2026-07-15 업데이트]** 이 글은 Windows Terminal 1.x 초기 버전 기준으로 작성되었다. 현재 Windows 11에서는 Windows Terminal이 기본 터미널로 내장되어 별도 설치가 필요 없고, Windows 10에서는 Microsoft Store에서 설치하면 된다. 설정 UI도 표준 기능으로 자리 잡았으며, 패키지 관리자로 설치할 경우에도 choco보다는 `winget install Microsoft.WindowsTerminal` 또는 Store 설치가 일반적이다. 버전 관련 서술은 당시 기록으로 남겨둔다.
+
+[Windows 터미널이란?](https://learn.microsoft.com/ko-kr/windows/terminal/) 한번 읽어두자. 
 
 ## Install  
 
 설치는 [MS Store](https://aka.ms/terminal)에서 할 수도 있고 [GitHub](https://github.com/microsoft/terminal) 페이지를 보면 [Chocolatey](https://chocolatey.org)에서도 할 수 있다. 
+
+> **[2026-07-15 업데이트]** Windows 11에는 기본 내장되어 있어 이 절차가 필요 없다. 별도 설치가 필요하면 `winget install Microsoft.WindowsTerminal`을 쓰면 된다.
 
 ```powershell
 PS > choco list microsoft-windows-terminal -lo
@@ -61,7 +66,7 @@ $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8
 
 PowerShell, cmd, wsl2 터미널 이렇게 세개의 창을 배치하고 WSL 창에서 간단한 스크립트를 사용할 대 편리하다.   
 
-※ 창분할 기능 [Panes in Windows Terminal](https://docs.microsoft.com/ko-kr/windows/terminal/panes) 참고. 
+※ 창분할 기능 [Panes in Windows Terminal](https://learn.microsoft.com/ko-kr/windows/terminal/panes) 참고. 
 
 ![Terminal Layout]({{site.bashurl}}/assets/img/Terminal_Layout.png) 
 
@@ -84,6 +89,8 @@ C:\Users\사용자
 
 Windows Termninal [1.7.1033.0](https://mspoweruser.com/microsoft-windows-terminal-1-7-1033-0-changelog/) 버전에서는 UI로 설정할 수 있다. 
 
+> **[2026-07-15 업데이트]** 설정 UI는 이제 표준 기능이라 버전을 맞춰 업그레이드할 필요가 없다. `Ctrl+,`로 설정 UI를 열 수 있다.
+
 ```powershell
 choco upgrade microsoft-windows-terminal --version=1.7.1033.0
 ```
@@ -92,17 +99,17 @@ choco upgrade microsoft-windows-terminal --version=1.7.1033.0
 
 ## 명령 팔레트 
 
-[명령 팔레트](https://docs.microsoft.com/ko-kr/windows/terminal/command-palette)를 정의하여 Windows 터미널 내에서 실행할 수있는 명령을 확인할 수 있다. 
+[명령 팔레트](https://learn.microsoft.com/ko-kr/windows/terminal/command-palette)를 정의하여 Windows 터미널 내에서 실행할 수있는 명령을 확인할 수 있다. 
 
 ## 서드파티 툴 
 
 터미널이 쓸 만해 지니 [PowerShell]({{site.baseurl}} {% link _posts/2020-07-16-WindowsPowerShell.md %})에도 관심이 가서 쪼금 건드려 보는 중이다. 
 
-git 프로프트를 편하게 표시해주는 [자습서: Windows 터미널에서 Powerline 설정](https://docs.microsoft.com/ko-kr/windows/terminal/tutorials/powerline-setup) 을 설치해보니 Windows Terminal에서 파워쉘 명령어에 조금 친숙해졌다. 
+git 프로프트를 편하게 표시해주는 [자습서: Windows 터미널에서 Powerline 설정](https://learn.microsoft.com/ko-kr/windows/terminal/tutorials/powerline-setup) 을 설치해보니 Windows Terminal에서 파워쉘 명령어에 조금 친숙해졌다. 
 
 
 ## 참고 URL
 - [Windows Terminal GihHub](https://github.com/microsoft/terminal)
-- [Windows 터미널이란?](https://docs.microsoft.com/ko-kr/windows/terminal/)
+- [Windows 터미널이란?](https://learn.microsoft.com/ko-kr/windows/terminal/)
 - [[PowerShell] 파워쉘에서 한글 깨짐 문제 해결](https://psychoria.tistory.com/737)
 - [Windows PowerShell 기본]({{site.baseurl}} {% link _posts/2020-07-16-WindowsPowerShell.md %})

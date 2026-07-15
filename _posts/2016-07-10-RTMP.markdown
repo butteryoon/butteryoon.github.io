@@ -4,7 +4,14 @@ title:  "RTMP"
 desc: "RTMP 프로토콜 개요 및 ffmpeg를 이용한 시험"
 date:   2016-07-10 17:57:30 +0900
 categories: dev
+last_modified_at: 2026-07-15 15:40:00 +0900
 ---
+
+RTMP 프로토콜 관련 자료 링크 모음이다.
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** 2020년 말 Flash 종료 이후 RTMP는 방송 ingest(OBS → YouTube/Twitch 송출) 용도로만 잔존하고, 시청(재생) 구간은 HLS/WebRTC로 대체되었다. 최신 대안으로는 SRT, WHIP(WebRTC-HTTP Ingestion Protocol)가 있다. 아래 링크 중 다수는 접속 불가 상태라 표시해 두었다.
 
 [jekyll-docs]: http://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
@@ -32,8 +39,8 @@ categories: dev
 
 * RTMP Server
   * [C++ RTMP Server](https://github.com/mdavid/crtmpserver)
-  * [CrtmpServer Wiki](http://wiki.alessandro.delgallo.net/wiki/index.php/Crtmpserver)
-  * [crtmpserver 를 이용한 영상전송](http://www.rasplay.org/?p=5705 )
+  * ~~CrtmpServer Wiki (http://wiki.alessandro.delgallo.net)~~ (접속 불가)
+  * ~~crtmpserver 를 이용한 영상전송 (rasplay.org)~~ (접속 불가)
  
 * RTMP Client
   * [RTMPDump (클라이언트)](http://rtmpdump.mplayerhq.hu/)
@@ -41,13 +48,13 @@ categories: dev
   * [librtmp Example](http://stackoverflow.com/questions/24749032/librtmp-example-c-programming)
 
 * app
-  * [spydroid-ipcamera](https://code.google.com/archive/p/spydroid-ipcamera/) 
+  * [spydroid-ipcamera](https://code.google.com/archive/p/spydroid-ipcamera/) (Google Code 아카이브, 프로젝트 개발 중단됨)
 
 * media Server
   * [OBS](https://obsproject.com/index)
 
 * ETC
-  * [Push Hack](http://www.contextis.com/resources/blog/push-hack-reverse-engineering-ip-camera/)
+  * ~~Push Hack (contextis.com 블로그)~~ (접속 불가)
   * [FFMpeg for Streaming](https://sonnati.wordpress.com/2011/08/30/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iv/)
   * [Packet Sample](http://thompsonng.blogspot.kr/2010/10/rtmp-part-8-packets-examples.html)
 
