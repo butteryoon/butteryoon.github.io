@@ -3,9 +3,14 @@ layout: post
 title:  "Query Gateway"
 desc: "Query Build and Gateway"
 categories: dev
+last_modified_at: 2026-07-15 16:00:00 +0900
 ---
 
 **Query Builder and Gateway for Oracle DB**
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** 이 글은 당시 아이디어를 정리한 메모 기록이다. 아래에 언급한 RedQueryBuilder 프로젝트는 중단되었고, 현재는 유사한 기능의 오픈소스로 [Metabase](https://www.metabase.com/), [Redash](https://redash.io/) 등이 있다.
 
 **Requirement**
 

@@ -4,7 +4,7 @@ title: "RFC 형식의 프로토콜 다이어그램 그리기"
 description: "RFC 문서의 프로토콜 헤더 다이어그램을 그려주는 오픈소스 툴인 protocol을 설치하고 커스텀 다이어그램을 만들어본다."
 img: protocol_title.png
 date: 2021-05-09 15:00:00 +0900
-last_modified_at: 2021-05-09 15:00:00 +0900
+last_modified_at: 2026-07-15 16:00:00 +0900
 tags: [command-line, rfc, protocol, diagram] # add tag
 related: command-line
 categories: tools
@@ -16,9 +16,11 @@ categories: tools
 
 <!--more-->
 
+> **[2026-07-15 업데이트]** PyPI의 `protocol` 패키지는 이 툴과 무관한 다른 프로젝트이므로 `pip install protocol`로는 설치할 수 없다. GitHub 저장소를 `git clone`한 뒤 `python3 protocol` 형태로 직접 실행하는 것을 권장한다. 아래 설치 로그의 Python 2.7 경로(scripts-2.7, python2.7)는 작성 당시 환경 기준이다.
+
 ## Install
 
-git로 프로젝트를 Clone하고 **"setup.py install"** 명령어로 설치한다. 
+git로 프로젝트를 Clone하고 **"setup.py install"** 명령어로 설치한다. (아래 로그는 Python 2 시절의 출력이며, 현재는 clone 후 `python3 protocol <args>`로 바로 실행하는 방식이 간단하다.)
 
 ```bash
 ❯ git clone https://github.com/luismartingarcia/protocol.git

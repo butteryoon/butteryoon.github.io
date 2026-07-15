@@ -4,7 +4,7 @@ title: "Windows 10 Wi-Fi Direct"
 description: "윈도우즈10 에서 Wi-Fi 다이렉트 기능 확인."
 img: WiFi-Direct-Cover.png
 date: 2020-07-21 18:24:00 +0900
-last_modified_at: 2021-04-14 22:00:00 +0900
+last_modified_at: 2026-07-15 16:00:00 +0900
 tags: [Windows10, Wi-Fi, Direct, wireless, hotspot] # add tag
 related: Windows10
 categories: dev
@@ -15,6 +15,10 @@ categories: dev
 Windows 10 에서 Wi-Fi Direct 기능 설정을 위한 숟가락질 ..
 
 안드로이드의 카메라에서 실시간 촬영한 영상을 Wi-Fi Direct 기능을 이용해서 Windows 10으로 전송하고 카메라앱에서 실시간으로 영상 재생을 하려 하는데 .. 
+
+<!--more-->
+
+> **[2026-07-15 업데이트]** 본문에서 다루는 `netsh wlan hostednetwork` 기능은 최신 무선 드라이버(WDI 기반)에서 지원이 중단되어 대부분의 최신 노트북에서는 동작하지 않는다. 현재는 **설정 > 네트워크 및 인터넷 > 모바일 핫스팟** 기능을 사용하면 된다. 아래 본문은 당시 기록으로 남겨둔다.
 
 ## Windows10 Wi-Fi Direct 설정 확인
 
