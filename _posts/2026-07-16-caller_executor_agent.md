@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "Caller/Executor 패턴으로 멀티 에이전트 구성하기"
 description: "Foundry Toolbox와 MCP를 이용한 Caller-Executor 멀티 에이전트 구조 정리"
-img: protocol_title.png
+img: multi_agent_network.jpg
 date: 2026-07-16 01:40:00 +0900
-last_modified_at: 2026-07-16 01:40:00 +0900
+last_modified_at: 2026-07-16 02:10:00 +0900
 tags: [llm, ai agent, mcp, foundry, langgraph, multi-agent] # add tag
 related: llm
 categories: dev
