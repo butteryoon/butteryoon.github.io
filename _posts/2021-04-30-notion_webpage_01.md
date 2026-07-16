@@ -2,9 +2,9 @@
 layout: post
 title: "Notionlytics : 노션 웹페이지 사용자 추적하기"
 description: "Notion 으로 제품소개 페이지를 만들고 노션리틱스(Notionlytics) 서비스로 기본적인 사용자 추적정보인 페이지뷰, 방문자 통계를 확인해본다."
-img: title-idea.webp
+img: webstats_title.jpg
 date: 2021-04-30 18:00:00 +0900
-last_modified_at: 2026-07-15 15:40:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [idea, notion, notionlytics, 노션리틱스] # add tag
 related: idea
 categories: tools

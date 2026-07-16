@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "PaperBanana - 문장으로 아키텍처 다이어그램 그리기"
 description: "텍스트 설명만으로 논문 수준의 다이어그램을 생성해주는 AI 서비스"
-img: tools_title.jpg
+img: diagram_title.jpg
 date: 2026-07-14 22:30:00 +0900
-last_modified_at: 2026-07-14 22:30:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [llm, diagram, architecture, PaperBanana, ai agent] # add tag
 related: llm
 categories: tools

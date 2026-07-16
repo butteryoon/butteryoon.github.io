@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "MetaMask에 Polygon 네트워크 추가하기"
 description: "MetaMask 지갑에 Polygon PoS 네트워크를 수동으로 추가하는 방법을 정리한다."
-img: image-title.jpg
+img: crypto_title.jpg
 date: 2026-07-15 00:00:00 +0900
-last_modified_at: 2026-07-15 00:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [MetaMask, Polygon, blockchain, wallet] # add tag
 related: MetaMask
 categories: tools

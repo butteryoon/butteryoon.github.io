@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "사이드프로젝트용 무료 OPEN API 목록 정리"
 description: "사이드프로젝트에 바로 쓸 수 있는 무료 OPEN API들을 무료 한도와 함께 정리"
-img: tools_title.jpg
+img: api_code_title.jpg
 date: 2026-07-15 00:00:00 +0900
-last_modified_at: 2026-07-15 00:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [openapi, api]
 related: openapi
 categories: tools

@@ -2,9 +2,9 @@
 layout: post
 title: "노션(Notion) 우선순위 테이블 만들기."
 description: "긴급, 중요 두가지 항목의 선택에 따라 항목의 우선 순위를 간단한 수식으로 체크하여 별표 개수로 표시한다."
-img: title-idea.webp
+img: planning_title.jpg
 date: 2021-02-07 18:00:00 +0900
-last_modified_at: 2026-07-15 16:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [idea, notion, task] # add tag
 related: idea
 categories: tools

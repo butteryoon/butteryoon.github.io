@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "Slack 메시지 curl로 보내기"
 description: "Slack Incoming Webhook을 만들고 curl 한 줄로 채널에 메시지를 보내는 방법 정리"
-img: M_photo-cabling.jpg
+img: messaging_title.jpg
 date: 2026-07-15 00:00:00 +0900
-last_modified_at: 2026-07-15 00:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [slack, webhook, curl]
 related: slack
 categories: tools

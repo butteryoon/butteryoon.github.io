@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "Query Gateway"
+img: dataquery_title.jpg
 desc: "Query Build and Gateway"
 categories: dev
-last_modified_at: 2026-07-15 16:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 ---
 
 **Query Builder and Gateway for Oracle DB**

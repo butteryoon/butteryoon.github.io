@@ -2,9 +2,9 @@
 layout: post
 title: "Windows 10 키 매핑 바꾸기"
 description: "윈도우즈 10 에서 PowerToys로 키보드 매핑을 바꾸는 방법"
-img: image-title.jpg
+img: keyboard_title.jpg
 date: 2021-04-13 12:00:00 +0900
-last_modified_at: 2021-04-13 12:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [Windows10, powertoy] # add tag
 related: Windows10
 categories: tools

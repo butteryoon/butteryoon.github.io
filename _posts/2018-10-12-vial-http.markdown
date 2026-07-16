@@ -2,7 +2,7 @@
 layout: post
 title: "vim에서 REST-API 테스트" 
 description: "vim 에디터에서 REST-API 테스트를 위한 도구인 vial-http를 설치하고 간단한 예재를 실행해본다. "
-img: image-title.jpg
+img: vim-title.webp
 date: 2018-10-12 00:51:00 +0900
 last_modified_at: 2026-07-15 16:00:00 +0900
 tags: [devtool, gvim, rest, vial-http] # add tag

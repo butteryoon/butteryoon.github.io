@@ -2,9 +2,9 @@
 layout: post
 title: "MS Clariy 사용자 행동분석 도구 적용하기"
 description: "Github Pages에 MS Clariy 사용자 행동분석 도구 적용하기"
-img: image-title.jpg
+img: analytics_title.jpg
 date: 2020-11-13 00:00:00 +0900
-last_modified_at: 2020-11-15 00:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [msclarity, jekyll, github pages] # add tag
 related: jekyll
 categories: tools

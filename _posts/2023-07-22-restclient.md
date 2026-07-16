@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "REST Client for Visual Studio Code"
 description: "REST Client for Visual Studio Code"
-img: tools_title.jpg
+img: vscode-title.jpg
 date: 2023-07-22 11:00:00 +0900
 last_modified_at: 2026-07-15 15:40:00 +0900
 tags: [devtool, Visual Studio Code, vscode, http, restful] # add tag

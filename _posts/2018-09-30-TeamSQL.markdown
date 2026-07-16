@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "TeamSQL"
+img: database_title.jpg
 desc: "TeamSQL"
 date:   2018-09-30 21:25:30 +0900
-last_modified_at: 2026-07-15 15:20:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 categories: tools
 ---
 

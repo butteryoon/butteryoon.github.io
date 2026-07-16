@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "OpenRouter 무료 모델을 API로 사용하기"
 description: "OpenRouter의 프리(:free) 모델을 API로 호출하는 방법과 사용 가능한 모델 목록"
-img: image-title.jpg
+img: llm_api_title.jpg
 date: 2026-07-15 01:00:00 +0900
-last_modified_at: 2026-07-15 01:00:00 +0900
+last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [llm, openrouter, api, free] # add tag
 related: llm
 categories: tools
