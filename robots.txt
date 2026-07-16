@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# Explicitly welcome AI Search and LLM spiders
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemaps and AI-friendly Indexes
 Sitemap: https://butteryoon.github.io/sitemap.xml
+# Info: https://butteryoon.github.io/llms.txt
+# Info: https://butteryoon.github.io/llms-full.txt

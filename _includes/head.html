@@ -98,4 +98,49 @@
 	<link rel="stylesheet" href="{{ "/assets/css/better-gist-styles-01.css" | prepend: site.baseurl }}">
   <!-- google adsense -->
   {% include google_adsense.html %}
+
+  <!-- JSON-LD Structured Data for Google & AI Agents -->
+  {% if page.layout == "post" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url | prepend: site.baseurl }}"
+    },
+    "headline": {{ page.title | jsonify }},
+    {% if page.description %}"description": {{ page.description | jsonify }},{% else %}"description": {{ site.description | jsonify }},{% endif %}
+    {% if page.img %}"image": "{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}",{% else %}"image": "{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author-img }}",{% endif %}
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% else %}"dateModified": "{{ page.date | date_to_xmlschema }}",{% endif %}
+    "author": {
+      "@type": "Person",
+      "name": {{ site.author | jsonify }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ site.title | jsonify }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author-img }}"
+      }
+    }
+  }
+  </script>
+  {% else %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "{{ site.url }}{{ site.baseurl }}",
+    "name": {{ site.title | jsonify }},
+    "description": {{ site.description | jsonify }},
+    "publisher": {
+      "@type": "Person",
+      "name": {{ site.author | jsonify }}
+    }
+  }
+  </script>
+  {% endif %}
 </head>

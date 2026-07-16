@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /llms-full.txt
+---
+# {{ site.title }} - Full Contents for AI Ingestion
+
+> This document contains the full text of the 15 most recent articles from {{ site.title }} for efficient ingestion by AI search engines and agents.
+
+{% for post in site.posts limit:15 %}
+---
+
+## [{{ post.title }}]({{ site.url }}{{ post.url }})
+
+- **Published Date**: {{ post.date | date: "%Y-%m-%d" }}
+- **Author**: {{ site.author }}
+{% if post.tags %}- **Tags**: {{ post.tags | join: ", " }}{% endif %}
+{% if post.description %}- **Description**: {{ post.description }}{% endif %}
+
+### Content:
+
+{{ post.content }}
+
+{% endfor %}

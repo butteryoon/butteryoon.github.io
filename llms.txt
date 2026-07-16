@@ -1,0 +1,19 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> {{ site.description | strip_html | strip_newlines }}
+
+## Site Information
+- **URL**: {{ site.url }}
+- **Author**: {{ site.author }} ({% if site.about-author %}{{ site.about-author }}{% endif %})
+- **Sitemap**: [Sitemap]({{ site.url }}/sitemap.xml)
+- **RSS Feed**: [RSS Feed]({{ site.url }}/feed.xml)
+- **Full Text Feed**: [Full Text for AI Ingestion]({{ site.url }}/llms-full.txt)
+
+## Recent Articles
+{% for post in site.posts limit:40 %}
+- [{{ post.title }}]({{ site.url }}{{ post.url }}): {% if post.description %}{{ post.description | strip_html | strip_newlines }}{% else %}{{ post.content | strip_html | truncate: 150 }}{% endif %}
+{% endfor %}
