@@ -5,13 +5,15 @@
 - 사이트: [https://butteryoon.github.io](https://butteryoon.github.io)
 - 작성자: James Yoon ([@butteryoon](https://github.com/butteryoon))
 
+> 이 블로그의 글 초안은 **Claude (Claude Code)** 로 작성됩니다. 또한 오픈소스 AI 플랫폼을 기업환경에 구성하기 위한 서베이 목적의 글들을 다룹니다.
+
 ## 기술 스택
 
 - [Jekyll](https://jekyllrb.com/) + GitHub Pages (`master` 브랜치에서 자동 배포)
 - 테마: [Flexible-Jekyll](https://github.com/artemsheludko/flexible-jekyll) (Artem Sheludko)
 - 플러그인: jekyll-sitemap, jekyll-paginate, jekyll-gist, jemoji, jekyll-youtube
 - 댓글: Disqus / 분석: Google Analytics, MS Clarity
-- Orca 환경에서 클로드 코드를 이용하여 조안 작성
+- 글의 초안은 Orca 환경에서 **Claude Code**를 이용하여 작성하고, 사람이 검토·보완 후 발행
 
 ## 로컬 실행
 
