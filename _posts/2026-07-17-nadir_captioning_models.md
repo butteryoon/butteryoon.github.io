@@ -9,6 +9,8 @@ last_modified_at: 2026-07-17 02:00:00 +0900
 tags: [llm, multimodal, VLM, remote sensing, captioning, open weight] # add tag
 related: llm
 categories: dev
+redirect_from:
+  - /dev/2026/07/16/nadir_captioning_models.html
 ---
 
 나디르(nadir, 수직 하방) 시점 위성영상에 텍스트 캡션을 자동으로 붙이는 작업에 어떤 오픈웨이트 멀티모달 모델을 쓸 수 있는지 조사한 내용을 정리한다. [지난 글]({{site.baseurl}}/dev/2026/07/16/satellite_mllm_vs_embedding.html)에서 MLLM과 임베딩 모델의 역할 차이를 다뤘다면, 이번에는 캡셔닝(MLLM 쪽)에 초점을 맞춘다.

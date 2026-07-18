@@ -9,6 +9,8 @@ last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [slack, webhook, curl]
 related: slack
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/slack_webhook.html
 ---
 
 2020년에 gist만 올려두고 묵혀둔 초안을 보완해서 발행한다. 스크립트나 배치 작업이 끝났을 때 Slack 채널로 알림을 받고 싶다면 Incoming Webhook + curl 조합이 가장 간단하다.

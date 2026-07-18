@@ -6,6 +6,8 @@ date: 2019-05-20 00:00:00 +0900
 tags: [packet, tshark, wireshark, setcap, dumpcap, command-line] # add tag
 related: command-line
 categories: dev
+redirect_from:
+  - /dev/2019/05/19/pcketdump.html
 ---
 
 패킷분석이라고 하면 보통 [Wireshark][Wireshark]을 떠올린다.  

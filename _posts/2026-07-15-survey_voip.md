@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [voip, sip, opensips, rtpengine, kamailio] # add tag
 related: opensource
 categories: dev
+redirect_from:
+  - /dev/2026/07/14/survey_voip.html
 ---
 
 2021년에 OpenSIPS 2.4와 RTPEngine mr7.4 조합을 메모해둔 초안을 보완해서 발행한다. 오픈소스로 VOIP 시스템을 만들 때 쓰이는 주요 구성요소를 현재(2026년) 기준으로 정리해본다.

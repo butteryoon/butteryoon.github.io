@@ -9,6 +9,8 @@ last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [MetaMask, Polygon, blockchain, wallet] # add tag
 related: MetaMask
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/metamask_polygon.html
 ---
 
 2022년에 작성해두었던 초안을 보완해서 발행한다. MetaMask 지갑에 Polygon PoS 네트워크를 수동으로 추가하는 방법을 정리해본다.

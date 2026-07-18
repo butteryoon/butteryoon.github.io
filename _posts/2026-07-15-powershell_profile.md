@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:45:00 +0900
 tags: [PowerShell, profile, oh-my-posh, alias, Windows Terminal] # add tag
 related: powershell
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/powershell_profile.html
 ---
 
 새 PC를 세팅할 때마다 PowerShell 프로파일을 다시 만들게 되는데, 지금 쓰고 있는 프로파일을 기준으로 기본 설정 방법을 정리해둔다.

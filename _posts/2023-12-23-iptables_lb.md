@@ -9,6 +9,8 @@ last_modified_at: 2023-12-27 21:50:00 +0900
 tags: [command-line, iptables , masquerade, nat, port forward, 라우드로빈, 로드밸런싱] # add tag
 related: command-line
 categories: tools
+redirect_from:
+  - /tools/2023/12/22/iptables_lb.html
 ---
 
 한 대의 서버에 같은 서비스를 다른 포트로 여러개를 실행하고 요청을 분배하는 방법에 대해 알아보자. 

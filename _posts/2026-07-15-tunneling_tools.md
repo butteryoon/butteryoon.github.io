@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [ngrok, tailscale, CloudFlare, tunnel, remote desktop] # add tag
 related: tunnel
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/tunneling_tools.html
 ---
 
 2023년에 작성해두었던 초안을 보완해서 발행한다. 방화벽으로 접속이 제한된 네트워크 안의 PC나 로컬에서 개발 중인 서비스를 외부에서 접속해야 할 때 사용할 수 있는 터널링 도구들을 정리해본다.

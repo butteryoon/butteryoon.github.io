@@ -9,6 +9,8 @@ last_modified_at: 2021-05-16 01:00:00 +0900
 tags: [ssh, bastion, multiplexing, proxycommand] # add tag
 related: ssh
 categories: tools
+redirect_from:
+  - /tools/2021/05/15/ssh_bastion.html
 ---
 
 AWS 서비스에는 Amazon EC2 인스턴스에 대한 인바운드 SSH(Secure Shell) 액세스를 허용하기 위해 퍼블릭 서브넷의 Linux 배스천 호스트를 구성하여 프라이빗 인스턴스에 연결을 제공하는 기능을 구성할 수 있다. 

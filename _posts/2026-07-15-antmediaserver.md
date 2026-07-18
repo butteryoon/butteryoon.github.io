@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [AntMediaServer, WebRTC, HLS, SRT, streaming] # add tag
 related: streaming
 categories: dev
+redirect_from:
+  - /dev/2026/07/14/antmediaserver.html
 ---
 
 2020년에 링크만 모아두고 묵혀둔 초안을 보완해서 발행한다. 당시에는 HLS 스트리밍용으로 잠깐 살펴봤던 Ant Media Server가 지금은 어떤 모습인지 다시 정리해본다.

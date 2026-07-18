@@ -8,6 +8,8 @@ last_modified_at: 2020-05-06 18:00:00 +0900
 tags: [command-line, linux, bash, script] # add tag
 related: command-line
 categories: dev
+redirect_from:
+  - /dev/2019/06/06/CommandLine.html
 ---
 
 리눅스서버 운영에 도움을 줄 수 있는 명령행 툴의 사용법을 기능별로 정리해본다. 리눅스에 기본으로 포함되서 배포되는 툴들도 있지만 별도로 설치해야 하는 툴들도 있다. 

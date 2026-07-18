@@ -9,6 +9,8 @@ last_modified_at: 2026-07-16 02:10:00 +0900
 tags: [llm, ai agent, mcp, foundry, langgraph, multi-agent] # add tag
 related: llm
 categories: dev
+redirect_from:
+  - /dev/2026/07/15/caller_executor_agent.html
 ---
 
 멀티 에이전트 시스템을 만들면서 정리한 **Caller/Executor 패턴** 구조를 기록해둔다. 사용자 요청을 받는 에이전트(Caller)와 실제 작업을 수행하는 전문 에이전트(Executor)를 분리하고, 둘 사이를 MCP(Model Context Protocol)로 연결하는 구성이다.

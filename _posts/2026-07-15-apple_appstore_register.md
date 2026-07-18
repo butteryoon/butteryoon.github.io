@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [apple, appstore, ios] # add tag
 related: apple
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/apple_appstore_register.html
 ---
 
 2020년에 초안으로 남겨두었던 글을 보완해서 발행한다. 애플 앱스토어에 앱을 등록해서 출시하기까지의 전체 절차를 단계별로 정리해본다.

@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [wsl, mail, msmtp, mutt]
 related: mail
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/sendmail_on_wsl.html
 ---
 
 2020년에 mutt 설치 로그만 붙여놓고 방치했던 초안을 보완해서 발행한다. WSL Ubuntu 터미널에서 스크립트 결과를 메일로 받고 싶을 때, 로컬에 postfix 같은 MTA를 세팅하는 것보다 **msmtp로 Gmail SMTP에 릴레이**하는 쪽이 훨씬 간단하고 요즘 방식이다.

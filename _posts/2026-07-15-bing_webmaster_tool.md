@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [bing, webmaster, seo] # add tag
 related: jekyll
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/bing_webmaster_tool.html
 ---
 
 2020년에 초안으로 남겨두었던 글을 보완해서 발행한다. Microsoft Bing 검색에 블로그가 노출되도록 Bing 웹마스터 도구(Bing Webmaster Tools)에 사이트를 등록하고 사이트맵을 제출하는 과정을 정리한다.

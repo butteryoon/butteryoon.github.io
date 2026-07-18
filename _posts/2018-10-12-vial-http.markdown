@@ -8,6 +8,8 @@ last_modified_at: 2026-07-15 16:00:00 +0900
 tags: [devtool, gvim, rest, vial-http] # add tag
 related: devtool
 categories: dev
+redirect_from:
+  - /dev/2018/10/11/vial-http.html
 ---
 
 vim 에디터에서 REST-API 테스트를 위한 도구인 "vial-http"를 설치하고 간단한 예재를 실행해본다.

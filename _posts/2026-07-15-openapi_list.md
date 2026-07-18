@@ -9,6 +9,8 @@ last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [openapi, api]
 related: openapi
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/openapi_list.html
 ---
 
 2021년에 링크만 모아두고 방치했던 초안을 보완해서 발행한다. 사이드프로젝트를 시작할 때 데이터 소스로 바로 쓸 수 있는 무료 OPEN API들을 무료 한도와 함께 정리했다.

@@ -9,6 +9,8 @@ last_modified_at: 2023-12-06 01:00:00 +0900
 tags: [command-line, bash, script, array, chatgpt, 배열] # add tag
 related: command-line
 categories: tools
+redirect_from:
+  - /tools/2023/12/05/bash_array.html
 ---
 
 쉘 스크립트는 간간히 쓰려면 항상 문법이 헷갈려서 chatGPT에 물어보면서 원하는 답을 얻어보자. 

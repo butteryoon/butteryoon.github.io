@@ -8,6 +8,8 @@ last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [msclarity, jekyll, github pages] # add tag
 related: jekyll
 categories: tools
+redirect_from:
+  - /tools/2020/11/12/ms_clarity_setting.html
 ---
 
 Github Pages에 [MS Clariy](https://clarity.microsoft.com) 사용자 행동분석 도구를 적용해본다.   

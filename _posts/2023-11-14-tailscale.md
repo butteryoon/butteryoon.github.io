@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 15:40:00 +0900
 tags: [ssh, tailscale, vpn, CloudFlare, remote desktop] # add tag
 related: ssh
 categories: tools
+redirect_from:
+  - /tools/2023/11/13/tailscale.html
 ---
 
 PC에 테스트 환경을 만들고 외부에서 접근해야 할 때 일반적으로 VPN을 구성하고 외부에 제공될 서비스의 IP/PORT를 등록해서 일정 기간동안 사용한다.

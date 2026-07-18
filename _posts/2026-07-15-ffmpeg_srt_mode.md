@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [ffmpeg, ffplay, srt, mpegts, streaming] # add tag
 related: ffmpeg
 categories: dev
+redirect_from:
+  - /dev/2026/07/14/ffmpeg_srt_mode.html
 ---
 
 2020년에 ffmpeg로 SRT 스트리밍을 테스트하면서 적어둔 초안을 보완해서 발행한다. mp4 파일을 ffmpeg로 읽어 SRT 프로토콜로 전송하고, ffplay로 받아서 재생하는 가장 단순한 구성을 정리한다.

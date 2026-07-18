@@ -9,6 +9,8 @@ last_modified_at: 2026-07-15 00:00:00 +0900
 tags: [naver, search advisor, seo] # add tag
 related: search
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/naver_search_advisor.html
 ---
 
 2020년에 초안으로 남겨두었던 글을 보완해서 발행한다. 네이버 검색에 블로그가 노출되도록 네이버 서치어드바이저에 사이트를 등록하고, 소유확인과 사이트맵 제출까지 진행하는 과정을 정리한다.

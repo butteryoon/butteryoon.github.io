@@ -9,6 +9,8 @@ last_modified_at: 2026-07-16 02:40:00 +0900
 tags: [llm, openrouter, api, free] # add tag
 related: llm
 categories: tools
+redirect_from:
+  - /tools/2026/07/14/openrouter_free.html
 ---
 온프레미스 서비스로 오픈웨이트 모델을 사용하려 할 때 GPU 인프라가 충분하지 않으면 여러가지 모델을 하기 어렵다. 이렇게 LLM 모델별 API로 테스트해보고 싶은데 비용이 부담될 때 [OpenRouter](https://openrouter.ai)의 무료 모델을 쓸 수 있다. 여러 프로바이더의 모델을 하나의 OpenAI 호환 API로 호출할 수 있고, 모델 ID에 `:free`가 붙은 모델은 과금 없이 사용할 수 있다.
 
