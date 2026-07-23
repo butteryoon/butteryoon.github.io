@@ -5,7 +5,7 @@ title: "Claude Code로 블로그 정리하기"
 description: "Dependabot 취약점 해소 및 저장소 정리 작업 기록"
 img: jekyll-title.png
 date: 2026-07-14 21:00:00 +0900
-last_modified_at: 2026-07-15 22:25:00 +0900
+last_modified_at: 2026-07-24 02:25:00 +0900
 tags: [jekyll, github pages, dependabot, claude code, bundler] # add tag
 related: jekyll
 categories: tools
@@ -25,6 +25,7 @@ categories: tools
 6. `_drafts`에 방치되어 있던 임시 글 11건을 보완해서 발행하고 드래프트 정리
 7. 발행 글 전체 검토 후 낡은 글 36건 우선순위별 업데이트 (7/15)
 8. 시간대 미설정으로 URL 날짜가 하루 밀리는 문제 수정 (7/15)
+9. 본문 테이블 스타일 정비 — 미니멀 가로선 + 지브라 + 가로 스크롤 (7/24)
 
 ## CLAUDE.md와 README 정리
 
@@ -111,6 +112,24 @@ gem 'tzinfo-data', platforms: [:mingw, :x64_mingw, :mswin]
 ```
 
 timezone 설정으로 오전 9시 이전 게시 글 10건의 URL이 바뀌었기 때문에, 검색엔진이 새 주소를 빨리 색인하도록 Google Search Console과 네이버 서치어드바이저에 사이트맵을 다시 제출했다. 제출 전에 `sitemap.xml`이 유효한 XML인지(104개 URL), `robots.txt`에 사이트맵 경로가 선언되어 있는지 확인했고, Search Console에서는 "성공"으로 처리 완료를 확인했다. 참고로 예전 방식의 사이트맵 ping URL은 폐지되어 재제출은 콘솔에서 직접 해야 한다.
+
+## 본문 테이블 스타일 정비 (7/24 추가)
+
+최근 글에 비교표가 부쩍 많아졌는데, 이 테마에는 테이블 CSS가 아예 없어서 브라우저 기본 스타일(경계선 없는 밀집 표)로 표시되고 있었다. `_sass/_base.scss`에 본문 스코프(`.wrap-content table`)로 기술 블로그 스타일을 추가했다: 세로선 없는 가로선 미니멀 구성, 헤더 배경과 지브라 스트라이프, 행 호버 하이라이트, 넓은 표의 표 내부 가로 스크롤.
+
+한 가지 삽질 기록 — 처음에 배경색을 테마 변수 기반 `lighten($grey-color-light, 12%)`로 지정했는데, 원본 색이 이미 밝아서 **밝기 한계를 넘겨 전부 `#fff`(흰색)로 컴파일**되어 버렸다. 로컬에서는 눈치채지 못했고 배포 후 라이브 CSS를 grep으로 검사하다 발견했다. Sass 색상 함수는 컴파일 결과를 확인하기 전까지 믿지 말 것. 명시적 색상(`#f4f6f8`, `#f9fafb`)으로 교체해 해결했다.
+
+```scss
+.wrap-content table {
+    display: block;
+    overflow-x: auto;            // 넓은 표는 표 안에서만 가로 스크롤
+    border-collapse: collapse;
+    th { background-color: #f4f6f8; border-bottom: 2px solid $grey-color; }
+    th, td { padding: 10px 14px; border-bottom: 1px solid $grey-color-light; }
+    tbody tr:nth-child(even) { background-color: #f9fafb; }
+    tbody tr:hover { background-color: #eaf2fd; }
+}
+```
 
 ## 마무리
 
