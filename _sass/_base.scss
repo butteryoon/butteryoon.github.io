@@ -234,7 +234,7 @@ pre {
     }
 
     th {
-        background-color: lighten($grey-color-light, 12%);
+        background-color: #f4f6f8;
         border-bottom: 2px solid $grey-color;
         color: $grey-color-dark;
         font-weight: 600;
@@ -242,11 +242,11 @@ pre {
     }
 
     tbody tr:nth-child(even) {
-        background-color: lighten($grey-color-light, 15%);
+        background-color: #f9fafb;
     }
 
     tbody tr:hover {
-        background-color: lighten($brand-color, 42%);
+        background-color: #eaf2fd;
     }
 
     code {
