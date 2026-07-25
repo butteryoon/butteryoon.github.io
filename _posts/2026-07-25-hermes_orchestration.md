@@ -5,7 +5,7 @@ title: "Hermes Agent 스킬 저장과 멀티 에이전트 오케스트레이션"
 description: "Hermes Agent의 스킬 저장, delegate_task 병렬 실행, cronjob 예약, kanban 협업 큐를 활용해 에이전트를 일회성 채팅이 아닌 버전 관리되는 절차·작업 큐로 운영하는 법"
 img: command-title.webp
 date: 2026-07-25 14:00:00 +0900
-last_modified_at: 2026-07-25 14:00:00 +0900
+last_modified_at: 2026-07-25 21:30:00 +0900
 tags: [hermes, ai agent, skill, delegate, cron, orchestration, nous research] # add tag
 related: llm
 categories: tools
@@ -149,6 +149,27 @@ hermes kanban init
 hermes kanban create "위성영상 캡셔닝 벤치마크" --assign research
 hermes kanban dispatch      # 게이트웨이 디스패처가 할당된 프로필 spawn
 ```
+
+이 글을 쓰는 환경에서 실제로 `init` → `create` → `list`를 돌려본 출력:
+
+```text
+$ hermes kanban init
+Kanban DB initialized at C:\Users\softr\AppData\Local\hermes\kanban.db
+
+Discovered 1 profile(s) on disk; any of these can be an --assignee:
+  default
+
+Next step: start the gateway so ready tasks actually get picked up.
+  hermes gateway start
+
+$ hermes kanban create "위성영상 캡셔닝 벤치마크" --assign research
+Created t_a391f2cf  (ready, assignee=research)
+
+$ hermes kanban list
+▶ t_a391f2cf  ready     research              위성영상 캡셔닝 벤치마크
+```
+
+두 가지 실전 포인트가 보인다. 첫째, `init`이 디스크의 프로필을 스캔해서 `--assignee` 후보(`default`)를 알려준다 — `research`라는 프로필이 아직 없으니 실제로는 `default`로 할당된다. 둘째, **디스패처는 게이트웨이가 돌아야 60초마다 틱한다**(`kanban.dispatch_interval_seconds`). 게이트웨이 없이 만들어만 두면 태스크는 영원히 `ready`에 머문다. 즉 `dispatch` 전에 `hermes gateway start`가 선행돼야 한다.
 
 디스패처가 죽은 claim을 회수하고, `failure_limit`(기본 2) 연속 실패 시 태스크를 자동 block한다. "사람이 관리자, 에이전트가 작업자" 구조를 만들고 싶을 때 딱 맞다.
 
