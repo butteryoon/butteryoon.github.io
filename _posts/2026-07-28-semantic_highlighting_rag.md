@@ -5,7 +5,7 @@ title: "RAG의 숨은 병목 — 시맨틱 하이라이트(의미 강조)로 검
 description: "대부분의 RAG는 검색은 시맨틱인데 하이라이트는 키워드로 틀어진다. Zilliz가 공개한 semantic-highlight-bilingual-v1(BGE-M3 Reranker 기반 0.6B)이 검색-설명 불일치와 컨텍스트 노이즈를 어떻게 푸는지 실제 모델 카드와 벤치마크로 정리"
 img: command-title.webp
 date: 2026-07-28 00:43:00 +0900
-last_modified_at: 2026-07-28 00:43:00 +0900
+last_modified_at: 2026-07-28 01:27:56 +0900
 tags: [rag, semantic highlighting, zilliz, milvus, context pruning, llm, nous research] # add tag
 related: llm
 categories: dev
@@ -29,6 +29,13 @@ X의 [@akshay_pachaar 포스트](https://x.com/akshay_pachaar/status/20146881419
 문제: 검색된 문서는 정확히 답인데, 그 단어가 없으면 **아무것도 강조 안 됨**. 사용자는 3,000단어를 직접 훑어야 "왜 이 문서가 나왔나"를 안다. 결과: 신뢰 하락 → 도구 이탈. 개발자도 "검색이 틀린가, 하이라이트만 실패한가"를 맹목적으로 디버깅.
 
 Milvus 블로그는 이걸 **RAG 노이즈/토큰 낭비** 문제로 확장한다. 잘 튜닝된 인덱스도 청크 단위로는 broad-relevant하지만, 청크 안 문장 중 실제 답은 소수다. 에이전트 워크플로우에서는 쿼리 자체가 다단계 추론 출력이라 불일치가 더 심해진다.
+
+불일치가 에이전트에서 왜 더 심한지 보자. 에이전트의 검색 쿼리는 사용자 원문이 아니라 **추론·태스크 분해로 파생된 지시**다.
+- 사용자: "최근 시장 동향 분석해줘"
+- 에이전트 쿼리: "Q4 2024 가전 판매 데이터, YoY 성장률, 경쟁사 점유율 변화, 공급망 비용 변동 추출"
+- 키워드 하이라이트는 "2024"/"sales data"만 잡고, 진짜 인사이트("iPhone 15 시리즈가 시장 회복 견인", "칩 공급 제약으로 비용 15% 상승")는 놓침
+
+즉 에이전트일수록 하이라이트가 의미 기반이어야 한다 — 수많은 검색 결과에서 "진짜 유용한 문장"을 키워드 없이 골라내야 하기 때문.
 
 ## 2. 해결 — Semantic Highlighting
 
@@ -113,6 +120,39 @@ Open Provence의 방식(공개 QA + 소형 LLM 라벨링)을 베이스로 삼되
 - 답변 품질 향상 (무관련 컨텍스트 감소)
 - 해석성·디버깅성 개선
 
+## 6b. 기존 솔루션의 한계 — 왜 이 모델인가
+
+Zilliz는 공개 전 가용한 솔루션들을 평가했고, **프로덕션 RAG에 필요한 정밀도·지연·다국어·견고함을 갖춘 게 없어 직접 훈련**했다고 명시한다. 구체적 한계:
+
+| 모델 | 치명적 약점 (실측) |
+| --- | --- |
+| **OpenSearch `opensearch-semantic-highlighter-v1`** | BERT 베이스, **컨텍스트 512 토큰** (≈400~500 영어 단어) — 긴 문서 truncating. **중국어 미지원**. In-domain F1 ≈0.72 → out-of-domain **0.46** 급락 |
+| **Naver Provence** (영어 전용) | CC BY-NC 4.0 → **상업 사용 불가**. context pruning 목적(recall 중시)이라 highlighting(정밀도 중시)과 objective mismatch → 하이라이트가 넓고 노이즈 많음 |
+| **Naver XProvence** (다국어) | 영어 성능이 Provence보다 떨어짐(용량 분산 trade-off), 중국어도 "간신히 쓸만" 수준. 라이선스 동일 제약 |
+
+반면 `semantic-highlight-bilingual-v1`은 **8192 토큰 + EN/ZH SOTA + MIT** 로 이 세 가지를 동시에 풀었다. 즉 "가벼운 모델로 밀리초"라는 제약 아래, 정밀도·다국어·상업 라이선스를 다 잡은 유일한 선택지다.
+
+## 6c. 대안 구현 — OpenSearch 방식
+
+의미 하이라이트는 Zilliz 모델 외에도 OpenSearch 3.0(2025-07)에 자체 도입됐다. 통합 방식은 쿼리의 `highlight.type: semantic` + `model_id` 지정:
+
+```json
+POST /neural-search-index/_search
+{
+  "query": { "neural": { "text_embedding": { "query_text": "treatments for neurodegenerative diseases", "model_id": "<embed-model>" } } },
+  "highlight": {
+    "fields": { "text": { "type": "semantic" } },
+    "options": { "model_id": "<semantic-highlighting-model-id>" }
+  }
+}
+```
+
+- 모델 배포: 클러스터 내 로컬(torchscript) 또는 **SageMaker 원격 GPU** (CPU 대비 **4.5배 빠름**)
+- 하이라이트 문장은 `<em>` 태그로 래핑, 신경망/하이브리드 쿼리 모두 지원
+- Zilliz 모델과 달리 OpenSearch는 자체 `opensearch-semantic-highlighter-v1`(512토큰/중국어 미지원)을 기본 쓰므로, 프로덕션에선 Zilliz 모델을 외부 endpoint로 붙이는 식
+
+한편 Zilliz 모델 자체는 **Milvus와 Zilliz Cloud에 네이티브 API**로 내장돼, 검색 시 관련 문장을 자동 노출한다("why retrieved" 가시화). 별도 코드 없이 벡터 DB 계층에서 해결되는 구조다.
+
 ## 7. 우리 블로그 관점에서
 
 - **[OKF 글]({{site.baseurl}}/tools/2026/07/25/hermes_okf_knowledge.html)**: 큐레이션된 정형 지식은 OKF, 대량 비정형은 벡터 RAG. 이 모델은 벡터 RAG의 약점(의미는 찾는데 설명/압축 못함)을 **하이라이트 + 프루닝**으로 보완하는 정확한 층위다.
@@ -130,6 +170,7 @@ RAG의 병목은 검색 정확도가 아니라 **"왜 이 문서인가"를 사�
 - [How We Built a Semantic Highlighting Model (Milvus Blog)](https://milvus.io/blog/semantic-highlighting-model-for-rag-context-pruning-and-token-saving.md){:target="_blank"}
 - [Provence: efficient and robust context pruning (arXiv:2501.16214, ICLR 2025)](https://arxiv.org/abs/2501.16214){:target="_blank"}
 - [Open Provence (구현)](https://github.com/hotchpotch/open_provence){:target="_blank"}
+- [OpenSearch Semantic Highlighting (대안 구현)](https://opensearch.org/blog/introducing-semantic-highlighting-in-opensearch/){:target="_blank"}
 - [원본 X 포스트 @akshay_pachaar](https://x.com/akshay_pachaar/status/2014688141970702358){:target="_blank"}
 - [OKF 지식 번들 (관련글)]({{site.baseurl}}/tools/2026/07/25/hermes_okf_knowledge.html)
 - [가드레일 Security (관련글)]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)
