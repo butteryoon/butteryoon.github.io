@@ -158,7 +158,7 @@ POST /neural-search-index/_search
 - **[OKF 글]({{site.baseurl}}/tools/2026/07/25/hermes_okf_knowledge.html)**: 큐레이션된 정형 지식은 OKF, 대량 비정형은 벡터 RAG. 이 모델은 벡터 RAG의 약점(의미는 찾는데 설명/압축 못함)을 **하이라이트 + 프루닝**으로 보완하는 정확한 층위다.
 - **[가드레일 Security 글]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)**: 하이라이트 모델 자체가 "의미 정렬 스팬"을 판정하니, RAG 출력의 **근거(faithfulness) 시각화** 계층으로 활용 가능 — 가드레일의 "출력이 문서 근거인가"를 검증하는 도구.
 - **[AI Factory 글]({{site.baseurl}}/dev/2026/07/24/ai_factory_opensource.html)**: NVIDIA가 요구한 동적 라우팅/지속 컨텍스트에서, 검색→하이라이트→프루닝까지의 **관측성**이 사용자 신뢰와 직결.
-- **[에이전트 학습 메타글]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)**: Zilliz가 "피드백(라벨에 reasoning 부착)을 데이터셋에 영속화해 모델 품질을 높인" 것도, 에이전트가 클로드 피드백을 스킬에 박는 것과 같은 **관측 가능한 학습 루프** 사례.
+- **[에이전트 학습 메타글]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)**: Zilliz가 "피드백(라벨에 reasoning 부착)을 데이터셋에 영속화해 모델 품질을 높인" 것도, 에이전트가 클로드 피드백을 스킬에 박는 것과 같은 **관측 가능한 학습 루프** 사례.
 
 ## 마무리
 
