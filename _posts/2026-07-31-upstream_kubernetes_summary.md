@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "Upstream Kubernetes 요약 — 아키텍처·버전 스큐·릴리즈, 그리고 배포판과의 차이"
-description: "Kubernetes 공식 문서 기준으로 upstream(바닐라) Kubernetes의 핵심 아키텍처와 버전 스큐 정책, 릴리즈 단계를 정리하고 Docker Swarm·Nomad·OpenShift·K3s·RKE2와의 차이를 비교"
+title: "Upstream Kubernetes 요약 — 아키텍처·버전 차이 정책·릴리즈, 그리고 배포판과의 차이"
+description: "Kubernetes 공식 문서 기준으로 upstream(바닐라) Kubernetes의 핵심 아키텍처와 버전 차이(skew) 정책, 릴리즈 단계를 정리하고 Docker Swarm·Nomad·OpenShift·K3s·RKE2와의 차이를 비교"
 img: cloud-title.webp
 date: 2026-07-31 01:21:00 +0900
 last_modified_at: 2026-07-31 01:21:00 +0900
@@ -15,7 +15,7 @@ categories: dev
 
 <!--more-->
 
-> **TL;DR:** upstream Kubernetes는 Control Plane(`kube-apiserver`·`etcd`·`controller-manager`·`scheduler`)과 워커(`kubelet`·`kube-proxy`)로 구성되며, 버전 스큐는 "kubelet은 apiserver보다 최대 3개 마이너 낮게, 절대 높지 않게"가 핵심 규칙이다. 기능은 Alpha → Beta → GA 단계로 성숙한다. 배포판 선택은 "전체 제어(upstream) vs 엔터프라이즈 레이어(OpenShift) vs 경량(K3s/RKE2) vs 비-K8s(Swarm/Nomad)"의 트레이드오프다.
+> **TL;DR:** upstream Kubernetes는 Control Plane(`kube-apiserver`·`etcd`·`controller-manager`·`scheduler`)과 워커(`kubelet`·`kube-proxy`)로 구성되며, 버전 차이(skew)는 "kubelet은 apiserver보다 최대 3개 마이너 낮게, 절대 높지 않게"가 핵심 규칙이다. 기능은 Alpha → Beta → GA 단계로 성숙한다. 배포판 선택은 "전체 제어(upstream) vs 엔터프라이즈 레이어(OpenShift) vs 경량(K3s/RKE2) vs 비-K8s(Swarm/Nomad)"의 트레이드오프다.
 
 ## Control Plane 구성 요소
 
@@ -50,11 +50,11 @@ kubeadm으로 구축한 클러스터라면 네 요소가 **static pod**로 `/etc
 
 [AI Factory 해설]({{site.baseurl}}/dev/2026/07/30/nvidia_ai_factory_design_guide.html)의 파트너 플랫폼 목록(OpenShift, Rancher, Charmed K8s 등)이 정확히 이 배포판 계층이고, NVIDIA GPU Operator·Kueue 같은 도구는 표준 K8s API 위에서 동작하므로 upstream이든 인증 배포판이든 올릴 수 있다.
 
-## 버전 스큐 정책 — 자주 틀리는 부분
+## 버전 차이(skew) 정책 — 자주 틀리는 부분
 
-[공식 정책](https://kubernetes.io/releases/version-skew-policy/){:target="_blank"} 기준으로 규칙이 컴포넌트 쌍마다 다르다. "±1"로 뭉뚱그리면 틀린다.
+[공식 정책](https://kubernetes.io/releases/version-skew-policy/){:target="_blank"} 기준으로 규칙이 컴포넌트 쌍마다 다르다. "±1"로 뭉뚱그리면 틀린다 (공식 한국어 문서 용어는 "버전 차이(skew) 정책"이다).
 
-| 컴포넌트 쌍 | 허용 스큐 |
+| 컴포넌트 쌍 | 허용되는 버전 차이 |
 |-------------|-----------|
 | kubelet ↔ kube-apiserver | kubelet은 **최대 3개 마이너 낮게** (1.25 미만은 2개), **절대 apiserver보다 높으면 안 됨** |
 | kube-apiserver 인스턴스 간 (HA) | 최신·최구 인스턴스가 **1개 마이너 이내** |
@@ -75,7 +75,7 @@ kubeadm으로 구축한 클러스터라면 네 요소가 **static pod**로 `/etc
 ## 실전 체크리스트
 
 1. **Control Plane 상태**: `kubectl get pods -n kube-system`에서 apiserver·etcd·controller-manager·scheduler Running 확인
-2. **스큐 검증**: `kubectl version`으로 client/server 차이가 ±1 이내인지, 노드는 `kubectl get nodes`로 kubelet 버전이 apiserver 이하인지 점검
+2. **버전 차이 확인**: `kubectl version`으로 client/server 차이가 ±1 이내인지, 노드는 `kubectl get nodes`로 kubelet 버전이 apiserver 이하인지 점검
 3. **업그레이드**: kubeadm 기준 `kubeadm upgrade plan` → `kubeadm upgrade apply vX.Y.Z` → 노드별 kubelet 업그레이드 순서
 4. **로그 진단**: static pod 구성이면 `kubectl logs -n kube-system kube-apiserver-<노드명>`이 첫 진단 지점
 
