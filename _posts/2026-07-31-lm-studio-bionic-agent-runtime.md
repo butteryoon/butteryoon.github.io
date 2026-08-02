@@ -5,7 +5,7 @@ title: "LM Studio Bionic — 로컬·연결·클라우드 삼중 실행 에이�
 description: "LM Studio Bionic의 세 가지 런타임(로컬/LM Link/Secure Cloud)과 Zero Data Retention, Voxtral 음성 입력까지 — 오픈모델 에이전트 앱 발표 요약"
 img: tools_title.jpg
 date: 2026-07-31 03:13:00 +0900
-last_modified_at: 2026-08-02 23:55:00 +0900
+last_modified_at: 2026-08-03 00:25:00 +0900
 tags: [lm studio, bionic, ai agent, local llm, voxtral, zero data retention] # add tag
 related: llm
 categories: tools
@@ -15,17 +15,12 @@ LM Studio가 발표한 에이전트 앱 [LM Studio Bionic](https://lmstudio.ai/b
 
 <!--more-->
 
-## 한 줄 요약
-
-**LM Studio Bionic**은 코딩·조사·문서 작업을 **로컬 모델 / LM Link 연결 모델 / Secure Cloud 대형 오픈모델** 세 가지 런타임 중 골라 쓰는 에이전트 앱이다.  
-데이터는 **Zero Data Retention**(보관·학습 안 함) 정책으로 처리되며, 음성 입력을 위한 **Voxtral**(Mistral AI 다국어 실시간 STT)도 로컬에서 돈다.
-
----
+> **TL;DR:** LM Studio Bionic은 코딩·조사·문서 작업을 **로컬 모델 / LM Link 연결 모델 / Secure Cloud 대형 오픈모델** 세 가지 런타임 중 골라 쓰는 에이전트 앱이다. 데이터는 **Zero Data Retention**(보관·학습 안 함) 정책으로 처리되며, 음성 입력용 **Voxtral**(Mistral AI 다국어 실시간 STT)도 로컬에서 돈다.
 
 ## 왜 이 글을 골랐나
 
 - 내 블로그 시리즈(에이전트 학습 → 가드레일 → OKF → 소스트리 투어)와 직결되는 **'에이전트 런타임 선택권'** 주제
-- 로컬 LLM 인프라스트럭처(LM Studio 런타임) 위에서 **에이전트 워크플로(코드 탐색·편집·디버깅, 문서 샌드박스, 음성 입력)**를 완성도 있게 패키징한 첫 사례
+- 로컬 LLM 인프라스트럭처(LM Studio 런타임) 위에서 **에이전트 워크플로(코드 탐색·편집·디버깅, 문서 샌드박스, 음성 입력)**를 완성도 있게 패키징한 드문 사례
 - 프라이버시·비용·성능 트레이드오프를 **사용자가 런타임 단에서 직접 제어**하게 만든 설계가 인상적
 
 ---
@@ -107,9 +102,9 @@ https://lmstudio.ai/
 
 ---
 
-## 한 줄 평
+## 마무리
 
-> **"모델·하드웨어·데이터 정책을 사용자가 런타임 단에서 고르게 만든 첫 에이전트 앱"**
+> **"모델·하드웨어·데이터 정책을 사용자가 런타임 단에서 고르게 만든 에이전트 앱"**
 
 로컬 LLM 인프라 위에 에이전트 워크플로를 얹으려는 팀이라면, Bionic의 **런타임 추상화 레이어(LM Studio Runtime → Local / Link / Cloud)** 설계를 벤치마크할 만하다.
 
