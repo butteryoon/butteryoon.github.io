@@ -834,63 +834,48 @@ pre code {
 }
 
 table {
-  border: 1px solid #aaa;
-  background-color: #eee;
-  width: 80%;
-  margin-left:auto; 
-  margin-right:auto;
-  text-align: left;
+  width: 100%;
   border-collapse: collapse;
-}
-
-table td, table.blueTable th {
-  border: 1px solid #aaa;
-  padding: 3px 2px;
-}
-
-table tbody td {
-  font-size: 13px;
-}
-
-table tr:nth-child(even) {
-  background: #002240;
-}
-
-table thead {
-  background: #a9c4d1;
-  background: -webkit-gradient(linear, left top, left bottom, from(#bed3dc), color-stop(66%, #b1cad5), to(#A9C4D1));
-  background: -webkit-linear-gradient(top, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
-  background: -o-linear-gradient(top, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
-  background: linear-gradient(to bottom, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
-  border-bottom: 1px solid #8c8c8c;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 table thead th {
-  font-size: 14px;
-  font-weight: bold;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
   color: #fff;
-  border-left: 1px solid #d0e4f5;
+  background: #6b6259;
+  border: 0;
 }
 
-table thead th:first-child {
-  border-left: none;
+table tbody td {
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: top;
+  color: #374151;
+  word-break: keep-all;
+  font-size: 0.95rem;
 }
 
-table tfoot {
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  background: #d0e4f5;
-  background: -webkit-gradient(linear, left top, left bottom, from(#dcebf7), color-stop(66%, #d4e6f6), to(#D0E4F5));
-  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  background: -o-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  border-top: 2px solid #444;
+table tbody tr {
+  background: #fff;
 }
 
-table tfoot td {
-  font-size: 14px;
+table tbody tr:last-child td {
+  border-bottom: 0;
 }
+
+table tbody tr:hover {
+  background: #f8fafc;
+}
+
 
 .wrapper {
   max-width: 1250px;
