@@ -5,8 +5,8 @@ title: "오케스트레이션이란 무엇인가 — 루프에서 그래프로, 
 description: "루프 엔지니어링과 그래프 엔지니어링의 차이, 오케스트레이터 런타임(Run/Task/Dispatch/Gate)의 구조, 그리고 오픈소스 스택으로 직접 구현하는 최소 구성"
 img: multi_agent_network.jpg
 date: 2026-08-02 23:44:00 +0900
-last_modified_at: 2026-08-02 23:44:00 +0900
-tags: [ai agent, orchestration, graph engineering, orca, multi-agent, llm] # add tag
+last_modified_at: 2026-08-03 00:07:00 +0900
+tags: [ai-agent, orchestration, graph-engineering, orca, multi-agent, llm] # add tag
 related: llm
 categories: dev
 ---
@@ -21,7 +21,7 @@ categories: dev
 
 <!--more-->
 
----
+> **TL;DR:** 루프 엔지니어링(단일 에이전트 반복)과 그래프 엔지니어링(다중 에이전트 협업)의 차이를 정리하고, 오케스트레이터 런타임(Run/Task/Dispatch/Message/Gate) 구조를 오르카 문서 기준으로 분석했다. 오픈소스 모델로 직접 구현하려면 State Store·Message Bus·Worker Spawner·Coordinator Loop 네 조각부터 시작하면 된다.
 
 ## 1. 루프(Loop) 엔지니어링 — 가장 작은 단위
 
@@ -247,20 +247,17 @@ class Orchestrator:
 | Graph Engineering for Multi-Agent Systems (TrueFoundry) | <https://www.truefoundry.com/blog/graph-engineering-enterprise-guide> |
 | AI Builder Club Graph Engineering Guide | <https://www.aibuilderclub.com/blog/graph-engineering-guide-2026> |
 | 원본 유튜브 영상 | <https://youtu.be/-pk2umNC-18> |
-| Hermes 스킬 오케스트레이션 (관련글) | [{{site.baseurl}}/tools/2026/07/25/hermes_orchestration.html]({{site.baseurl}}/tools/2026/07/25/hermes_orchestration.html) |
-| Caller/Executor 패턴 (관련글) | [{{site.baseurl}}/dev/2026/07/16/caller_executor_agent.html]({{site.baseurl}}/dev/2026/07/16/caller_executor_agent.html) |
 
 ---
 
-## 9. 다음 글 예고
+## 9. 마무리
 
-다음엔 **실제 프로토타입을 돌려보며**  
-- SQLite 스키마 완성본  
-- NATS 메시지 버스 연동  
-- `llama.cpp` 로컬 모델 서빙 + 코디네이터 프롬프트 튜닝  
-- 관찰가능성(로그/트레이스/대시보드)  
+이 글에서 다룬 오케스트레이션 개념은 앞서 작성한 글들과 연결된다:
 
-을 차례로 붙여나가는 **구현 일지**를 쓸 예정이다.
+- [Hermes Agent 오케스트레이션 개요]({{site.baseurl}}/tools/2026/07/25/hermes_orchestration.html) — Hermes의 `delegate_task`, `cronjob` 스킬로 멀티에이전트 패턴 구현
+- [Caller/Executor 패턴]({{site.baseurl}}/dev/2026/07/16/caller_executor_agent.html) — 단일 루프 내 호출자/실행자 분리 패턴
+
+다음 글에서는 실제 프로토타입을 돌려보며 **State Store(SQLite 스키마) + Message Bus(NATS) + Worker Spawner(llama.cpp 로컬 서빙) + Coordinator Loop(프롬프트 튜닝·관찰가능성)** 네 조각을 하나씩 붙여나가는 구현 일지를 쓸 예정이다.
 
 ---
 
