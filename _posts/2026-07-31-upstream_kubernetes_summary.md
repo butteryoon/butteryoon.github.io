@@ -5,8 +5,8 @@ title: "Upstream Kubernetes 요약 — 아키텍처·버전 차이 정책·릴�
 description: "Kubernetes 공식 문서 기준으로 upstream(바닐라) Kubernetes의 핵심 아키텍처와 버전 차이(skew) 정책, 릴리즈 단계를 정리하고 Docker Swarm·Nomad·OpenShift·K3s·RKE2와의 차이를 비교"
 img: cloud-title.webp
 date: 2026-07-31 01:21:00 +0900
-last_modified_at: 2026-07-31 01:21:00 +0900
-tags: [kubernetes, architecture, control plane, k3s, openshift, devops] # add tag
+last_modified_at: 2026-08-03 00:35:00 +0900
+tags: [kubernetes, architecture, control-plane, k3s, openshift, devops] # add tag
 related: kubernetes
 categories: dev
 ---
