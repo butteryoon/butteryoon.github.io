@@ -5,13 +5,13 @@ title: "Prompt Caching 실전 가이드 — 원리·프롬프트 설계·프로�
 description: "LLM 프로덕션에서 비용과 레이턴시를 줄이는 Prompt Caching의 prefix matching 원리, 고정/변동 프롬프트 분리 설계, Anthropic·OpenAI·Bedrock·Gemini별 캐싱 방식 비교, 히트율 메트릭 운영까지 정리"
 img: llm_api_title.jpg
 date: 2026-08-05 00:12:00 +0900
-last_modified_at: 2026-08-05 21:30:00 +0900
+last_modified_at: 2026-08-05 22:50:00 +0900
 tags: [llm, prompt-caching, cost-optimization, anthropic, openai, bedrock, observability]
 related: llm
 categories: dev
 ---
 
-LLM을 프로덕션에서 쓸 때 가장 먼저 부딪히는 비용 문제는 **같은 시스템 프롬프트를 매 요청마다 다시 보내고, 매번 전액을 낸다**는 점이다. Prompt Caching을 제대로 적용하면 반복되는 prefix의 입력 비용을 최대 90%까지 줄일 수 있다 — 다만 "얼마나 절감되나"는 프롬프트 구조와 프로바이더에 따라 크게 달라진다. 이 글은 코드 구현보다 **원리·프롬프트 설계·프로바이더별 차이·운영 체크리스트** 위주로 정리한다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 사실 검증·사례 보완 후 발행했다.)
+LLM을 프로덕션에서 쓸 때 가장 먼저 부딪히는 비용 문제는 **같은 시스템 프롬프트를 매 요청마다 다시 보내고, 매번 전액을 낸다**는 점이다. Prompt Caching을 제대로 적용하면 무신사(29CM)의 실측 사례처럼 **전체 비용 64% 절감, 히트율 98%**도 가능하다 — 다만 "얼마나 절감되나"는 프롬프트 구조와 프로바이더에 따라 크게 달라진다. 이 글은 코드 구현보다 **원리·프롬프트 설계·프로바이더별 차이·운영 체크리스트** 위주로 정리한다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 사실 검증·사례 보완 후 발행했다.)
 
 <!--more-->
 
@@ -56,7 +56,7 @@ LLM을 프로덕션에서 쓸 때 가장 먼저 부딪히는 비용 문제는 **
 | | Anthropic (Claude) | OpenAI | AWS Bedrock | Google Gemini |
 |---|---|---|---|---|
 | 방식 | 명시적 `cache_control` breakpoint (최대 4개) | **자동** (마커 없음) | 명시적 `cachePoint` 블록 (Converse API, 최대 4개) | 암시적(자동) + 명시적 캐시 병행 |
-| TTL | 기본 **5분** (읽을 때마다 갱신), `ttl: "1h"` 옵션 | 유휴 5~10분 후 제거 (조정 불가) | 5분 (사용 시 갱신) | 명시적 캐시 기본 60분 (TTL 지정 가능) |
+| TTL | 기본 **5분** (읽을 때마다 갱신), `ttl: "1h"` 옵션 | 유휴 5~10분 후 제거 (조정 불가) | 기본 5분, 모델에 따라 `CachePointBlock`에 1h TTL 지정 가능 | 명시적 캐시 기본 60분 (TTL 지정 가능) |
 | 읽기 요금 | 기본 입력의 **0.1배** | 세대에 따라 50~90% 할인 | ~90% 할인 | 75~90% 할인 |
 | 쓰기 요금 | 5분 TTL **1.25배**, 1h TTL **2배** | 없음 (자동) | 모델별 프리미엄 | 명시적 캐시는 **시간당 스토리지 요금** 별도 |
 | 최소 크기 | 모델별 **512~4,096토큰** | 1,024토큰 | 모델별 (Claude 계열 ~1,024) | 모델별 2,048~4,096 |
@@ -78,7 +78,9 @@ LLM을 프로덕션에서 쓸 때 가장 먼저 부딪히는 비용 문제는 **
 - 변동 입력과 출력이 상대적으로 **작고**
 - 같은 prefix로 요청이 **TTL 안에 반복**될 때
 
-예를 들어 [멀티 프로바이더 캐싱 아키텍처 글](https://wikidocs.net/blog/@jaehong/12145/)의 시나리오(시스템 프롬프트 10K + 동적 100토큰, 월 100만 요청)에서는 99% 히트 시 **88% 절감**이 나온다. 반대로 짧은 시스템 프롬프트 + 긴 출력 구조라면 캐싱 효과는 미미하다 — 적용 전에 자기 워크로드로 계산부터 해야 한다.
+국내 프로덕션 사례로는 [무신사(29CM) 테크블로그의 "LLM 비용 64% 절감, 캐시 히트율 98% 달성기"](https://techblog.musinsa.com/llm-%EB%B9%84%EC%9A%A9-64-%EC%A0%88%EA%B0%90-%EC%BA%90%EC%8B%9C-%ED%9E%88%ED%8A%B8%EC%9C%A8-98-%EB%8B%AC%EC%84%B1%EA%B8%B0-d568135bd40e){:target="_blank"}가 정확히 이 조건에 해당한다. AWS Bedrock 기반 LLM(상품 속성 추출·고객 응대 등)에서 비용 증가를 분석한 뒤, 시스템 프롬프트 블록 뒤에 `CachePointBlock`(TTL 1시간)을 붙이고 LangChain4j의 `ChatModelListener`로 토큰 type(input/output/cache_read/cache_write)별 Prometheus 메트릭을 수집해 — **히트율 98%, 전체 비용 64% 절감**을 실측으로 검증했다. 고정 프롬프트가 크고 호출이 잦은 워크로드의 모범 사례다.
+
+계산 예시로는 [멀티 프로바이더 캐싱 아키텍처 글](https://wikidocs.net/blog/@jaehong/12145/){:target="_blank"}의 시나리오(시스템 프롬프트 10K + 동적 100토큰, 월 100만 요청)에서 99% 히트 시 **88% 절감**이 나온다. 반대로 짧은 시스템 프롬프트 + 긴 출력 구조라면 캐싱 효과는 미미하다 — 적용 전에 자기 워크로드로 계산부터 해야 한다.
 
 **셀프호스팅**도 같은 원리가 적용된다. vLLM의 [Automatic Prefix Caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html)은 과금이 아니라 **GPU 프리필 연산 자체를 절약**한다 — 온프레미스에서 같은 시스템 프롬프트로 대량 요청을 처리한다면 기본으로 켜야 하는 기능이다.
 
@@ -123,6 +125,7 @@ Prompt Caching은 "옵션 하나 켜기"가 아니라 **프롬프트를 고정 p
 - [AWS Bedrock Prompt Caching 문서](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html){:target="_blank"}
 - [Gemini Context Caching 문서](https://ai.google.dev/gemini-api/docs/caching){:target="_blank"}
 - [LLM API 비용 산수 — 캐싱 90% 할인이 청구서에서 25%인 이유](https://www.youngju.dev/blog/2026-07-17-llm-api-cost-arithmetic){:target="_blank"}
+- [무신사(29CM): LLM 비용 64% 절감, 캐시 히트율 98% 달성기](https://techblog.musinsa.com/llm-%EB%B9%84%EC%9A%A9-64-%EC%A0%88%EA%B0%90-%EC%BA%90%EC%8B%9C-%ED%9E%88%ED%8A%B8%EC%9C%A8-98-%EB%8B%AC%EC%84%B1%EA%B8%B0-d568135bd40e){:target="_blank"}
 - [vLLM Automatic Prefix Caching](https://docs.vllm.ai/en/latest/features/automatic_prefix_caching.html){:target="_blank"}
 - [OpenRouter 무료 모델 (관련글)]({{site.baseurl}}/tools/2026/07/15/openrouter_free.html)
 - [RAG & AI 에이전트 주간 동향 (관련글)]({{site.baseurl}}/dev/2026/08/04/rag_agent_weekly.html)
