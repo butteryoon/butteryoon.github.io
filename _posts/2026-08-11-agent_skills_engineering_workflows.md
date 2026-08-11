@@ -5,7 +5,7 @@ title: "Agent Skills: AI 코딩 에이전트용 프로덕션급 24개 엔지니�
 description: "Google Chrome DevRel 리드 Addy Osmani가 공개한 agent-skills 프로젝트 분석. 소프트웨어 개발 생명주기 6단계(Define/Plan/Build/Verify/Review/Ship)를 24개 구조화된 스킬로 구현. 안티-합리화 테이블, 전문가 페르소나, 7개 슬래시 커맨드까지 실제 설치·사용법 정리."
 img: tools_title.jpg
 date: 2026-08-11 23:56:00 +0900
-last_modified_at: 2026-08-12 00:10:00 +0900
+last_modified_at: 2026-08-12 00:50:00 +0900
 tags: [ai-agent, agent-skills, engineering-workflow, production-grade, sdlc, addy-osmani, claude-code] # add tag
 related: llm
 categories: tools
@@ -195,6 +195,37 @@ agy plugin install https://github.com/addyosmani/agent-skills.git
 ```
 
 `using-agent-skills` 메타 스킬이 **들어온 작업을 분석해 적절한 워크플로우로 라우팅**하므로, 처음에는 이 하나만 기억하면 된다.
+
+## 8. 오픈웨이트 모델(로컬 LLM)에서의 동작 고려사항
+
+agent-skills는 특정 모델·플랫폼에 종속되지 않게(model-agnostic) 설계됐다. 스킬 자체가 마크다운 파일(SKILL.md + references/)로만 구성돼 있어, 시스템 프롬프트/지시 파일을 받는 모든 에이전트/모델에서 동작한다. 단, 오픈웨이트 모델로 로컬 구동 시 다음 포인트를 고려해야 한다.
+
+| 요소 | 영향 | 대응 |
+|------|------|------|
+| **컨텍스트 길이** | 24개 스킬 + references 전체를 시스템 프롬프트에 넣으면 수만 토큰 소모 | `using-agent-skills` 메타 스킬로 **필요한 것만 동적 로드** 권장 |
+| **지시 추적 능력** | 작은 모델(7B~14B)은 다단계 워크플로우(CLAIM→EXTRACT→DOUBT…) 준수율 낮음 | 핵심 스킬만 선별(`/spec`, `/build`, `/test`, `/review` 등) |
+| **함수 호출/툴 사용** | 슬래시 커맨드(`/spec` 등)는 플랫폼 쪽에서 파싱 → 모델에 전달 | 모델이 툴 호출을 지원해야 전체 워크플로우 순환 가능 |
+| **안티-합리화 테이블** | "이 단계 건너뛰어도 되지 않을까?" 반박 논리 이해 필요 | 프롬프트에 **예시 대화(few-shot)** 추가로 보완 |
+
+**로컬에서 돌려보려면:**
+
+```bash
+# 1. 로컬 클론
+git clone https://github.com/addyosmani/agent-skills ~/.local/share/agent-skills
+
+# 2. Ollama/vLLM 등으로 모델 서빙 (예: qwen2.5-coder:14b, codellama:13b)
+ollama run qwen2.5-coder:14b
+
+# 3. 에이전트 프레임워크 연동 예시 (OpenCode 스타일)
+# AGENTS.md에 스킬 경로 등록 후 skill 툴로 호출
+```
+
+**제한점:**
+- 공식 테스트/벤치마크는 Claude/Cursor/Codex 등 상용 모델 기준 — 오픈웨이트 모델에서의 성공률 데이터는 공개되지 않음
+- `doubt-driven-development` 같은 다단계 적대적 리뷰는 추론 능력이 강한 모델(32B+ 또는 추론 특화)에서만 실효적
+- 소형 모델(7B 이하)에선 메타 스킬 없이 **개별 스킬만 프롬프트에 주입**해 쓰는 것이 현실적
+
+> **요약**: 아키텍처상 오픈웨이트 모델에서도 **동작은 함**. 단, 컨텍스트 예산·추론 깊이·툴 호출 지원 여부에 따라 **전체 24스킬 풀세트 대신 핵심 4~6개만 선별 주입**하는 방식이 실용적이다.
 
 ## 마무리
 
