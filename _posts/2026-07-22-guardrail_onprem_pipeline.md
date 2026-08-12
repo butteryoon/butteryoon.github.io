@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "오픈소스 가드레일 모델과 온프레미스 에이전트 파이프라인 구성"
 description: "주요 오픈소스 가드레일 모델 비교와 온프레미스 오픈웨이트 LLM 에이전트에 안전장치를 붙이는 파이프라인 설계"
-img: protocol_title.png
+img: guardrail_lock_title.jpg
 date: 2026-07-22 23:15:00 +0900
-last_modified_at: 2026-07-22 23:15:00 +0900
+last_modified_at: 2026-08-12 22:45:00 +0900
 tags: [llm, guardrail, ai agent, on-premise, vllm, security] # add tag
 related: llm
 categories: dev

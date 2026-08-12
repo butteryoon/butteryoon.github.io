@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "Hermes 파이프라인에 가드레일을 Security 계층으로 끼우기"
 description: "Hermes Agent 오케스트레이션(스킬·delegate·cron·kanban) 위에 보안 계층을 얹는 법 — OSV 취약점 스캔, iron-proxy egress 방화벽, 외부 시크릿 매니저, 프롬프트 레벨 가드레일 배치"
-img: protocol_title.png
+img: security_lock_title.jpg
 date: 2026-07-25 15:00:00 +0900
-last_modified_at: 2026-07-25 15:00:00 +0900
+last_modified_at: 2026-08-12 22:45:00 +0900
 tags: [hermes, ai agent, guardrail, security, egress, secrets, on-premise, nous research] # add tag
 related: llm
 categories: tools
