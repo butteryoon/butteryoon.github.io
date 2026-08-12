@@ -444,14 +444,18 @@ template {
   margin: 0;
 }
 
-.highlighter-rouge {
-/*  color: #ce887b; */
-  color: #c5c8c6;
+code.highlighter-rouge {
+  color: #374151;
   font-weight: 400;
-  border: 1px solid #607D8B;
+  background-color: #f3f4f6;
+  border: 0;
   -webkit-border-radius: 3px;
           border-radius: 3px;
-  padding: 0.1rem 0.5rem;
+  padding: 0.1rem 0.4rem;
+}
+
+div.highlighter-rouge {
+  border: 0;
 }
 
 .highlight .hll {
