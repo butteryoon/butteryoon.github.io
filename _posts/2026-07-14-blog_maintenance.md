@@ -5,7 +5,7 @@ title: "Claude Code로 블로그 정리하기"
 description: "Dependabot 취약점 해소 및 저장소 정리 작업 기록"
 img: jekyll-title.png
 date: 2026-07-14 21:00:00 +0900
-last_modified_at: 2026-07-24 02:25:00 +0900
+last_modified_at: 2026-08-18 01:40:00 +0900
 tags: [jekyll, github pages, dependabot, claude code, bundler] # add tag
 related: jekyll
 categories: tools
@@ -26,6 +26,8 @@ categories: tools
 7. 발행 글 전체 검토 후 낡은 글 36건 우선순위별 업데이트 (7/15)
 8. 시간대 미설정으로 URL 날짜가 하루 밀리는 문제 수정 (7/15)
 9. 본문 테이블 스타일 정비 — 미니멀 가로선 + 지브라 + 가로 스크롤 (7/24)
+10. 코드블록 구문 강조 정비 — 다크 배경에 라이트 팔레트가 겹쳐 있던 문제 수정 (8/18)
+11. GitHub 부분 장애로 Pages 빌드 실패 시 대응 기록, json 젬 취약점 패치 (8/18)
 
 ## CLAUDE.md와 README 정리
 
@@ -130,6 +132,24 @@ timezone 설정으로 오전 9시 이전 게시 글 10건의 URL이 바뀌었기
     tbody tr:hover { background-color: #eaf2fd; }
 }
 ```
+
+## 코드블록 구문 강조 정비 (8/18 추가)
+
+테이블에 이어 이번엔 코드블록이었다. 코드블록 배경은 다크(`#1d1f21`)인데 Rouge 구문 강조 색상은 **라이트 배경용 팔레트**(키워드 `#069`, 연산자 `#555`, 문자열 어두운 빨강)가 걸려 있어서, 어두운 배경 위에서 키워드가 거의 보이지 않았다. 강조 클래스가 없는 일반 토큰은 색 지정이 아예 없어 본문의 어두운 글자색을 상속받아 배경에 묻혔다.
+
+수정 내용:
+
+- 315줄짜리 라이트 팔레트를 GitHub Dark 계열 팔레트 30줄로 교체 (키워드 연한 빨강, 문자열 하늘색, 함수 보라, 주석 회색 이탤릭)
+- `.highlight`에 기본 텍스트색 `#e6edf3` 지정 — 강조 안 된 토큰도 항상 밝게
+- `word-break: break-all` 제거 — 변수명·URL이 글자 중간에서 꺾이던 것을 가로 스크롤(`overflow-x: auto`)로 변경
+
+테이블 때와 같은 함정이 반복됐다는 것도 기록해둔다: 이 테마는 SCSS 산출물이 아니라 레거시 `assets/css/main.css`를 로드하므로, `_sass/`만 고치면 사이트에 반영되지 않는다. 스타일 수정 후에는 **라이브 CSS를 직접 받아** 반영 여부를 확인해야 한다.
+
+## GitHub 부분 장애와 Pages 빌드 실패 (8/18 추가)
+
+위 CSS 커밋의 Pages 빌드가 실패했는데, 로그를 보니 Jekyll에 들어가기도 전에 GitHub Actions가 빌드 액션 다운로드 단계에서 429/503으로 죽어 있었다 — githubstatus.com이 "Partial System Outage"인 상태였다. 이런 경우 저장소를 고칠 게 아니라 `gh run rerun`으로 재시도하면 되고, 실패한 빌드가 있어도 **직전 성공 빌드가 계속 서비스되므로 사이트가 내려가지는 않는다**. 장애 해소 후 재실행으로 정상 배포됐고, 라이브 CSS에 새 팔레트가 반영된 것까지 확인했다.
+
+같은 날 Dependabot 알림 1건(json 젬 2.21.1의 ResumableParser 해제 버퍼 참조, low)도 `bundle update json --conservative`로 2.21.2 패치해 정리했다 — 7월의 36건 정리 이후 새로 생긴 것이라, 락파일 취약점은 한 번 정리하고 끝이 아니라 알림이 올 때마다 소소하게 갱신하는 운영 항목이라는 걸 보여준다.
 
 ## 마무리
 
