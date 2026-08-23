@@ -541,6 +541,7 @@ pre {
   overflow-x: auto;
   white-space: pre;
   line-height: 1.6;
+  max-width: 100%;
 }
 
 pre code {
@@ -603,6 +604,8 @@ table tbody tr:hover {
 
 .post, .article-page {
   background-color: #fff;
+  min-width: 0;
+  max-width: 100%;
 }
 
 ::-moz-selection {
@@ -716,6 +719,7 @@ table tbody tr:hover {
 .content-box {
   padding: 20px;
   padding-left: 260px;
+  min-width: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
