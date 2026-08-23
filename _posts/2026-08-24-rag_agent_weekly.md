@@ -1,69 +1,72 @@
 ---
 layout: post
 comments: true
-title: "RAG & AI 에이전트 주간 연구 동향 (2026-08-18 ~ 08-24)"
+title: "RAG & AI 에이전트 주간 연구 동향 (2026-08-17 ~ 08-23)"
 description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에이전트 프레임워크·평가 분야 주요 논문 요약"
 img: ai_abstract_title.jpg
 date: 2026-08-24 00:05:00 +0900
-last_modified_at: 2026-08-24 00:05:00 +0900
+last_modified_at: 2026-08-24 01:25:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly] # add tag
 related: llm
 categories: dev
 ---
 
-Hermes 에이전트가 배치 작업으로 수집한 RAG·AI 에이전트 분야 주간 논문 보고서(arXiv cs.IR/cs.CL/cs.MA/cs.AI/cs.LG + Hugging Face Daily Papers, 2026-08-18~08-24)를 요약해서 정리한다.
+Hermes 에이전트가 배치 작업으로 수집한 RAG·AI 에이전트 분야 주간 논문 보고서(arXiv cs.IR/cs.CL/cs.MA/cs.AI/cs.LG + Hugging Face Daily Papers, 2026-08-17~08-23)를 요약해서 정리한다. (2026-08-24: 보고서 개정판 기준으로 논문 선정 전면 갱신)
 
 <!--more-->
 
-> **TL;DR:** 이번 주 RAG 연구의 키워드는 **도메인 특화와 시간 인식** — 법령의 버전, 금융의 거래 관계, 정비 매뉴얼의 다이어그램처럼 "무엇을 어떤 구조로 검색할 것인가"가 벡터 유사도를 넘어서는 문제로 다뤄졌다. 임베딩 쪽에서는 "LLM 임베딩이 낫지만 1,000배 비싸다"는 비용-성능 실측이 나왔고, 평가 쪽은 LLM 심판 패널의 호출 자체를 라우팅·조기 중단하는 운영 레시피가 등장했다.
+> **TL;DR:** 이번 주 키워드는 **GraphRAG의 실무 심화** — 증거 계보로 출처를 추적하고(LineageRAG), 위협 인텔리전스를 탐지 규칙으로 바꾸는(CTI GraphRAG) 등 그래프가 설명 가능성·감사 가능성의 기반이 된다. 벡터 검색의 화두는 프라이버시 보존 ANN, 시맨틱 캐시 퇴거 정책 비교 같은 프로덕션 서빙 문제다. 에이전트는 "만들기"에서 "신뢰성 있게 운용·진화시키기"로 초점이 옮겨갔다.
 
-## RAG 아키텍처: 정적 코퍼스 가정이 깨진다
+## RAG 아키텍처: GraphRAG가 감사 가능해진다
 
-- **[Temporal Misgrounding in Legal RAG](https://arxiv.org/abs/2608.09393)**: 법령 RAG의 '시점 오정합' 문제 정의 — 프랑스 세법 조문 버전 32,436개(1938~2031)로 만든 FiscalQA Pro 벤치마크에서 정적 RAG는 적용 가능 버전을 **0% 검색**, 멀티버전 인덱스 기반 리트리버는 98.3% 정확도. "지금 유효한 조문"을 찾으려면 인덱스가 시간을 알아야 한다.
-- **[Cessna 172 정비 매뉴얼 멀티모달 RAG](https://arxiv.org/abs/2608.18465)**: 텍스트·다이어그램·주의사항을 통합 검색 — recall@5 93.4%, 검색 11.9초/생성 5.0초/쿼리당 $0.0091까지 실운영 지표를 공개한 점이 실무적이다.
-- **[AkasicDB](https://arxiv.org/abs/2608.09214)**: 벡터 유사도·그래프 순회·관계형 필터링을 단일 실행 프레임워크에서 지원하는 "Omni RAG" DBMS 시연.
-- **[IAR: 검색 없는 문서 지식 내재화](https://arxiv.org/abs/2608.20281)**: 고정 문서집합을 3단계 후학습(Inject→Align→Recover)으로 파라메트릭 지식화 — 도메인 QA +3.6%p, 일반 성능 +12.1%p. 고정 코퍼스라면 검색 대신 내재화라는 선택지.
-- 그 외: 석유공학 커뮤니티 가상 비서 배포기 [ATHENA](https://arxiv.org/abs/2608.19199), 2023년 RAG 초기 실패 모드(환각·반복) 기록 [금융 뉴스 요약 회고](https://arxiv.org/abs/2608.19526).
+- **[LineageRAG](https://arxiv.org/abs/2608.16004)**: GraphRAG에 '증거 계보(evidence lineage)' 개념을 도입 — 멀티홉 질의의 증거 경로를 추적하도록 구성해 정확도 +4.2%p에 설명 품질까지 챙겼다. 어떤 근거로 이 답이 나왔는지 감사할 수 있는 RAG.
+- **[Operationalizing CTI with GraphRAG](https://arxiv.org/abs/2608.13050)**: 사이버 위협 인텔리전스 보고서를 탐지 규칙으로 자동 변환 — 단순 IOC 추출에 그치지 않고 공격 패턴·TTP까지 그래프로 구조화해 SOC 규칙 생성 자동화율 73%.
+- **[RegulaRAG](https://arxiv.org/abs/2608.16394)**: UN 보행자 안전 규정 같은 계층적 규제 문서에서 조항-요구사항-테스트케이스 구조를 보존하는 SmartChunking + 루브릭 자기 검증으로 위반율 62% 감소.
+- **[Noesis](https://arxiv.org/abs/2608.15919)**: 정적 청킹·단방향 검색을 넘는 양방향 그래프-RAG다. 장문 문서의 교차 섹션 연결을 복원해 검색 재현율 18% 향상.
+- **[엣지 RAG 적응형 압축](https://arxiv.org/abs/2608.19535)**: 검색된 문맥을 런타임에 동적 압축 — 모바일 SoC에서 계산량 40% 감소, 정확도 98% 유지, 에너지 35% 절감.
+- **[BrowseComp-Plus → ClimbMix](https://arxiv.org/abs/2608.20317)**: 에이전틱 검색 평가에서 에이전트와 리트리버의 기여를 분리 측정할 수 있는 현실적 코퍼스 구축.
 
-## 벡터 검색·임베딩: 비용-성능 경계 실측
+## 벡터 검색·임베딩: 프로덕션 서빙의 삼중 제약
 
-- **[The Embedder's Dilemma](https://arxiv.org/abs/2608.12875)**: LLM 10개 vs 임베딩 모델 26개를 37개 태스크에서 비용-성능 비교 — 종합 점수는 동급(77.6 vs 77.2)인데 **LLM 추론 비용은 최대 1,431배**. LLM은 추론 집약적 검색에서만 우위, 분류·클러스터링은 경량 임베딩 모델이 이긴다. 임베딩 모델 선택에 바로 쓸 수 있는 Pareto 경계 실측.
-- **[Quantization Beyond Uniform Bit Allocation](https://arxiv.org/abs/2608.19388)**: Matryoshka 임베딩의 기하 구조를 활용한 가변 비트 양자화 — 저비트 영역에서 PQ 8%, SQ 18% 리콜 향상.
-- **[rEDMRec](https://arxiv.org/abs/2608.18952)**: 교사 LLM의 추론을 **편집 가능한 경험 메모리**(장/단기 선호·아이템 인지·반사실)로 증류 — 경량 학생 모델이 추론 없이 메모리 검색만으로 순위화, HR@1 최대 +13.3%p.
+- **[프라이버시 보존 범위 필터링 ANN](https://arxiv.org/abs/2608.16488)**: 벡터·속성·쿼리를 평문 노출하던 범위 필터링 ANN에 암호학적 보호를 얹고도 지연 1.8배·통신 2.3배 수준이다. 규제 도메인 벡터 DB에 실용적 선택지가 생겼다.
+- **[Which Eviction Policy Should an LLM Cache Use?](https://arxiv.org/abs/2608.20280)**: LLM 시맨틱 캐시의 퇴거 정책 7종(LRU·LFU·ARC·GDSF 등)을 통합 비교 — 워크로드·용량·인코더에 따라 최적이 달라 만능 정책은 없다는 결론. [프롬프트 캐싱 글]({{site.baseurl}}/dev/2026/08/05/prompt-caching-guide.html)에서 다룬 캐시 운영의 다음 층위다.
+- **[SSR-GRPO](https://arxiv.org/abs/2608.19595)**: 이커머스 밀집 검색에 시맨틱 ID를 GRPO 강화학습 보상으로 통합 — NDCG@10 +5.7%p. **[GateDiffInt](https://arxiv.org/abs/2608.18764)**: 랭킹 모델의 의도 인코딩을 게이트로 분리해 노이즈-의도 결합 문제를 해소.
 
-## 시맨틱 서치: 검색 실패와 추론 실패를 분리하다
+## 시맨틱 서치: 학습 없이 리랭커 개선하기
 
-- **[FinRCA-Bench](https://arxiv.org/abs/2608.18534)**: 금융 정산(매입-지급-은행) 도메인에서 증거 검색과 추론을 분리 평가 — 리트리버만 교체해도 필수 레코드 리콜 0.8%→77.7%, 정확도 2.1%→72.4%. **실패의 대부분이 추론이 아니라 구조적 검색 단계**에서 난다는 실증.
-- **[SIDScope](https://arxiv.org/abs/2608.18779)**: 생성형 추천의 Semantic-ID 매핑 품질 진단 도구 — 유효 경로가 있어도 아이템이 유일하게 검색되지 않는 '히든 갭' 1.2~3.0%p 발견.
-- **[TDIR: 시간 분해 이미지 표현](https://arxiv.org/abs/2608.18694)**: 역사 사진 검색에서 날짜와 콘텐츠를 직교 서브스페이스로 분해 — "이 객체 + 이 시기" 복합 질의 지원 (BMVC 2026).
+- **[SCoRD](https://arxiv.org/abs/2608.19998)**: LLM 리랭커의 지식을 리트리버로 지속 증류하면서 시맨틱 어시스트로 카테고리 드리프트를 방지 — 재학습 없이 Recall@10 +9.3%p, 파라미터 증가 0.5% 미만.
+- **[Training-Free LLM 추천](https://arxiv.org/abs/2608.19665)**: 협업 신호를 후처리 단계에만 적용 — 추가 학습 없이 MRR 14% 향상. LLM이 뽑은 관심사가 너무 넓다는 문제를 정제로 푼다.
+- **[아랍어 Fiqh 검색](https://arxiv.org/abs/2608.20246)**: 이슬람 법학 도메인에서 도메인 임베딩 + 희소-밀집 하이브리드가 일반 모델 대비 MAP 22%p 우위 — 저자원 언어·전문 도메인에서 하이브리드 검색이 여전히 강자라는 재확인.
 
-## 에이전트 프레임워크: 모호성 해소와 프라이버시
+## 에이전트 프레임워크: 운용과 진화의 문제로
 
-- **[지식 가이드 모호성 해소 에이전트](https://arxiv.org/abs/2608.19875)**: 환자 문맥이 빠진 의료 질의에 대해 지식 그래프로 가설 공간 구성 → 누락 변수 식별 → 타겟 후속 질문 생성 — 진단 검색 Top-1 최소 +57.1%p. "되묻는 에이전트"의 체계화.
-- **[Inducing Task Models from Computer-Use Traces](https://arxiv.org/abs/2608.20319)**: 스크린샷·마우스·키보드 저수준 이벤트만으로 잠재 작업을 분리하고 작업 모델을 유도 — 실행 단계 74.9% 재구성, 유도된 스킬로 미보유 태스크 +30.0%p. 컴퓨터 사용 에이전트의 스킬 자동 획득 방향.
-- **[Multi-Agent AI Safety as an Institutional Design Problem](https://arxiv.org/abs/2608.09828)**: 멀티 에이전트 안전을 '제도 설계' 관점으로 재정의 — 상세 헌법 프롬프트 + 출처 인식 가드에서 위반 0/384. [가드레일 Security 계층 글]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)에서 다룬 액션 가드의 상위 설계 문제다.
-- **[Redakto](https://arxiv.org/abs/2608.18260)**: LLM 입력 전 PII 익명화 도구 — 웹앱·REST·**MCP 훅** 제공, 로컬 배포 가능. 온프레미스 에이전트 파이프라인에 바로 붙일 수 있는 형태.
+- **[DART-SD](https://arxiv.org/abs/2608.18524)**: 멀티턴 툴 호출 에이전트의 자기증류에 다이아몬드 토폴로지(순서 독립 서브골) 인식을 도입 — 전체 궤적 모방 대신 서브골 단위 증류로 샘플 효율 3.2배.
+- **[MidTool](https://arxiv.org/abs/2608.20314)**: 미드트레이닝 데이터 합성으로 툴 사용 능력 강화 — 7B 모델이 툴 벤치마크에서 70B 베이스라인을 넘었다. 지난주의 "툴 확장 > 모델 확장" 흐름과 같은 방향.
+- **[Break It Down, Pass It On](https://arxiv.org/abs/2608.20274)**: 에이전트가 익힌 스킬의 교차 태스크 전이는 오히려 해로울 수 있다 — 분해·검증·선택 파이프라인으로 전이 성공률 67%→89%. [Agent Skills 글]({{site.baseurl}}/tools/2026/08/11/agent_skills_engineering_workflows.html)처럼 스킬 생태계가 커질수록 중요해질 문제.
+- **[Inducing Task Models from Computer-Use Traces](https://arxiv.org/abs/2608.20319)**: 스크린샷·마우스·키보드 흔적만으로 심볼릭 태스크 모델을 유도한다. 업무 프로세스를 학습·재현·감사할 수 있다.
+- **[Learning When to Think](https://arxiv.org/abs/2608.20256)**: 문제 난이도에 따라 모델이 사고 깊이를 스스로 조절 — 같은 정확도에서 토큰 38% 절감.
+- 도메인 특화 멀티에이전트 실증도 세 편 나왔다. 의료 QA [적응형 메모리·반성](https://arxiv.org/abs/2608.19029)(환각 31% 감소), [메탄 배출 분석 로컬 배포](https://arxiv.org/abs/2608.18473)(처리 시간 85% 단축), 치과 진단 [DentAgent](https://arxiv.org/abs/2608.18878)(정확도 92.3%). 그 외 [자율주행 상식 추론 오케스트레이션](https://arxiv.org/abs/2608.20129), [여행 수요 예측 3에이전트](https://arxiv.org/abs/2608.20320).
 
-## 에이전트 평가: 심판을 언제 부르고 언제 멈출까
+## 에이전트 평가: 자동화 점수가 전부가 아니다
 
-- **[Stopping and Routing LLM Judge Panels](https://arxiv.org/abs/2608.19802)**: 다수 LLM 심판 중 누구를·어느 예시에·언제까지 호출할지를 역할(복사/보완/전문가) 추정으로 정책화 — 복사 심판 제거, 전문가 조건부 라우팅, 이득 임계 미만 시 조기 중단. LLM-as-a-Judge 비용 최적화의 운영 레시피.
-- **[ConceptGuard](https://arxiv.org/abs/2608.20338)**: 언러닝을 사실 회수가 아닌 **이중 용도 개념의 문맥 분리**로 평가 — 기존 기법들의 문맥 분리력이 약함을 확인.
-- **[HealMed](https://arxiv.org/abs/2608.19981)**: 9개 언어·23명 의사가 2년간 만든 다국어 의료 벤치마크 — 의료 특화 모델이 오히려 언어 간 격차가 크고 일관성이 없다는 결과.
-- **[공공 고위험 문서 추출 평가](https://arxiv.org/abs/2608.18289)**: 오픈 OCR·LLM·VLM 35개 설정 중 F1>0.5는 4개뿐 — VLM 우위이나 실용 수준 미달, OCR 출력의 구조 보존이 핵심 변수.
+- **[CentaurBench](https://arxiv.org/abs/2608.18554)**: "자동화 잘하는 모델"과 "인간 작업을 잘 증강하는 모델"의 순위가 다르다 — 증강 vs 자동화 이중 평가로 실무 협업 관점을 벤치마크에 넣었다.
+- **[InsufficiencyBench](https://arxiv.org/abs/2608.20220)**: 법무 자문에서 사용자가 빠뜨린 사실이 결론을 바꿀 때 모델이 되묻는지 측정 — GPT-4o 재질문율 34%로 실무 부적합 판정.
+- **[ContractScrub](https://arxiv.org/abs/2608.20204)**: 계약서 최종 검토 자동화 — LLM은 다중 패스로 F1 +15%p 개선되지만 인간 변호사 대비 누락 42%.
+- **[FormalTCS](https://arxiv.org/abs/2608.20153)**: 정형 이론 CS 연구 전 과정(추측→증명→형식화) 평가 — 프론티어 모델 완전 해결률 23%. **[AI4AI-Bench](https://arxiv.org/abs/2608.20318)**: 재귀적 자기 개선 능력 측정 — 현재 모델 성공률 12%.
 
 ## 정리
 
-- **RAG**: 정적 코퍼스 가정 붕괴 — 버전 인덱스(법령), 거래 구조(금융), 멀티모달(정비), 그리고 아예 내재화(IAR)까지 선택지 분화
-- **임베딩**: "LLM이 낫다"가 아니라 "어느 태스크에서 몇 배 비싸게 낫나" — Pareto 실측의 시대
-- **시맨틱 서치**: 검색 실패와 추론 실패의 분리 측정이 표준화되는 중
-- **에이전트**: 모호하면 되묻기, 흔적에서 스킬 유도, 멀티 에이전트 안전의 제도 설계화
-- **평가**: 심판 패널 자체가 비용 최적화 대상 — 라우팅·조기 중단 정책 등장
+- **RAG**: GraphRAG가 정확도만이 아니라 설명·감사 가능성까지 다룬다 — 보안·규제 고위험 도메인 실증 등장
+- **벡터 검색**: 프라이버시·비용·운영의 삼중 제약 최적화 — 시맨틱 캐시 퇴거 정책까지 벤치마크 대상
+- **시맨틱 서치**: 재학습 없는 리랭커 개선(증류·후처리)과 도메인 하이브리드의 건재
+- **에이전트**: 스킬 전이의 신뢰성, 흔적 기반 태스크 모델 유도, 적응형 사고 깊이 — 운용·진화 단계 진입
+- **평가**: 증강 능력, 되묻기, 자기 개선 — 자동화 점수 하나로 못 재는 차원들이 벤치마크화
 
-운영 중인 시스템에 바로 시사점이 있는 것은 The Embedder's Dilemma(임베딩 모델 선정 근거), FinRCA-Bench(RAG 장애의 검색/추론 분리 진단), Redakto(온프레미스 PII 전처리) 세 편이다.
+운영 중인 시스템에 바로 시사점이 있는 것은 세 편이다. Which Eviction Policy(시맨틱 캐시 정책 선택), LineageRAG(RAG 출처 감사), Break It Down(에이전트 스킬 전이 검증).
 
 ## 참고
 
 - 각 논문의 arXiv 링크는 본문에 표기 (2608.xxxxx 시리즈)
 - [지난 주간 동향 (2026-08-10~16)]({{site.baseurl}}/dev/2026/08/16/rag_agent_weekly.html)
-- [가드레일 Security 계층 통합 (관련글)]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)
-- [RRF 튜닝 가이드 해설 (관련글)]({{site.baseurl}}/tools/2026/08/17/rrf_tuning_agent_retrieval.html)
+- [Prompt Caching 실전 가이드 (관련글)]({{site.baseurl}}/dev/2026/08/05/prompt-caching-guide.html)
+- [Agent Skills 엔지니어링 워크플로우 (관련글)]({{site.baseurl}}/tools/2026/08/11/agent_skills_engineering_workflows.html)
