@@ -1109,6 +1109,16 @@ a.newer-posts:hover {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
+  /* 넓은 표는 표 내부에서만 가로 스크롤 (페이지 폭 유지) */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  table thead th, table tbody td {
+    white-space: nowrap;
+  }
+
   .sidebar {
     position: relative;
     display: -webkit-box;
