@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "Andrej Karpathy의 Autoresearch Loop — AI가 AI 연구를 자율 수행하는 700회 실험의 기록"
 description: "Karpathy의 GitHub autoresearch 리포 분석. 2일간 700회 실험, 20개 최적화 자율 발견, 11% 학습 속도 향상. program.md=스킬 명세 원형, train.py 단일 파일 수정 루프, val_bpb 단일 메트릭 5분 타임박스 구조를 해설한다."
-img: ai_abstract_title.jpg
+img: karpathy-autoresearch.webp
 date: 2026-08-30 00:48:00 +0900
-last_modified_at: 2026-08-30 00:48:00 +0900
+last_modified_at: 2026-08-30 21:25:00 +0900
 tags: [karpathy, autoresearch, autonomous-ai, ai-research, self-improving-ai, llm-agents, mlops] # add tag
 related: llm
 categories: dev

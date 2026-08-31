@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "NVIDIA 양자화 기술과 TensorRT-LLM으로 MoE 모델 서빙 최적화 — Kakao Kanana-Flex FP8 사례"
 description: "NVIDIA 테크니컬 블로그 해설. TensorRT-LLM과 TensorRT-Model-Optimizer로 Hopper(H200) 위에서 MoE 모델(Kanana-Flex)을 FP8 tensor-wise 양자화해 처리량 43%↑, TTFT 34%↓ 달성한 엔드투엔드 최적화 파이프라인을 정리한다."
-img: command-title.webp
+img: nvidia-tensorrt-fp8-moe.webp
 date: 2026-08-30 18:01:17 +0900
-last_modified_at: 2026-08-30 18:01:17 +0900
+last_modified_at: 2026-08-30 21:25:00 +0900
 tags: [nvidia, tensorrt-llm, fp8, quantization, moe, tensorrt-model-optimizer, hopper, h200, kanana-flex, llm-serving] # add tag
 related: llm
 categories: dev
