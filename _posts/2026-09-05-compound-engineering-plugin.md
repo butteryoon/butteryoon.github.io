@@ -5,7 +5,7 @@ title: "Compound Engineering 플러그인 — AI 코딩 루프를 누적 학습�
 description: "Every의 오픈소스 Compound Engineering 플러그인(33개 스킬, 14개 에이전트 호스트 지원) 해설. brainstorm→plan→work→simplify→review→compound 6단계 루프와 docs/solutions/ 지식 축적 구조, Claude Code 실제 설치 확인까지."
 img: compound-engineering-title.webp
 date: 2026-09-05 20:30:00 +0900
-last_modified_at: 2026-09-05 20:30:00 +0900
+last_modified_at: 2026-09-06 00:00:00 +0900
 tags: [compound-engineering, ai-coding, claude-code, codex, cursor, plugin, knowledge-management] # add tag
 related: llm
 categories: tools
@@ -81,7 +81,7 @@ Claude Code에 직접 설치해 확인해봤다 (v3.24.0 기준):
 
 6단계 루프와 스킬 그룹, 지식 베이스 피드백 구조를 한눈에 볼 수 있는 다이어그램:
 
-<iframe src="{{site.baseurl}}/assets/html/compound-engineering-diagram.html" width="100%" height="720" style="border: 1px solid #1e293b; border-radius: 8px; background: #020617;"></iframe>
+<iframe src="{{site.baseurl}}/assets/html/compound-engineering-diagram.html" width="100%" style="aspect-ratio: 13 / 9; height: auto; border: 1px solid #1e293b; border-radius: 8px; background: #020617;"></iframe>
 
 [전체 화면으로 열기]({{site.baseurl}}/assets/html/compound-engineering-diagram.html){:target="_blank"}
 
