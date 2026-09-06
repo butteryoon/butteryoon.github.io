@@ -4,7 +4,7 @@ title: "오라클 클라우드 프리티어 시작하기."
 description: "오라클 클라우드 프리티어 인스턴스를 만들고 기본 서비스 설정한다."
 img: cloud-title.webp
 date: 2021-01-18 19:00:00 +0900
-last_modified_at: 2026-07-15 15:40:00 +0900
+last_modified_at: 2026-09-06 21:40:00 +0900
 tags: [oci, oracle cloud, oracle Linux, firewalld, iptables, tag1] # add tag
 related: oci
 categories: tools
@@ -22,7 +22,11 @@ categories: tools
 
 <!--more-->
 
-> **[2026-07-15 업데이트]** 오라클 클라우드 Always Free는 여전히 유지되고 있고 아래 내용의 전체 흐름(인스턴스 생성, 수신 규칙, 방화벽, duckdns)도 유효하다. 다만 현재 무료 티어의 주력은 x86 Micro 인스턴스보다 **Ampere A1(ARM)** 인스턴스다. A1은 오랫동안 4 OCPU / 24GB RAM까지 무료였으나 **2026년 6월 15일부터 무료 계정 기준 2 OCPU / 12GB RAM으로 축소**되었다(PAYG 전환 계정은 기존 한도가 유지된다는 보고가 있다). 또한 당시 사용한 이미지인 Oracle Linux 7.9와 Ubuntu 20.04 LTS는 모두 지원이 종료(EOL)되었으므로 지금은 Oracle Linux 9 / Ubuntu 24.04 LTS 등 최신 이미지를 선택해야 한다.
+> **[2026-09-06 업데이트]** 이 글의 인스턴스를 5년 만에 새로 만들면서 내용을 재확인했다. Always Free는 여전히 유지되고 전체 흐름(인스턴스 생성, 수신 규칙, 방화벽, duckdns)도 유효하다. 최신 기준 변경점:
+> - **Ampere A1(ARM)**: 오랫동안 4 OCPU / 24GB RAM까지 무료였으나 **2026년 6월 15일부터 무료 계정 기준 2 OCPU / 12GB RAM으로 축소** (PAYG 전환 계정은 기존 한도 유지 보고 있음). x86 Micro(E2.1.Micro, 1GB)는 그대로다.
+> - **이미지**: Oracle Linux 7.9·Ubuntu 20.04는 EOL — 지금은 Oracle Linux 9 / **Ubuntu 26.04 LTS**를 선택할 수 있다.
+> - **RAM 1GB 인스턴스는 스왑이 필수다**: 스왑 없이 돌리던 기존 인스턴스가 OOM으로 종료된 것으로 추정된다. `fallocate`로 4GB 스왑을 만들고 fstab에 등록해두자.
+> - 이 서버에 AI 게이트웨이를 올린 **후속편**을 썼다 → [오라클 무료 티어에 OmniRoute 셀프호스팅]({{site.baseurl}}/tools/2026/09/06/omniroute-selfhosting-oci.html) — HTTPS(Caddy)·호스트 iptables 함정 등 최신 구성 상세는 그 글을 참고.
 
 ## 인스턴스 생성. 
 

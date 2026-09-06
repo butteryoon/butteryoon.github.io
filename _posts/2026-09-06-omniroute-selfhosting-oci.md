@@ -5,7 +5,7 @@ title: "오라클 클라우드 무료 티어에 OmniRoute 셀프호스팅 — RA
 description: "Oracle Cloud 무료 인스턴스(RAM 951MB)에 오픈소스 AI 게이트웨이 OmniRoute를 올리고 Caddy로 HTTPS를 붙인 구축기. 스왑으로 OOM 잡기, OCI iptables 함정, 그리고 질문 유형별 자동 분배를 위해 파이썬 표준 라이브러리로 직접 만든 분류 프록시까지."
 img: omniroute-oci-title.webp
 date: 2026-09-06 20:40:00 +0900
-last_modified_at: 2026-09-06 20:40:00 +0900
+last_modified_at: 2026-09-06 21:40:00 +0900
 tags: [omniroute, oracle-cloud, free-tier, ai-gateway, caddy, self-hosting, llm-routing] # add tag
 related: llm
 categories: tools
@@ -72,7 +72,16 @@ awsome.duckdns.org {
 }
 ```
 
-Let's Encrypt 인증서 발급·갱신은 Caddy가 알아서 한다. HTTPS가 붙은 뒤에는 20128 직접 노출 포트를 Security List에서 제거해 **HTTPS 경유만 허용**했다.
+### Caddy가 저 두 줄로 해주는 일
+
+nginx + certbot 조합이었다면 서버 블록 작성, certbot 설치, 인증서 발급 명령, 갱신 cron, HTTP→HTTPS 리다이렉트 설정까지 각각 챙겨야 했을 일들이 저 두 줄에 전부 들어 있다:
+
+- **자동 HTTPS(ACME)**: 도메인이 적힌 사이트 블록을 보면 Caddy가 스스로 Let's Encrypt에 인증서를 신청한다(HTTP-01 챌린지 — 80번 포트가 열려 있어야 하는 이유). 만료 전 **자동 갱신**까지 Caddy 내부 스케줄러가 처리하므로 cron이 필요 없다.
+- **HTTP→HTTPS 리다이렉트**: 80으로 온 요청은 자동으로 443으로 넘긴다 — 설정 0줄.
+- **리버스 프록시**: 외부의 443 TLS 트래픽을 복호화해 내부 `localhost:20128`(OmniRoute)로 전달한다. OmniRoute는 TLS를 전혀 몰라도 되고, 백엔드를 바꾸거나(포트 변경) 경로별로 다른 서비스를 붙이는 것도 Caddyfile 수정만으로 끝난다 — 뒤에서 분류 프록시를 `/router/*` 경로로 붙일 때 이 구조가 그대로 활용된다.
+- **HTTP/2·HTTP/3 기본 지원**: 별도 설정 없이 최신 프로토콜로 서빙된다.
+
+요컨대 Caddy는 이 구성에서 **TLS 종단점 + 라우팅 허브** 역할이다. HTTPS가 붙은 뒤에는 20128 직접 노출 포트를 Security List에서 제거해 **HTTPS 경유만 허용**했다.
 
 ## 3. API 사용 — auto 라우팅의 실체
 
