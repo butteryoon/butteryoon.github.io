@@ -1,11 +1,11 @@
 ---
 layout: post
 comments: true
-title: "NVIDIA × CrowdStrike SafeMind 해설 — 레드팀 vs 블루팀 공진화로 배우는 에이전틱 보안"
-description: "Fal.Con 2026에서 발표된 CrowdStrike SafeMind 분석. Nemotron 3 Ultra/Super 기반 방어 하네스, 프런티어 대비 99% 낮은 비용의 Blue Solano 모델, 디지털 트윈 위 레드팀-블루팀 공진화 루프, 그리고 '하네스는 LLM의 외골격'이라는 프레임까지."
+title: "NVIDIA × CrowdStrike SafeMind 해설 — 공격/방어 상호개선 루프로 배우는 에이전틱 보안"
+description: "Fal.Con 2026에서 발표된 CrowdStrike SafeMind 분석. Nemotron 3 Ultra/Super 기반 방어 하네스, 프런티어 대비 99% 낮은 비용의 Blue Solano 모델, 디지털 트윈 위 레드팀-블루팀 공격/방어 상호개선 루프, 그리고 '하네스는 LLM의 외골격'이라는 프레임까지."
 img: safemind-coevolution-title.webp
 date: 2026-09-07 21:30:00 +0900
-last_modified_at: 2026-09-07 21:30:00 +0900
+last_modified_at: 2026-09-07 21:50:00 +0900
 tags: [nvidia, crowdstrike, safemind, nemotron, agentic-ai, cybersecurity, red-team] # add tag
 related: llm
 categories: dev
@@ -15,13 +15,13 @@ categories: dev
 
 <!--more-->
 
-> **TL;DR:** SafeMind = CrowdStrike가 **NVIDIA Nemotron 오픈 모델을 15년치 위협 데이터로 포스트 트레이닝**한 방어 모델 + 맞춤형 에이전틱 하네스. 내부 평가에서 Nemotron 3 Super 기반 **Blue Solano** 모델이 프런티어 모델보다 **높은 정확도를 99% 낮은 비용**으로 달성했다. 핵심 구조는 디지털 트윈 위에서 레드팀(공격)과 블루팀(방어) 에이전트가 서로를 단련시키는 **공진화 루프** — 젠슨 황의 표현으로 "하네스는 LLM의 외골격"이다.
+> **TL;DR:** SafeMind = CrowdStrike가 **NVIDIA Nemotron 오픈 모델을 15년치 위협 데이터로 포스트 트레이닝**한 방어 모델 + 맞춤형 에이전틱 하네스. 내부 평가에서 Nemotron 3 Super 기반 **Blue Solano** 모델이 프런티어 모델보다 **높은 정확도를 99% 낮은 비용**으로 달성했다. 핵심 구조는 디지털 트윈 위에서 레드팀(공격)과 블루팀(방어) 에이전트가 서로를 단련시키는 **공격/방어 상호개선 루프**(원문 표현으로는 "공진화 루프") — 젠슨 황의 표현으로 "하네스는 LLM의 외골격"이다.
 
 ## 왜 지금인가 — 27초의 세계
 
 CrowdStrike에 따르면 지난 1년간 AI를 활용한 공격은 89% 늘었고, 공격자가 최초 침투에서 내부 이동까지 걸리는 최단 시간(eCrime 브레이크아웃 타임)은 **27초**까지 줄었다. 원문의 표현을 빌리면 "사람의 속도로 대응하는 것은 방어가 아니라 사후 기록"이다. Kurtz도 같은 격차를 짚었다. "공격자에게는 프런티어 AI가 있는데 방어자에게는 없었다."
 
-## SafeMind의 구조 — 모델 + 하네스 + 공진화 루프
+## SafeMind의 구조 — 모델 + 하네스 + 상호개선 루프
 
 | 구성 | 내용 |
 |------|------|
@@ -35,7 +35,7 @@ CrowdStrike에 따르면 지난 1년간 AI를 활용한 공격은 89% 늘었고,
 
 > "하네스는 본질적으로 거대 언어 모델의 **외골격**입니다. 거대 언어 모델이 두뇌라면, 외골격은 그 두뇌를 에이전트로 만들어 줍니다. 그리고 이 외골격이 모든 영역에서 똑같은 형태와 성능일 필요는 없습니다."
 
-## 레드팀 vs 블루팀 — 디지털 트윈 위의 공진화
+## 레드팀 vs 블루팀 — 디지털 트윈 위의 상호개선 루프
 
 NVIDIA는 자체 네트워크의 **디지털 트윈** 환경에서 SafeMind를 공격-방어 루프로 실행한 테스트를 공개했다:
 
@@ -49,7 +49,7 @@ NVIDIA는 자체 네트워크의 **디지털 트윈** 환경에서 SafeMind를 �
 
 - **오픈 모델 + 자기 데이터 포스트 트레이닝**이라는 공식: CrowdStrike가 위협 데이터를 외부로 보내지 않고 직접 학습시킬 수 있었던 건 Nemotron이 오픈 모델이기 때문이다. 폐쇄형 프런티어 모델로는 불가능한 **데이터 주권** 시나리오이고, 금융·공공처럼 데이터 반출이 막힌 도메인의 참조 사례다.
 - **계층적 에이전트 위임 패턴**: Ultra가 오케스트레이션, Super 파인튜닝 모델이 서브 태스크를 맡는다. 큰 모델은 지휘, 특화 모델은 실행이라는 배치는 온프레미스 GPU 예산 설계에 그대로 쓰인다.
-- **공진화 루프의 일반화**: 생성 에이전트 vs 검증 에이전트를 맞붙여 서로를 강화하는 구조는 보안 밖에서도 유효하다. [가드레일을 Security 계층으로 끼우는 글]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)에서 다룬 액션 검증의 다음 단계 형태다.
+- **상호개선 루프의 일반화**: 생성 에이전트 vs 검증 에이전트를 맞붙여 서로를 강화하는 구조는 보안 밖에서도 유효하다. [가드레일을 Security 계층으로 끼우는 글]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)에서 다룬 액션 검증의 다음 단계 형태다.
 - **하네스 = 외골격** 프레임은 [Agent Skills]({{site.baseurl}}/tools/2026/08/11/agent_skills_engineering_workflows.html) 같은 스킬 시스템이 왜 모델만큼 중요한지를 한 문장으로 정리해준다.
 
 ## 마무리
