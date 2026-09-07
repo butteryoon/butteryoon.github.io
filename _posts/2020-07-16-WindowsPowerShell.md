@@ -4,7 +4,7 @@ title: "Windows PowerShell 기본 명령어 익히기"
 description: "Windows PowerShell 에서 쓸 수 있는 기본 명령어들을 알아보고 Linux 명령어와 비교해본다."
 img: "powershell_title.jpg"
 date: 2020-09-11 22:00:00 +0900
-last_modified_at: 2026-07-15 16:00:00 +0900
+last_modified_at: 2026-09-07 23:10:00 +0900
 tags: [Windows10, powershell, 파워쉘, ps1, script, Invoke-WebRequest] # add tag
 related: Windows10
 categories: dev
@@ -18,42 +18,43 @@ Windows의 GUI 환경은 휼륭(최소한 Windows 10버전은)하지만 가끔�
 
 <!--more-->
 
-> **[2026-07-15 업데이트]** 현재 표준은 **PowerShell 7.x**이며 `winget install Microsoft.PowerShell` 명령으로 설치할 수 있다. Windows에 기본 포함된 Windows PowerShell 5.1과는 별도로 공존한다. 본문의 내용은 대부분 그대로 쓸 수 있지만, `Get-WmiObject`는 PowerShell 7에서 제거되어 `Get-CimInstance`를 사용해야 한다.
+> **[2026-09 전면 갱신]** 처음 쓸 때는 Windows 기본 탑재 PowerShell 5.1 기준이었지만, 현재 표준은 **PowerShell 7.x**다 (`winget install Microsoft.PowerShell`로 설치, 5.1과 공존). 본문 전체를 PowerShell 7 기준으로 손봤다 — 달라진 것: ① `Get-WmiObject` 제거 → `Get-CimInstance`, ② `wget`/`curl` 별칭 제거 → 실제 exe 또는 `Invoke-WebRequest` 직접 사용, ③ 업타임은 함수 없이 내장 `Get-Uptime` 한 줄, ④ 사용자 프로파일 경로가 `Documents\PowerShell`로 변경.
 
-[PowerShell 설명서를 사용하는 방법](https://learn.microsoft.com/ko-kr/powershell/scripting/how-to-use-docs?view=powershell-5.1) 페이지를 읽고 시작하자. 
+[PowerShell 설명서를 사용하는 방법](https://learn.microsoft.com/ko-kr/powershell/scripting/how-to-use-docs?view=powershell-7.5) 페이지를 읽고 시작하자. 
 
 ## PowerShell 버전 
 
-먼저 도움말을 찾으려면 버전을 정확히 알고 있어야 한다.  
-Windows 10에는 기본으로 5.1 버전이 설치되어 있다. 
+먼저 도움말을 찾으려면 버전을 정확히 알고 있어야 한다. Windows에 기본 탑재된 것은 여전히 5.1(`PSEdition: Desktop`)이고, winget으로 설치하는 PowerShell 7은 `Core` 에디션으로 표시된다.
 
 ```powershell
-PS C:\Users\softr> $PSVersionTable
+❯ $PSVersionTable
 
 Name                           Value
 ----                           -----
-PSVersion                      5.1.22621.1778
-PSEdition                      Desktop
-PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
-BuildVersion                   10.0.22621.1778
-CLRVersion                     4.0.30319.42000
-WSManStackVersion              3.0
-PSRemotingProtocolVersion      2.3
-SerializationVersion           1.1.0.1
+PSVersion                      7.5.2
+PSEdition                      Core
+GitCommitId                    7.5.2
+OS                             Microsoft Windows 10.0.26200
+Platform                       Win32NT
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
 ```
+
+5.1과 7은 프로파일·모듈 경로가 서로 달라 완전히 독립적으로 공존한다. 새로 배운다면 7만 쓰면 된다.
 
 ## PowerShell 프로파일 설정 
 
 Linux 최초 구동시 ".bashrc"와 같이 PowerShell 기본 설정은 아래의 명령어로 확인 할 수 있고 자신만의 명령어를 정의하려면 "CurrentUserCurrentHost" 파일에 추가해서 Alias 또는 function을 정의할 수 있다. 
 
 ```powershell
-PS C:\Users\softr> $PROFILE | select *
-AllUsersAllHosts       : C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
-AllUsersCurrentHost    : C:\Windows\System32\WindowsPowerShell\v1.0\Microsoft.PowerShell_profile.ps1
-CurrentUserAllHosts    : C:\Users\softr\Documents\WindowsPowerShell\profile.ps1
-CurrentUserCurrentHost : C:\Users\softr\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-Length                 : 75
+❯ $PROFILE | Select-Object *
+
+AllUsersAllHosts       : C:\Program Files\PowerShell\7\profile.ps1
+AllUsersCurrentHost    : C:\Program Files\PowerShell\7\Microsoft.PowerShell_profile.ps1
+CurrentUserAllHosts    : C:\Users\softr\Documents\PowerShell\profile.ps1
+CurrentUserCurrentHost : C:\Users\softr\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 ```
+
+PowerShell 7의 사용자 프로파일은 `Documents\PowerShell\`이다 — 5.1의 `Documents\WindowsPowerShell\`과 다른 폴더라는 점에 주의. 프로파일 구성을 본격적으로 하려면 [PowerShell 기본 설정 글]({{site.baseurl}}/tools/2026/07/15/powershell_profile.html)에 정리해뒀다.
 
 ## 기본 환경 설정 및 수정
 
@@ -82,7 +83,7 @@ Uninstall-Package                 Cmdlet    PackageManagement         Uninstall-
 
 ## 명령어 정리 
 
-PowerShell Comlet은 리눅스 bash 환경의 명령어와는 형식이 달라 접근하기가 어렵지만 명령어 뒤에 하이픈(-)을 치고 탭을 누르면 파라미터 목록들을 확인할 수 있는 등 편리한 기능들이 많다. 
+PowerShell cmdlet은 리눅스 bash 환경의 명령어와는 형식이 달라 접근하기가 어렵지만 명령어 뒤에 하이픈(-)을 치고 탭을 누르면 파라미터 목록들을 확인할 수 있는 등 편리한 기능들이 많다. 
 
 Windows Terminal에서 주로 쓰는 명령어를 정리해본다. 
 
@@ -110,17 +111,17 @@ Alias           grep -> Select-String
 
 ```powershell
 Set-Alias vi -Value vim
-Set-Alias python -Value 'C:\Python39\python.exe'
+Set-Alias python -Value 'C:\Python311\python.exe'
 Set-Alias grep -Value select-string
 Set-Alias hash -Value Get-FileHash
-Set-Alias find -Valie Get-ChildItem
+Set-Alias find -Value Get-ChildItem
 ```
 
 ### Uninstall-Package : 설치된 프로그램 삭제  
 
 **"Get-Package -Name Ahn*"** 명령어로 프로그램 이름을 찾을 수 있고 **"Uninstall-Packages"**로 설치된 패키지를 지울 수 있다. 
 
-> **PowerShell 7** 에서는 **Install-Packages**로 설치한 패키지만 볼 수 있다. 
+> PowerShell 7의 PackageManagement로는 그걸로 설치한 패키지만 관리된다. 요즘 앱 설치·삭제의 표준은 **winget**이다: `winget list 이름` → `winget uninstall 이름`.
 
 
 ```powershell
@@ -157,7 +158,7 @@ ignore =
 
 ### Get-Process : 프로세스 정보 조회
 
-PowerShell Comlet의 결과는 Object로 관리되고 해당 변수의 값을 가져올 수 있다. 
+PowerShell cmdlet의 결과는 Object로 관리되고 해당 변수의 값을 가져올 수 있다. 
 
 아래와 같이 프로세스의 이름으로 찾거나 특정 TCP포트를 사용하는 프로세스 Id를 검색 하고 **"Stop-Process -Name"** 명령어로 Kill 할 수 있다. 
 
@@ -227,7 +228,7 @@ ProductVersion   FileVersion      FileName
 1.0.0.1          1.0.0.1          C:\IIOT-LIVEVIEW\LIVEVIEW.exe
 ```
 
-### Resolv-DnsName : 도메인의 IP 찾기.    
+### Resolve-DnsName : 도메인의 IP 찾기.    
 
 nslookup 명령어를 사용해도 된다.  (C:\Windows\System32\nslookup.exe)  
 가끔 도메인이 필요할 때가 있어 **duckdns.org** 서비스를 이용하는데 내 노트북의 IP가 제대로 업데이트 되었는지 확인 할 때 사용한다. 
@@ -275,43 +276,37 @@ Mode                 LastWriteTime         Length Name
 
 ### 인터넷에서 파일 다운로드 
 
-wget 명령어가 "Invoke-WebRequest"로 Alias 설정되어 있다. 
+5.1에서는 `wget`/`curl`이 `Invoke-WebRequest`의 별칭이었지만, **PowerShell 7에서는 이 별칭들이 제거**됐다 — Windows 10 이후 기본 탑재된 실제 curl.exe와의 충돌을 없애기 위해서다. 지금은 둘 중 하나를 쓰면 된다.
 
 ```powershell
-PS C:\Users\softr> Get-Alias wget
+# 내장 cmdlet — 결과를 객체로 다뤄야 할 때
+Invoke-WebRequest https://example.com/file.zip -OutFile file.zip
 
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Alias           wget -> Invoke-WebRequest
+# 기본 탑재 curl.exe — 단순 다운로드는 이쪽이 빠르고 편하다
+curl.exe -LO https://example.com/file.zip
 ```
 
-> 스크립트가 아니고 터미널에서 쓸 때는 wget.exe를 쓰는게 좋다.  
-> Invoke-WebRequest 명령어는 반응이 쫌 느리다.  
-
-```powershell
-Invoke-WebRequest http://ax.itunes.apple.com/detection/itmsCheck.js -o itemsCheck.js
-```
+> 5.1에서 넘어온 스크립트에 `wget ...`이 있다면 PowerShell 7에서는 그대로 실패하니 위 형태로 바꿔야 한다.
 
 ### Windows Uptime
 
-Linux의 uptime 명령어와 같은 기능이며 파워쉘 함수로 등록해서 사용한다. 
+PowerShell 7에는 **`Get-Uptime`이 내장**되어 함수를 만들 필요가 없어졌다.
 
 ```powershell
-Function uptime {Get-WmiObject -Class Win32_OperatingSystem | Select-Object @{n='LastBoot';e={$_.ConvertToDateTime($_.LastBootUpTime)}}}
+❯ Get-Uptime
 
-LastBoot
---------
-2020-10-14 오후 4:09:40
+Days              : 2
+Hours             : 7
+Minutes           : 41
+
+❯ Get-Uptime -Since        # 부팅 시각
+2026년 9월 5일 토요일 오후 2:12:33
 ```
 
-> "PowerShell7"에서는 "Get-WmiObject" 대신 "Get-CimInstance" cmdlet을 사용한다.  
+5.1에서 쓰던 `Get-WmiObject`는 7에서 제거됐다 — WMI 조회가 필요하면 `Get-CimInstance`를 쓴다.
 
 ```powershell
 ❯ Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object LastBootUpTime
-
-LastBootUpTime
---------------
-2020-12-21 오후 3:34:05
 ```
 
 ## HASH 함수
@@ -370,8 +365,8 @@ Wi-Fi               Qualcomm Atheros QCA9377 Wireless Netw…     7      Disconn
 
 ## 참고 URL
 
-- [1장 - PowerShell 시작](https://learn.microsoft.com/ko-kr/powershell/scripting/learn/ps101/01-getting-started?view=powershell-5.1)
-- [PowerShell이란?](https://learn.microsoft.com/ko-kr/powershell/scripting/overview?view=powershell-7.4)
+- [1장 - PowerShell 시작](https://learn.microsoft.com/ko-kr/powershell/scripting/learn/ps101/01-getting-started?view=powershell-7.5)
+- [PowerShell이란?](https://learn.microsoft.com/ko-kr/powershell/scripting/overview?view=powershell-7.5)
 - [Windows Terminal Preview 릴리스](https://www.lesstif.com/pages/viewpage.action?pageId=71401723)
 - [execution of scripts is disabled on this system.](https://www.hahwul.com/2017/08/powershell-execution-of-scripts-is.html)
 - [Use Windows PowerShell to search for files](https://devblogs.microsoft.com/scripting/use-windows-powershell-to-search-for-files/)

@@ -1,17 +1,20 @@
 ---
 layout: post
+comments: true
 title: "ffmpeg을 이용한 내장 카메라 영상 실시간 스트리밍 테스트"
 description: "Windows에서 ffmpeg로 내장 카메라 영상을 실시간 전송을 위한 기본 환경을 구성해본다."
 img: m_ffmpeg_title.webp
 date: 2020-11-17 14:00:00 +0900
-last_modified_at: 2020-11-21 20:00:01 +0900
+last_modified_at: 2026-09-07 23:30:00 +0900
 tags: [ffmpeg, ffplay, Lenovo Easycam] # add tag
 related: ffmpeg
 categories: dev
 ---
 
-Lenove IdeaPad 노트북의 EasyCamera를 이용해서 실시간으로 영상을 캡쳐하고 스트리밍하는 방법을 알아본다. 
+Lenovo IdeaPad 노트북의 EasyCamera를 이용해서 실시간으로 영상을 캡처하고 스트리밍하는 방법을 알아본다. 
 <!--more-->
+
+> **[2026-09-07 업데이트]** 작성 당시 ffmpeg 4.3 기준이었지만 현재 최신은 **ffmpeg 8.x**이며, 아래의 DirectShow(dshow) 장치 나열·캡처 방법과 옵션은 그대로 동작한다. 설치는 이제 `winget install ffmpeg` 한 줄이면 된다. UDP 대신 재전송·암호화를 지원하는 **SRT**(`srt://`) 출력도 기본 빌드에 포함되어 있어 외부망 전송에는 SRT를 권한다. 글 하단에 관련 내용을 추가했다.
 
 ## Camera 장치 찾기
 
@@ -132,8 +135,22 @@ video:3521kB audio:213kB subtitle:0kB other streams:0kB global headers:0kB muxin
 [aac @ 000001d9b1732240] Qavg: 262.491
 ```
 
+## [2026-09 추가] 요즘 방식: SRT 스트리밍
+
+UDP/MPEG-TS는 같은 LAN에서는 충분하지만, 패킷 손실이 있는 구간(외부망)에서는 화면 깨짐이 잦다. 최신 ffmpeg에 기본 포함된 **SRT**(Secure Reliable Transport)는 재전송과 암호화를 지원해 같은 명령 구조에서 URL만 바꾸면 된다.
+
+```powershell
+# 송신 (listener)
+❯ ffmpeg -f dshow -s 800x600 -r 15 -pixel_format yuyv422 -i video="Lenovo EasyCamera" -c:v h264_nvenc -f mpegts "srt://0.0.0.0:8888?mode=listener"
+
+# 수신 (caller)
+❯ ffplay "srt://<송신PC IP>:8888?mode=caller"
+```
+
+수신 측을 여러 명에게 열어야 하면 [MediaMTX](https://github.com/bluenviron/mediamtx) 같은 경량 미디어 서버에 SRT/RTSP로 밀어 넣고 WebRTC/HLS로 재배포하는 구성이 요즘의 표준적인 방법이다.
+
 ## 참고 URL
 - [FFmpeg DirectShow](https://trac.ffmpeg.org/wiki/DirectShow)
 - [Capturing your Desktop / Screen Recording](https://trac.ffmpeg.org/wiki/Capture/Desktop)
+- [FFmpeg StreamingGuide](https://trac.ffmpeg.org/wiki/StreamingGuide)
 - [FFmpeg dshow device format list](https://stackoverflow.com/questions/46447230/ffmpeg-dshow-device-format-list)
-- [FFMPEG ON WINDOWS](https://www.bogotobogo.com/VideoStreaming/ffmpeg_on_Windows.php)]

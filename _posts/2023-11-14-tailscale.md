@@ -5,7 +5,7 @@ title: "TailScale을 이용한 개인 네트워크 구성하기"
 description: "tailscale 서비스를 이용해서 프라이빗 네트워크를 구성해보자."
 img: "M_ssh_tunneling.jpg"
 date: 2023-11-14 01:00:00 +0900
-last_modified_at: 2026-07-15 15:40:00 +0900
+last_modified_at: 2026-09-07 23:20:00 +0900
 tags: [ssh, tailscale, vpn, CloudFlare, remote desktop] # add tag
 related: ssh
 categories: tools
@@ -21,7 +21,7 @@ PC에 테스트 환경을 만들고 외부에서 접근해야 할 때 일반적�
 
 <!--more-->
 
-> **[2026-07-15 업데이트]** 무료 요금제 이름이 **Personal** 플랜으로 바뀌었고, 최대 **6명**의 사용자와 **무제한 디바이스**를 무료로 쓸 수 있도록 확대되었다. 요금제 내용을 현재 기준으로 수정했다.
+> **[2026-09-07 업데이트]** 무료 **Personal** 플랜 조건(6명 사용자, 무제한 디바이스)을 재확인했고, 무료 플랜에 기본 포함된 **Tailscale SSH**·**MagicDNS** 설명을 보강했다. 오래된 버전 표기와 오타도 정리.
 
 ## tailscale 서비스
 
@@ -31,6 +31,8 @@ PC에 테스트 환경을 만들고 외부에서 접근해야 할 때 일반적�
 ### Personal Plan (무료)
 
 현재 [무료 요금제](https://tailscale.com/pricing/)는 **Personal** 플랜이라는 이름으로 제공되며, 최대 **6명**의 사용자가 **무제한 디바이스**를 등록하여 쓸 수 있다. 사용자를 초대하여 자신의 tailscale 네트워크에 접속 권한을 줄 수 있다. (일단 써보자)
+
+무료 플랜에도 서브넷 라우터·Exit Node, **MagicDNS**, 그리고 최대 5개 호스트까지의 기본 **Tailscale SSH**가 포함된다. 유료는 Standard($8/사용자/월)와 Premium($18/사용자/월)로 나뉜다.
 
 > **어드민콘솔**의 Users 탭에서 **Invites users** 버튼으로 사용자 추가.
 > 팀 내에서 개발 중인 내용을 상호 검토하려고 할 때 유용하게 쓸 수 있을 듯. 
@@ -43,8 +45,8 @@ PC에 테스트 환경을 만들고 외부에서 접근해야 할 때 일반적�
 
 | MACHINE | ADDRESS | VERSION | LAST SEEN |
 | :---: | :---: | :---: | :---: |
-| laptop-home | 100.x.x.11 | 1.42.0 | Oct 30 |
-| laptop-work | 100.x.x.12 | 1.42.0 | Connected |
+| laptop-home | 100.x.x.11 | 1.86.x | Sep 1 |
+| laptop-work | 100.x.x.12 | 1.86.x | Connected |
 
 LAST SEEN 에 "Connected" 라고 보이는 디바이스는 해당 IP 또는 MACHINE에 표시되는 이름으로 접근할 수 있다. 
 
@@ -54,13 +56,13 @@ LAST SEEN 에 "Connected" 라고 보이는 디바이스는 해당 IP 또는 MACH
 
 ## 윈도우즈PC 접근
 
-회사에 놓고 쓰는 데스크탑PC에 **tailscale**을 깔아두고 [원격 데스크탑](https://support.microsoft.com/ko-kr/windows/%EC%9B%90%EA%B2%A9-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%86%B1%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-5fe128d5-8fb1-7a23-3b8a-41e636865e8c)을 설정해 두면 [MS RemodeDesktop](https://apps.microsoft.com/detail/9WZDNCRFJ3PS?hl=en-gb&gl=GB) 과 같은 원격데스크탑 앱으로 접근하여 쓸 수 있다. 
+회사에 놓고 쓰는 데스크탑PC에 **tailscale**을 깔아두고 [원격 데스크탑](https://support.microsoft.com/ko-kr/windows/%EC%9B%90%EA%B2%A9-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%86%B1%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-5fe128d5-8fb1-7a23-3b8a-41e636865e8c)을 설정해 두면 [Windows App(구 MS Remote Desktop)](https://apps.microsoft.com/detail/9N1F85V9T8BN) 과 같은 원격데스크탑 앱으로 접근하여 쓸 수 있다. 
 
-생각보다 느리지 않아 원할하게 사용 가능하지만 PC가 절전이나 슬립모드로 빠지면 접속이 안될 때가 있으니 **전원설정**을 확인해야 한다. 
+생각보다 느리지 않아 원활하게 사용 가능하지만 PC가 절전이나 슬립모드로 빠지면 접속이 안될 때가 있으니 **전원설정**을 확인해야 한다. 
 
 ## hosts
 
-**Windows11** 의 hosts 파일을 보면 아래와 같이 **tailscale**의 IP와 호스트이름이 저장되어 있어 접속 할 때 hostname 으로도 접속이 가능하다. ( IP는 아무래도 안 외어진다. )
+**Windows 11**의 hosts 파일을 보면 아래와 같이 **tailscale**의 IP와 호스트이름이 저장되어 있어 접속할 때 hostname으로도 접속이 가능하다. (IP는 아무래도 안 외워진다.) 이것이 **MagicDNS** 기능으로, 어드민콘솔 DNS 탭에서 켜두면 `laptop-work` 같은 짧은 이름이나 `laptop-work.tail2xxxx.ts.net` 전체 이름으로 어느 디바이스에서든 접근할 수 있다.
 
 ```
 100.x.x.x7 butterphone.tail2xxxx.ts.net. butterphone
@@ -78,11 +80,13 @@ LAST SEEN 에 "Connected" 라고 보이는 디바이스는 해당 IP 또는 MACH
 
 [tunnelto.dev](https://tunnelto.dev), [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) 서비스도 다음 기회에 알아봐야 겠다. 
 
-VSCode용 플러그인을 깔고 **tailscale SSH**를 활성화 하면 연결된 디바이스에 바로 접속해서 작업이 가능하다고 한다.(아직 안해봄)
+## Tailscale SSH
+
+무료 플랜에도 기본 [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh)가 포함된다(최대 5개 호스트). 리눅스 서버에서 `sudo tailscale up --ssh`로 켜면 SSH 키 배포 없이 tailscale 인증만으로 `ssh user@호스트명` 접속이 된다 — 키 관리가 없어져서 임시 테스트 서버에 특히 편하다. VSCode용 [Tailscale 확장](https://marketplace.visualstudio.com/items?itemName=Tailscale.vscode-tailscale)을 깔면 연결된 디바이스에 Remote-SSH로 바로 붙어서 작업할 수도 있다.
 
 ## 참고
 
-- [tailscale.com](tailscale.com){:target="_blank"}
+- [tailscale.com](https://tailscale.com){:target="_blank"}
 - [What is TailScale](https://ddii.dev/kubernetes/what-is-tailscale/){:target="_blank"}
 - [tailscale이 무료 요금제를 유지하는 방법](https://news.hada.io/topic?id=6171){:target="_blank"}
 - [테일스케일은 어떻게 작동하는가](https://tailscale.tistory.com/5)
