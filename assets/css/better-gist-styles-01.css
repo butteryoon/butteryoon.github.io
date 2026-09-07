@@ -1,8 +1,15 @@
 .gist {
   max-width: 912px !important;
 }
-body .gist .highlight {
-  background: #002240;
+body .gist .highlight,
+body .gist .highlight tr,
+body .gist .blob-code,
+body .gist .blob-code-inner {
+  background: #1d1f21;
+}
+body .gist .blob-num {
+  background: #16181a;
+  color: #6e7681;
 }
 body .gist .blob-code-inner,
 body .gist .blob-num,
@@ -83,6 +90,8 @@ body .gist .highlight-text-html-basic .pl-ent {
 body .gist .pl-c,
 body .gist .pl-c span,
 body .gist .pl-mq {
+  color: #8b949e;
+  font-style: italic;
   font-size: 15px;
 }
 body .gist .pl-c1,
