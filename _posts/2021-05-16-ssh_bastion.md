@@ -5,7 +5,7 @@ title: "SSH 멀티플렉싱 기능을 이용하여 내부 서버에 SSH 접속�
 description: "SSH 멀티플렉싱 기능으로 Bastion 호스트의 터널링을 통해 내부 서버에 안전하게 접속하는 방법을 알아본다."
 img: "M_ssh_tunneling.jpg"
 date: 2021-05-16 01:00:00 +0900
-last_modified_at: 2021-05-16 01:00:00 +0900
+last_modified_at: 2026-09-07 22:25:00 +0900
 tags: [ssh, bastion, multiplexing, proxycommand] # add tag
 related: ssh
 categories: tools
@@ -23,7 +23,7 @@ AWS 서비스에는 Amazon EC2 인스턴스에 대한 인바운드 SSH(Secure Sh
 
 *"IP Gateway"에서 8022 포트는 "Bastion Host"의 22번 포트로 포워딩 설정이 되어 있는 환경으로 가정한다.*
 
-![ssh bastion]({{site.baseurl}}/assets/img/ssh_bastion_diagram.jpg)
+![ssh bastion]({{site.baseurl}}/assets/img/ssh_bastion_diagram.webp)
 
 ## ssh 로컬 포워딩을 이용한 접속 
 
