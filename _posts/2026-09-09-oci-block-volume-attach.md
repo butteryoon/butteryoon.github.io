@@ -5,7 +5,7 @@ title: "오라클 OCI 프리티어 인스턴스에 블록볼륨 추가하기"
 description: "Oracle Cloud 인스턴스에 블록 볼륨을 붙이는 전체 과정을 실제로 해보고 정리했다. 볼륨 attach부터 파티션/GPT 생성, ext4 포맷, /mnt/data 마운트, UUID 기반 fstab 자동마운트까지."
 img: oci_block_volume_title.webp
 date: 2026-09-09 23:30:00 +0900
-last_modified_at: 2026-09-10 00:40:00 +0900
+last_modified_at: 2026-09-10 01:00:00 +0900
 tags: [oci, oracle-cloud, block-volume, storage, mount, fstab, ext4] # add tag
 related: oci
 categories: tools
@@ -32,7 +32,7 @@ OCI 블록 볼륨을 쓰는 과정은 **두 레이어**로 나뉜다.
 
 OCI 관리 콘솔에서 햄버거 메뉴 → **스토리지(Storage)** → **블록 볼륨(Block Volumes)**으로 들어가면 볼륨 목록이 나온다. 여기서 **블록 볼륨 생성**으로 원하는 크기(프리티어는 부팅 볼륨 포함 총 200GB까지 무료)의 볼륨을 만들고, 생성된 볼륨의 상세 화면에서 **연결된 인스턴스 → 인스턴스에 연결(attach)**을 누르면 콘솔에서 할 일은 끝이다.
 
-![OCI 콘솔 블록 볼륨 메뉴 경로]({{site.baseurl}}/assets/img/oci_block_volume_console.webp)
+![OCI 콘솔 블록 볼륨 화면]({{site.baseurl}}/assets/img/oci_block_volume_console.webp)
 
 연결 유형은 기본값(반가상화, paravirtualized)을 쓰면 별도 iSCSI 명령 없이 OS에 바로 디바이스로 잡힌다. 이제부터는 인스턴스 안 리눅스에서의 작업이다.
 
@@ -151,3 +151,4 @@ OCI 블록 볼륨을 처음 만지면 가장 헷갈리는 게 "콘솔에서 atta
 - [OCI 블록 볼륨 연결 공식 문서](https://docs.oracle.com/en-us/iaas/Content/Block/Tasks/connectingtoavolume.htm)
 - [오라클 무료 인스턴스 시작하기]({{site.baseurl}}/tools/2021/01/18/oracle_cloud_start.html)
 - [OmniRoute 셀프호스팅 — RAM 1GB로 AI 게이트웨이 돌리기]({{site.baseurl}}/tools/2026/09/06/omniroute-selfhosting-oci.html)
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/VYfxkePredI){:target="_blank"}
