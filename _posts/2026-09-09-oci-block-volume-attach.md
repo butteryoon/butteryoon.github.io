@@ -5,7 +5,7 @@ title: "오라클 OCI 프리티어 인스턴스에 블록볼륨 추가하기"
 description: "Oracle Cloud 인스턴스에 블록 볼륨을 붙이는 전체 과정을 실제로 해보고 정리했다. 볼륨 attach부터 파티션/GPT 생성, ext4 포맷, /mnt/data 마운트, UUID 기반 fstab 자동마운트까지."
 img: oci_block_volume_title.webp
 date: 2026-09-09 23:30:00 +0900
-last_modified_at: 2026-09-10 01:00:00 +0900
+last_modified_at: 2026-09-10 01:20:00 +0900
 tags: [oci, oracle-cloud, block-volume, storage, mount, fstab, ext4] # add tag
 related: oci
 categories: tools
@@ -78,6 +78,10 @@ Syncing disks.
 
 `g` = GPT 디스크 레이블 생성, `n` = 새 파티션(1번, 전체 용량), `w` = 쓰기. 이렇게 `/dev/sdb1`이 생겼다.
 
+여기서 GPT 레이블은 "이 디스크를 어떤 파티션 구조로 나눠 쓸지"를 기록하는 파티션 테이블 표준이다. 옛 MBR 방식의 2TB·4파티션 한계가 없어서, 요즘 새 디스크는 그냥 GPT로 만들면 된다.
+
+<details class="evidence"><summary>원문 근거</summary><blockquote>"The GUID Partition Table (GPT) is a standard for the layout of partition tables of a physical computer storage device, such as a hard disk drive or solid-state drive. It is part of the Unified Extensible Firmware Interface (UEFI) standard." — Wikipedia, GUID Partition Table</blockquote></details>
+
 ## 5. ext4 포맷
 
 빈 파티션은 바로 쓸 수 없고 파일시스템을 얹어야 한다. 데이터가 든 볼륨이면 절대 포맷하지 말 것 — 이 100GB는 새로 쓸 볼륨이라 마음 놓고 밀었다.
@@ -144,7 +148,7 @@ OCI 블록 볼륨을 처음 만지면 가장 헷갈리는 게 "콘솔에서 atta
 2. **파티션(GPT) → 포맷(ext4) → 마운트** 이 3단계를 인스턴스 안에서 끝내야 볼륨을 쓸 수 있다.
 3. **fstab엔 반드시 UUID로 등록**하자 — 디바이스명은 재부팅마다 바뀐다. `nofail`(혹은 `_netdev`) 옵션을 넣어 부팅이 막히는 일을 피하자.
 
-부팅 볼륨(46.6GB)에 LLM 모델을 담기엔 빠듯했는데, 이제 `/mnt/data` 100GB가 생겼다. 다음 편에선 이 공간에 Ollama나 vLLM을 올려 로컬 모델을 서빙하고, 앞서 만든 [OmniRoute AI 게이트웨이]({{site.baseurl}}/tools/2026/09/06/omniroute-selfhosting-oci.html)에 붙여볼 생각이다.
+부팅 볼륨(46.6GB)에 LLM 모델을 담기엔 빠듯했는데, 이제 `/mnt/data` 100GB가 생겼다. 다만 한 가지 짚어둘 것 — **OCI 프리티어 인스턴스에는 GPU가 없어서 vLLM으로 모델을 서빙할 수는 없다.** 이 공간의 용도는 모델 파일 보관, 로그·백업 저장, 그리고 Ollama로 소형 모델을 CPU 추론으로 굴려보는 정도까지다. 본격적인 서빙은 GPU 있는 환경의 몫이고, 여기서는 앞서 만든 [OmniRoute AI 게이트웨이]({{site.baseurl}}/tools/2026/09/06/omniroute-selfhosting-oci.html)의 저장 공간으로 활용할 생각이다.
 
 ## 참고
 
