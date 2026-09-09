@@ -1,11 +1,11 @@
 ---
 layout: post
 comments: true
-title: "OCI 블록 볼륨 연결 · 포맷 · 마운트 · 자동마운트 — 실전 기록"
+title: "오라클 OCI 프리티어 인스턴스에 블록볼륨 추가하기"
 description: "Oracle Cloud 인스턴스에 블록 볼륨을 붙이는 전체 과정을 실제로 해보고 정리했다. 볼륨 attach부터 파티션/GPT 생성, ext4 포맷, /mnt/data 마운트, UUID 기반 fstab 자동마운트까지."
 img: oci_block_volume_title.webp
 date: 2026-09-09 23:30:00 +0900
-last_modified_at: 2026-09-09 23:30:00 +0900
+last_modified_at: 2026-09-10 00:40:00 +0900
 tags: [oci, oracle-cloud, block-volume, storage, mount, fstab, ext4] # add tag
 related: oci
 categories: tools
@@ -26,9 +26,17 @@ OCI 블록 볼륨을 쓰는 과정은 **두 레이어**로 나뉜다.
 | 제어 평면 (Control Plane) | 볼륨 생성, 인스턴스에 **연결(attach)** | OCI 콘솔 / `oci` CLI | 오라클 관리자 |
 | 데이터 평면 (OS) | 디바이스 인식, 파티션, 포맷, 마운트, fstab | 인스턴스 안 리눅스 | 서버 관리자 |
 
-처음 하는 사람은 콘솔에서 "연결"만 하고 끝내기 쉬운데, 거기까지는 USB를 꽂아둔 것과 같다. OS가 그 드라이브를 읽으려면 **파티션 → 포맷 → 마운트 → 자동마운트**까지 해줘야 한다. 2~5절이 바로 그 "OS에서 쓰기" 단계다.
+처음 하는 사람은 콘솔에서 "연결"만 하고 끝내기 쉬운데, 거기까지는 USB를 꽂아둔 것과 같다. OS가 그 드라이브를 읽으려면 **파티션 → 포맷 → 마운트 → 자동마운트**까지 해줘야 한다. 2절이 콘솔 단계, 3~6절이 "OS에서 쓰기" 단계다.
 
-## 2. 연결된 볼륨 확인 — `lsblk`
+## 2. 관리 콘솔에서 볼륨 생성·연결
+
+OCI 관리 콘솔에서 햄버거 메뉴 → **스토리지(Storage)** → **블록 볼륨(Block Volumes)**으로 들어가면 볼륨 목록이 나온다. 여기서 **블록 볼륨 생성**으로 원하는 크기(프리티어는 부팅 볼륨 포함 총 200GB까지 무료)의 볼륨을 만들고, 생성된 볼륨의 상세 화면에서 **연결된 인스턴스 → 인스턴스에 연결(attach)**을 누르면 콘솔에서 할 일은 끝이다.
+
+![OCI 콘솔 블록 볼륨 메뉴 경로]({{site.baseurl}}/assets/img/oci_block_volume_console.webp)
+
+연결 유형은 기본값(반가상화, paravirtualized)을 쓰면 별도 iSCSI 명령 없이 OS에 바로 디바이스로 잡힌다. 이제부터는 인스턴스 안 리눅스에서의 작업이다.
+
+## 3. 연결된 볼륨 확인 — `lsblk`
 
 블록 볼륨을 인스턴스에 연결하면 리눅스에서 `sdb`, `sdc` 같은 디바이스로 잡힌다. 이 인스턴스에는 100GB 볼륨이 이미 붙어 있었다.
 
@@ -47,7 +55,7 @@ sda    46.6G disk                   BlockVolume
 - **`sda` = 부팅 볼륨** (`/`, `/boot/efi`, swap). xfs로 포맷해 마운트해둔 상태.
 - **`sdb` = 외부 블록 볼륨** (MODEL `BlockVolume`). 처음엔 FSTYPE/MOUNTPOINT가 비어 있었고, 아래 절차를 거쳐 `/dev/sdb1` ext4 → `/mnt/data`까지 채운 **최종 상태**다.
 
-## 3. 파티션 생성 (GPT)
+## 4. 파티션 생성 (GPT)
 
 `/dev/sdb`엔 파티션 테이블이 아예 없었다. `fdisk`로 GPT 파티션을 하나 만든다. (4KB 섹터 정렬 경고가 떠도 파티션 번호·섹터를 기본값으로 두면 알아서 정렬된다.)
 
@@ -70,7 +78,7 @@ Syncing disks.
 
 `g` = GPT 디스크 레이블 생성, `n` = 새 파티션(1번, 전체 용량), `w` = 쓰기. 이렇게 `/dev/sdb1`이 생겼다.
 
-## 4. ext4 포맷
+## 5. ext4 포맷
 
 빈 파티션은 바로 쓸 수 없고 파일시스템을 얹어야 한다. 데이터가 든 볼륨이면 절대 포맷하지 말 것 — 이 100GB는 새로 쓸 볼륨이라 마음 놓고 밀었다.
 
@@ -81,9 +89,9 @@ Creating journal (131072 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-## 5. 마운트 + 자동마운트(fstab)
+## 6. 마운트 + 자동마운트(fstab)
 
-### 5-1. 마운트
+### 6-1. 마운트
 
 ```text
 $ sudo mkdir -p /mnt/data && sudo mount /dev/sdb1 /mnt/data
@@ -94,7 +102,7 @@ Filesystem     Type  Size  Used Avail Use% Mounted on
 
 `/mnt/data`에 잘 붙었다. 100GB 볼륨에서 ext4 메타데이터·예약 블록 몫을 빼고 93GB를 쓸 수 있다.
 
-### 5-2. UUID 기반 자동마운트 (fstab)
+### 6-2. UUID 기반 자동마운트 (fstab)
 
 여기가 **가장 큰 함정**이다. OCI 인스턴스의 `/etc/fstab` 주석에 오라클이 아예 경고를 박아놨다.
 
@@ -120,7 +128,7 @@ UUID=806ae008-6cad-48a4-82a1-e7099696469f /mnt/data ext4 defaults,nofail 0 2
 - **`defaults,nofail`**: 볼륨이 없어도 부팅을 막지 않는다. (오라클이 권하는 `_netdev`를 같이 넣어도 좋다)
 - 등록한 뒤 `sudo mount -a`로 문법을 확인하면 재부팅 전에 fstab이 멀쩡한지 알 수 있다.
 
-### 5-3. 권한 설정
+### 6-3. 권한 설정
 
 마지막으로 `opc` 사용자(무료 인스턴스 기본 계정)에게 소유권을 넘겼다.
 
@@ -141,5 +149,5 @@ OCI 블록 볼륨을 처음 만지면 가장 헷갈리는 게 "콘솔에서 atta
 ## 참고
 
 - [OCI 블록 볼륨 연결 공식 문서](https://docs.oracle.com/en-us/iaas/Content/Block/Tasks/connectingtoavolume.htm)
-- [먹는 서버: 오라클 무료 인스턴스 시작하기]({{site.baseurl}}/tools/2021/01/18/oracle_cloud_start.html)
+- [오라클 무료 인스턴스 시작하기]({{site.baseurl}}/tools/2021/01/18/oracle_cloud_start.html)
 - [OmniRoute 셀프호스팅 — RAM 1GB로 AI 게이트웨이 돌리기]({{site.baseurl}}/tools/2026/09/06/omniroute-selfhosting-oci.html)
