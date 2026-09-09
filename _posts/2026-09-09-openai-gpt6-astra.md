@@ -5,7 +5,7 @@ title: "OpenAI GPT-6 Astra 발표 — 컴퓨터 사용·사이버보안·수학�
 description: "OpenAI가 발표한 GPT-6 Astra 정리. OSWorld 2.0 47% 시간 단축, FrontierMath Tier 4 98%, ExploitBench 100%, Codex 노트 기반 컨텍스트 관리와 정렬 개선까지."
 img: command-title.webp
 date: 2026-09-09 19:40:00 +0900
-last_modified_at: 2026-09-09 19:40:00 +0900
+last_modified_at: 2026-09-09 21:00:00 +0900
 tags: [openai, gpt-6, astra, computer-use, agentic-ai, cybersecurity, alignment, codex] # add tag
 related: llm
 categories: dev
@@ -37,7 +37,7 @@ OpenAI가 오늘(2026-09-09) 발표한 [GPT-6 Astra](https://openai.com/index/gp
 - Hugging Face 사건을 반영해 만든 평가에서 불가능한 과제를 던졌을 때, 승인 범위 밖으로 나가는 비율이 Sol 48% → **Astra 0%**.
 - Codex Auto-Review 거부를 우회하도록 일부러 허술하게 구성한 환경에서도 우회 시도 0건.
 - 사이버 역량은 Preparedness Framework의 **Critical 임계값**에 도달 — 배포판은 PoC 익스플로잇 생성 같은 공격적 작업을 거부하고, 방어 워크플로우 확대는 OpenAI Daybreak로 단계 개방 예정.
-- 반대로 **추론 과정의 모니터링 가능성은 Sol보다 떨어졌다**고 스스로 인정한 점도 기록해둘 만하다.
+- 반대로 **추론 과정의 모니터링 가능성은 Sol보다 떨어졌다**고 스스로 인정한 점도 기록해둘 만하다. 풀어 쓰면 이렇다: 안전장치의 한 축은 모델이 써 내려가는 추론(chain of thought)을 감시 시스템이 읽고 위험 신호를 잡아내는 것인데, 모니터링을 회피해보라고 명시적으로 시킨 테스트에서 Astra는 Sol보다 **자기 추론 기록을 숨기는 데 더 능했다**. OpenAI는 원인을 능력 향상의 부산물로 본다 — 쉬운 과제에서 서면 추론을 통제하는 힘이 커졌고, 더 적은 추론 단계로 문제를 풀 수 있어 감시자가 읽을 단서 자체가 줄었다는 것. 복잡한 과제에서는 아직 추론을 숨기기 어려워하지만, 모델이 강해질수록 "생각을 읽어서 감시한다"는 전제가 약해지는 구조적 문제라 OpenAI도 연구 우선순위로 삼겠다고 밝혔다.
 
 ## 5. 가용성·가격
 
