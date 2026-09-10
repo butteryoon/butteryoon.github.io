@@ -1266,3 +1266,22 @@ details.evidence summary::before { content: "▸ "; }
 details.evidence[open] summary::before { content: "▾ "; }
 details.evidence blockquote { margin: 8px 0 0; padding: 10px 14px; background: #f7f9fb; border-left: 3px solid #b8cede; border-radius: 0 8px 8px 8px; color: #4a5a68; font-style: italic; }
 details.evidence blockquote p { margin: 0; }
+
+/* share buttons: 브랜드 컬러 알약 버튼 */
+.page-footer .page-share a.share-btn,
+.page-footer .page-share button.share-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: none; border-radius: 18px; padding: 7px 14px;
+  margin: 0 6px 6px 0; font-size: 13px; font-weight: 600;
+  color: #fff; cursor: pointer; text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,.15);
+}
+.page-share .share-btn svg { width: 15px; height: 15px; }
+.page-share .share-x    { background: #000; }
+.page-share .share-fb   { background: #1877f2; }
+.page-share .share-copy { background: #5b7fa6; font-family: inherit; }
+.page-share .share-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,.2); }
+.page-footer .page-share a.share-x:hover    { background-color: #222; color: #fff; }
+.page-footer .page-share a.share-fb:hover   { background-color: #3b8bf5; color: #fff; }
+.page-footer .page-share button.share-copy:hover { background-color: #6d92bb; color: #fff; }
