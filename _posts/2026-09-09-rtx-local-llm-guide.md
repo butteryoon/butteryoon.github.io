@@ -5,7 +5,7 @@ title: "RTX PC에서 로컬 LLM 시작하기 — Ollama·LM Studio·AnythingLLM"
 description: "NVIDIA RTX AI Garage 가이드 해설. Ollama, LM Studio, AnythingLLM으로 로컬 LLM 환경을 구축하는 방법과 Flash Attention·TensorRT 최적화 수치를 정리한다."
 img: command-title.webp
 date: 2026-09-09 14:01:00 +0900
-last_modified_at: 2026-09-09 14:01:00 +0900
+last_modified_at: 2026-09-10 22:20:00 +0900
 tags: [nvidia, local-llm, ollama, lm-studio, anythingllm, rtx, gpu, windows-ml] # add tag
 related: llm
 categories: dev
@@ -18,8 +18,8 @@ NVIDIA 블로그의 RTX AI Garage 시리즈 [「NVIDIA RTX PC에서 거대 언�
 
 ## 1. 실행 프레임워크 — Ollama와 LM Studio
 
-- **Ollama**: OpenAI **gpt-oss-20B**, Google **Gemma 3** 모델의 GeForce RTX 성능 개선이 반영됐고, **Gemma 3 270M**과 **EmbeddingGemma** 조합으로 초경량 RAG를 지원한다.
-- **LM Studio** (llama.cpp 기반): NVIDIA **Nemotron Nano v2 9B** 지원, **Flash Attention 기본 활성화로 최대 20%** 성능 향상, RMS Norm·빠른 나눗셈 기반 **CUDA 커널 최적화로 추가 최대 9%** 향상.
+- **Ollama**: OpenAI **gpt-oss-20B**, Google **Gemma 3** 모델의 GeForce RTX 성능 개선이 반영됐고, **Gemma 3 270M**과 **EmbeddingGemma** 조합으로 초경량 RAG를 지원한다. 메모리 사용률을 극대화·정확히 보고하도록 **모델 스케줄링 시스템이 개선**됐고 다중 GPU 처리 성능도 좋아졌다.
+- **LM Studio** (llama.cpp 기반): 새로운 **hybrid-mamba 아키텍처** 기반의 NVIDIA **Nemotron Nano v2 9B** 지원, **Flash Attention 기본 활성화로 최대 20%** 성능 향상, RMS Norm·빠른 나눗셈 기반 **CUDA 커널 최적화로 추가 최대 9%** 향상.
 
 지원 모델 폭도 넓어졌다 — OpenAI gpt-oss, Alibaba **Qwen 3**, NVIDIA Nemotron Nano v2 등 최신 오픈 웨이트 모델이 RTX 가속으로 돌아간다.
 
