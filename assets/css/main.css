@@ -1278,9 +1278,11 @@ details.evidence blockquote p { margin: 0; }
   box-shadow: 0 1px 3px rgba(0,0,0,.15);
 }
 .page-share .share-btn svg { width: 15px; height: 15px; }
-.page-share .share-x    { background: #000; }
-.page-share .share-fb   { background: #1877f2; }
-.page-share .share-copy { background: #5b7fa6; font-family: inherit; }
+.page-footer .page-share a.share-x,
+.page-footer .page-share .share-x    { background-color: #000; }
+.page-footer .page-share a.share-fb,
+.page-footer .page-share .share-fb   { background-color: #1877f2; }
+.page-footer .page-share button.share-copy { background-color: #5b7fa6; font-family: inherit; }
 .page-share .share-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,.2); }
 .page-footer .page-share a.share-x:hover    { background-color: #222; color: #fff; }
 .page-footer .page-share a.share-fb:hover   { background-color: #3b8bf5; color: #fff; }
