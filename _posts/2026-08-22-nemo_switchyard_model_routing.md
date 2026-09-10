@@ -6,7 +6,7 @@ description: "NVIDIA 테크니컬 블로그의 NeMo Switchyard 해설. 단일 �
 img: multi_agent_network.jpg
 date: 2026-08-22 20:30:00 +0900
 last_modified_at: 2026-08-22 20:30:00 +0900
-tags: [nvidia, nemo-switchyard, model-routing, agentic-ai, llm-router, nemotron, cost-optimization] # add tag
+tags: [nvidia, nemo-switchyard, model-routing, agentic-ai, llm-router, nemotron, cost-optimization, llm] # add tag
 related: llm
 categories: tools
 ---

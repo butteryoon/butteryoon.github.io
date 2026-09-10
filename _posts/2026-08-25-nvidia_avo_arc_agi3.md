@@ -6,7 +6,7 @@ description: "NVIDIA 테크니컬 블로그 해설. AVO(Agentic Variation Operat
 img: multi_agent_network.jpg
 date: 2026-08-25 18:20:00 +0900
 last_modified_at: 2026-08-25 18:20:00 +0900
-tags: [nvidia, avo, arc-agi-3, agentic-ai, long-horizon-agents, gpu-kernel, claude-opus-5] # add tag
+tags: [nvidia, avo, arc-agi-3, agentic-ai, long-horizon-agents, gpu-kernel, claude-opus-5, llm] # add tag
 related: llm
 categories: dev
 ---

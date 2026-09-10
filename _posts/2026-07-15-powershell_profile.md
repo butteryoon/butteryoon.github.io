@@ -6,7 +6,7 @@ description: "내가 쓰는 PowerShell 프로파일 기준으로 정리한 기�
 img: powershell_title.jpg
 date: 2026-07-15 00:45:00 +0900
 last_modified_at: 2026-07-15 00:45:00 +0900
-tags: [PowerShell, profile, oh-my-posh, alias, Windows Terminal] # add tag
+tags: [PowerShell, profile, oh-my-posh, alias, Windows Terminal, powershell] # add tag
 related: powershell
 categories: tools
 redirect_from:

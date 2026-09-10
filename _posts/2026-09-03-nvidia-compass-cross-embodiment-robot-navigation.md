@@ -6,7 +6,7 @@ description: "NVIDIA 테크니컬 블로그 해설. COMPASS 프레임워크로 X
 img: command-title.webp
 date: 2026-09-03 18:20:00 +0900
 last_modified_at: 2026-09-03 18:20:00 +0900
-tags: [nvidia, compass, x-mobility, robotics, residual-rl, agentic-workflow, isaac-sim, isaac-lab, codex, claude-code, ros2] # add tag
+tags: [nvidia, compass, x-mobility, robotics, residual-rl, agentic-workflow, isaac-sim, isaac-lab, codex, claude-code, ros2, dev] # add tag
 related: dev
 categories: dev
 ---

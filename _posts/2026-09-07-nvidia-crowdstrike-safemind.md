@@ -6,7 +6,7 @@ description: "Fal.Con 2026에서 발표된 CrowdStrike SafeMind 분석. Nemotron
 img: safemind-coevolution-title.webp
 date: 2026-09-07 21:30:00 +0900
 last_modified_at: 2026-09-07 21:50:00 +0900
-tags: [nvidia, crowdstrike, safemind, nemotron, agentic-ai, cybersecurity, red-team] # add tag
+tags: [nvidia, crowdstrike, safemind, nemotron, agentic-ai, cybersecurity, red-team, llm] # add tag
 related: llm
 categories: dev
 ---

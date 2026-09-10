@@ -6,7 +6,7 @@ description: "Karpathy의 GitHub autoresearch 리포 분석. 2일간 700회 실�
 img: karpathy-autoresearch.webp
 date: 2026-08-30 00:48:00 +0900
 last_modified_at: 2026-08-30 21:25:00 +0900
-tags: [karpathy, autoresearch, autonomous-ai, ai-research, self-improving-ai, llm-agents, mlops] # add tag
+tags: [karpathy, autoresearch, autonomous-ai, ai-research, self-improving-ai, llm-agents, mlops, llm] # add tag
 related: llm
 categories: dev
 ---

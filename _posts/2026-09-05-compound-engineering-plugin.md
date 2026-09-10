@@ -6,7 +6,7 @@ description: "Every의 오픈소스 Compound Engineering 플러그인(33개 스�
 img: compound-engineering-title.webp
 date: 2026-09-05 20:30:00 +0900
 last_modified_at: 2026-09-06 00:30:00 +0900
-tags: [compound-engineering, ai-coding, claude-code, codex, cursor, plugin, knowledge-management] # add tag
+tags: [compound-engineering, ai-coding, claude-code, codex, cursor, plugin, knowledge-management, llm] # add tag
 related: llm
 categories: tools
 ---

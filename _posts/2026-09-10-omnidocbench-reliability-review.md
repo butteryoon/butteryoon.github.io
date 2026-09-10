@@ -6,7 +6,7 @@ description: "문서 파싱 평가의 사실상 표준으로 떠오른 OmniDocBe
 img: ai_abstract_title.jpg
 date: 2026-09-10 14:00:00 +0900
 last_modified_at: 2026-09-10 14:00:00 +0900
-tags: [omnidocbench, document-parsing, ocr, benchmark, evaluation, llm-ops] # add tag
+tags: [omnidocbench, document-parsing, ocr, benchmark, evaluation, llm-ops, llm] # add tag
 related: llm
 categories: dev
 ---

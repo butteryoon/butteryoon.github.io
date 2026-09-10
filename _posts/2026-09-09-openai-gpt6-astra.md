@@ -6,7 +6,7 @@ description: "OpenAI가 발표한 GPT-6 Astra 정리. OSWorld 2.0 47% 시간 단
 img: command-title.webp
 date: 2026-09-09 19:40:00 +0900
 last_modified_at: 2026-09-09 21:30:00 +0900
-tags: [openai, gpt-6, astra, computer-use, agentic-ai, cybersecurity, alignment, codex] # add tag
+tags: [openai, gpt-6, astra, computer-use, agentic-ai, cybersecurity, alignment, codex, llm] # add tag
 related: llm
 categories: dev
 ---

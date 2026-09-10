@@ -6,7 +6,7 @@ description: "RAGAS(Retrieval Augmented Generation Assessment)의 4대 핵심 �
 img: ragas-evaluation.webp
 date: 2026-08-29 00:20:00 +0900
 last_modified_at: 2026-08-29 00:20:00 +0900
-tags: [ragas, rag-evaluation, llm-ops, faithfulness, answer-relevancy, context-precision, context-recall] # add tag
+tags: [ragas, rag-evaluation, llm-ops, faithfulness, answer-relevancy, context-precision, context-recall, llm] # add tag
 related: llm
 categories: dev
 ---

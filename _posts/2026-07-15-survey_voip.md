@@ -6,7 +6,7 @@ description: "오픈소스로 VOIP 시스템을 구성할 때 쓰는 시그널�
 img: protocol_title.png
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-15 00:00:00 +0900
-tags: [voip, sip, opensips, rtpengine, kamailio] # add tag
+tags: [voip, sip, opensips, rtpengine, kamailio, opensource] # add tag
 related: opensource
 categories: dev
 redirect_from:

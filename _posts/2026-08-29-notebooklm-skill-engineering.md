@@ -6,7 +6,7 @@ description: "David Marco(@David_TornAI)의 X 스레드 분석. NotebookLM에 �
 img: notebooklm-skill-engineering.webp
 date: 2026-08-29 17:49:00 +0900
 last_modified_at: 2026-08-29 17:49:00 +0900
-tags: [notebooklm, skill-engineering, claude-code, hermes-agent, prompt-engineering, ai-workers, knowledge-management] # add tag
+tags: [notebooklm, skill-engineering, claude-code, hermes-agent, prompt-engineering, ai-workers, knowledge-management, llm] # add tag
 related: llm
 categories: dev
 ---

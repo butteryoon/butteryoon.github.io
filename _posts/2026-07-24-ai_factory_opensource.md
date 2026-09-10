@@ -6,7 +6,7 @@ description: "NVIDIA Enterprise AI Factory 디자인 가이드의 에이전틱 A
 img: multi_agent_network.jpg
 date: 2026-07-24 00:45:00 +0900
 last_modified_at: 2026-07-24 00:45:00 +0900
-tags: [ai agent, agentops, on-premise, kubernetes, nvidia, open source, mcp] # add tag
+tags: [ai agent, agentops, on-premise, kubernetes, nvidia, open source, mcp, llm] # add tag
 related: llm
 categories: dev
 ---

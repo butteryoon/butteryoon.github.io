@@ -25,20 +25,19 @@ layout: main
       </header>
       {{content | markdownify}}
 
-      <!-- 관련글 목록 -->
+      <!-- 관련글 목록: page.related 태그를 가진 글을 최신순으로 (자기 자신 제외, 최대 7개) -->
+      {% assign related_posts = site.tags[page.related] | where_exp: "p", "p.url != page.url" %}
+      {% if related_posts and related_posts.size > 0 %}
       <div class="page-related">
         <hr>
         <h2>관련글 목록</h2>
         <ul class="posts-list">
-          {% for tag in site.tags %}
-            {% for post in tag[1] %}
-              {% if tag[0] == page.related %}
-                <li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li> 
-              {% endif %} 
-            {% endfor %}
+          {% for post in related_posts limit: 7 %}
+            <li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a> <span class="related-date">({{post.date | date: '%Y-%m'}})</span></li>
           {% endfor %}
-          <ul>
+        </ul>
       </div>
+      {% endif %}
 
       <div class="page-footer">
         <div class="page-share">

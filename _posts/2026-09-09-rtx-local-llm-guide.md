@@ -6,7 +6,7 @@ description: "NVIDIA RTX AI Garage 가이드 해설. Ollama, LM Studio, Anything
 img: command-title.webp
 date: 2026-09-09 14:01:00 +0900
 last_modified_at: 2026-09-10 22:20:00 +0900
-tags: [nvidia, local-llm, ollama, lm-studio, anythingllm, rtx, gpu, windows-ml] # add tag
+tags: [nvidia, local-llm, ollama, lm-studio, anythingllm, rtx, gpu, windows-ml, llm] # add tag
 related: llm
 categories: dev
 ---

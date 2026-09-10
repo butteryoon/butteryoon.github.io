@@ -6,7 +6,7 @@ description: "NVIDIA 테크니컬 블로그 해설. Groq 3 LPX가 컴파일러 �
 img: ai_abstract_title.jpg
 date: 2026-08-26 18:20:00 +0900
 last_modified_at: 2026-08-26 18:20:00 +0900
-tags: [nvidia, groq-3-lpx, vera-rubin, long-context, inference, interactivity, agentic-ai, tensor-parallelism] # add tag
+tags: [nvidia, groq-3-lpx, vera-rubin, long-context, inference, interactivity, agentic-ai, tensor-parallelism, llm] # add tag
 related: llm
 categories: dev
 ---

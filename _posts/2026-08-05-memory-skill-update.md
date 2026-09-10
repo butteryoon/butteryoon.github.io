@@ -6,7 +6,7 @@ description: "Memory 용량 한도 해결을 위해 불필요 항목 삭제 후 
 img: command-title.webp
 date: 2026-08-05 01:13:10 +0900
 last_modified_at: 2026-09-07 22:50:00 +0900
-tags: [hermes, memory, skill, blog, automation, workflow] # add tag
+tags: [hermes, memory, skill, blog, automation, workflow, dev] # add tag
 related: dev
 categories: dev
 ---

@@ -6,7 +6,7 @@ description: "Google의 Agent Retrieval RRF 튜닝 가이드 핵심 정리. Sear
 img: tools_title.jpg
 date: 2026-08-17 23:22:00 +0900
 last_modified_at: 2026-08-17 23:50:00 +0900
-tags: [rrf, reciprocal-rank-fusion, hybrid-search, rag, retrieval, vertex-ranker, bm25, optuna] # add tag
+tags: [rrf, reciprocal-rank-fusion, hybrid-search, rag, retrieval, vertex-ranker, bm25, optuna, llm] # add tag
 related: llm
 categories: tools
 ---

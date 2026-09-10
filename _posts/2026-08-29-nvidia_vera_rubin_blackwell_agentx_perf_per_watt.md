@@ -6,7 +6,7 @@ description: "NVIDIA 테크니컬 블로그 해설. SemiAnalysis AgentX 벤치�
 img: command-title.webp
 date: 2026-08-29 18:01:11 +0900
 last_modified_at: 2026-08-29 18:01:11 +0900
-tags: [nvidia, vera-rubin, blackwell, agentic-ai, agentx, semi-analysis, inference, performance-per-watt, gb300, dynamo, nvlink, moe] # add tag
+tags: [nvidia, vera-rubin, blackwell, agentic-ai, agentx, semi-analysis, inference, performance-per-watt, gb300, dynamo, nvlink, moe, llm] # add tag
 related: llm
 categories: dev
 ---

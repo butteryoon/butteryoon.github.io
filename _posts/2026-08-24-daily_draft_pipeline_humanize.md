@@ -6,7 +6,7 @@ description: "Hermes 에이전트가 매일 쓰는 블로그 초안을 자동으
 img: jekyll-title.png
 date: 2026-08-24 01:40:00 +0900
 last_modified_at: 2026-08-24 01:40:00 +0900
-tags: [claude code, automation, hermes, task scheduler, humanize, ai agent] # add tag
+tags: [claude code, automation, hermes, task scheduler, humanize, ai agent, jekyll] # add tag
 related: jekyll
 categories: tools
 ---

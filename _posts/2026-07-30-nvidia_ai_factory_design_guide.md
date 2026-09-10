@@ -6,7 +6,7 @@ description: "NVIDIA 공식 백서(ai-factory-white-paper)를 바탕으로 AI Fa
 img: command-title.webp
 date: 2026-07-30 00:47:00 +0900
 last_modified_at: 2026-07-30 00:47:00 +0900
-tags: [nvidia, ai factory, agentic ai, enterprise, architecture, blueprint, nvidia ai enterprise] # add tag
+tags: [nvidia, ai factory, agentic ai, enterprise, architecture, blueprint, nvidia ai enterprise, llm] # add tag
 related: llm
 categories: dev
 ---

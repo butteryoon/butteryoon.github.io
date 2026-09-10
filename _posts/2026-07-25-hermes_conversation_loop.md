@@ -6,7 +6,7 @@ description: "Hermes Agent의 agent/conversation_loop.run_conversation() 내부�
 img: command-title.webp
 date: 2026-07-25 21:30:00 +0900
 last_modified_at: 2026-07-25 21:30:00 +0900
-tags: [hermes, source code, conversation loop, tool call, agent, nous research] # add tag
+tags: [hermes, source code, conversation loop, tool call, agent, nous research, llm] # add tag
 related: llm
 categories: dev
 ---

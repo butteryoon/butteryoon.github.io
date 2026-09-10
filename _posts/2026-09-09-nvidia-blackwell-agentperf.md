@@ -6,7 +6,7 @@ description: "Artificial Analysis의 에이전틱 AI 전용 벤치마크 AgentPe
 img: command-title.webp
 date: 2026-09-09 14:00:00 +0900
 last_modified_at: 2026-09-09 22:10:00 +0900
-tags: [nvidia, blackwell, agentic-ai, agentperf, artificial-analysis, gb300, inference, gpu] # add tag
+tags: [nvidia, blackwell, agentic-ai, agentperf, artificial-analysis, gb300, inference, gpu, llm] # add tag
 related: llm
 categories: dev
 ---

@@ -6,7 +6,7 @@ description: "Claude Code 및 AI 코딩 에이전트의 생산성을 높이는 E
 img: api_code_title.jpg
 date: 2026-09-02 00:50:00 +0900
 last_modified_at: 2026-09-02 18:20:00 +0900
-tags: [claude-code, ecc, ai-agents, agent-skills, tdd, code-review, security]
+tags: [claude-code, ecc, ai-agents, agent-skills, tdd, code-review, security, llm]
 related: llm
 categories: dev
 ---

@@ -5,7 +5,7 @@ description: "왓챠의 BlockChain 프로젝트인 콘텐츠 프로토콜로 받
 img: blockchain_logo.png
 date: 2018-10-21 11:36:00 +0900
 last_modified_at: 2021-05-04 11:00:00 +0900
-tags: [blockchain, ethereal, cpt, watcha] # add tag
+tags: [blockchain, ethereal, cpt, watcha, survey] # add tag
 related: survey
 categories: tools
 ---

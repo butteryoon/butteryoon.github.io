@@ -6,7 +6,7 @@ description: "Hermes Agent 오케스트레이션(스킬·delegate·cron·kanban)
 img: security_lock_title.jpg
 date: 2026-07-25 15:00:00 +0900
 last_modified_at: 2026-08-12 22:45:00 +0900
-tags: [hermes, ai agent, guardrail, security, egress, secrets, on-premise, nous research] # add tag
+tags: [hermes, ai agent, guardrail, security, egress, secrets, on-premise, nous research, llm] # add tag
 related: llm
 categories: tools
 ---

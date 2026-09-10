@@ -6,7 +6,7 @@ description: "Hermes Agent의 스킬 저장, delegate_task 병렬 실행, cronjo
 img: command-title.webp
 date: 2026-07-25 14:00:00 +0900
 last_modified_at: 2026-07-25 21:30:00 +0900
-tags: [hermes, ai agent, skill, delegate, cron, orchestration, nous research] # add tag
+tags: [hermes, ai agent, skill, delegate, cron, orchestration, nous research, llm] # add tag
 related: llm
 categories: tools
 ---

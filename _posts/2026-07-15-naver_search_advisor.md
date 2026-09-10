@@ -6,7 +6,7 @@ description: "네이버 서치어드바이저에 사이트를 등록하고 소�
 img: search-title.jpg
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-15 00:00:00 +0900
-tags: [naver, search advisor, seo] # add tag
+tags: [naver, search advisor, seo, search] # add tag
 related: search
 categories: tools
 redirect_from:

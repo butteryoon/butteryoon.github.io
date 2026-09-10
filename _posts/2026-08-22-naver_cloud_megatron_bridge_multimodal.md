@@ -6,7 +6,7 @@ description: "NVIDIA 테크니컬 블로그의 NAVER Cloud 사례 분석. HyperC
 img: ai_abstract_title.jpg
 date: 2026-08-22 20:20:00 +0900
 last_modified_at: 2026-08-22 20:20:00 +0900
-tags: [nvidia, megatron-bridge, energon, multimodal, vlm, hyperclova-x, moe, context-parallelism, naver-cloud] # add tag
+tags: [nvidia, megatron-bridge, energon, multimodal, vlm, hyperclova-x, moe, context-parallelism, naver-cloud, llm] # add tag
 related: llm
 categories: tools
 ---
