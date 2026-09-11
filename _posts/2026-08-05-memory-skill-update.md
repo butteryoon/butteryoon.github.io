@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "Hermes Agent 메모리·스킬 업데이트 자동화 — 2026-08-05 작업 로그"
 description: "Memory 용량 한도 해결을 위해 불필요 항목 삭제 후 블로그 포맷 규칙을 한 줄로 압축 저장하고, blog-post-authoring 스킬의 references/blog-format.md 와 templates/post-template.md 를 최신 발행 글 기준으로 패치한 전체 과정을 기록한다."
-img: command-title.webp
+img: memory_skill_title.webp
 date: 2026-08-05 01:13:10 +0900
-last_modified_at: 2026-09-07 22:50:00 +0900
+last_modified_at: 2026-09-11 21:40:00 +0900
 tags: [hermes, memory, skill, blog, automation, workflow, dev] # add tag
 related: dev
 categories: dev
@@ -98,3 +98,4 @@ title: "{% raw %}{{제목 — 한글, 따옴표}}{% endraw %}"
 - [Hermes Agent 메모리·스킬 아키텍처]({{site.baseurl}}/dev/2026/07/25/hermes_source_tree.html)  
 - [블로그 자동화 파이프라인 구축기]({{site.baseurl}}/tools/2026/07/19/blog_auto_publish.html)  
 - [Prompt Caching 가이드]({{site.baseurl}}/dev/2026/08/05/prompt-caching-guide.html)
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/kRp5woiVDaY){:target="_blank"}

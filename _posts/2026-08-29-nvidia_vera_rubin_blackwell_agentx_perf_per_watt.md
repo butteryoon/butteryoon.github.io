@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "NVIDIA Vera Rubin·Blackwell — AgentX 벤치마크로 본 와트당 에이전틱 AI 성능의 새 기준"
 description: "NVIDIA 테크니컬 블로그 해설. SemiAnalysis AgentX 벤치마크에서 Vera Rubin NVL72가 GB300 NVL72 대비 메가와트당 30배, GB300 NVL72가 H200 NVL8 대비 15~80배 처리량 우위를 보인 결과와 Dynamo·NVLink·MoE 런타임 최적화가 만든 효율성 격차를 정리한다."
-img: command-title.webp
+img: agentx_title.webp
 date: 2026-08-29 18:01:11 +0900
-last_modified_at: 2026-08-29 18:01:11 +0900
+last_modified_at: 2026-09-11 21:40:00 +0900
 tags: [nvidia, vera-rubin, blackwell, agentic-ai, agentx, semi-analysis, inference, performance-per-watt, gb300, dynamo, nvlink, moe, llm] # add tag
 related: llm
 categories: dev
@@ -82,4 +82,4 @@ NVIDIA 테크니컬 블로그에 8월 28일 올라온 [「NVIDIA Vera Rubin·Bla
 - [NVIDIA Groq 3 LPX — Vera Rubin에서 긴 컨텍스트 초고속 인터랙티비티 구현]({{site.baseurl}}/dev/2026/08/26/nvidia_groq3_lpx_vera_rubin.html) — 추론 가속기 계층
 - [NVIDIA AVO, ARC-AGI-3 100% 달성]({{site.baseurl}}/dev/2026/08/25/nvidia_avo_arc_agi3.html) — 에이전트 아키텍처 계층
 - [NVIDIA Vera 스토리지 벤치마크]({{site.baseurl}}/dev/2026/08/25/nvidia_vera_storage_benchmark.html) — 스토리지 계층
-
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/yETqkLnhsUI){:target="_blank"}

@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "NAVER Cloud의 Megatron Bridge 멀티모달 사전 학습 최적화 사례 해설"
 description: "NVIDIA 테크니컬 블로그의 NAVER Cloud 사례 분석. HyperCLOVA X SEED Omni와 30B MoE VLM의 멀티모달 사전 학습에서 스토리지 I/O, 시퀀스 패킹, 비전 인코더, Context Parallelism 4개 병목을 최적화해 throughput을 baseline 대비 150.2%로 끌어올린 과정을 정리한다."
-img: ai_abstract_title.jpg
+img: megatron_title.webp
 date: 2026-08-22 20:20:00 +0900
-last_modified_at: 2026-08-22 20:20:00 +0900
+last_modified_at: 2026-09-11 21:40:00 +0900
 tags: [nvidia, megatron-bridge, energon, multimodal, vlm, hyperclova-x, moe, context-parallelism, naver-cloud, llm] # add tag
 related: llm
 categories: tools
@@ -46,3 +46,4 @@ Greedy bin-packing으로 패킹 효율 99.4%를 달성한 뒤, DP worker 간 **p
 - **최적화가 학습 루프 밖의 wrapper로 격리**되어 있어 프레임워크 업그레이드 추적이 쉽다는 점도 프로덕션 관점에서 참고할 만하다.
 
 100개 이상 소스, 2T+ 토큰이라는 프로덕션 규모에서 검증된 수치라는 점이 이 사례의 무게다. 멀티모달 학습·서빙 파이프라인을 설계한다면 [Megatron-LM](https://github.com/NVIDIA/Megatron-LM){:target="_blank"} 계열의 병렬화 문서와 함께 원문을 정독할 가치가 있다.
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/jXd2FSvcRr8){:target="_blank"}

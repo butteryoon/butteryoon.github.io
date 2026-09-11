@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "NVIDIA Groq 3 LPX — Vera Rubin에서 긴 컨텍스트 초고속 인터랙티비티 구현"
 description: "NVIDIA 테크니컬 블로그 해설. Groq 3 LPX가 컴파일러 사전 스케줄링과 C2C 통신으로 첫 비트 지연을 없애 Gemma 4 31B를 100K 컨텍스트에서 초당 3,431 토큰으로 서빙하는 원리와, Vera Rubin NVL72와의 결합 구성을 정리한다."
-img: ai_abstract_title.jpg
+img: groq3_title.webp
 date: 2026-08-26 18:20:00 +0900
-last_modified_at: 2026-08-26 18:20:00 +0900
+last_modified_at: 2026-09-11 21:40:00 +0900
 tags: [nvidia, groq-3-lpx, vera-rubin, long-context, inference, interactivity, agentic-ai, tensor-parallelism, llm] # add tag
 related: llm
 categories: dev
@@ -60,4 +60,4 @@ Groq 3 LPX는 단독 제품이 아니라 [Vera Rubin 플랫폼](https://www.nvid
 - **비용 미공개**: 랙 구성 비용이 공개되지 않아 TCO 비교는 아직 어렵다. 전력·냉각·랙 스페이스를 포함한 전수명주기 기준으로 따져야 한다.
 
 일반 GPU 환경에서도 방향성 자체는 참고할 만하다. 프리필-디코드 분리는 vLLM의 disaggregated prefill로 이미 실험할 수 있고 긴 컨텍스트 에이전트 서빙에서 디코드 지연이 병목이라는 문제의식은 하드웨어를 가리지 않는다.
-
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/S4jSvcHYcOs){:target="_blank"}

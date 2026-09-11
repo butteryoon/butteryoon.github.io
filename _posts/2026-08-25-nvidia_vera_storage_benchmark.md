@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "NVIDIA Vera 스토리지 벤치마크 — AI 네이티브 스토리지의 암호화·압축·무결성 검사 가속"
 description: "NVIDIA 테크니컬 블로그 해설. Vera CPU(Olympus 코어 88개) 기반 BlueField-4 STX 스토리지 프로세서가 x86 대비 암호화 1.43배, Reed-Solomon 복구 3.26배, CRC32C 3.67배, 압축 3.29배의 처리량을 내는 벤치마크 결과와 방법론을 정리한다."
-img: ai_abstract_title.jpg
+img: vera_storage_title.webp
 date: 2026-08-25 18:25:00 +0900
-last_modified_at: 2026-08-25 18:25:00 +0900
+last_modified_at: 2026-09-11 21:40:00 +0900
 tags: [nvidia, vera-cpu, bluefield-4, stx, storage, olympus-cores, encryption, compression, reed-solomon, llm] # add tag
 related: llm
 categories: dev
@@ -50,3 +50,4 @@ NVIDIA가 이 벤치마크를 에이전틱 AI 맥락에 놓는 이유가 있다.
 - **TCO 계산**: 압축 처리량 3.29배는 스토리지 용량·대역폭 요구 감소로, 와트당 성능 향상은 전력·냉각 비용 절감으로 이어질 수 있다. 다만 BlueField-4 STX 단가는 공개되지 않았다.
 
 스토리지 계층까지 Arm 기반 자사 실리콘으로 채우려는 NVIDIA의 방향성이 잘 드러나는 글이다. 벤치마크 조건의 한계를 감안하더라도 AI 인프라에서 스토리지 CPU 선택이 설계 변수가 되기 시작했다는 신호로 읽을 만하다.
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/iYnpYeyu57k){:target="_blank"}
