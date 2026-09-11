@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "Karpathy 트윗 분석: microgpt와 컴파일레이션 패러다임 — PyTorch는 '구린 IR'인가?"
 description: "Karpathy가 제시한 'microgpt 같은 스펙 + 나머지는 컴파일' 패러다임과 PyTorch를 IR로 보는 관점. 에이전트가 수학·검증을 대신하면서 추상화 계층을 무너뜨리는 흐름을 분석한다."
-img: ai_abstract_title.jpg
+img: microgpt_title.webp
 date: 2026-09-01 18:20:00 +0900
-last_modified_at: 2026-09-01 18:20:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [karpathy, twitter, microgpt, compilation, ir, pytorch, ai-agents, abstraction, llm] # add tag
 related: llm
 categories: dev
@@ -121,4 +121,4 @@ Andrej Karpathy가 2026년 8월 20일 올린 2개 트윗 스레드( [첫 번째]
   - [Karpathy Autoresearch Loop 심층 분석]({{site.baseurl}}/dev/2026/08/30/karpathy-autoresearch-loop.html)
   - [Gemma4 MTP/추측적 디코딩 서빙 가이드]({{site.baseurl}}/tools/2026/08/15/gemma4_mtp_serving_guide.html)
   - [NVIDIA Vera Rubin·Blackwell 와트당 성능]({{site.baseurl}}/dev/2026/08/29/nvidia_vera_rubin_blackwell_agentx_perf_per_watt.html)
-
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/4hbJ-eymZ1o){:target="_blank"}

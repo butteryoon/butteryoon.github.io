@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "OmniDocBench — 문서 파싱 벤치마크, 상용 성능 검증에 써도 될까?"
 description: "문서 파싱 평가의 사실상 표준으로 떠오른 OmniDocBench를 CVPR 2025 논문·리더보드·LlamaIndex 비판까지 근거로 검토한다. 순위 비교 지표로는 훌륭하지만 형식 패널티·포화·단일 정답 특성 때문에 상용 합격 기준으로 단독 사용하기엔 한계가 있다."
-img: ai_abstract_title.jpg
+img: omnidocbench_title.webp
 date: 2026-09-10 14:00:00 +0900
-last_modified_at: 2026-09-10 14:00:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [omnidocbench, document-parsing, ocr, benchmark, evaluation, llm-ops, llm] # add tag
 related: llm
 categories: dev
@@ -101,3 +101,4 @@ OmniDocBench는 문서 파싱 평가의 **참조(reference) 표준**으로 쓸 �
 - [OmniDocBench 논문 (arXiv:2412.07626)](https://arxiv.org/abs/2412.07626){:target="_blank"}
 - [OmniDocBench is Saturated, What's Next for OCR Benchmarks? (LlamaIndex)](https://www.llamaindex.ai/blog/omnidocbench-is-saturated-what-s-next-for-ocr-benchmarks){:target="_blank"}
 - [RAGAS 평가 방법론 — RAG 시스템 정량 검증 가이드]({{site.baseurl}}/dev/2026/08/29/ragas-evaluation-methodology.html)
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/3CLPBgNuX40){:target="_blank"}

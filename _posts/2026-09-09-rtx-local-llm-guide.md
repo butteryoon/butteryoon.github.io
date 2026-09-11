@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "RTX PC에서 로컬 LLM 시작하기 — Ollama·LM Studio·AnythingLLM"
 description: "NVIDIA RTX AI Garage 가이드 해설. Ollama, LM Studio, AnythingLLM으로 로컬 LLM 환경을 구축하는 방법과 Flash Attention·TensorRT 최적화 수치를 정리한다."
-img: command-title.webp
+img: rtx_llm_title.webp
 date: 2026-09-09 14:01:00 +0900
-last_modified_at: 2026-09-10 22:20:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [nvidia, local-llm, ollama, lm-studio, anythingllm, rtx, gpu, windows-ml, llm] # add tag
 related: llm
 categories: dev
@@ -44,3 +44,4 @@ NVIDIA 블로그의 RTX AI Garage 시리즈 [「NVIDIA RTX PC에서 거대 언�
 - [Ollama](https://ollama.com/){:target="_blank"} · [LM Studio](https://lmstudio.ai/){:target="_blank"}
 - [AnythingLLM과 NIM](https://blogs.nvidia.co.kr/blog/rtx-ai-garage-anythingllm-nim/){:target="_blank"}
 - [Project G-Assist GitHub](https://github.com/NVIDIA/g-assist){:target="_blank"}
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/3GUW88tRmv8){:target="_blank"}

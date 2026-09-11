@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "NVIDIA COMPASS — 코딩 에이전트가 크로스 임바디먼트 로봇 내비게이션 정책을 학습시키는 워크플로우"
 description: "NVIDIA 테크니컬 블로그 해설. COMPASS 프레임워크로 X-Mobility 기본 정책을 잔차 RL로 특정 로봇·환경에 적응시키고 증류해 크로스 임바디먼트 내비게이션 정책을 얻는 과정을, Codex·Claude Code가 리포지토리 스킬과 승인 게이트로 자동화하는 방법을 정리한다."
-img: command-title.webp
+img: compass_title.webp
 date: 2026-09-03 18:20:00 +0900
-last_modified_at: 2026-09-03 18:20:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [nvidia, compass, x-mobility, robotics, residual-rl, agentic-workflow, isaac-sim, isaac-lab, codex, claude-code, ros2, dev] # add tag
 related: dev
 categories: dev
@@ -120,4 +120,4 @@ python run.py \
 - [Omniverse NuRec](https://developer.nvidia.com/omniverse/nurec){:target="_blank"}
 - [Isaac Lab NuRec 가이드](https://isaac-sim.github.io/IsaacLab/develop/source/policy_deployment/03_compass_with_NuRec/compass_navigation_policy_with_NuRec.html){:target="_blank"}
 - [cuVSLAM (Isaac ROS Visual SLAM)](https://github.com/nvidia-isaac/cuVSLAM){:target="_blank"}
-
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/OYzbqk2y26c){:target="_blank"}

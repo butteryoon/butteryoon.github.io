@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "NVIDIA Blackwell, 에이전틱 AI 인프라 벤치마크 AgentPerf에서 선두"
 description: "Artificial Analysis의 에이전틱 AI 전용 벤치마크 AgentPerf에서 GB300 NVL72가 H200 대비 메가와트당 최대 20배의 에이전트 처리량을 기록한 결과를 정리한다."
-img: command-title.webp
+img: agentperf_title.webp
 date: 2026-09-09 14:00:00 +0900
-last_modified_at: 2026-09-09 22:10:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [nvidia, blackwell, agentic-ai, agentperf, artificial-analysis, gb300, inference, gpu, llm] # add tag
 related: llm
 categories: dev
@@ -52,3 +52,4 @@ GB300 NVL72는 DeepSeek V4 Pro를 돌릴 때 HGX H200 시스템보다 **메가�
 - [원문: NVIDIA Blackwell AgentPerf 결과](https://blogs.nvidia.co.kr/blog/nvidia-blackwell-agentperf-artificial-analysis/){:target="_blank"}
 - [NVIDIA 개발자 블로그](https://developer.nvidia.com/blog/){:target="_blank"}
 - [이전 글: AgentX 벤치마크로 본 와트당 에이전틱 AI 성능]({{site.baseurl}}/dev/2026/08/29/nvidia_vera_rubin_blackwell_agentx_perf_per_watt.html)
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/fImCPTZ026U){:target="_blank"}

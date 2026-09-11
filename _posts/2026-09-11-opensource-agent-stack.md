@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "오픈소스로 AI 에이전트 구축하기 — 설치부터 게이트웨이, 모델 라우팅까지의 전체 지도"
 description: "Hermes Agent 설치 → 소스 구조 → Oracle Cloud 무료 인스턴스 → OmniRoute 게이트웨이 → best-reasoning 모델 설정까지, 지금까지 쓴 오픈소스 에이전트 구축 포스팅들을 한 흐름으로 엮은 종합 지도."
-img: command-title.webp
+img: agent_stack_title.webp
 date: 2026-09-11 20:00:00 +0900
-last_modified_at: 2026-09-11 20:00:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [hermes, ai-agent, opensource, omniroute, oracle-cloud, llm-routing, llm] # add tag
 related: llm
 categories: tools
@@ -113,3 +113,4 @@ providers:
 - [OCI 무료 인스턴스 시작]({{site.baseurl}}/tools/2021/01/18/oracle_cloud_start.html)
 - [OCI 블록볼륨 추가]({{site.baseurl}}/tools/2026/09/09/oci-block-volume-attach.html)
 - [OmniRoute 셀프호스팅]({{site.baseurl}}/tools/2026/09/06/omniroute-selfhosting-oci.html)
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/PSpf_XgOM5w){:target="_blank"}

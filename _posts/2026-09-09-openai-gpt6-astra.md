@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "OpenAI GPT-6 Astra 발표 — 컴퓨터 사용·사이버보안·수학의 동시 도약"
 description: "OpenAI가 발표한 GPT-6 Astra 정리. OSWorld 2.0 47% 시간 단축, FrontierMath Tier 4 98%, ExploitBench 100%, Codex 노트 기반 컨텍스트 관리와 정렬 개선까지."
-img: command-title.webp
+img: astra_title.webp
 date: 2026-09-09 19:40:00 +0900
-last_modified_at: 2026-09-09 21:30:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [openai, gpt-6, astra, computer-use, agentic-ai, cybersecurity, alignment, codex, llm] # add tag
 related: llm
 categories: dev
@@ -60,3 +60,4 @@ ChatGPT Plus/Pro/Business/Enterprise와 API(`gpt-6-astra`), Azure, AWS Bedrock�
 - [Astra 시스템 카드](https://deploymentsafety.openai.com/gpt-6-astra){:target="_blank"}
 - [OSWorld 리더보드](https://osworld-v2.xlang.ai/){:target="_blank"}
 - [Codex config 레퍼런스](https://learn.chatgpt.com/docs/config-file/config-reference){:target="_blank"}
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/nGoCBxiaRO0){:target="_blank"}

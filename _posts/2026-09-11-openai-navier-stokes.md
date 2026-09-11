@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "OpenAI, 밀레니엄 난제 나비에-스토크스 문제를 1만 에이전트로 해결"
 description: "OpenAI가 내부 모델 기반 1만 동시 에이전트 시스템으로 나비에-스토크스 존재·매끄러움 문제를 유한 시간 특이점 증명으로 해결하고 Lean으로 검증한 발표를 정리한다."
-img: command-title.webp
+img: navier_title.webp
 date: 2026-09-11 19:40:00 +0900
-last_modified_at: 2026-09-11 19:40:00 +0900
+last_modified_at: 2026-09-11 21:10:00 +0900
 tags: [openai, navier-stokes, millennium-prize, ai-agents, multi-agent, lean, mathematics, llm] # add tag
 related: llm
 categories: dev
@@ -62,3 +62,4 @@ OpenAI 시스템의 답은 "만들 수 있다"였다. 매끄러운 힘만 가해
 - [증명 논문 PDF](https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf){:target="_blank"}
 - [Lean 증명 저장소 (openai/NavierStokesAndEuler)](https://github.com/openai/NavierStokesAndEuler){:target="_blank"}
 - [관련 글: OpenAI GPT-6 Astra 발표 정리]({{site.baseurl}}/dev/2026/09/09/openai-gpt6-astra.html)
+- 타이틀 사진: [Unsplash](https://unsplash.com/photos/mz6HZxqxZNo){:target="_blank"}
