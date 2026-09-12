@@ -5,7 +5,7 @@ title: "오픈소스로 AI 에이전트 구축하기 — 설치부터 게이트�
 description: "Hermes Agent 설치 → 소스 구조 → Oracle Cloud 무료 인스턴스 → OmniRoute 게이트웨이 → fallback 모델 설정까지, 지금까지 쓴 오픈소스 에이전트 구축 포스팅들을 한 흐름으로 엮은 종합 지도."
 img: agent_stack_title.webp
 date: 2026-09-11 20:00:00 +0900
-last_modified_at: 2026-09-12 10:20:00 +0900
+last_modified_at: 2026-09-12 11:00:00 +0900
 tags: [hermes, ai-agent, opensource, omniroute, oracle-cloud, llm-routing, llm] # add tag
 related: llm
 categories: tools
@@ -24,6 +24,16 @@ categories: tools
 - 셸 설치 스크립트로 `uv`·Python·venv·launcher를 한 번에 구성
 - `hermes setup`으로 프로바이더·모델 연결
 - CLI(`hermes`), TUI, 데스크톱 앱, 텔레그램 등 어느 표면에서 불러도 같은 코어가 돈다
+
+설치는 git-bash(또는 WSL)에서 한 줄이면 된다.
+
+```bash
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+
+hermes setup     # 프로바이더·모델 연결 마법사
+hermes doctor    # 상태 점검
+hermes           # 실행
+```
 
 자세한 설치는 [Hermes Agent 설치부터 설정까지 — Windows에서 시작하기]({{site.baseurl}}/tools/2026/07/25/hermes_agent_setup.html)에 있다. 처음엔 OpenRouter 모델을 붙여 쓰다가 나중에 OmniRoute 라우팅으로 갈아탔는데, 그 얘기는 4절에서 한다.
 
@@ -56,6 +66,21 @@ OmniRoute를 개인용으로 구축한 이유는 단순하다 — **무료 LLM�
 - 스왑으로 OOM을 잡고, OCI iptables 함정은 우회했다
 - 500개 가까운 모델을 **하나의 OpenAI 호환 엔드포인트**로 내보낸다
 
+설치의 뼈대는 Docker 한 줄 + Caddyfile 두 줄이다(스왑 설정·iptables·systemd 구성 등 전체 절차는 [OmniRoute 셀프호스팅 글]({{site.baseurl}}/tools/2026/09/06/omniroute-selfhosting-oci.html) 참고).
+
+```bash
+curl -fsSL https://get.docker.com | sudo sh
+sudo docker run -d --name omniroute -p 20128:20128 \
+  -v omniroute-data:/data --restart no diegosouzapw/omniroute
+```
+
+```text
+# Caddyfile — 이 두 줄로 HTTPS 발급·갱신·리다이렉트까지 끝난다
+awsome.duckdns.org {
+    reverse_proxy localhost:20128
+}
+```
+
 덕분에 Hermes는 프로바이더별 API 키를 일일이 챙길 것 없이 OmniRoute 엔드포인트 하나만 보면 된다.
 
 한 가지 기대와 달랐던 점 — OmniRoute의 `auto/best-reasoning`은 이름과 달리 **요청 목적(추론·코딩·일반)을 보고 모델을 골라주는 라우팅이 아니다**. 추론 계열 모델 풀에서 가용한 것을 잡아줄 뿐이다. 목적별 라우팅이 필요해서 **별도로 `auto/route` 프록시를 만들어 테스트**해봤는데, 이 실험은 따로 글로 정리할 만한 분량이라 여기서는 존재만 언급해 둔다.
@@ -79,7 +104,14 @@ NVIDIA Free Endpoint를 쓰는 순서는 이렇다.
 2. **API Keys** 메뉴에서 API 키 발급 (무료, 일일 제한 있음)
 3. 모델 페이지(gemma-4-31b-it, nemotron-3-ultra)에서 **API 엔드포인트 확인** — `https://integrate.api.nvidia.com/v1/chat/completions`
 4. 요청 헤더에 `Authorization: Bearer <API_KEY>` 포함
-5. OpenAI 호환 포맷으로 요청 가능
+5. OpenAI 호환 포맷으로 요청 가능 — curl로 바로 확인할 수 있다:
+
+```bash
+curl https://integrate.api.nvidia.com/v1/chat/completions \
+  -H "Authorization: Bearer $NVIDIA_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"google/gemma-4-31b-it","messages":[{"role":"user","content":"ping"}]}'
+```
 
 Hermes 설정 예시:
 ```yaml
