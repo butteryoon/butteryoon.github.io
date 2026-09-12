@@ -4,8 +4,8 @@ comments: true
 title: "삼성계정의 Agentic AIOps — 멀티 에이전트로 장애 원인 분석을 5분 안에"
 description: "AWS 기술 블로그의 삼성계정 Agentic AIOps 사례 해설. 오픈소스 MCP 서버의 한계에서 FastMCP 커스텀 서버, Strands Agents as Tools 패턴까지의 진화 과정과 us-east-1 장애를 3분 47초에 분석한 실전 기록."
 img: samsung_aiops_title.webp
-date: 2026-09-12 21:50:00 +0900
-last_modified_at: 2026-09-12 21:50:00 +0900
+date: 2026-09-12 21:10:00 +0900
+last_modified_at: 2026-09-12 21:10:00 +0900
 tags: [aiops, multi-agent, strands-agents, mcp, fastmcp, bedrock, sre, rca, llm] # add tag
 related: llm
 categories: dev
