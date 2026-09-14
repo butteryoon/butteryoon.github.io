@@ -1,11 +1,11 @@
 ---
 layout: post
 comments: true
-title: "terms.txt — robots.txt로는 못 막는 AI 에이전트에게 값을 매기다"
+title: "terms.txt — robots.txt는 막기만 했다, 이제는 청구한다"
 description: "arXiv 논문 terms.txt 해설. AI 크롤러가 방문자 하나당 수천 페이지를 가져가며 깨진 웹의 암묵적 거래를, 경로·목적별 접근 조건과 Web Bot Auth 서명·HTTP 402 협상·서명 영수증으로 다시 쓰자는 제안."
 img: terms_txt_title.webp
 date: 2026-09-14 22:00:00 +0900
-last_modified_at: 2026-09-14 22:00:00 +0900
+last_modified_at: 2026-09-14 23:10:00 +0900
 tags: [terms-txt, robots-txt, ai-crawler, web-protocol, http-402, web-bot-auth, agents, llm] # add tag
 related: llm
 categories: dev
