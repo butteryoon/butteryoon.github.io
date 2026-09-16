@@ -5,7 +5,7 @@ title: "능력 세탁(capability laundering) — 거절하는 모델에서 능�
 description: "마이크로소프트 연구진의 「Divide, Consult, Conquer」 정리. 약한 비정렬 모델이 유해 작업을 무해한 조각으로 쪼개 정렬된 프런티어 모델에 따로 묻고 로컬에서 합치면, 응답 하나하나는 끝까지 무해하다."
 img: capability-laundering_title.webp
 date: 2026-09-16 20:20:00 +0900
-last_modified_at: 2026-09-16 20:20:00 +0900
+last_modified_at: 2026-09-16 23:30:00 +0900
 tags: [microsoft, ai-safety, capability-laundering, jailbreak, red-teaming, benchmark, llm]
 related: llm
 categories: dev
@@ -27,6 +27,18 @@ DAIR.AI가 소개한 마이크로소프트 논문 [「Divide, Consult, Conquer: 
 저자들이 이걸 탈옥(jailbreak)과 명확히 구분하는 지점이 여기다. 탈옥은 한 응답 안에 유해한 내용을 끄집어내는 것이지만 능력 세탁에는 그런 응답이 아예 없다.
 
 <details class="evidence"><summary>원문 근거</summary><blockquote>"We show that a weaker, unaligned model can split a harmful task into benign-looking subproblems, consult a stronger aligned model independently on each, and combine the answers locally. We call this attack capability laundering. Unlike a jailbreak, no single response is a harmful task."</blockquote></details>
+
+## 왜 하필 '세탁'인가
+
+이름이 정확하다. 돈세탁을 떠올리면 구조가 그대로 보인다. 출처가 불분명한 10억 원을 한 번에 입금하면 즉시 걸리니까, 여러 계좌에 소액으로 쪼개 넣고 나중에 합친다. 각 창구 직원이 보는 건 **정상 거래 한 건**이라 막을 근거가 없다. 문제는 합쳐진 결과에만 있다.
+
+능력 세탁도 똑같다. 유해한 요청 하나를 무해한 질문 여러 개로 흩어 던지니 응답 하나하나는 전부 정상이고, 모델은 거절할 이유를 찾지 못한다.
+
+시험 과제로 바꿔 보면 더 와닿는다. 혼자서는 못 푸는 과제를 받은 학생이 조교에게 "답 좀 알려주세요"라고 하면 당연히 거절당한다. 그래서 이렇게 한다. 월요일에 A 조교에게 "이런 형태의 미분방정식은 어떻게 정리하나요?"라고 묻는다. 평범한 질문이니 친절히 답해준다. 수요일에 B 조교에게 "이 수치해석 기법의 수렴 조건이 뭔가요?"라고 묻는다. 역시 정상이다. 금요일엔 C 조교에게 경계조건 처리를 묻는다. 문제없다.
+
+**세 조교 중 누구도 잘못한 게 없다.** 각자 받은 질문만 놓고 보면 교과서에 있는 내용을 알려줬을 뿐이다. 그런데 학생은 집에서 세 답을 조립해 과제를 완성한다. 논문에서 조교 자리에 GPT-5.5나 Claude Opus 4.8이 앉고, 학생 자리에 로컬에서 돌아가는 작은 오픈 모델이 앉는다. 질문을 쪼개고 답을 다시 엮는 일만 학생이 직접 한다.
+
+탈옥과의 차이도 이 그림에서 분명해진다. 탈옥은 조교에게 어떻게든 답을 뱉게 만드는 일이라 **증거가 남는다** — 유해한 응답이 실제로 존재한다. 능력 세탁에는 그런 응답이 없다. 모델은 한 번도 선을 넘지 않았고, "우리 모델은 유해한 답변을 한 적이 없다"는 제공자의 말은 문장 그대로 참이다. 그런데도 능력은 이미 빠져나갔다.
 
 ## 무엇을 쟀나
 
@@ -51,7 +63,7 @@ CBRN 쪽은 가상의 생물무기 공격 체인 8단계에 걸쳐 잰 값이다
 
 <details class="evidence"><summary>원문 근거</summary><blockquote>"For CBRN, we measure uplift across eight steps of a hypothetical bioweapon attack chain and find that consultation raises Gemma-4-31B's mean rubric score from 62.3 to 83.1 on a 100-point rubric scale."</blockquote></details>
 
-표에서 눈에 띄는 건 오케스트레이터 크기에 따른 격차다. 같은 컨설턴트를 붙여도 31B는 8/14를 되찾는데 12B는 2/21에 그치고 Muse-Glimmer-30B는 BountyBench에서 하나도 못 건진다. 컨설턴트가 아무리 유능해도 질문을 제대로 쪼개고 답을 다시 엮을 머리가 없으면 능력은 넘어오지 않는다. 오케스트레이터의 추론력이 병목이라는 뜻이다. 작은 오픈 모델이 좋아질수록 이 공격의 수율도 같이 올라간다는 말이기도 하다.
+표에서 눈에 띄는 건 오케스트레이터 크기에 따른 격차다. 같은 컨설턴트를 붙여도 31B는 8/14를 되찾는데 12B는 2/21에 그치고 Muse-Glimmer-30B는 BountyBench에서 하나도 못 건진다. 앞의 비유로 돌아가면 **누가 조교냐보다 누가 학생이냐가 결과를 갈랐다**는 얘기다. 문제를 어떻게 쪼개야 의심받지 않는지, 받아온 답을 어떻게 다시 붙일지 모르면 아무리 유능한 조교를 붙여도 소용이 없다. 오케스트레이터의 추론력이 병목이라는 뜻이고, 뒤집으면 작은 오픈 모델이 좋아질수록 이 공격의 수율도 같이 올라간다는 경고다.
 
 ## 기존 방어가 왜 안 먹히나
 
@@ -60,7 +72,7 @@ CBRN 쪽은 가상의 생물무기 공격 체인 8단계에 걸쳐 잰 값이다
 - 대화 이력 기반 탐지: 질의를 세션마다 분리하므로 누적 맥락이 남지 않는다.
 - 의도 은닉: 전체 계획과 진행 상태는 오케스트레이터 로컬에만 있고, 프런티어 쪽에는 조각만 간다.
 
-결국 한 요청·한 응답을 아무리 정밀하게 검사해도 이 공격은 그 격자 사이로 빠져나간다. 저자들이 지적하는 격차가 정확히 이 지점이다.
+기존 방어가 전부 **"한 번의 대화"** 를 단위로 삼기 때문이다. 창구는 자기 앞에 놓인 거래 한 건만 본다. 쪼개진 조각을 가로질러 볼 눈이 없으니, 한 요청·한 응답을 아무리 정밀하게 검사해도 이 공격은 격자 사이로 빠져나간다. 저자들이 지적하는 격차가 정확히 이 지점이다.
 
 <details class="evidence"><summary>원문 근거</summary><blockquote>"These results expose a gap in current defenses: refusing a harmful task does not prevent frontier capabilities from being transferred and composed across many individually permitted interactions."</blockquote></details>
 
