@@ -5,7 +5,7 @@ title: "오픈소스로 AI 에이전트 구축하기 — 설치부터 게이트�
 description: "Hermes Agent 설치 → 소스 구조 → Oracle Cloud 무료 인스턴스 → OmniRoute 게이트웨이 → fallback 모델 설정까지, 지금까지 쓴 오픈소스 에이전트 구축 포스팅들을 한 흐름으로 엮은 종합 지도."
 img: agent_stack_title.webp
 date: 2026-09-11 20:00:00 +0900
-last_modified_at: 2026-09-12 11:00:00 +0900
+last_modified_at: 2026-09-19 22:10:00 +0900
 tags: [hermes, ai-agent, opensource, omniroute, oracle-cloud, llm-routing, llm] # add tag
 related: llm
 categories: tools
@@ -84,6 +84,29 @@ awsome.duckdns.org {
 덕분에 Hermes는 프로바이더별 API 키를 일일이 챙길 것 없이 OmniRoute 엔드포인트 하나만 보면 된다.
 
 한 가지 기대와 달랐던 점 — OmniRoute의 `auto/best-reasoning`은 이름과 달리 **요청 목적(추론·코딩·일반)을 보고 모델을 골라주는 라우팅이 아니다**. 추론 계열 모델 풀에서 가용한 것을 잡아줄 뿐이다. 목적별 라우팅이 필요해서 **별도로 `auto/route` 프록시를 만들어 테스트**해봤는데, 이 실험은 따로 글로 정리할 만한 분량이라 여기서는 존재만 언급해 둔다.
+
+### 무료 티어가 문을 닫을 때 (2026-09-19 추가)
+
+그 "가용한 것을 잡아준다"는 말의 대가를 며칠 뒤에 치렀다. `auto/best-reasoning`이 그동안 골라 쓰던 모델은 OpenCode 프로바이더의 `oc/big-pickle`이었는데, 어느 날부터 선택이 실패하기 시작했다. 게이트웨이에 직접 물어보니 답이 명확했다.
+
+```json
+{"error":{"message":"[403]: Error from provider (Console):
+  OpenCode's free tier can only be used from within OpenCode",
+  "type":"permission_error","code":"insufficient_quota"}}
+```
+
+**OpenCode가 무료 티어를 자사 클라이언트 안에서만 쓰도록 막은 것이다.** OmniRoute 같은 외부 게이트웨이를 거친 호출은 403으로 거절된다. 같은 프로바이더의 다른 모델도 확인해보니 정책이 층으로 나뉘어 있었다.
+
+| 모델 | 응답 | 의미 |
+|---|---|---|
+| `oc/big-pickle` | 403 permission_error | 무료 티어, 외부 접근 차단 |
+| `oc/nemotron-3-ultra-free` | 403 permission_error | 무료 티어, 외부 접근 차단 |
+| `oc/muse-spark-1.2` | 402 | 유료 모델, OpenCode API 키를 등록하면 사용 가능 |
+| `oc/deepseek-v4-flash-free` | 400 | 업스트림에서 모델 자체가 내려감 |
+
+문제는 이 차단이 **조용히 번진다**는 점이다. 라우팅은 실패를 그대로 드러내지 않고 남은 후보로 폴백하는데, 실측해 보니 `auto/best-reasoning`·`auto/pro-reasoning`이 모두 `gemini-3.1-flash-lite-preview`로 떨어졌다. 이름은 추론 모델을 부르는데 실제로는 경량·고속 모델이 답하고 있었다는 뜻이다. `auto/reasoning`과 `auto/best-coding`은 아예 60초 안에 응답이 없었다 — 막힌 프로바이더를 계속 두드리다 지연되는 것으로 보인다.
+
+에이전트 쪽에서 보면 이게 제일 고약하다. **요청은 200으로 성공하니 어디에도 에러가 남지 않는다.** 품질이 슬그머니 떨어질 뿐이다. 무료 모델을 묶어 쓰는 구성에서는 "호출이 성공했는가"가 아니라 **"어떤 모델이 실제로 답했는가"** 를 응답의 `model` 필드로 확인해야 한다는 걸 이번에 배웠다. 7절에서 적은 "가용성은 무료 티어 세 개의 곱"이라는 우려가 가장 싱겁게 현실이 된 사례이기도 하다.
 
 ## 5. Hermes 에이전트의 모델 설정
 
