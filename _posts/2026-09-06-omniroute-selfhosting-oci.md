@@ -5,7 +5,7 @@ title: "오라클 클라우드 무료 티어에 OmniRoute 셀프호스팅 — RA
 description: "Oracle Cloud 무료 인스턴스(RAM 951MB)에 오픈소스 AI 게이트웨이 OmniRoute를 올리고 Caddy로 HTTPS를 붙인 구축기. 스왑으로 OOM 잡기, OCI iptables 함정, 그리고 질문 유형별 자동 분배를 위해 파이썬 표준 라이브러리로 직접 만든 분류 프록시까지."
 img: omniroute-oci-title.webp
 date: 2026-09-06 20:40:00 +0900
-last_modified_at: 2026-09-06 21:40:00 +0900
+last_modified_at: 2026-09-20 21:50:00 +0900
 tags: [omniroute, oracle-cloud, free-tier, ai-gateway, caddy, self-hosting, llm-routing, llm] # add tag
 related: llm
 categories: tools
@@ -16,6 +16,15 @@ categories: tools
 <!--more-->
 
 > **TL;DR:** Ubuntu 26.04 무료 인스턴스(2 vCPU, RAM 951MB)에 ① 스왑 4GB로 OOM 방지 → ② OmniRoute를 Docker + systemd로 상주 → ③ Caddy 두 줄로 HTTPS 리버스 프록시(Let's Encrypt 자동) → ④ OmniRoute가 안 해주는 "질문 유형별 자동 분배"는 **파이썬 표준 라이브러리만으로 분류 프록시를 직접 제작**해 해결했다. 최종 사용은 Base URL 하나에 model `auto/route` — 코딩 질문은 코딩 모델로, 추론 문제는 추론 모델로 알아서 간다.
+
+> **[2026-09-20 업데이트]** 2주 만에 저장소가 꽤 달라져서 최신 정보를 정리해 덧붙인다. 규모는 **359개 프로바이더(무료 티어 150개 이상), 월 약 16.2억 무료 토큰, 라우팅 전략 19종**으로 늘었고 별 68,000개를 넘겼다(MIT 라이선스, 기여자 550명 이상). 최신 릴리스는 **v3.8.50**(2026-08-26)이고 개발은 `release/v3.8.51` 브랜치에서 진행 중, 로드맵은 `v3.9.0 LTS`를 향한다. 눈에 띄는 새 기능은 네 가지다.
+>
+> - **쿼터 인식 스케줄링(Quota-Share)과 쿼터 텔레메트리** — 무료 티어 잔량을 보고 분배한다. 아래 4절에서 겪은 "특정 프로바이더가 막혀도 조용히 폴백되는" 문제에 대응할 여지가 생겼다.
+> - **RTK + Caveman 스택 압축** — 프롬프트 토큰을 15~95%(평균 약 89%) 줄인다고 한다. 무료 티어 한도를 늘리는 효과.
+> - **MCP / A2A 지원**과 **Radar 무료 카탈로그**(opt-in)
+> - **멀티아치 이미지(AMD64 + ARM64)** — OCI 프리티어의 Arm A1 인스턴스에서도 같은 이미지를 그대로 쓸 수 있다는 뜻이라, 이 글처럼 AMD Micro가 아닌 Arm 쪽에 올릴 때 유용하다. Electron 데스크톱 앱과 메뉴바 트레이(OmniRouteTray)도 추가됐다.
+>
+> 아래 본문의 설치 절차(Docker + systemd + Caddy)는 그대로 유효하다. 컨테이너만 최신 이미지로 올리면 된다.
 
 ## 0. 배경 — 인스턴스가 죽어 있었다
 
@@ -34,7 +43,7 @@ echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-swappiness.conf
 
 ## 1. OmniRoute 설치 — Docker + systemd
 
-[OmniRoute](https://github.com/diegosouzapw/OmniRoute){:target="_blank"}는 290개 이상 프로바이더·500개 이상 모델을 하나의 OpenAI 호환 API로 묶어주는 오픈소스 게이트웨이다. [OpenRouter]({{site.baseurl}}/tools/2026/07/15/openrouter_free.html) 같은 서비스의 셀프호스팅 판이라고 보면 된다.
+[OmniRoute](https://github.com/diegosouzapw/OmniRoute){:target="_blank"}는 수백 개 프로바이더와 모델을 하나의 OpenAI 호환 API로 묶어주는 MIT 라이선스 오픈소스 게이트웨이다(작성 시점 290개 이상 프로바이더·500개 이상 모델, 현재 수치는 위 업데이트 블록 참고). [OpenRouter]({{site.baseurl}}/tools/2026/07/15/openrouter_free.html) 같은 서비스의 셀프호스팅 판이라고 보면 된다.
 
 ```bash
 curl -fsSL https://get.docker.com | sudo sh
@@ -53,6 +62,17 @@ Restart=always
 ```
 
 RAM 951MB 환경에서도 스왑 덕에 안정적으로 돈다.
+
+업데이트는 이미지를 새로 받아 컨테이너만 갈아끼우면 된다. 설정과 프로바이더 등록 정보는 `omniroute-data` 볼륨에 남으므로 그대로 보존되고, 컨테이너 이름이 같으니 systemd 유닛도 손댈 필요가 없다.
+
+```bash
+sudo docker pull diegosouzapw/omniroute        # 최신 이미지
+sudo systemctl stop omniroute
+sudo docker rm omniroute                        # 컨테이너만 제거 (볼륨은 유지)
+sudo docker run -d --name omniroute -p 20128:20128 \
+  -v omniroute-data:/data --restart no diegosouzapw/omniroute
+sudo systemctl start omniroute
+```
 
 ## 2. HTTPS — Caddy 두 줄, 그리고 OCI의 함정
 
