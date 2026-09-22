@@ -3,6 +3,7 @@ layout: post
 title: "jekyll을 이용하여 Github Page 만들기"
 img: software.jpg
 date: 2018-09-27 21:25:30 +0900
+last_modified_at: 2018-09-27 21:25:30 +0900
 tags: [gitHub, 블로그, jekyll, 마크다운] # add tag
 related: jekyll
 categories: blog
