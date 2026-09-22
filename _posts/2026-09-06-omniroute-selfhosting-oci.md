@@ -5,7 +5,7 @@ title: "오라클 클라우드 무료 티어에 OmniRoute 셀프호스팅 — RA
 description: "Oracle Cloud 무료 인스턴스(RAM 951MB)에 오픈소스 AI 게이트웨이 OmniRoute를 올리고 Caddy로 HTTPS를 붙인 구축기. 스왑으로 OOM 잡기, OCI iptables 함정, 그리고 질문 유형별 자동 분배를 위해 파이썬 표준 라이브러리로 직접 만든 분류 프록시까지."
 img: omniroute-oci-title.webp
 date: 2026-09-06 20:40:00 +0900
-last_modified_at: 2026-09-20 21:50:00 +0900
+last_modified_at: 2026-09-22 21:30:00 +0900
 tags: [omniroute, oracle-cloud, free-tier, ai-gateway, caddy, self-hosting, llm-routing, llm] # add tag
 related: llm
 categories: tools
@@ -24,7 +24,7 @@ categories: tools
 > - **MCP / A2A 지원**과 **Radar 무료 카탈로그**(opt-in)
 > - **멀티아치 이미지(AMD64 + ARM64)** — OCI 프리티어의 Arm A1 인스턴스에서도 같은 이미지를 그대로 쓸 수 있다는 뜻이라, 이 글처럼 AMD Micro가 아닌 Arm 쪽에 올릴 때 유용하다. Electron 데스크톱 앱과 메뉴바 트레이(OmniRouteTray)도 추가됐다.
 >
-> 아래 본문의 설치 절차(Docker + systemd + Caddy)는 그대로 유효하다. 컨테이너만 최신 이미지로 올리면 된다.
+> 아래 본문의 설치 절차(Docker + systemd + Caddy)는 그대로 유효하다. 컨테이너만 최신 이미지로 올리면 된다. 다만 **무료 토큰을 쓰려면 프로바이더별 가입·키 등록이 전제**라는 점은 따로 짚어둘 필요가 있어 3절에 정리했다.
 
 ## 0. 배경 — 인스턴스가 죽어 있었다
 
@@ -112,6 +112,27 @@ Base URL: https://awsome.duckdns.org/v1
 ```
 
 사용 가능한 모델은 494개. 그중 눈여겨볼 것은 `auto/*` 자동 라우팅 별칭 38개다 — `auto/best-coding`, `auto/best-reasoning`, `auto/best-fast`, `auto/cheap` 같은 식이다. 주의할 점 하나: 이 auto 라우팅은 **요청 내용을 분석해서 고르는 게 아니라**, 지연시간×비용×성공률×컨텍스트 적합성 점수로 해당 카테고리 안에서 모델을 고르는 방식이다. 즉 "코딩 질문이니 코딩 모델로"는 스스로 못 한다.
+
+### 무료 토큰의 조건 — 가입 없이 쓰는 통로는 하나뿐이다 (2026-09-22 추가)
+
+"월 16.2억 무료 토큰"이라는 문구를 처음 보면 게이트웨이가 토큰을 준다는 말로 읽히기 쉬운데, 그렇지 않다. 그 수치는 OmniRoute가 **489개 무료 티어 항목을 35개 풀 키로 묶어** 카탈로그화한 뒤, 그중 공개된 월 예산이 있는 **17개 풀과 Groq의 모델별 상한 5개**를 합산해 뽑은 값이다. 다시 말해 **여러분이 각 서비스에 직접 가입해 받은 무료 할당량의 총합**이고, OmniRoute가 하는 일은 그것을 한 엔드포인트에서 관리·분배하는 것이다. 지역 신원 확인이 필요한 곳(ModelScope)은 아예 헤드라인에서 빼두었다.
+
+그래서 실제로 쓰려면 **쓰고 싶은 프로바이더마다 가입해 API 키를 받아 관리 화면의 Providers에 등록**해야 한다. 원칙은 BYOK(Bring Your Own Key)다.
+
+예외가 딱 하나 있었다. **OpenCode Free만 키리스(keyless)로 내장**되어, 설치 직후 아무 설정 없이도 `auto`가 답하도록 미리 배선돼 있다.
+
+<details class="evidence"><summary>원문 근거</summary><blockquote>"It answers — call model auto for an instant reply, with no API key, no signup, no configuration. Keyless provider OpenCode Free is pre-wired into the auto combo, so a fresh install responds out of the box." — OmniRoute README</blockquote></details>
+
+문제는 그 하나뿐인 통로가 지금 닫혀 있다는 것이다. OpenCode가 무료 티어를 자사 클라이언트 안에서만 쓰도록 막으면서, 게이트웨이를 거친 호출은 403으로 거절된다. 그 여파로 무료 전용 라우팅이 통째로 깨진다.
+
+```text
+auto             → 200  gemini-3.1-flash-lite-preview
+auto/best-free   → 502  oc/big-pickle: auth — [403] OpenCode's free tier
+                        can only be used from within OpenCode
+auto/cheap       → 타임아웃
+```
+
+`auto`가 아직 답하는 건 다른 프로바이더 경로가 살아 있어서지, 키리스가 동작해서가 아니다. 정리하면 **"가입도 키도 없이 무료로 시작"은 현재 성립하지 않으며**, 무료 티어를 제대로 쌓으려면 결국 프로바이더별 가입이 전제다. 자세한 사정은 [에이전트 스택 글]({{site.baseurl}}/tools/2026/09/11/opensource-agent-stack.html)에 정리해 두었다.
 
 ## 4. 분류 프록시 직접 만들기 — 이 글의 하이라이트
 
