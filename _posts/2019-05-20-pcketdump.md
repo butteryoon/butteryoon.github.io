@@ -3,6 +3,7 @@ layout: post
 title: "tshark을 이용한 패킷덤프"
 img: "M_david-clode-o3r7oVPZnZI-unsplash.jpg"
 date: 2019-05-20 00:00:00 +0900
+last_modified_at: 2019-05-20 00:00:00 +0900
 tags: [packet, tshark, wireshark, setcap, dumpcap, command-line] # add tag
 related: command-line
 categories: dev

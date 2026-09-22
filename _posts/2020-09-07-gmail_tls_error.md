@@ -3,6 +3,7 @@ layout: post
 title: "GMail 다른주소에서 메일보내기 오류"
 img: "gmail_error-01.png"
 date: 2020-09-07 13:45:00 +0900
+last_modified_at: 2020-09-07 13:45:00 +0900
 tags: [gmail, tls] # add tag
 categories: tools
 ---

@@ -1,7 +1,16 @@
 ---
 layout: main
 ---
-{% for post in paginator.posts %}
+{% comment %}
+  목록 노출 순서만 갱신일(last_modified_at) 기준으로 정렬한다.
+  페이지 수·네비게이션은 jekyll-paginate가 그대로 담당하고(paginator),
+  표시할 글만 전체 정렬 목록에서 해당 페이지 구간을 잘라 쓴다.
+  글의 date·URL·색인 구조는 건드리지 않는다.
+{% endcomment %}
+{% assign sorted_posts = site.posts | sort: 'last_modified_at' | reverse %}
+{% assign page_start = paginator.page | minus: 1 | times: paginator.per_page %}
+{% assign page_posts = sorted_posts | slice: page_start, paginator.per_page %}
+{% for post in page_posts %}
 <article class="post">
   {% if post.img %}
     <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>

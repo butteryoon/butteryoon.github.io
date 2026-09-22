@@ -3,6 +3,7 @@ layout: post
 title: "Windows PowerShell 네트워크 상태 확인하기"
 img: "powershell_title.jpg"
 date: 2020-10-14 14:00:00 +0900
+last_modified_at: 2020-10-14 14:00:00 +0900
 tags: [Windows, powershell, ps1, network] # add tag
 related: powershell
 categories: dev
