@@ -4,7 +4,7 @@ title: "ffplay로 GPU카드의 HEVC 디코딩 지원 기능 확인하기"
 description: "nVidia GTX 950M 모델에서 HEVC_CUVID를 이용해서 GPU 디코딩이 가능한지 확인"
 img: h265_logo.jpg
 date: 2018-10-06 21:25:30 +0900
-last_modified_at: 2020-10-24 18:00:0 +0900
+last_modified_at: 2020-10-24 18:00:00 +0900
 tags: [h.265, hevc, ffmpeg, ffplay, nvidia, gtx950m] # add tag
 related: ffmpeg
 categories: vision
