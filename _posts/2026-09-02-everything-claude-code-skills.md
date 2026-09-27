@@ -6,8 +6,8 @@ description: "Claude Code 및 AI 코딩 에이전트의 생산성을 높이는 E
 img: api_code_title.jpg
 date: 2026-09-02 00:50:00 +0900
 last_modified_at: 2026-09-02 18:20:00 +0900
-tags: [claude-code, ecc, ai-agents, agent-skills, tdd, code-review, security, llm]
-related: llm
+tags: [claude-code, ecc, ai-agents, agent-skills, tdd, code-review, security, llm, llm-safety]
+related: llm-safety
 categories: dev
 ---
 AI 코딩 에이전트(Claude Code, Codex, Cursor, OpenCode 등)가 단순한 챗봇을 넘어 실제 엔지니어링 워크플로우를 주도하는 수준으로 진화하면서 에이전트의 작업 규율과 표준 절차를 제어하는 **에이전트 하네스(Agent Harness)**의 중요성이 커지고 있다. 그중 널리 쓰이는 오픈소스 프레임워크인 **Everything Claude Code (ECC)**와 그 **스킬(Skills)** 생태계의 구조와 실무 적용 방안을 정리한다.

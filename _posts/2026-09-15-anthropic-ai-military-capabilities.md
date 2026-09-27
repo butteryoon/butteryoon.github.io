@@ -6,8 +6,8 @@ description: "정보 수집·대상 고정·무기 최적화 각 단계에서 �
 img: ai-military-capabilities_title.webp
 date: 2026-09-15 19:00:00 +0900
 last_modified_at: 2026-09-15 19:00:00 +0900
-tags: [anthropic, ai-safety, red-teaming, national-security, geolocation, open-weights, llm]
-related: llm
+tags: [anthropic, ai-safety, red-teaming, national-security, geolocation, open-weights, llm, llm-safety]
+related: llm-safety
 categories: dev
 ---
 앤스로픽 프런티어 레드팀의 [「Intelligence, Targeting, and Conventional Weapons Capabilities」](https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities){:target="_blank"}(2026-09-10)를 읽고 핵심 수치만 추렸다. 모델의 위험을 환각이나 편향으로 이야기하던 단계는 지났다. 정보 분석가와 무기 엔지니어가 훈련받아 하던 일을 모델이 시뮬레이션 환경에서 해내기 시작했고, 사진 한 장으로 위치를 짚는 과제에서는 사람 최상위권을 이미 넘어섰다. 앞서 다룬 [NVIDIA × CrowdStrike SafeMind 글]({{site.baseurl}}/dev/2026/09/07/nvidia-crowdstrike-safemind.html)이 사이버 영역의 공수 균형을 다뤘다면, 이번 보고서는 같은 질문을 물리 세계로 옮겨 놓는다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

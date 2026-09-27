@@ -6,8 +6,8 @@ description: "Salesforce AI Research의 RIVER 논문(arXiv:2608.22631) 분석. �
 img: command-title.webp
 date: 2026-09-24 18:30:00 +0900
 last_modified_at: 2026-09-24 18:30:00 +0900
-tags: [salesforce, terminal-bench, rl, ai-agents, verifier, llm]
-related: llm
+tags: [salesforce, terminal-bench, rl, ai-agents, verifier, llm, llm-eval]
+related: llm-eval
 categories: dev
 source_url: https://x.com/dair_ai/status/2102926030034059464
 source_date: 2026-09-24

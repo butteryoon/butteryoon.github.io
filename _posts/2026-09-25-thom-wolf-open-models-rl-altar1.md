@@ -6,11 +6,11 @@ description: "Hugging Face 공동창업자 Thomas Wolf가 9월 22~25일(KST) 올
 img: thom_wolf_open_models_title.webp
 date: 2026-09-25 18:00:00 +0900
 last_modified_at: 2026-09-25 20:30:00 +0900
-tags: [thom-wolf, twitter, huggingface, open-models, rlvr, security, glm, llm]
-related: llm
+tags: [thom-wolf, twitter, huggingface, open-models, rlvr, security, glm, llm, llm-safety]
+related: llm-safety
 categories: dev
-source_url: https://x.com/Thom_Wolf
-source_date: 2026-09-25
+source_url: https://x.com/Thom_Wolf/status/2102123398230954053
+source_date: 2026-09-22
 ---
 
 Hugging Face 공동창업자 Thomas Wolf(@Thom_Wolf)가 9월 22일부터 25일(KST) 사이에 올린 트윗 가운데 기술적으로 읽을거리가 있는 다섯 개를 골랐다. SemiAnalysis Dylan Patel의 "오픈 소스는 죽어 간다"는 발언에 10주치 오픈 모델 릴리스 목록으로 답한 트윗, 고품질 RL 환경 공개가 지금 가장 영향력 있는 기여라는 주장, GLM-5.3을 가지치기·양자화한 보안 모델 Altar-1 소개, Transluce의 AI 에이전트 이상 행동 로그 공개에 대한 반응, 그리고 지능 비용 하락을 우주사 관점에서 본 짧은 글이다.
@@ -46,7 +46,7 @@ Patel이 말한 것은 "중국 랩의 차기 모델"에 대한 전망이고 Wolf
 
 ### 2.2 오픈소스 RL 환경이 가장 영향력 있는 기여다 (9/22)
 
-Wolf는 Hugging Face의 Elie Bakouch(@eliebakouch)가 Xiaomi MiMo-V2.6-Pro 공개를 두고 쓴 트윗을 인용했다. Bakouch는 Artificial Analysis 지표 상위 6위에 오른 이 모델을 만든 RL 학습 데이터 약 7천 건과 프레임워크까지 공개될 예정이고 최종 RL 런을 시작한 지 1주일도 안 돼 모델과 기술 보고서가 나왔다고 짚었다.
+Wolf는 Hugging Face의 Elie Bakouch(@eliebakouch)가 Xiaomi MiMo-V2.6-Pro 공개를 두고 쓴 트윗을 인용했다. Bakouch는 Artificial Analysis 지표 상위 6위에 오른 이 모델을 만든 RL 환경 7,000여 개와 학습 코드까지 MIT 라이선스로 함께 공개됐고 최종 RL 런을 시작한 지 1주일도 안 돼 모델과 기술 보고서가 나왔다고 짚었다.
 
 <details class="evidence"><summary>원문 근거</summary><blockquote>"releasing many high quality open-source RL environments is the most impactful thing anyone can do to push the open-source frontier right now the equivalent of sharing high quality pretraining data but in the new RLVR paradigm"</blockquote></details>
 

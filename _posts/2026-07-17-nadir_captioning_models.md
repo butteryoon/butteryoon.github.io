@@ -6,8 +6,8 @@ description: "수직(나디르) 시점 위성영상 캡셔닝에 쓸 수 있는 
 img: nadir_aerial_title.jpg
 date: 2026-07-17 02:00:00 +0900
 last_modified_at: 2026-07-17 02:00:00 +0900
-tags: [llm, multimodal, VLM, remote sensing, captioning, open weight] # add tag
-related: llm
+tags: [llm, multimodal, VLM, remote sensing, captioning, open weight, llm-model]
+related: llm-model
 categories: dev
 redirect_from:
   - /dev/2026/07/16/nadir_captioning_models.html

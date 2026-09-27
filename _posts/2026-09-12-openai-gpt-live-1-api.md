@@ -6,8 +6,8 @@ description: "GPT-Live-1이 API로 공개됐다. STT→LLM→TTS 파이프라인
 img: gpt_live_1_title.webp
 date: 2026-09-12 20:20:00 +0900
 last_modified_at: 2026-09-12 20:20:00 +0900
-tags: [openai, gpt-live, voice-ai, full-duplex, api, llm]
-related: llm
+tags: [openai, gpt-live, voice-ai, full-duplex, api, llm, llm-model]
+related: llm-model
 categories: dev
 ---
 OpenAI가 9월 10일 [GPT-Live-1을 API로 공개했다](https://openai.com/index/introducing-gpt-live-1-in-the-api/){:target="_blank"}. ChatGPT에 먼저 들어갔던 전이중(full-duplex) 음성 모델을 개발자가 직접 쓸 수 있게 된 것이다. 기존 음성 에이전트는 음성 인식, 추론 모델, 음성 합성을 이어 붙인 구조라 단계마다 지연이 쌓이고 말이 끊기면 흐름이 무너지곤 했다. GPT-Live-1은 듣기와 말하기를 한 모델이 동시에 맡고 깊은 추론과 도구 호출은 GPT-6 Astra 같은 백엔드 모델에 넘기는 구조를 택했다. 이 글에서는 원문 발표를 기준으로 특징, 벤치마크, 요금을 정리하고 실제 도입 시 따져볼 점을 짚는다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

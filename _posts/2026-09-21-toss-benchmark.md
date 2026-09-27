@@ -6,8 +6,8 @@ description: "토스가 한국어 범용 성능과 도메인 성능을 함께 �
 img: toss-benchmark_title.webp
 date: 2026-09-21 20:00:00 +0900
 last_modified_at: 2026-09-21 20:00:00 +0900
-tags: [toss, llm, benchmark, evaluation, korean-llm, domain-adaptation]
-related: llm
+tags: [toss, llm, benchmark, evaluation, korean-llm, domain-adaptation, llm-eval]
+related: llm-eval
 categories: [llm, ai-evaluation]
 ---
 

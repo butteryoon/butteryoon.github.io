@@ -6,8 +6,8 @@ description: "NVIDIA 블로그 해설. Lambda가 DSX MaxLPS로 같은 전력 예
 img: nvidia_dsx_ai_factory_power_title.webp
 date: 2026-09-19 19:30:00 +0900
 last_modified_at: 2026-09-19 19:30:00 +0900
-tags: [nvidia, dsx, vera-rubin, ai-factory, power-efficiency, ai-infra, tokens-per-watt, emerald-ai, lambda, groq-3-lpx, llm]
-related: llm
+tags: [nvidia, dsx, vera-rubin, ai-factory, power-efficiency, ai-infra, tokens-per-watt, emerald-ai, lambda, groq-3-lpx, llm, llm-infra]
+related: llm-infra
 categories: dev
 ---
 NVIDIA 블로그 코리아에 9월 16일 올라온 [「NVIDIA, 메가와트에서 토큰까지 AI 팩토리 생산성 극대화」](https://blogs.nvidia.co.kr/blog/from-megawatts-to-tokens-how-nvidia-maximizes-ai-factory-production/){:target="_blank"}를 읽고 정리했다. 앞서 다룬 [AgentX 와트당 성능 글]({{site.baseurl}}/dev/2026/08/29/nvidia_vera_rubin_blackwell_agentx_perf_per_watt.html)이 칩과 랙의 효율 이야기였다면, 이번에는 팩토리 바깥, 그러니까 전력망까지 범위를 넓힌 이야기다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

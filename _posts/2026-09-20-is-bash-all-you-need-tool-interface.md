@@ -6,8 +6,8 @@ description: "Microsoft 연구진이 TheAgentCompany와 APEX-Agents에서 typed 
 img: command-title.webp
 date: 2026-09-20 20:10:00 +0900
 last_modified_at: 2026-09-20 20:10:00 +0900
-tags: [agent, tool-interface, bash, llm, microsoft, benchmark, ai-research]
-related: llm
+tags: [agent, tool-interface, bash, llm, microsoft, benchmark, ai-research, llm-agent]
+related: llm-agent
 categories: [ai-research]
 ---
 

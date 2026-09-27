@@ -6,8 +6,8 @@ description: "Alec Radford·Nick Levine·David Duvenaud 팀이 공개한 talkie-
 img: talkie-vintage-title.webp
 date: 2026-09-06 00:45:00 +0900
 last_modified_at: 2026-09-06 00:45:00 +0900
-tags: [talkie, vintage-model, llm, generalization, open-weight, radford, duvenaud] # add tag
-related: llm
+tags: [talkie, vintage-model, llm, generalization, open-weight, radford, duvenaud, llm-model]
+related: llm-model
 categories: dev
 ---
 

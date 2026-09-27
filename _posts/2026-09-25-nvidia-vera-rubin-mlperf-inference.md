@@ -6,8 +6,8 @@ description: "Vera Rubin NVL72가 MLPerf Inference v6.1 프리뷰 제출에서 G
 img: vera_rubin_mlperf_inference_title.webp
 date: 2026-09-25 19:30:00 +0900
 last_modified_at: 2026-09-25 20:35:00 +0900
-tags: [nvidia, mlperf, inference, vera-rubin, gb300, ai-infrastructure, llm]
-related: llm
+tags: [nvidia, mlperf, inference, vera-rubin, gb300, ai-infrastructure, llm, llm-infra]
+related: llm-infra
 categories: dev
 source_url: https://blogs.nvidia.co.kr/blog/vera-rubin-nvl72-mlperf-inference/
 source_date: 2026-09-21

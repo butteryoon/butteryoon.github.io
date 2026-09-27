@@ -6,8 +6,8 @@ description: "Nous Research의 Hermes Agent를 Windows 11에 설치하고 OpenRo
 img: command-title.webp
 date: 2026-07-25 12:50:00 +0900
 last_modified_at: 2026-07-25 12:50:00 +0900
-tags: [hermes, ai agent, openrouter, cli, nous research, llm] # add tag
-related: llm
+tags: [hermes, ai agent, openrouter, cli, nous research, llm, llm-agent]
+related: llm-agent
 categories: tools
 ---
 

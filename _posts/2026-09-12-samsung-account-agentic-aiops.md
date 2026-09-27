@@ -6,8 +6,8 @@ description: "AWS 기술 블로그의 삼성계정 Agentic AIOps 사례 해설. 
 img: samsung_aiops_title.webp
 date: 2026-09-12 21:10:00 +0900
 last_modified_at: 2026-09-12 21:10:00 +0900
-tags: [aiops, multi-agent, strands-agents, mcp, fastmcp, bedrock, sre, rca, llm] # add tag
-related: llm
+tags: [aiops, multi-agent, strands-agents, mcp, fastmcp, bedrock, sre, rca, llm, llm-agent]
+related: llm-agent
 categories: dev
 ---
 AWS 기술 블로그에 올라온 [「Part2: 삼성계정 서비스의 Agentic AIOps — 운영환경에서 Multi-Agent 시스템으로 RCA 자동화 하기」](https://aws.amazon.com/ko/blogs/tech/part2-agentic-aiops-samsung-account-service){:target="_blank"}(2026-03-27)를 정리했다. 대규모 운영 환경에 멀티 에이전트를 실전 투입한 국내 사례 중 손에 꼽게 구체적인 글이다 — 무엇보다 "처음부터 잘 설계했다"가 아니라 **실패하고 방향을 튼 과정**을 주차별로 공개한 점이 좋다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 원문 전문 대조 후 전면 재작성해 발행했다.)

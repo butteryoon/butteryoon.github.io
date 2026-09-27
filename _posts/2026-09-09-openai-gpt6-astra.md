@@ -6,8 +6,8 @@ description: "OpenAI가 발표한 GPT-6 Astra 정리. OSWorld 2.0 47% 시간 단
 img: astra_title.webp
 date: 2026-09-09 19:40:00 +0900
 last_modified_at: 2026-09-11 21:10:00 +0900
-tags: [openai, gpt-6, astra, computer-use, agentic-ai, cybersecurity, alignment, codex, llm] # add tag
-related: llm
+tags: [openai, gpt-6, astra, computer-use, agentic-ai, cybersecurity, alignment, codex, llm, llm-safety]
+related: llm-safety
 categories: dev
 ---
 OpenAI가 오늘(2026-09-09) 발표한 [GPT-6 Astra](https://openai.com/index/gpt-6-astra/){:target="_blank"}를 원문 기준으로 정리했다. 컴퓨터 사용, 코딩, 사이버보안, 과학 연구에서 동시에 SOTA를 주장하는 발표로, 특히 벤치마크 표의 수치 폭이 크다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 원문 전문 대조 후 발행했다.)

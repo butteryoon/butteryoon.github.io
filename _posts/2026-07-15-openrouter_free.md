@@ -6,8 +6,8 @@ description: "OpenRouter의 프리(:free) 모델을 API로 호출하는 방법�
 img: llm_api_title.jpg
 date: 2026-07-15 01:00:00 +0900
 last_modified_at: 2026-07-16 02:40:00 +0900
-tags: [llm, openrouter, api, free] # add tag
-related: llm
+tags: [llm, openrouter, api, free, llm-agent]
+related: llm-agent
 categories: tools
 redirect_from:
   - /tools/2026/07/14/openrouter_free.html

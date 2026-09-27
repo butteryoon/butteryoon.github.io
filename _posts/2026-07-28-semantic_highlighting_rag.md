@@ -6,8 +6,8 @@ description: "대부분의 RAG는 검색은 시맨틱인데 하이라이트는 �
 img: command-title.webp
 date: 2026-07-28 00:43:00 +0900
 last_modified_at: 2026-07-28 01:27:56 +0900
-tags: [rag, semantic highlighting, zilliz, milvus, context pruning, llm, nous research] # add tag
-related: llm
+tags: [rag, semantic highlighting, zilliz, milvus, context pruning, llm, nous research, llm-rag]
+related: llm-rag
 categories: dev
 ---
 

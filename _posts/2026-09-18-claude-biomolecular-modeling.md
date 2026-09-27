@@ -6,8 +6,8 @@ description: "앤스로픽이 공개한 생체분자 모델링 가속 결과를 
 img: claude-biomolecular-modeling_title.webp
 date: 2026-09-18 20:20:00 +0900
 last_modified_at: 2026-09-18 20:20:00 +0900
-tags: [anthropic, claude, biomolecular-modeling, protein-design, kernel-optimization, gpu, llm]
-related: llm
+tags: [anthropic, claude, biomolecular-modeling, protein-design, kernel-optimization, gpu, llm, llm-science]
+related: llm-science
 categories: dev
 ---
 앤스로픽 리서치의 [「How Claude is uplifting biomolecular modeling」](https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling){:target="_blank"}을 읽고 정리했다. 눈길이 간 건 4배라는 숫자 자체가 아니라, 그 일을 해낸 인력 구성이다. 커널 엔지니어링 경험이 없는 연구원 두 명이 감독을 맡았고 최적화는 Claude가 했다. 며칠 전 다룬 [NVIDIA BioNeMo Agent Toolkit 글]({{site.baseurl}}/dev/2026/09/15/nvidia-bionemo-agent-toolkit.html)이 이미 빠른 GPU 도구를 에이전트 손에 쥐여주는 이야기였다면, 이번 건은 에이전트가 그 도구 자체를 다시 깎은 쪽에 가깝다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

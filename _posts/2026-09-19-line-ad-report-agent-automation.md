@@ -6,8 +6,8 @@ description: "LY Corporation 기술 블로그 해설. 단일 프롬프트로 리
 img: line_ad_report_agent_title.webp
 date: 2026-09-19 19:40:00 +0900
 last_modified_at: 2026-09-19 19:40:00 +0900
-tags: [line-engineering, llm, agent, react, ad-tech, langfuse, evaluation, llm-ops, ai-automation]
-related: llm
+tags: [line-engineering, llm, agent, react, ad-tech, langfuse, evaluation, llm-ops, ai-automation, llm-agent]
+related: llm-agent
 categories: dev
 ---
 LY Corporation 기술 블로그에 9월 17일 올라온 [「LLM에게 어디까지 맡길 것인가: AI 에이전트 기반 광고 분석 리포트 자동화」](https://techblog.lycorp.co.jp/ko/ai-agent-ad-report-automation){:target="_blank"}를 읽고 정리했다. 매일 도는 리포트 자동화에서 LLM에게 숫자를 맡기면 어떻게 깨지는지, 그걸 어디까지 코드로 되찾아 와야 하는지가 골자다. 앞서 다룬 [LINE Tech-Verse 2026 참관기]({{site.baseurl}}/dev/2026/09/13/line-techverse-ai-driven-development.html)와 같은 조직에서 나온 실무 사례다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

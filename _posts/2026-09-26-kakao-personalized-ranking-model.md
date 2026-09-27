@@ -7,8 +7,10 @@ img: kakao_personalized_ranking_title.webp
 date: 2026-09-26 20:20:00 +0900
 last_modified_at: 2026-09-26 20:20:00 +0900
 tags: [kakao, recommendation, ranking, personalization, dcn, gdcn, moe, deep-learning, llm]
-related: llm
+related: moe
 categories: dev
+source_url: https://tech.kakao.com/posts/837
+source_date: 2026-09-23
 ---
 카카오 기술 블로그에 9월 23일 올라온 [「개인화 추천을 위한 랭킹 모델 개발기」](https://tech.kakao.com/posts/837){:target="_blank"}를 읽고 정리했다. 성별·연령 세그먼트 단위로 똑같은 결과를 내려주던 추천을, 유저 개인의 시청 히스토리를 반영하는 딥러닝 랭커로 교체한 프로젝트다. 아키텍처와 라벨 설계, 세 번의 모델 실험, 배포 뒤 지표까지 한 흐름으로 공개했다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)
 

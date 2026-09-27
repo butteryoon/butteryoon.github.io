@@ -6,8 +6,8 @@ description: "arXiv 논문 terms.txt 해설. AI 크롤러가 방문자 하나당
 img: terms_txt_title.webp
 date: 2026-09-14 22:00:00 +0900
 last_modified_at: 2026-09-14 23:10:00 +0900
-tags: [terms-txt, robots-txt, ai-crawler, web-protocol, http-402, web-bot-auth, agents, llm] # add tag
-related: llm
+tags: [terms-txt, robots-txt, ai-crawler, web-protocol, http-402, web-bot-auth, agents, llm, llm-safety]
+related: llm-safety
 categories: dev
 ---
 DAIR.AI가 소개한 논문 [「terms.txt: A Consent and Compensation Protocol for Agentic Web Access」](https://arxiv.org/abs/2609.11152){:target="_blank"}(Rajarshi Chowdhury, 2026-09-10)를 읽고 정리했다. `robots.txt` 하나로 버텨온 웹의 접근 규약을 AI 에이전트 시대에 맞게 다시 쓰자는 제안인데, 무엇보다 **왜 지금 필요한가**를 보여주는 수치가 인상적이다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 원문 대조 후 발행했다.)

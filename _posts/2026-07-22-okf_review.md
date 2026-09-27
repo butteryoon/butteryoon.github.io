@@ -6,8 +6,8 @@ description: "구글이 발표한 Open Knowledge Format의 구조와 기존 벡�
 img: api_code_title.jpg
 date: 2026-07-22 00:30:00 +0900
 last_modified_at: 2026-07-22 00:30:00 +0900
-tags: [rag, okf, llm, knowledge, vector database, google] # add tag
-related: llm
+tags: [rag, okf, llm, knowledge, vector database, google, llm-rag]
+related: llm-rag
 categories: dev
 ---
 "구글의 OKF가 벡터 데이터베이스를 대체한다"는 [Medium 글](https://secret-dev.medium.com/beyond-rag-how-googles-open-knowledge-format-okf-is-replacing-the-vector-database-2ffb5bc2f8eb)을 보고, 공식 스펙과 발표 자료를 직접 확인해서 기존 RAG 방식과 비교 검토해봤다. (이 글의 서베이는 Claude Code 에이전트가 수행했다.)

@@ -6,8 +6,8 @@ description: "위성 영상 도메인에서 멀티모달 LLM과 CLIP 계열 임�
 img: satellite_title.jpg
 date: 2026-07-16 19:00:00 +0900
 last_modified_at: 2026-07-16 19:00:00 +0900
-tags: [llm, multimodal, embedding, CLIP, remote sensing, satellite] # add tag
-related: llm
+tags: [llm, multimodal, embedding, CLIP, remote sensing, satellite, llm-model]
+related: llm-model
 categories: dev
 ---
 

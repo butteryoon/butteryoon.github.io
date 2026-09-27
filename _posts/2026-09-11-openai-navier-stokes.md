@@ -6,8 +6,8 @@ description: "OpenAI가 내부 모델 기반 1만 동시 에이전트 시스템�
 img: navier_title.webp
 date: 2026-09-11 19:40:00 +0900
 last_modified_at: 2026-09-11 21:10:00 +0900
-tags: [openai, navier-stokes, millennium-prize, ai-agents, multi-agent, lean, mathematics, llm] # add tag
-related: llm
+tags: [openai, navier-stokes, millennium-prize, ai-agents, multi-agent, lean, mathematics, llm, llm-science]
+related: llm-science
 categories: dev
 ---
 OpenAI가 9월 8일 공개한 [「On the Navier–Stokes Millennium Prize Problem」](https://openai.com/index/navier-stokes-solution/){:target="_blank"}을 정리했다. 90년 묵은 밀레니엄 난제를 AI 멀티에이전트 시스템이 풀었다는, 문장 그대로 믿기 어려운 발표라 원문·논문 PDF·Lean 저장소의 실재부터 확인하고 썼다. [GPT-6 Astra 발표]({{site.baseurl}}/dev/2026/09/09/openai-gpt6-astra.html) 이틀 전에 나온 글이기도 하다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 원문 전문 대조 후 발행했다.)

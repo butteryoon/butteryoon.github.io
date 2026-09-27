@@ -6,8 +6,8 @@ description: "주요 오픈소스 가드레일 모델 비교와 온프레미스 
 img: guardrail_lock_title.jpg
 date: 2026-07-22 23:15:00 +0900
 last_modified_at: 2026-08-12 22:45:00 +0900
-tags: [llm, guardrail, ai agent, on-premise, vllm, security] # add tag
-related: llm
+tags: [llm, guardrail, ai agent, on-premise, vllm, security, llm-safety]
+related: llm-safety
 categories: dev
 ---
 

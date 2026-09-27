@@ -6,8 +6,8 @@ description: "LLM 프로덕션에서 비용과 레이턴시를 줄이는 Prompt 
 img: llm_api_title.jpg
 date: 2026-08-05 00:12:00 +0900
 last_modified_at: 2026-08-05 22:50:00 +0900
-tags: [llm, prompt-caching, cost-optimization, anthropic, openai, bedrock, observability]
-related: llm
+tags: [llm, prompt-caching, cost-optimization, anthropic, openai, bedrock, observability, llm-serving]
+related: llm-serving
 categories: dev
 ---
 

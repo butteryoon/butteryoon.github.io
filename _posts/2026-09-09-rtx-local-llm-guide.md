@@ -6,8 +6,8 @@ description: "NVIDIA RTX AI Garage 가이드 해설. Ollama, LM Studio, Anything
 img: rtx_llm_title.webp
 date: 2026-09-09 14:01:00 +0900
 last_modified_at: 2026-09-11 21:10:00 +0900
-tags: [nvidia, local-llm, ollama, lm-studio, anythingllm, rtx, gpu, windows-ml, llm] # add tag
-related: llm
+tags: [nvidia, local-llm, ollama, lm-studio, anythingllm, rtx, gpu, windows-ml, llm, llm-serving]
+related: llm-serving
 categories: dev
 ---
 NVIDIA 블로그의 RTX AI Garage 시리즈 [「NVIDIA RTX PC에서 거대 언어 모델(LLM) 시작하기」](https://blogs.nvidia.co.kr/blog/rtx-ai-garage-how-to-get-started-with-llms/){:target="_blank"}(2025-11-06)를 정리했다. 발행된 지 좀 된 글이지만 로컬 LLM 입문 스택(Ollama·LM Studio·AnythingLLM)의 구도는 지금도 그대로라 정리해둘 가치가 있다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

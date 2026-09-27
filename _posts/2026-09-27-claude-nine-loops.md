@@ -6,8 +6,8 @@ description: "이론물리학자 Matt von Hippel이 AI 기업에 던진 도전 �
 img: claude-nine-loops_title.webp
 date: 2026-09-27 18:30:00 +0900
 last_modified_at: 2026-09-27 20:20:00 +0900
-tags: [anthropic, claude-science, ai-science, physics, amplitudeology, autonomous-agent, llm]
-related: llm
+tags: [anthropic, claude-science, ai-science, physics, amplitudeology, autonomous-agent, llm, llm-science]
+related: llm-science
 categories: dev
 source_url: https://www.anthropic.com/research/yes-claude-can-do-nine-loops
 source_date: 2026-09-25

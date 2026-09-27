@@ -7,7 +7,7 @@ img: nvidia-tensorrt-fp8-moe.webp
 date: 2026-08-30 18:01:17 +0900
 last_modified_at: 2026-08-30 21:25:00 +0900
 tags: [nvidia, tensorrt-llm, fp8, quantization, moe, tensorrt-model-optimizer, hopper, h200, kanana-flex, llm-serving, llm] # add tag
-related: llm
+related: llm-serving
 categories: dev
 ---
 

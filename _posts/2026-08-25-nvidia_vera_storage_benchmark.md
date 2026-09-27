@@ -6,8 +6,8 @@ description: "NVIDIA 테크니컬 블로그 해설. Vera CPU(Olympus 코어 88�
 img: vera_storage_title.webp
 date: 2026-08-25 18:25:00 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900
-tags: [nvidia, vera-cpu, bluefield-4, stx, storage, olympus-cores, encryption, compression, reed-solomon, llm] # add tag
-related: llm
+tags: [nvidia, vera-cpu, bluefield-4, stx, storage, olympus-cores, encryption, compression, reed-solomon, llm, llm-rag]
+related: llm-rag
 categories: dev
 ---
 

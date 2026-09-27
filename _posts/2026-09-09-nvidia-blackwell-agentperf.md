@@ -6,8 +6,8 @@ description: "Artificial Analysis의 에이전틱 AI 전용 벤치마크 AgentPe
 img: agentperf_title.webp
 date: 2026-09-09 14:00:00 +0900
 last_modified_at: 2026-09-11 21:10:00 +0900
-tags: [nvidia, blackwell, agentic-ai, agentperf, artificial-analysis, gb300, inference, gpu, llm] # add tag
-related: llm
+tags: [nvidia, blackwell, agentic-ai, agentperf, artificial-analysis, gb300, inference, gpu, llm, llm-infra]
+related: llm-infra
 categories: dev
 ---
 NVIDIA 블로그의 [「NVIDIA Blackwell, 업계 최초 에이전틱 AI 인프라 벤치마크에서 선두 기록」](https://blogs.nvidia.co.kr/blog/nvidia-blackwell-agentperf-artificial-analysis/){:target="_blank"}(2026-06-15)을 읽고 핵심만 정리했다. 앞서 다룬 [SemiAnalysis AgentX 벤치마크 글]({{site.baseurl}}/dev/2026/08/29/nvidia_vera_rubin_blackwell_agentx_perf_per_watt.html)과 짝을 이루는 내용으로, 이번엔 **Artificial Analysis**의 **AgentPerf**다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

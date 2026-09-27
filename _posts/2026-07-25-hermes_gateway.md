@@ -6,8 +6,8 @@ description: "Hermes Agent가 하나의 에이전트 코어를 텔레그램/디�
 img: command-title.webp
 date: 2026-07-25 22:00:00 +0900
 last_modified_at: 2026-07-25 22:00:00 +0900
-tags: [hermes, gateway, telegram, discord, multi-platform, agent, nous research, llm] # add tag
-related: llm
+tags: [hermes, gateway, telegram, discord, multi-platform, agent, nous research, llm, llm-agent]
+related: llm-agent
 categories: dev
 ---
 

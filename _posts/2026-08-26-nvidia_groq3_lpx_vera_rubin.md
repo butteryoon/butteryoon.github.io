@@ -6,8 +6,8 @@ description: "NVIDIA 테크니컬 블로그 해설. Groq 3 LPX가 컴파일러 �
 img: groq3_title.webp
 date: 2026-08-26 18:20:00 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900
-tags: [nvidia, groq-3-lpx, vera-rubin, long-context, inference, interactivity, agentic-ai, tensor-parallelism, llm] # add tag
-related: llm
+tags: [nvidia, groq-3-lpx, vera-rubin, long-context, inference, interactivity, agentic-ai, tensor-parallelism, llm, llm-serving]
+related: llm-serving
 categories: dev
 ---
 어제 다룬 [Vera 스토리지 벤치마크]({{site.baseurl}}/dev/2026/08/25/nvidia_vera_storage_benchmark.html)가 AI 팩토리의 스토리지 계층 이야기였다면, 이번에는 추론 계층이다. NVIDIA 테크니컬 블로그의 [Groq 3 LPX 해설 글](https://developer.nvidia.com/ko-kr/blog/how-nvidia-groq-3-lpx-unlocks-ultrafast-interactivity-at-long-context-on-nvidia-vera-rubin/){:target="_blank"}(2026-08-19)을 읽고 정리했다. 긴 컨텍스트에서 왜 인터랙티비티(사용자당 토큰 속도)가 무너지는지, Groq 3 LPX는 그걸 어떻게 피하는지가 골자다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

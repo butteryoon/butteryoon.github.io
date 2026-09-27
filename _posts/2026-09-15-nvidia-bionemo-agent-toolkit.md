@@ -6,8 +6,8 @@ description: "Claude Science와 통합된 NVIDIA BioNeMo Agent Toolkit이 Parabr
 img: bionemo-agent-toolkit_title.webp
 date: 2026-09-15 20:10:00 +0900
 last_modified_at: 2026-09-15 20:10:00 +0900
-tags: [nvidia, bionemo, claude-science, ai-agents, drug-discovery, gpu, nim, llm]
-related: llm
+tags: [nvidia, bionemo, claude-science, ai-agents, drug-discovery, gpu, nim, llm, llm-science]
+related: llm-science
 categories: dev
 ---
 NVIDIA 블로그의 [「BioNeMo Agent Toolkit, Claude Science에서 생명과학 연구자들에게 가속화된 AI를 제공하다」](https://blogs.nvidia.co.kr/blog/claude-science-bionemo-agent-toolkit/){:target="_blank"}를 읽고 정리했다. 요점은 도구의 목록이 아니라 도구의 급이 달라졌다는 데 있다. 지금까지 LLM 에이전트가 손에 쥔 건 웹 검색이나 간단한 API 호출 정도였는데, 여기서는 유전체 정렬과 분자 시뮬레이션 같은 GPU 워크플로우가 통째로 에이전트의 호출 대상이 된다. 앞서 다룬 [OpenAI의 1만 에이전트 나비에-스토크스 글]({{site.baseurl}}/dev/2026/09/11/openai-navier-stokes.html)이 규모로 과학을 밀어붙인 사례라면, 이쪽은 계산 자원을 에이전트에 물리는 배관 작업에 가깝다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

@@ -6,8 +6,8 @@ description: "마이크로소프트 연구진의 「Divide, Consult, Conquer」 
 img: capability-laundering_title.webp
 date: 2026-09-16 20:20:00 +0900
 last_modified_at: 2026-09-16 23:30:00 +0900
-tags: [microsoft, ai-safety, capability-laundering, jailbreak, red-teaming, benchmark, llm]
-related: llm
+tags: [microsoft, ai-safety, capability-laundering, jailbreak, red-teaming, benchmark, llm, llm-safety]
+related: llm-safety
 categories: dev
 ---
 DAIR.AI가 소개한 마이크로소프트 논문 [「Divide, Consult, Conquer: Capability Laundering Through Aligned LLMs」](https://arxiv.org/abs/2609.15383){:target="_blank"}(Mark Russinovich 외, 2026-09-14)를 읽고 정리했다. 모델 안전성은 보통 대화 한 번 단위로 평가한다. 요청이 유해하면 거절하고 거절했으면 안전하다고 본다. 이 논문은 그 전제를 정면으로 흔든다. 약한 모델이 유해 작업을 무해해 보이는 조각으로 쪼개 정렬된 프런티어 모델에 따로따로 묻고 답을 자기 쪽에서 합치면, 오가는 응답 중 유해한 것은 하나도 없는데 결과물은 완성된다. 어제 정리한 [앤스로픽 레드팀 보고서]({{site.baseurl}}/dev/2026/09/15/anthropic-ai-military-capabilities.html)가 모델 단독의 위험 수준을 쟀다면, 이번 논문은 모델을 여럿 엮었을 때 새로 생기는 구멍을 잰다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 원문 대조 후 발행했다.)

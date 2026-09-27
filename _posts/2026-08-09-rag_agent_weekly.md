@@ -6,8 +6,8 @@ description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에�
 img: ai_abstract_title.jpg
 date: 2026-08-09 18:10:00 +0900
 last_modified_at: 2026-08-12 01:10:00 +0900
-tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly] # add tag
-related: llm
+tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag]
+related: llm-rag
 categories: dev
 ---
 

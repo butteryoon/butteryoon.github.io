@@ -7,8 +7,10 @@ img: nvidia_robotaxi_full_stack_title.webp
 date: 2026-09-26 20:30:00 +0900
 last_modified_at: 2026-09-26 20:30:00 +0900
 tags: [nvidia, robotaxi, autonomous-driving, physical-ai, drive-hyperion, drive-agx-thor, alpamayo, cosmos, omniverse, llm]
-related: llm
+related: nvidia
 categories: dev
+source_url: https://blogs.nvidia.co.kr/blog/robotaxi-leaders-full-stack-open-platform/
+source_date: 2026-09-20
 ---
 NVIDIA 블로그 코리아에 9월 20일 올라온 [「운전대를 잡은 피지컬 AI: 글로벌 로보택시 기업들은 NVIDIA 기술로 무엇을 만들고 있나」](https://blogs.nvidia.co.kr/blog/robotaxi-leaders-full-stack-open-platform/){:target="_blank"}를 읽고 정리했다. 원문은 로보택시 시장이 2035년 4,000억 달러 규모, 상용 차량 600만 대 이상으로 커질 것이라는 전망으로 시작한다. 무인 차량 한 대를 굴리는 것과 수천 대 플릿에서 똑같이 안전한 성능을 내는 것은 전혀 다른 문제이고 그 간극을 메우는 게 컴퓨팅이라는 주장이다. 벤더 블로그인 만큼 기술 구도와 파트너 목록 위주로 읽었다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)
 
