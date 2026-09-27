@@ -5,7 +5,7 @@ title: "Claude가 N=4 초양-밀스 9루프 진폭을 계산했다 — 물리학
 description: "이론물리학자 Matt von Hippel이 AI 기업에 던진 도전 과제(N=4 초양-밀스 9루프 산란 진폭)를 Fable 5.1 기반 Claude Science 하네스가 사실상 '계속하라'는 지시만으로 풀었다. 96 CPU로 1주일, 부트스트랩과 폼팩터 두 경로로 계산했고 Lance Dixon이 결과를 검증했다."
 img: claude-nine-loops_title.webp
 date: 2026-09-27 18:30:00 +0900
-last_modified_at: 2026-09-27 20:20:00 +0900
+last_modified_at: 2026-09-28 01:15:00 +0900
 tags: [anthropic, claude-science, ai-science, physics, amplitudeology, autonomous-agent, llm, llm-science]
 related: llm-science
 categories: dev
@@ -32,7 +32,18 @@ Anthropic 리서치 블로그에 9월 25일 올라온 게스트 포스트 [「Ye
 
 <details class="evidence"><summary>원문 근거</summary><blockquote>"In practice, most scattering amplitude formulas have only been calculated to two loops. A few have three. The most precise prediction in particle physics you might have heard of used five."</blockquote></details>
 
-진폭학자들은 새 기법을 '장난감 모델'에 먼저 시험한다. N=4 초양-밀스 이론에서는 입자마다 초대칭 짝이 넷씩 붙는다. 현실과는 거리가 멀지만 입자들 사이의 미묘한 균형 덕분에 필요한 변수 조합이 줄어들어 오히려 계산이 쉽다. von Hippel은 박사 과정에서 3루프 진폭 계산에 참여했고 Dixon은 2023년 Andy Liu와 함께 폼팩터와 '대척 쌍대성(antipodal duality)'이라는 대칭을 이용해 8루프 진폭을 얻었다([arXiv:2308.08199](https://arxiv.org/abs/2308.08199){:target="_blank"}).
+진폭학자들은 새 기법을 '장난감 모델'에 먼저 시험한다. N=4 초양-밀스 이론에서는 입자마다 초대칭 짝이 넷씩 붙는다. 현실과는 거리가 멀지만 입자들 사이의 미묘한 균형 덕분에 필요한 변수 조합이 줄어들어 오히려 계산이 쉽다.
+
+### 2-1. 용어 풀이: '평면 N=4 초양-밀스'
+
+제목에 나오는 이 이름은 네 부분으로 끊어 읽으면 뜻이 분명해진다.
+
+- **양-밀스(Yang-Mills)**: 1954년 양전닝과 로버트 밀스가 제안한 게이지 이론의 틀이다. 전자기학과 달리 힘을 매개하는 입자(게이지 보손)가 자기들끼리도 상호작용한다. 강한 상호작용을 다루는 양자색역학(QCD)을 비롯해 표준모형의 힘 이론이 모두 이 틀 위에 서 있다. 계산이 어려워지는 근본 원인도 이 자기상호작용이다.
+- **초(超, super)**: 초대칭(supersymmetry)을 얹었다는 표시다. 초대칭은 보손(힘을 나르는 입자)과 페르미온(물질을 이루는 입자)을 서로 맞바꾸는 가상의 대칭이다. 양-밀스 이론에 이 대칭을 더한 것이 초양-밀스(super-Yang-Mills, SYM)다.
+- **N=4**: 그 초대칭이 몇 벌인지를 나타낸다. N=4는 4차원 시공간의 게이지 이론이 가질 수 있는 초대칭의 최대치다. 대칭이 많을수록 답이 취할 수 있는 형태에 제약이 강하게 걸려서, 본문에서 말한 "필요한 변수 조합이 줄어든다"는 효과가 나온다. 덤으로 이 이론은 결합상수가 에너지 스케일에 따라 변하지 않는 등각(conformal) 이론이라 현실의 QCD보다 다루기가 훨씬 수월하다.
+- **평면(planar)**: 색(color) 자유도의 수를 무한대로 보내는 극한('t Hooft 극한)이다. 이 극한에서는 파인만 다이어그램 가운데 종이 위에 선을 겹치지 않고 그릴 수 있는 것만 살아남아 계산량이 크게 줄어든다.
+
+정리하면 **현실의 입자 반응을 기술하려고 만든 이론이 아니라, 대칭을 최대로 넣어 계산이 가능해지도록 다듬은 시험대**다. 그런데도 의미가 있는 이유는 여기서 통한 기법이 구조가 비슷한 QCD 계산으로 옮겨 가기 때문이다. 이 글의 9루프 계산이 "현실 물리 예측을 바꿨다"가 아니라 "기법을 어디까지 밀어붙일 수 있는지 보여 줬다"로 읽혀야 하는 것도 같은 이유다. von Hippel은 박사 과정에서 3루프 진폭 계산에 참여했고 Dixon은 2023년 Andy Liu와 함께 폼팩터와 '대척 쌍대성(antipodal duality)'이라는 대칭을 이용해 8루프 진폭을 얻었다([arXiv:2308.08199](https://arxiv.org/abs/2308.08199){:target="_blank"}).
 
 이 계산들은 '부트스트랩'이라는 기법으로 이뤄졌다. 모든 상호작용을 일일이 따지지 않고 답이 대략 어떤 모양일지 정해 둔 뒤 특수한 '알파벳'으로 가능한 후보를 모두 적어 놓는다. 그다음 다른 계산법의 예측, 답이 지켜야 할 규칙, 더 쉬운 관련 문제와의 연결을 하나씩 대조하며 후보를 지워 간다. von Hippel은 이것을 스도쿠에 비유한다. 다만 Dixon조차 9루프 진폭을 직접 푸는 건 너무 어렵다고 보고 8루프 때보다 더 간접적인 경로를 예상하고 있었다.
 
