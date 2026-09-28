@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="생성 대신 채점: 고정 선택지 분류">
+  <defs>
+    <style>
+      .ko { font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+      .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#0F5F57"/>
+
+  <text class="ko" x="72" y="96" font-size="42" font-weight="700" fill="#16161A">생성 대신 채점</text>
+  <text class="ko" x="72" y="140" font-size="22" fill="#55555C">고정 선택지 분류를 한 번의 포워드 패스로</text>
+
+  <!-- 왼쪽: 생성 -->
+  <rect x="72" y="188" width="480" height="356" rx="16" fill="#EFEBE2"/>
+  <text class="ko" x="104" y="232" font-size="15" font-weight="700" fill="#6B6B73" letter-spacing="1.5">기존 · 생성</text>
+  <text class="ko" x="104" y="268" font-size="24" font-weight="700" fill="#16161A">토큰을 하나씩 디코딩</text>
+
+  <g>
+    <rect x="104" y="296" width="72" height="44" rx="8" fill="#C9C3B6"/>
+    <text class="mono" x="140" y="325" font-size="18" fill="#2F2F35" text-anchor="middle">{</text>
+    <rect x="188" y="296" width="118" height="44" rx="8" fill="#D4CEC2"/>
+    <text class="mono" x="247" y="325" font-size="15" fill="#2F2F35" text-anchor="middle">"label"</text>
+    <rect x="318" y="296" width="52" height="44" rx="8" fill="#DCD7CC"/>
+    <text class="mono" x="344" y="325" font-size="18" fill="#2F2F35" text-anchor="middle">:</text>
+    <rect x="382" y="296" width="80" height="44" rx="8" fill="#E4E0D7"/>
+    <text class="mono" x="422" y="325" font-size="16" fill="#2F2F35" text-anchor="middle">"A"</text>
+    <rect x="474" y="296" width="46" height="44" rx="8" fill="#ECE9E1"/>
+    <text class="mono" x="497" y="325" font-size="18" fill="#2F2F35" text-anchor="middle">}</text>
+  </g>
+  <text class="ko" x="104" y="376" font-size="16" fill="#6B6B73">→ 순차 디코딩 루프</text>
+
+  <line x1="104" y1="404" x2="520" y2="404" stroke="#D8D2C6" stroke-width="1"/>
+  <text class="ko" x="104" y="440" font-size="16" fill="#45454C">구조화 출력도 결국</text>
+  <text class="ko" x="104" y="468" font-size="16" fill="#45454C">중괄호·필드명·값을 토큰 단위로 만든다</text>
+  <text class="ko" x="104" y="508" font-size="16" fill="#45454C">표기 흔들림·파싱 실패를 감수해야 한다</text>
+
+  <!-- 오른쪽: 채점 -->
+  <rect x="648" y="188" width="480" height="356" rx="16" fill="#0F5F57"/>
+  <text class="ko" x="680" y="232" font-size="15" font-weight="700" fill="#A7D9D1" letter-spacing="1.5">SGLang · 채점</text>
+  <text class="ko" x="680" y="268" font-size="24" font-weight="700" fill="#FFFFFF">첫 로짓에서 확률만 읽는다</text>
+
+  <g>
+    <rect x="680" y="296" width="416" height="40" rx="8" fill="#0B4A44"/>
+    <rect x="680" y="296" width="300" height="40" rx="8" fill="#7FC8BE"/>
+    <text class="mono" x="696" y="323" font-size="17" font-weight="700" fill="#0A3B36">A</text>
+    <text class="mono" x="1080" y="323" font-size="16" fill="#DCEFEC" text-anchor="end">0.72</text>
+
+    <rect x="680" y="346" width="416" height="40" rx="8" fill="#0B4A44"/>
+    <rect x="680" y="346" width="87" height="40" rx="8" fill="#4EA89C"/>
+    <text class="mono" x="696" y="373" font-size="17" font-weight="700" fill="#FFFFFF">B</text>
+    <text class="mono" x="1080" y="373" font-size="16" fill="#DCEFEC" text-anchor="end">0.21</text>
+
+    <rect x="680" y="396" width="416" height="40" rx="8" fill="#0B4A44"/>
+    <rect x="680" y="396" width="29" height="40" rx="8" fill="#35857B"/>
+    <text class="mono" x="696" y="423" font-size="17" font-weight="700" fill="#FFFFFF">C</text>
+    <text class="mono" x="1080" y="423" font-size="16" fill="#DCEFEC" text-anchor="end">0.07</text>
+  </g>
+
+  <line x1="680" y1="462" x2="1096" y2="462" stroke="#2E7A72" stroke-width="1"/>
+  <text class="ko" x="680" y="496" font-size="16" fill="#DCEFEC">디코딩 루프 없음 · 정의역이 레이블에 닫혀 있다</text>
+  <text class="ko" x="680" y="524" font-size="16" fill="#A7D9D1">단, 레이블은 단일 토큰이어야 한다</text>
+
+  <text class="ko" x="72" y="592" font-size="15" fill="#8A8A92">butteryoon.github.io · 확률값은 보정 전까지 정확도가 아니다</text>
+</svg>
