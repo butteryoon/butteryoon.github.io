@@ -23,6 +23,12 @@ Publishing = commit and push to `master`; GitHub Pages builds automatically. Plu
 - `date` must not be in the future: GitHub Pages excludes future-dated posts from the build (no `future: true` in config), so the post silently won't appear on the site. When writing a new post, set `date` to the current time or earlier (KST, `+0900`).
 - `_config.yml` sets `timezone: Asia/Seoul` so post URLs use KST dates. Do not remove it — without it GitHub Pages builds in UTC and posts published before 09:00 KST get URLs dated one day earlier, breaking internal links.
 - Reference site assets as `{{site.baseurl}}/assets/img/...`.
+- **Diagram/title images use the Paperlogy (페이퍼로지) typeface.** It is installed per-user at `%LOCALAPPDATA%\Microsoft\Windows\Fonts\Paperlogy-*.ttf` (9 weights, Thin→Black) and is *not* a webfont here, so an SVG shipped as the `img:` value would fall back to a system font on every visitor's machine. Author the diagram as SVG with `font-family="Paperlogy-8ExtraBold, Paperlogy, sans-serif"` (weight-specific families — Windows registers each weight separately), then **rasterize it locally and commit the raster**:
+  ```bash
+  "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --disable-gpu --hide-scrollbars     --screenshot=out.png --window-size=1200,630 "file:///<absolute path>/diagram.svg"
+  magick out.png -quality 88 -define webp:method=6 assets/img/<name>_title.webp
+  ```
+  Keep the `.svg` in `assets/img/` as the editable source; point `img:` at the `.webp`. Always view the rendered PNG before committing — check for text overflow and that no Korean glyph fell back.
 - **Every post needs a well-formed `last_modified_at`** — it is the sort key for the home listing (see Structure). Use exactly `YYYY-MM-DD HH:MM:SS +0900`; a malformed value (e.g. one-digit seconds `18:00:0`) is parsed as a String instead of a Time by Ruby's YAML, and the mixed types make the GitHub Pages build fail. Validate with `^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [+-]\d{4}$`.
 - **Posts use two extensions: `.md` and `.markdown`.** When auditing or bulk-editing front matter, glob `_posts/*`, never `_posts/*.md` — 7 older posts are `.markdown` and are silently skipped otherwise.
 

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="생성 대신 채점: 고정 선택지 분류">
   <defs>
     <style>
-      .ko { font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+      .ko { font-family: "Paperlogy", "Paperlogy-5Medium", "Malgun Gothic", sans-serif; }
       .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
     </style>
   </defs>
@@ -9,13 +9,13 @@
   <rect width="1200" height="630" fill="#F7F5F0"/>
   <rect x="0" y="0" width="1200" height="6" fill="#0F5F57"/>
 
-  <text class="ko" x="72" y="96" font-size="42" font-weight="700" fill="#16161A">생성 대신 채점</text>
+  <text class="ko" x="72" y="96" font-size="42" font-weight="700" font-family="Paperlogy-8ExtraBold, Paperlogy, sans-serif" fill="#16161A">생성 대신 채점</text>
   <text class="ko" x="72" y="140" font-size="22" fill="#55555C">고정 선택지 분류를 한 번의 포워드 패스로</text>
 
   <!-- 왼쪽: 생성 -->
   <rect x="72" y="188" width="480" height="356" rx="16" fill="#EFEBE2"/>
-  <text class="ko" x="104" y="232" font-size="15" font-weight="700" fill="#6B6B73" letter-spacing="1.5">기존 · 생성</text>
-  <text class="ko" x="104" y="268" font-size="24" font-weight="700" fill="#16161A">토큰을 하나씩 디코딩</text>
+  <text class="ko" x="104" y="232" font-size="15" font-weight="700" font-family="Paperlogy-7Bold, Paperlogy, sans-serif" fill="#6B6B73" letter-spacing="1.5">기존 · 생성</text>
+  <text class="ko" x="104" y="268" font-size="24" font-weight="700" font-family="Paperlogy-7Bold, Paperlogy, sans-serif" fill="#16161A">토큰을 하나씩 디코딩</text>
 
   <g>
     <rect x="104" y="296" width="72" height="44" rx="8" fill="#C9C3B6"/>
@@ -38,8 +38,8 @@
 
   <!-- 오른쪽: 채점 -->
   <rect x="648" y="188" width="480" height="356" rx="16" fill="#0F5F57"/>
-  <text class="ko" x="680" y="232" font-size="15" font-weight="700" fill="#A7D9D1" letter-spacing="1.5">SGLang · 채점</text>
-  <text class="ko" x="680" y="268" font-size="24" font-weight="700" fill="#FFFFFF">첫 로짓에서 확률만 읽는다</text>
+  <text class="ko" x="680" y="232" font-size="15" font-weight="700" font-family="Paperlogy-7Bold, Paperlogy, sans-serif" fill="#A7D9D1" letter-spacing="1.5">SGLang · 채점</text>
+  <text class="ko" x="680" y="268" font-size="24" font-weight="700" font-family="Paperlogy-7Bold, Paperlogy, sans-serif" fill="#FFFFFF">첫 로짓에서 확률만 읽는다</text>
 
   <g>
     <rect x="680" y="296" width="416" height="40" rx="8" fill="#0B4A44"/>

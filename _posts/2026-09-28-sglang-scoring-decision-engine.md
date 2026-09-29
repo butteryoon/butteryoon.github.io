@@ -3,9 +3,9 @@ layout: post
 comments: true
 title: "생성 대신 채점 — SGLang /v1/score로 오픈 LLM을 분류 엔진으로 쓰기"
 description: "Avi Chawla의 'Build your own Jev (100% local)' 해설. 고정된 선택지 분류에서 텍스트를 생성하지 않고 첫 next-token 로짓만 읽어 확률 분포를 얻는 방식, SGLang /v1/score 사용법, 단일 토큰 레이블 제약, 그리고 보정 없이는 확률이 정확도가 아니라는 한계를 정리한다."
-img: sglang_scoring_title.svg
+img: sglang_scoring_title.webp
 date: 2026-09-28 23:40:00 +0900
-last_modified_at: 2026-09-28 23:40:00 +0900
+last_modified_at: 2026-09-29 20:05:00 +0900
 tags: [sglang, scoring, classification, local-llm, qwen, inference, logits, jev, llm-serving, llm]
 related: llm-serving
 categories: dev
