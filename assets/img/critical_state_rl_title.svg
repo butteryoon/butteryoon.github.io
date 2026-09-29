@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Critical-State RL: 훈련할 턴은 진단으로 고른다">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap");
+      .ko { font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#1D4ED8"/>
+
+  <text class="ko" x="72" y="92" font-size="40" font-weight="700" fill="#16161A" letter-spacing="-0.01em">훈련할 턴은 진단으로 고른다</text>
+  <text class="ko" x="72" y="134" font-size="20" fill="#55555C">같은 벤치마크라도 학습해야 할 턴의 위치는 과제마다 달랐다</text>
+
+  <!-- miss_func -->
+  <rect x="72" y="182" width="512" height="316" rx="16" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="mono" x="104" y="222" font-size="15" font-weight="600" fill="#1D4ED8">BFCL v4 · miss_func</text>
+  <text class="ko" x="104" y="252" font-size="16" fill="#55555C">도구가 turn k까지 감춰진다</text>
+
+  <rect x="104" y="274" width="200" height="66" rx="10" fill="#F2EFE7"/>
+  <text class="ko" x="120" y="300" font-size="14" font-weight="700" fill="#6B6B73">turn k−1 · 결정</text>
+  <text class="ko" x="120" y="324" font-size="14" fill="#6B6B73">보류하거나 읽기만</text>
+
+  <rect x="320" y="274" width="232" height="66" rx="10" fill="#1D4ED8"/>
+  <text class="ko" x="336" y="300" font-size="14" font-weight="700" fill="#BBD0FB">turn k · 복구  ← 선택됨</text>
+  <text class="ko" x="336" y="324" font-size="14" fill="#DCE7FD">감춰둔 호출을 낸다</text>
+
+  <text class="ko" x="104" y="380" font-size="15" fill="#45454C">선택된 턴을 학습</text>
+  <text class="mono" x="552" y="380" font-size="19" font-weight="600" fill="#15803D" text-anchor="end">0.140 → 0.283</text>
+  <text class="ko" x="104" y="414" font-size="15" fill="#45454C">다른 턴을 학습</text>
+  <text class="mono" x="552" y="414" font-size="19" font-weight="600" fill="#B91C1C" text-anchor="end">0.140 → 0.095</text>
+
+  <line x1="104" y1="438" x2="552" y2="438" stroke="#E2DED4" stroke-width="1"/>
+  <text class="ko" x="104" y="470" font-size="15" fill="#16161A">차이</text>
+  <text class="mono" x="552" y="470" font-size="19" font-weight="600" fill="#16161A" text-anchor="end">+14.3pp  vs  −4.5pp</text>
+
+  <!-- miss_param -->
+  <rect x="616" y="182" width="512" height="316" rx="16" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="mono" x="648" y="222" font-size="15" font-weight="600" fill="#1D4ED8">BFCL v4 · miss_param</text>
+  <text class="ko" x="648" y="252" font-size="16" fill="#55555C">인자가 빠진 채 요청이 온다</text>
+
+  <rect x="648" y="274" width="232" height="66" rx="10" fill="#1D4ED8"/>
+  <text class="ko" x="664" y="300" font-size="14" font-weight="700" fill="#BBD0FB">결정 턴  ← 선택됨</text>
+  <text class="ko" x="664" y="324" font-size="14" fill="#DCE7FD">여기서 학습해야 오른다</text>
+
+  <rect x="896" y="274" width="200" height="66" rx="10" fill="#F2EFE7"/>
+  <text class="ko" x="912" y="300" font-size="14" font-weight="700" fill="#6B6B73">복구 턴</text>
+  <text class="ko" x="912" y="324" font-size="14" fill="#6B6B73">효과가 거의 없다</text>
+
+  <text class="ko" x="648" y="380" font-size="15" fill="#45454C">선택된 턴을 학습</text>
+  <text class="mono" x="1096" y="380" font-size="19" font-weight="600" fill="#15803D" text-anchor="end">0.435 → 0.473</text>
+  <text class="ko" x="648" y="414" font-size="15" fill="#45454C">다른 턴을 학습</text>
+  <text class="mono" x="1096" y="414" font-size="19" font-weight="600" fill="#6B6B73" text-anchor="end">0.435 → 0.445</text>
+
+  <line x1="648" y1="438" x2="1096" y2="438" stroke="#E2DED4" stroke-width="1"/>
+  <text class="ko" x="648" y="470" font-size="15" fill="#16161A">차이</text>
+  <text class="mono" x="1096" y="470" font-size="19" font-weight="600" fill="#16161A" text-anchor="end">+3.8pp  vs  +1.0pp</text>
+
+  <text class="ko" x="72" y="546" font-size="16" fill="#45454C">miss_func는 복구 턴이, miss_param은 결정 턴이 훈련 대상이었다 · 위치를 미리 정해 둘 수 없다는 뜻이다</text>
+  <text class="ko" x="72" y="586" font-size="14" fill="#8A8A92">arXiv:2609.24985 · Gemma-4-26B-A4B, 4개 시드 · butteryoon.github.io</text>
+</svg>
