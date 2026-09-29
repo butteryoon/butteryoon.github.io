@@ -60,7 +60,7 @@
   </g>
 
   <line x1="680" y1="462" x2="1096" y2="462" stroke="#2E7A72" stroke-width="1"/>
-  <text class="ko" x="680" y="496" font-size="16" fill="#DCEFEC">디코딩 루프 없음 · 정의역이 레이블에 닫혀 있다</text>
+  <text class="ko" x="680" y="496" font-size="16" fill="#DCEFEC">디코딩 루프 없음 · 답이 레이블 밖으로 못 나간다</text>
   <text class="ko" x="680" y="524" font-size="16" fill="#A7D9D1">단, 레이블은 단일 토큰이어야 한다</text>
 
   <text class="ko" x="72" y="592" font-size="15" fill="#8A8A92">butteryoon.github.io · 확률값은 보정 전까지 정확도가 아니다</text>
