@@ -31,7 +31,7 @@ Publishing = commit and push to `master`; GitHub Pages builds automatically. Plu
   ```
   `--virtual-time-budget` is required — without it Chrome shoots before the webfont arrives and the text falls back. Keep the `.svg` as the editable source; point `img:` at the `.webp`. Always view the rendered PNG before committing: check for text overflow and that no Korean glyph fell back.
 - **Every post needs a well-formed `last_modified_at`** — it is the sort key for the home listing (see Structure). Use exactly `YYYY-MM-DD HH:MM:SS +0900`; a malformed value (e.g. one-digit seconds `18:00:0`) is parsed as a String instead of a Time by Ruby's YAML, and the mixed types make the GitHub Pages build fail. Validate with `^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [+-]\d{4}$`.
-- **Posts use two extensions: `.md` and `.markdown`.** When auditing or bulk-editing front matter, glob `_posts/*`, never `_posts/*.md` — 7 older posts are `.markdown` and are silently skipped otherwise.
+- **All posts are `.md`.** The 7 remaining `.markdown` files were renamed on 2026-10-01 (`git mv`, URLs verified identical before/after — the permalink slug comes from the filename, not the extension). Keep new posts `.md`: a mixed set previously caused silent misses when globbing `_posts/*.md`, which is how two posts lost `last_modified_at` and broke a Pages build.
 
 ## Structure
 
