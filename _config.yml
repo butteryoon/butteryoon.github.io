@@ -20,7 +20,7 @@ social-email: softroom@naver.com # add your Email address
 disqus-identifier: awesome-life # add your disqus identifier
 
 # Tracker
-analytics: # Google Analytics 4 측정 ID(G-XXXXXXXXXX). 비워 두면 추적 스크립트를 넣지 않는다. UA-126917874-1 은 2023-07 서비스 종료로 제거함
+analytics: G-YVHV7F22LT # Google Analytics 4 측정 ID(G-XXXXXXXXXX). 비워 두면 추적 스크립트를 넣지 않는다. UA-126917874-1 은 2023-07 서비스 종료로 제거함
 
 # Build Settings
 markdown: kramdown
