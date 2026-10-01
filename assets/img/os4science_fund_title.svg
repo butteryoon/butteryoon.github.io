@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="과학 모델 아래의 소프트웨어 유지보수">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap");
+      .ko { font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#0F5F57"/>
+
+  <text class="ko" x="72" y="92" font-size="40" font-weight="700" fill="#16161A" letter-spacing="-0.01em">보이는 건 모델, 떠받치는 건 라이브러리</text>
+  <text class="ko" x="72" y="134" font-size="20" fill="#55555C">Hugging Face와 Open Source for Science Fund가 그 아래층을 찾아 지원한다</text>
+
+  <!-- 윗층: 모델 -->
+  <rect x="72" y="182" width="1056" height="132" rx="14" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="104" y="216" font-size="14" font-weight="700" letter-spacing="0.1em" fill="#8A8A92">보이는 층 · 과학 모델</text>
+  <text class="ko" x="104" y="256" font-size="22" font-weight="700" fill="#16161A">ESM-2 (2022년 공개)</text>
+  <text class="ko" x="104" y="288" font-size="16" fill="#55555C">지금도 월 수십만 회 내려받는다</text>
+
+  <line x1="700" y1="206" x2="700" y2="292" stroke="#E2DED4" stroke-width="1"/>
+  <text class="mono" x="740" y="246" font-size="26" font-weight="600" fill="#0F5F57">~200</text>
+  <text class="ko" x="740" y="272" font-size="14" fill="#6B6B73">매달 새로 공유되는 과학 모델</text>
+  <text class="mono" x="952" y="246" font-size="26" font-weight="600" fill="#0F5F57">40M+</text>
+  <text class="ko" x="952" y="272" font-size="14" fill="#6B6B73">과학 모델 누적 다운로드</text>
+
+  <!-- 화살표 -->
+  <path d="M 600 320 L 600 352" stroke="#A9A296" stroke-width="2"/>
+  <path d="M 594 344 L 600 354 L 606 344 Z" fill="#A9A296"/>
+  <text class="ko" x="618" y="344" font-size="14" fill="#6B6B73">무엇에 기대고 있나</text>
+
+  <!-- 아랫층: 소프트웨어 -->
+  <rect x="72" y="364" width="1056" height="128" rx="14" fill="#0F5F57"/>
+  <text class="ko" x="104" y="398" font-size="14" font-weight="700" letter-spacing="0.1em" fill="#A7D9D1">안 보이는 층 · 소프트웨어와 유지보수자</text>
+  <text class="ko" x="104" y="438" font-size="22" font-weight="700" fill="#FFFFFF">모델이 오래 남는 건 누군가 계속 고치기 때문이다</text>
+  <text class="ko" x="104" y="470" font-size="16" fill="#DCEFEC">Hub의 모델별 의존 라이브러리 정보를 모으면 과학 연구가 기대는 인프라 지도가 된다</text>
+
+  <!-- 계보 -->
+  <rect x="72" y="518" width="1056" height="68" rx="12" fill="#EFEBE2"/>
+  <text class="ko" x="104" y="548" font-size="15" font-weight="700" fill="#16161A">선행 프로그램 · CZI EOSS (2019~)</text>
+  <text class="ko" x="104" y="572" font-size="15" fill="#55555C">6년간 230개 넘는 프로젝트에 5,800만 달러 — 새 펀드는 이 토대 위에 AI 시대를 겨냥한다</text>
+  <text class="mono" x="1096" y="547" font-size="14" fill="#6B6B73" text-anchor="end">Renaissance Philanthropy 운영 · Biohub, Wellcome 시드</text>
+</svg>
