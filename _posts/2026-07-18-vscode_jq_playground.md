@@ -6,7 +6,7 @@ description: "jq 필터를 노트북처럼 실행하며 실험할 수 있는 VS 
 img: vscode-title.jpg
 date: 2026-07-18 18:00:00 +0900
 last_modified_at: 2026-07-18 18:00:00 +0900
-tags: [jq, vscode, Visual Studio Code, json, jq playground] # add tag
+tags: [jq, vscode, Visual Studio Code, json, jq playground, devtool]
 related: jq
 categories: tools
 ---

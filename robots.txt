@@ -22,5 +22,6 @@ Allow: /
 
 # Sitemaps and AI-friendly Indexes
 Sitemap: https://butteryoon.github.io/sitemap.xml
+Sitemap: https://butteryoon.github.io/sitemap-posts.xml
 # Info: https://butteryoon.github.io/llms.txt
 # Info: https://butteryoon.github.io/llms-full.txt
