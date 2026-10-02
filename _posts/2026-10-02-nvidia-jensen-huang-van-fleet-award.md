@@ -9,6 +9,8 @@ last_modified_at: 2026-10-02 20:00:00 +0900
 tags: [nvidia, jensen-huang, korea, van-fleet-award, ai-infrastructure, sovereign-ai]
 related: nvidia
 categories: [nvidia, ai-infrastructure, korea]
+source_url: https://blogs.nvidia.co.kr/blog/korea-society-award-2026/
+source_date: 2026-10-01
 ---
 
 NVIDIA 젠슨 황 CEO가 2026년 9월 28일(현지 시각) 미국 뉴욕에서 열린 코리아 소사이어티(The Korea Society) 연례 갈라에서 2026 밴 플리트상(James A. Van Fleet Award)을 받았다. NVIDIA 코리아 블로그가 10월 1일 전한 소식을 정리하고 같은 블로그에 올라온 한국 관련 발표 몇 건을 함께 묶었다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

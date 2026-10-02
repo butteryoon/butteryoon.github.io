@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="OpenAI DevDay 2026 발표 요약">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap");
+      .ko { font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#16161A"/>
+
+  <text class="ko" x="72" y="90" font-size="40" font-weight="700" fill="#16161A" letter-spacing="-0.01em">OpenAI DevDay 2026, 하루에 쏟아진 것들</text>
+  <text class="ko" x="72" y="132" font-size="20" fill="#55555C">Simon Willison의 현장 라이브 블로그에서 확인된 발표와 수치</text>
+
+  <!-- 카드 1 -->
+  <rect x="72" y="180" width="340" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="96" y="212" font-size="19" font-weight="700" fill="#16161A">GPT-6.1 Sol</text>
+  <text class="ko" x="96" y="238" font-size="14" fill="#6B6B73">Astra 대비 가격 (100만 토큰)</text>
+  <text class="mono" x="96" y="272" font-size="15" fill="#55555C">입력   $10.00 →</text>
+  <text class="mono" x="268" y="272" font-size="17" font-weight="600" fill="#15803D">$2.00</text>
+  <text class="mono" x="96" y="298" font-size="15" fill="#55555C">출력   $50.00 →</text>
+  <text class="mono" x="268" y="298" font-size="17" font-weight="600" fill="#15803D">$10.00</text>
+
+  <!-- 카드 2 -->
+  <rect x="430" y="180" width="340" height="150" rx="12" fill="#16161A"/>
+  <text class="ko" x="454" y="212" font-size="19" font-weight="700" fill="#FFFFFF">Ultrafast</text>
+  <text class="ko" x="454" y="238" font-size="14" fill="#A3A6AC">속도 전용 티어</text>
+  <text class="mono" x="454" y="282" font-size="34" font-weight="600" fill="#FFFFFF">300</text>
+  <text class="ko" x="528" y="282" font-size="15" fill="#A3A6AC">tok/s · 8배 빠름</text>
+  <text class="ko" x="454" y="310" font-size="14" fill="#A3A6AC">대신 표준 요금의 6배</text>
+
+  <!-- 카드 3 -->
+  <rect x="788" y="180" width="340" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="812" y="212" font-size="19" font-weight="700" fill="#16161A">ChatGPT Sites</text>
+  <text class="ko" x="812" y="238" font-size="14" fill="#6B6B73">공유형 사내 도구</text>
+  <text class="mono" x="812" y="282" font-size="34" font-weight="600" fill="#16161A">8M</text>
+  <text class="ko" x="884" y="282" font-size="15" fill="#6B6B73">개 사이트</text>
+  <text class="ko" x="812" y="310" font-size="14" fill="#6B6B73">OpenAI 직원 70%가 직접 제작</text>
+
+  <!-- 카드 4 -->
+  <rect x="72" y="352" width="340" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="96" y="384" font-size="19" font-weight="700" fill="#16161A">Codex Security Cloud</text>
+  <text class="ko" x="96" y="410" font-size="14" fill="#6B6B73">스캔 → 패치 → 검증 자동화</text>
+  <text class="mono" x="96" y="446" font-size="15" fill="#55555C">중복 제거</text>
+  <text class="mono" x="268" y="446" font-size="17" font-weight="600" fill="#16161A">36%</text>
+  <text class="mono" x="96" y="472" font-size="15" fill="#55555C">패치 롤백률</text>
+  <text class="mono" x="268" y="472" font-size="17" font-weight="600" fill="#15803D">1%</text>
+
+  <!-- 카드 5 -->
+  <rect x="430" y="352" width="340" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="454" y="384" font-size="19" font-weight="700" fill="#16161A">dots</text>
+  <text class="ko" x="454" y="410" font-size="14" fill="#6B6B73">Astra로 돌아가는 개인 에이전트</text>
+  <text class="ko" x="454" y="444" font-size="14" fill="#55555C">Slack·Teams에 별도 계정으로 참여</text>
+  <text class="ko" x="454" y="470" font-size="14" fill="#55555C">팀 공용 공간 ChatGPT Space</text>
+
+  <!-- 카드 6 -->
+  <rect x="788" y="352" width="340" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="812" y="384" font-size="19" font-weight="700" fill="#16161A">에이전트 성공률</text>
+  <text class="ko" x="812" y="410" font-size="14" fill="#6B6B73">무개입 8~16시간 작업 기준</text>
+  <text class="mono" x="812" y="452" font-size="28" font-weight="600" fill="#6B6B73">10%</text>
+  <text class="ko" x="884" y="452" font-size="16" fill="#8E9096">→</text>
+  <text class="mono" x="912" y="452" font-size="28" font-weight="600" fill="#15803D">35%</text>
+  <text class="ko" x="812" y="478" font-size="14" fill="#6B6B73">2026년 1월 → 7월</text>
+
+  <text class="ko" x="72" y="556" font-size="15" fill="#45454C">Decisions API(Luna), Sign in with ChatGPT, Plugin Extensions, Marketplace도 같은 날 공개됐다</text>
+  <text class="ko" x="72" y="588" font-size="14" fill="#8A8A92">출처: simonwillison.net 라이브 블로그 (2026-09-29) · butteryoon.github.io</text>
+</svg>
