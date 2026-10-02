@@ -42,7 +42,7 @@ RAG = "질문할 때, AI가 답을 지어내지 않고 **관련 문서를 먼저
 
 키워드 방식 vs 시맨틱 방식을 한눈에 보여주는 그림 (Zilliz 모델 카드 발췌):
 
-![키워드 vs 시맨틱 하이라이트 비교]({{site.baseurl}}/assets/img/semantic_vs_keyword_highlight.png)
+![키워드 vs 시맨틱 하이라이트 비교]({{site.baseurl}}/assets/img/semantic_vs_keyword_highlight.webp)
 
 - **왼쪽(키워드)**: "iPhone battery life strong"이라는 질문 단어와 똑같은 글자가 없어서 **아무것도 강조 못 함** (Failure)
 - **오른쪽(시맨틱)**: 글자는 달라도 뜻이 통하는 "5000mAh large battery", "fast charging", "lasts two days on a single charge"가 노란색 (Success)

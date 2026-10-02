@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "Hermes Agent 메모리·스킬 업데이트 자동화 — 2026-08-05 작업 로그"
-description: "Memory 용량 한도 해결을 위해 불필요 항목 삭제 후 블로그 포맷 규칙을 한 줄로 압축 저장하고, blog-post-authoring 스킬의 references/blog-format.md 와 templates/post-template.md 를 최신 발행 글 기준으로 패치한 전체 과정을 기록한다."
+description: "Memory 용량 한도 해결을 위해 불필요 항목 삭제 후 블로그 포맷 규칙을 한 줄로 압축 저장하고, blog-post-authoring 스킬의 references/blog-format.md 와 templates/post-template.md 를 최신 발행 글 기준으로 패치한 전체."
 img: memory_skill_title.webp
 date: 2026-08-05 01:13:10 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900

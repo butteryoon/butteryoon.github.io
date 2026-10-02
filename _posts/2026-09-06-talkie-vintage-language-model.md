@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "Talkie — 1931년 이전 텍스트만으로 학습한 13B 빈티지 언어모델"
-description: "Alec Radford·Nick Levine·David Duvenaud 팀이 공개한 talkie-1930 해설. 1931년 이전 영어 텍스트 260B 토큰(전량 OCR)으로 학습한 13B 오픈웨이트 모델과, 같은 아키텍처·연산량의 FineWeb 쌍둥이 모델로 구성된 통제 실험 설계를 살펴본다."
+description: "Alec Radford·Nick Levine·David Duvenaud 팀이 공개한 talkie-1930 해설. 1931년 이전 영어 텍스트 260B 토큰(전량 OCR)으로 학습한 13B 오픈웨이트 모델과, 같은 아키텍처·연산량의 FineWeb 쌍둥이 모델로 구성된 통제 실험."
 img: talkie-vintage-title.webp
 date: 2026-09-06 00:45:00 +0900
 last_modified_at: 2026-09-06 00:45:00 +0900

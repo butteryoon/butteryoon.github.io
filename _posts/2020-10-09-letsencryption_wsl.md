@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "WSL Ubuntu 20.04 LTS에서 letsencrypt-auto 오류"
+description: "WSL을 Ubuntu 20.04로 새로 설치한 뒤 letsencrypt-auto 스크립트가 실패하는 문제. 이전 버전과 달라진 점을 확인하고 인증서만 발급하는 경로를 찾은 기록이다."
 img: "letsencryption.png"
 date: 2020-10-09 12:00:00 +0900
 last_modified_at: 2026-07-15 15:20:00 +0900

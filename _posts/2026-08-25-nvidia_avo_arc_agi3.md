@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "NVIDIA AVO, ARC-AGI-3 100% 달성 — 장기 자율 에이전트의 핵심은 모델이 아니라 시스템이다"
+title: "NVIDIA AVO, ARC-AGI-3 100% 달성 — 핵심은 모델이 아니라 시스템"
 description: "NVIDIA 테크니컬 블로그 해설. AVO(Agentic Variation Operators) 에이전트 시스템이 GPU 커널 최적화와 ARC-AGI-3 인터랙티브 추론이라는 상이한 도메인에서 지속 메모리·슈퍼바이저·자율 실행 루프만으로 100% 성과를 낸 과정을 정리한다."
 img: multi_agent_network.jpg
 date: 2026-08-25 18:20:00 +0900

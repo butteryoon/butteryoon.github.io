@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Windows 에서 iCloud 설치 오류"
+description: "윈도우즈에 iCloud를 설치할 때 나온 Media Player 관련 오류와 해결 과정. 현재는 Microsoft Store 설치만 지원되어 이 오류가 발생하지 않는다는 점도 덧붙였다."
 img: icloud.png
 date: 2019-03-04 17:00:00 +0900
 tags: [iCloud, 아이클라우드] # add tag

@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "NVIDIA Vera Rubin NVL72, MLPerf Inference v6.1 첫 출전에서 최고 성능 기록"
+title: "Vera Rubin NVL72, MLPerf Inference v6.1 첫 출전 1위"
 description: "Vera Rubin NVL72가 MLPerf Inference v6.1 프리뷰 제출에서 GB300 NVL72 대비 Qwen3-VL 최대 3.7배, DeepSeek-R1 최대 2.5배 처리량을 냈다. GB300 NVL72는 4랙 288-GPU 구성에서 99% 확장 효율을 기록했다."
 img: vera_rubin_mlperf_inference_title.webp
 date: 2026-09-25 19:30:00 +0900

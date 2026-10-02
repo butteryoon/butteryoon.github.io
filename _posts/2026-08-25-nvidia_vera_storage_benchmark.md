@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "NVIDIA Vera 스토리지 벤치마크 — AI 네이티브 스토리지의 암호화·압축·무결성 검사 가속"
-description: "NVIDIA 테크니컬 블로그 해설. Vera CPU(Olympus 코어 88개) 기반 BlueField-4 STX 스토리지 프로세서가 x86 대비 암호화 1.43배, Reed-Solomon 복구 3.26배, CRC32C 3.67배, 압축 3.29배의 처리량을 내는 벤치마크 결과와 방법론을 정리한다."
+description: "NVIDIA 테크니컬 블로그 해설. Vera CPU(Olympus 코어 88개) 기반 BlueField-4 STX 스토리지 프로세서가 x86 대비 암호화 1.43배, Reed-Solomon 복구 3.26배, CRC32C 3.67배, 압축 3.29배의 처리량을 내는 벤치마크 결과와."
 img: vera_storage_title.webp
 date: 2026-08-25 18:25:00 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900

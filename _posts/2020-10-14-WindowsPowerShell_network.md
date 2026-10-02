@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Windows PowerShell 네트워크 상태 확인하기"
+description: "PowerShell의 Test-NetConnection으로 윈도우즈 10에서 네트워크 상태를 확인하는 방법. ping 대체부터 특정 포트 연결 확인, 경로 추적까지 상황별 사용법을 정리한다."
 img: "powershell_title.jpg"
 date: 2020-10-14 14:00:00 +0900
 last_modified_at: 2020-10-14 14:00:00 +0900

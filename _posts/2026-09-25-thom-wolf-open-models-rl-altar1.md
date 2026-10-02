@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "Thomas Wolf(@Thom_Wolf) X 트윗 분석: 10주간 쏟아진 오픈 모델, RL 환경 공개, 보안 모델 Altar-1"
+title: "Thomas Wolf 트윗: 10주간의 오픈 모델, RL 환경 공개, 보안 모델 Altar-1"
 description: "Hugging Face 공동창업자 Thomas Wolf가 9월 22~25일(KST) 올린 트윗 정리 — 10주간 오픈 모델 릴리스 목록, 오픈소스 RL 환경의 가치, GLM-5.3을 가지치기한 오픈웨이트 보안 모델 Altar-1, 지능 비용 하락에 대한 생각"
 img: thom_wolf_open_models_title.webp
 date: 2026-09-25 18:00:00 +0900

@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "RAGAS 평가 방법론 — RAG 시스템을 정량적으로 검증하는 실전 가이드"
-description: "RAGAS(Retrieval Augmented Generation Assessment)의 4대 핵심 메트릭(Faithfulness, Answer Relevancy, Context Precision, Context Recall) 원리와 파이프라인 적용법, 실무에서 겪는 함정과 대응 전략을 정리한다."
+description: "RAGAS(Retrieval Augmented Generation Assessment)의 4대 핵심 메트릭(Faithfulness, Answer Relevancy, Context Precision, Context Recall) 원리와 파이프라인 적용법, 실무에서 겪는 함정과 대응."
 img: ragas-evaluation.webp
 date: 2026-08-29 00:20:00 +0900
 last_modified_at: 2026-08-29 00:20:00 +0900

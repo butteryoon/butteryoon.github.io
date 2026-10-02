@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Sleep 모드 이후 WSL 네트워크 안됨"
+description: "노트북을 덮었다 열면 WSL2에서 네트워크가 끊기는 문제. LxssManager 재시작으로 풀던 방법과, 현재 표준인 WslService 재시작 또는 wsl --shutdown 방식을 함께 정리했다."
 img: wsl.png
 date: 2020-09-09 20:00:00 +0900
 tags: [wsl, wsl2, wslconfig] # add tag

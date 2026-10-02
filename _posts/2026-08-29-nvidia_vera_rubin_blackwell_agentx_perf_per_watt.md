@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "NVIDIA Vera Rubin·Blackwell — AgentX 벤치마크로 본 와트당 에이전틱 AI 성능의 새 기준"
-description: "NVIDIA 테크니컬 블로그 해설. SemiAnalysis AgentX 벤치마크에서 Vera Rubin NVL72가 GB300 NVL72 대비 메가와트당 30배, GB300 NVL72가 H200 NVL8 대비 15~80배 처리량 우위를 보인 결과와 Dynamo·NVLink·MoE 런타임 최적화가 만든 효율성 격차를 정리한다."
+title: "Vera Rubin·Blackwell — AgentX로 본 와트당 에이전틱 AI 성능"
+description: "NVIDIA 테크니컬 블로그 해설. SemiAnalysis AgentX 벤치마크에서 Vera Rubin NVL72가 GB300 NVL72 대비 메가와트당 30배, GB300 NVL72가 H200 NVL8 대비 15~80배 처리량 우위를 보인 결과와 Dynamo·NVLink·MoE."
 img: agentx_title.webp
 date: 2026-08-29 18:01:11 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900

@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "NAVER Cloud의 Megatron Bridge 멀티모달 사전 학습 최적화 사례 해설"
-description: "NVIDIA 테크니컬 블로그의 NAVER Cloud 사례 분석. HyperCLOVA X SEED Omni와 30B MoE VLM의 멀티모달 사전 학습에서 스토리지 I/O, 시퀀스 패킹, 비전 인코더, Context Parallelism 4개 병목을 최적화해 throughput을 baseline 대비 150.2%로 끌어올린 과정을 정리한다."
+description: "NVIDIA 테크니컬 블로그의 NAVER Cloud 사례 분석. HyperCLOVA X SEED Omni와 30B MoE VLM의 멀티모달 사전 학습에서 스토리지 I/O, 시퀀스 패킹, 비전 인코더, Context Parallelism 4개 병목을 최적화해 throughput을."
 img: megatron_title.webp
 date: 2026-08-22 20:20:00 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900

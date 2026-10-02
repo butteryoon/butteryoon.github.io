@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "NVIDIA 로보택시 3대 컴퓨터 — 학습·시뮬레이션·차량 내 컴퓨팅과 채택 기업 지도"
-description: "NVIDIA 블로그 코리아 해설. 로보택시 개발 주기를 DGX 학습, RTX PRO 기반 Omniverse·Cosmos 시뮬레이션·검증, DRIVE AGX Thor 기반 Hyperion 10 차량 내 컴퓨터로 나눈 NVIDIA의 구도와, Uber·Waymo·Zoox·현대차그룹 등 모빌리티 사업자·AV 개발사·완성차 업체의 채택 현황을 정리한다."
+description: "NVIDIA 블로그 코리아 해설. 로보택시 개발 주기를 DGX 학습, RTX PRO 기반 Omniverse·Cosmos 시뮬레이션·검증, DRIVE AGX Thor 기반 Hyperion 10 차량 내 컴퓨터로 나눈 NVIDIA의 구도와, Uber·Waymo·Zoox·현대차그룹 등."
 img: nvidia_robotaxi_full_stack_title.webp
 date: 2026-09-26 20:30:00 +0900
 last_modified_at: 2026-09-26 20:30:00 +0900

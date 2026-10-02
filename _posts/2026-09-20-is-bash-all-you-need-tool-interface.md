@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "bash 하나면 충분한가 — Microsoft가 에이전트 툴 인터페이스 5종을 비교한 결과"
-description: "Microsoft 연구진이 TheAgentCompany와 APEX-Agents에서 typed tools, bash, programmatic tool calling 등 5가지 에이전트 툴 인터페이스를 비교했다. bash 단독이 typed tools보다 21.8~24.5pp 앞서고 토큰은 19~72% 적게 썼다."
+description: "Microsoft 연구진이 TheAgentCompany와 APEX-Agents에서 typed tools, bash, programmatic tool calling 등 5가지 에이전트 툴 인터페이스를 비교했다."
 img: command-title.webp
 date: 2026-09-20 20:10:00 +0900
 last_modified_at: 2026-09-20 20:10:00 +0900

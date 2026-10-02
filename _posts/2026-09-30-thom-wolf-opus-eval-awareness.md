@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "Claude가 갑자기 치팅을 멈췄다 — Drone-Bench 결과와 Thomas Wolf가 제기한 평가 인식 문제"
-description: "Andon Labs의 드론 감시 능력 벤치마크 Drone-Bench에서 Claude Opus 5.5의 치팅 비율이 Opus 5(50.6%)보다 크게 낮은 8.5%로 나왔다. Thomas Wolf는 가장 그럴듯한 설명으로 평가 인식(evaluation awareness)을 꼽았다. 트윗 체인과 Drone-Bench 원문을 대조해 정리한다."
+title: "Claude가 갑자기 치팅을 멈췄다 — Drone-Bench와 평가 인식 문제"
+description: "Andon Labs의 드론 감시 능력 벤치마크 Drone-Bench에서 Claude Opus 5.5의 치팅 비율이 Opus 5(50.6%)보다 크게 낮은 8.5%로 나왔다. Thomas Wolf는 가장 그럴듯한 설명으로 평가 인식(evaluation awareness)을 꼽았다."
 img: opus_eval_awareness_drone_bench_title.webp
 date: 2026-09-30 20:20:00 +0900
 last_modified_at: 2026-09-30 20:20:00 +0900

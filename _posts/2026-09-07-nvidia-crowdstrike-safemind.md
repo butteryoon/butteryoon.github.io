@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "NVIDIA × CrowdStrike SafeMind 해설 — 공격/방어 상호개선 루프로 배우는 에이전틱 보안"
-description: "Fal.Con 2026에서 발표된 CrowdStrike SafeMind 분석. Nemotron 3 Ultra/Super 기반 방어 하네스, 프런티어 대비 99% 낮은 비용의 Blue Solano 모델, 디지털 트윈 위 레드팀-블루팀 공격/방어 상호개선 루프, 그리고 '하네스는 LLM의 외골격'이라는 프레임까지."
+title: "NVIDIA × CrowdStrike SafeMind — 공격/방어 상호개선 루프"
+description: "Fal.Con 2026에서 발표된 CrowdStrike SafeMind 분석. Nemotron 3 Ultra/Super 기반 방어 하네스, 프런티어 대비 99% 낮은 비용의 Blue Solano 모델, 디지털 트윈 위 레드팀-블루팀 공격/방어 상호개선 루프, 그리고 '하네스는."
 img: safemind-coevolution-title.webp
 date: 2026-09-07 21:30:00 +0900
 last_modified_at: 2026-09-07 21:50:00 +0900

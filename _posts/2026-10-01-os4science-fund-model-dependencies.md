@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "모델 아래층을 누가 고치고 있나 — Hugging Face와 Open Source for Science Fund의 협업"
-description: "ESM-2는 2022년에 나왔는데 지금도 월 수십만 회 내려받는다. 누군가 그 아래 소프트웨어를 계속 고치고 있기 때문이다. Hugging Face와 Open Source for Science Fund가 Hub의 의존 라이브러리 정보를 모아 과학 연구가 기대는 인프라 지도를 그리고, 그 유지보수자를 지원한다."
+title: "모델 아래층을 누가 고치고 있나 — Hugging Face × OS4Science Fund"
+description: "ESM-2는 2022년에 나왔는데 지금도 월 수십만 회 내려받는다. 누군가 그 아래 소프트웨어를 계속 고치고 있기 때문이다. Hugging Face와 Open Source for Science Fund가 Hub의 의존 라이브러리 정보로 인프라 지도를 그려 유지보수자를 지원한다."
 img: os4science_fund_title.webp
 date: 2026-10-01 23:55:00 +0900
 last_modified_at: 2026-10-01 23:55:00 +0900

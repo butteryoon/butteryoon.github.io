@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "LINE Engineering — LLM에게 어디까지 맡길 것인가, 광고 분석 리포트 자동화"
-description: "LY Corporation 기술 블로그 해설. 단일 프롬프트로 리포트를 만들다 실패한 뒤 계산은 코드에, 해석은 LLM에 맡기고 원인 탐색은 탐색 그래프로 범위를 제한한 ReAct 에이전트에 넘긴 과정, 증거 등급화와 섹션별 컨텍스트 분리, Langfuse 트레이싱과 평가 루브릭까지 정리한다."
+description: "LY Corporation 기술 블로그 해설. 단일 프롬프트로 리포트를 만들다 실패한 뒤 계산은 코드에, 해석은 LLM에 맡기고 원인 탐색은 탐색 그래프로 범위를 제한한 ReAct 에이전트에 넘긴 과정, 증거 등급화와 섹션별 컨텍스트 분리, Langfuse 트레이싱과 평가."
 img: line_ad_report_agent_title.webp
 date: 2026-09-19 19:40:00 +0900
 last_modified_at: 2026-09-19 19:40:00 +0900

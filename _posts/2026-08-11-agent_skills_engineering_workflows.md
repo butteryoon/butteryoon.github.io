@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "Agent Skills: AI 코딩 에이전트용 프로덕션급 24개 엔지니어링 스킬 모음 — SDLC 전체를 커버하는 워크플로우"
-description: "Google Chrome DevRel 리드 Addy Osmani가 공개한 agent-skills 프로젝트 분석. 소프트웨어 개발 생명주기 6단계(Define/Plan/Build/Verify/Review/Ship)를 24개 구조화된 스킬로 구현. 안티-합리화 테이블, 전문가 페르소나, 7개 슬래시 커맨드까지 실제 설치·사용법 정리."
+title: "Agent Skills: AI 코딩 에이전트용 엔지니어링 스킬 24개"
+description: "Google Chrome DevRel 리드 Addy Osmani가 공개한 agent-skills 프로젝트 분석. 소프트웨어 개발 생명주기 6단계(Define/Plan/Build/Verify/Review/Ship)를 24개 구조화된 스킬로 구현."
 img: tools_title.jpg
 date: 2026-08-11 23:56:00 +0900
 last_modified_at: 2026-08-12 00:50:00 +0900

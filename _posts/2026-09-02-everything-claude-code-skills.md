@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "Everything Claude Code (ECC) 스킬 가이드: AI 코딩 에이전트 워크플로우와 모듈형 하네스 분석"
+title: "Everything Claude Code (ECC) 스킬 가이드 — 모듈형 하네스 분석"
 description: "Claude Code 및 AI 코딩 에이전트의 생산성을 높이는 Everything Claude Code(ECC) 하네스의 구조, 핵심 스킬(TDD, 보안, 코드 리뷰)과 설치·활용법을 정리한다."
 img: api_code_title.jpg
 date: 2026-09-02 00:50:00 +0900

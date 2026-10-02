@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "Compound Engineering 플러그인 — AI 코딩 루프를 누적 학습으로 바꾸기"
-description: "Every의 오픈소스 Compound Engineering 플러그인(33개 스킬, 14개 에이전트 호스트 지원) 해설. brainstorm→plan→work→simplify→review→compound 6단계 루프와 docs/solutions/ 지식 축적 구조, Claude Code 실제 설치 확인까지."
+description: "Every의 오픈소스 Compound Engineering 플러그인(33개 스킬, 14개 에이전트 호스트 지원) 해설. brainstorm→plan→work→simplify→review→compound 6단계 루프와 docs/solutions/ 지식 축적 구조, Claude."
 img: compound-engineering-title.webp
 date: 2026-09-05 20:30:00 +0900
 last_modified_at: 2026-09-06 00:30:00 +0900

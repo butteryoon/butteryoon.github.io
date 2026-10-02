@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Android Studio 없이 adb 사용하기"
+description: "Android Studio 없이 윈도우즈에서 adb만 쓰는 방법. 배포가 끊긴 Minimal ADB 대신 구글 공식 SDK Platform Tools를 받거나 winget으로 설치하는 경로를 정리했다."
 img: android-adb.jpg
 date: 2019-01-30 18:38:00 +0900
 last_modified_at: 2026-07-15 15:20:00 +0900

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "jekyll을 이용하여 Github Page 만들기"
+description: "네이버 블로그와 티스토리를 거쳐 Jekyll + GitHub Pages로 블로그를 옮긴 기록. 마크다운으로 글을 쓰고 정적 사이트로 발행하기까지의 설치와 설정 과정을 정리한다."
 img: software.jpg
 date: 2018-09-27 21:25:30 +0900
 last_modified_at: 2018-09-27 21:25:30 +0900

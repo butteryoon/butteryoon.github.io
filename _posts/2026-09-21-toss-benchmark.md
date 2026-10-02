@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "토스, 자체 LLM 벤치마크 'Toss Benchmark' 공개 — 공개 리더보드와 실제 운영 성능의 괴리 검증"
+title: "토스 'Toss Benchmark' 공개 — 리더보드와 실제 운영 성능의 괴리"
 description: "토스가 한국어 범용 성능과 도메인 성능을 함께 측정하는 Toss Benchmark를 구축했다. 공개 리더보드 점수로는 예측할 수 없는 한국어·추론 설정·도메인 지식 격차를 실측 데이터로 보여준다."
 img: toss-benchmark_title.webp
 date: 2026-09-21 20:00:00 +0900

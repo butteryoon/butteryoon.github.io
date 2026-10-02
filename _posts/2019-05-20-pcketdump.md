@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "tshark을 이용한 패킷덤프"
+description: "GUI 없이 터미널에서 패킷을 뜨고 분석하는 tshark 사용법. Wireshark와 같은 필터 문법을 쓰며, dumpcap에 setcap으로 권한을 줘 비root로 캡처하는 방법까지 다룬다."
 img: "M_david-clode-o3r7oVPZnZI-unsplash.jpg"
 date: 2019-05-20 00:00:00 +0900
 last_modified_at: 2019-05-20 00:00:00 +0900

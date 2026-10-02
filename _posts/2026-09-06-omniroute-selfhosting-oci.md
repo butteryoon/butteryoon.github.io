@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "오라클 클라우드 무료 티어에 OmniRoute 셀프호스팅 — RAM 1GB로 AI 게이트웨이 돌리기"
-description: "Oracle Cloud 무료 인스턴스(RAM 951MB)에 오픈소스 AI 게이트웨이 OmniRoute를 올리고 Caddy로 HTTPS를 붙인 구축기. 스왑으로 OOM 잡기, OCI iptables 함정, 그리고 질문 유형별 자동 분배를 위해 파이썬 표준 라이브러리로 직접 만든 분류 프록시까지."
+description: "Oracle Cloud 무료 인스턴스(RAM 951MB)에 오픈소스 AI 게이트웨이 OmniRoute를 올리고 Caddy로 HTTPS를 붙인 구축기. RAM 1GB 미만에서 스왑 없이 돌리다 인스턴스가 종료된 경험과 재구축 과정까지 정리한다."
 img: omniroute-oci-title.webp
 date: 2026-09-06 20:40:00 +0900
 last_modified_at: 2026-09-22 21:30:00 +0900

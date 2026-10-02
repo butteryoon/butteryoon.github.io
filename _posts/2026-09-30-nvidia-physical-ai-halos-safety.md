@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "NVIDIA Halos — 피지컬 AI를 대규모로 배포하려면 모든 계층에 안전이 필요하다"
-description: "NVIDIA 블로그 코리아 해설. 자율주행차와 로봇이 사람과 같은 공간에서 움직이게 되면서 하드웨어·소프트웨어·AI 거동·운영 환경·수명 주기 전반에 안전 증거가 필요해졌다. NVIDIA Halos의 자율주행·로보틱스 구성 요소, 생태계 참여 기업, TÜV SÜD·TÜV Rheinland·ANAB 인증 현황을 정리한다."
+description: "NVIDIA 블로그 코리아 해설. 자율주행차와 로봇이 사람과 같은 공간에서 움직이게 되면서 하드웨어·소프트웨어·AI 거동·운영 환경·수명 주기 전반에 안전 증거가 필요해졌다. Halos의 자율주행·로보틱스 구성 요소와 생태계 참여 기업, 인증 현황을 정리한다."
 img: nvidia_halos_safety_title.webp
 date: 2026-09-30 20:30:00 +0900
 last_modified_at: 2026-09-30 20:30:00 +0900

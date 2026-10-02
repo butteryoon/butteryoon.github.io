@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Query Gateway"
+description: "Oracle DB용 쿼리 빌더와 게이트웨이를 구상한 메모. 로그인 사용자 권한, 쿼리 생성, 결과 전달 요건을 정리했고 지금 쓸 수 있는 대안으로 Metabase와 Redash를 덧붙였다."
 img: dataquery_title.jpg
 desc: "Query Build and Gateway"
 categories: dev

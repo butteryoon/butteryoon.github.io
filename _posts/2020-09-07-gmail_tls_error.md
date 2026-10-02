@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "GMail 다른주소에서 메일보내기 오류"
+description: "Gmail의 '다른 주소에서 메일 보내기'가 갑자기 TLS Negotiation failed 오류를 내며 막힌 상황. 인증서와 호스트 불일치 원인을 찾고 설정을 다시 잡은 과정을 정리한다."
 img: "gmail_error-01.png"
 date: 2020-09-07 13:45:00 +0900
 last_modified_at: 2020-09-07 13:45:00 +0900

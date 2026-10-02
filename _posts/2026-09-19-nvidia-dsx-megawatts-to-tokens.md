@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "NVIDIA DSX — 메가와트를 토큰으로 바꾸는 AI 팩토리 전력 최적화"
-description: "NVIDIA 블로그 해설. Lambda가 DSX MaxLPS로 같은 전력 예산에서 노드 16개 대신 19개를 돌려 토큰 처리량을 24% 늘린 검증 결과와, Silicon Valley Power 수요 신호에 1분 안에 응답한 Emerald AI Conductor 실증, Vera Rubin NVL72의 메가와트당 GPU 40% 추가 확보 전망을 정리한다."
+description: "NVIDIA 블로그 해설. Lambda가 DSX MaxLPS로 같은 전력 예산에서 노드 16개 대신 19개를 돌려 토큰 처리량을 24% 늘린 검증 결과와, Silicon Valley Power 수요 신호에 1분 안에 응답한 Emerald AI Conductor 실증, Vera."
 img: nvidia_dsx_ai_factory_power_title.webp
 date: 2026-09-19 19:30:00 +0900
 last_modified_at: 2026-09-19 19:30:00 +0900

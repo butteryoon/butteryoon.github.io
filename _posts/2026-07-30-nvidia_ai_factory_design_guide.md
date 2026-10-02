@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "NVIDIA Enterprise AI Factory Design Guide 해설 — Agentic AI 런타임부터 하드웨어 스택까지"
+title: "NVIDIA Enterprise AI Factory Design Guide 해설"
 description: "NVIDIA 공식 백서(ai-factory-white-paper)를 바탕으로 AI Factory의 5대 기둥(하드웨어/소프트웨어/에이전트 런타임/블루프린트/에코시스템)을 실제 문서 근거와 함께 해설. 우리 블로그 기존 글들과 연결"
 img: command-title.webp
 date: 2026-07-30 00:47:00 +0900

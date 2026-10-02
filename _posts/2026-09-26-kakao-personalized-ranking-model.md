@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "카카오 테크 — 세그먼트 추천을 GDCN + MoE 개인화 랭커로 바꾼 기록"
-description: "카카오 기술 블로그 해설. 성별·연령 세그먼트 단위 추천을 GDCN + MoE 딥러닝 랭커로 교체한 과정을 정리한다. RLTW 라벨로 영상 길이 편향을 줄이고, 세 차례 오프라인 실험으로 구조를 확정했으며, 배포 후 유효재생 비율(VTR)이 +10%p, 추천 아이템 다양성이 +53.7% 늘었다."
+description: "카카오 기술 블로그 해설. 성별·연령 세그먼트 단위 추천을 GDCN + MoE 딥러닝 랭커로 교체한 과정을 정리한다. RLTW 라벨로 영상 길이 편향을 줄이고, 세 차례 오프라인 실험으로 구조를 확정했으며, 배포 후 유효재생 비율(VTR)이 +10%p, 추천 아이템 다양성이."
 img: kakao_personalized_ranking_title.webp
 date: 2026-09-26 20:20:00 +0900
 last_modified_at: 2026-09-26 20:20:00 +0900

@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "멀티턴 툴 사용 RL, 어느 턴을 학습할지부터 진단한다 — Salesforce Critical-State RL"
-description: "보상이 변한다고 그 턴을 학습해도 되는 건 아니다. Salesforce AI Research의 Critical-State RL은 행동 충분성·개선 여지·학습 가능성 세 조건으로 학습할 상태를 골라낸다. BFCL v4 miss_func에서 선택된 턴은 +14.3pp, 다른 턴은 −4.5pp였다."
+title: "멀티턴 툴 사용 RL, 학습할 턴을 진단한다 — Salesforce Critical-State RL"
+description: "보상이 변한다고 그 턴을 학습해도 되는 건 아니다. Salesforce AI Research의 Critical-State RL은 행동 충분성·개선 여지·학습 가능성 세 조건으로 학습할 상태를 골라낸다."
 img: critical_state_rl_title.webp
 date: 2026-09-29 21:40:00 +0900
 last_modified_at: 2026-09-29 21:40:00 +0900

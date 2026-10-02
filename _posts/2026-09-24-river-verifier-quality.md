@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "터미널 에이전트 RL: 검증기 품질이 환경 개수를 이긴다 — Salesforce RIVER 논문 분석"
-description: "Salesforce AI Research의 RIVER 논문(arXiv:2608.22631) 분석. 공개 RL 환경 감사에서 클린 35.8%, River-8B 평균 19.4 vs 무작위 17.7, 2B~27B에서 RL 게인 최대 106% 향상 — 검증기 품질이 환경 개수보다 중요하다는 결론을 해설한다."
+description: "Salesforce AI Research의 RIVER 논문(arXiv:2608.22631) 분석. 공개 RL 환경 감사에서 클린 35.8%, River-8B 평균 19.4 vs 무작위 17.7, 2B~27B에서 RL 게인 최대 106% 향상 — 검증기 품질이 환경 개수보다."
 img: command-title.webp
 date: 2026-09-24 18:30:00 +0900
 last_modified_at: 2026-09-24 18:30:00 +0900

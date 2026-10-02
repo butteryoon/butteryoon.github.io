@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "NVIDIA, Google DeepMind DiffusionGemma를 RTX·DGX Spark에서 가속 — 단일 사용자 추론 약 4배"
-description: "DiffusionGemma는 자기회귀 대신 디퓨전 방식으로 단계마다 최대 256개 토큰을 병렬로 생성한다. NVIDIA는 H100에서 초당 1,000토큰, DGX Spark에서 150토큰, DGX Station에서 최대 2,000토큰을 제시하며 동급 자기회귀 모델 대비 약 4배 빠르다고 밝혔다."
+title: "DiffusionGemma를 RTX·DGX Spark에서 가속 — 단일 사용자 추론 약 4배"
+description: "DiffusionGemma는 자기회귀 대신 디퓨전 방식으로 단계마다 최대 256개 토큰을 병렬로 생성한다. NVIDIA는 H100에서 초당 1,000토큰, DGX Spark에서 150토큰, DGX Station에서 최대 2,000토큰을 제시하며 동급 자기회귀 모델 대비 약 4배."
 img: diffusiongemma_rtx_title.webp
 date: 2026-09-28 20:20:00 +0900
 last_modified_at: 2026-09-28 20:20:00 +0900

@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "Gemma 4 MTP 서빙 가이드 해설 — 페어드 드래프터·MIG 슬라이싱·vLLM 설정"
-description: "Google Cloud의 Gemma 4 MTP(Multi-Token Prediction) 서빙 가이드 핵심 정리. 페어드 assistant 드래프터와 공유 KV-cache 구조, k=2에서 TPOT 14% 단축 벤치마크, G4(RTX PRO 6000 Blackwell) MIG 슬라이싱, vLLM speculative-config 배포와 운영 메트릭까지."
+description: "Google Cloud의 Gemma 4 MTP(Multi-Token Prediction) 서빙 가이드 핵심 정리. 페어드 assistant 드래프터와 공유 KV-cache 구조, k=2에서 TPOT 14% 단축 벤치마크, G4(RTX PRO 6000 Blackwell) MIG."
 img: tools_title.jpg
 date: 2026-08-15 22:56:00 +0900
 last_modified_at: 2026-08-15 23:55:00 +0900

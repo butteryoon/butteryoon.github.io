@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Windows 7 라우팅 테이블 설정"
+description: "두 개의 네트워크에 연결된 윈도우즈에서 특정 IP나 대역만 원하는 네트워크로 보내는 방법. route 명령으로 경로를 지정하고 -p 옵션으로 영구 라우트를 등록한다."
 img: "routeincmd.png"
 date: 2018-10-30 15:00:00 +0900
 last_modified_at: 2026-07-15 16:00:00 +0900

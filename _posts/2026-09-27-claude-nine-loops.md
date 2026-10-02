@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: "Claude가 N=4 초양-밀스 9루프 진폭을 계산했다 — 물리학자의 도전 한 달 만의 결과"
-description: "이론물리학자 Matt von Hippel이 AI 기업에 던진 도전 과제(N=4 초양-밀스 9루프 산란 진폭)를 Fable 5.1 기반 Claude Science 하네스가 사실상 '계속하라'는 지시만으로 풀었다. 96 CPU로 1주일, 부트스트랩과 폼팩터 두 경로로 계산했고 Lance Dixon이 결과를 검증했다."
+description: "이론물리학자 Matt von Hippel이 AI 기업에 던진 도전 과제(N=4 초양-밀스 9루프 산란 진폭)를 Fable 5.1 기반 Claude Science 하네스가 사실상 '계속하라'는 지시만으로 풀었다."
 img: claude-nine-loops_title.webp
 date: 2026-09-27 18:30:00 +0900
 last_modified_at: 2026-09-28 01:15:00 +0900

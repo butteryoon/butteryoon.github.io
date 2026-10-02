@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "Andrew Ng가 말한 '에이전트 시대의 소프트웨어 엔지니어링 기초' — 코딩 에이전트가 대체할 수 없는 것들"
+title: "Andrew Ng, 에이전트 시대의 소프트웨어 엔지니어링 기초"
 description: "Andrew Ng X 포스트(2026-08-28) 분석. 에이전트 코딩이 구현 비용을 낮춰도 아키텍처·데이터·트레이드오프 판단은 여전히 개발자 몫이다. 풀스택, 데이터 관리, 시스템 설계, 보안/신뢰성, 프로덕션 운영 5대 역량을 정리한다."
 img: andrew-ng-agentic-coding.webp
 date: 2026-08-29 13:38:00 +0900
