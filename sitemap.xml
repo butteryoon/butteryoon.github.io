@@ -1,0 +1,28 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 직접 생성하는 사이트맵. jekyll-sitemap 은 소스에 sitemap.xml 이 있으면 생성하지 않는다.
+     자동 생성본은 페이지네이션(/page/N/)과 검색엔진 인증 HTML, 에셋 HTML 까지 담고 있었다.
+     이들은 색인 대상이 아니므로 제외하고, 홈·고정 페이지·글만 남긴다. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+{% assign pages = site.pages | where_exp: "p", "p.url == '/about/' or p.url == '/tags/'" %}{% for page in pages %}  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+{% endfor %}{% assign sorted = site.posts | sort: 'date' | reverse %}{% for post in sorted %}  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
+    <lastmod>{% if post.last_modified_at %}{{ post.last_modified_at | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{% endfor %}</urlset>
