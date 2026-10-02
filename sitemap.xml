@@ -13,13 +13,14 @@ sitemap: false
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-{% assign pages = site.pages | where_exp: "p", "p.url == '/about/' or p.url == '/tags/'" %}{% for page in pages %}  <url>
+{% comment %} Liquid 4.0.4(GitHub Pages)의 where_exp 는 or 를 파싱하지 못한다. if 로 거른다. {% endcomment %}
+{% for page in site.pages %}{% if page.url == '/about/' or page.url == '/tags/' %}  <url>
     <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-{% endfor %}{% assign sorted = site.posts | sort: 'date' | reverse %}{% for post in sorted %}  <url>
+{% endif %}{% endfor %}{% assign sorted = site.posts | sort: 'date' | reverse %}{% for post in sorted %}  <url>
     <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
     <lastmod>{% if post.last_modified_at %}{{ post.last_modified_at | date_to_xmlschema }}{% else %}{{ post.date | date_to_xmlschema }}{% endif %}</lastmod>
     <changefreq>monthly</changefreq>
