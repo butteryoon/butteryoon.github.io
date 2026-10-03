@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="LLM 출력 형식 사다리 네 단계">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap");
+      .ko { font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#B45309"/>
+
+  <text class="ko" x="72" y="88" font-size="38" font-weight="700" fill="#16161A" letter-spacing="-0.01em">읽기 쉬운 형식으로 올려 받는다</text>
+  <text class="ko" x="72" y="128" font-size="19" fill="#55555C">Karpathy가 제안한 LLM 출력 형식 네 단계 — 각 단계 사이는 “But even better”</text>
+
+  <!-- 단계 카드 -->
+  <rect x="72" y="172" width="252" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="mono" x="96" y="204" font-size="13" font-weight="600" fill="#A9A296">01</text>
+  <text class="ko" x="96" y="232" font-size="20" font-weight="700" fill="#16161A">글</text>
+  <text class="ko" x="96" y="262" font-size="14" fill="#55555C">ASD-STE100으로 써 달라고</text>
+  <text class="ko" x="96" y="284" font-size="14" fill="#55555C">요청한다. 빡빡하면</text>
+  <text class="ko" x="96" y="306" font-size="14" font-weight="600" fill="#B45309">“80% 정도만”</text>
+
+  <text class="ko" x="338" y="252" font-size="22" fill="#A9A296">›</text>
+
+  <rect x="364" y="172" width="252" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="mono" x="388" y="204" font-size="13" font-weight="600" fill="#A9A296">02</text>
+  <text class="ko" x="388" y="232" font-size="20" font-weight="700" fill="#16161A">다이어그램</text>
+  <text class="ko" x="388" y="262" font-size="14" fill="#55555C">글보다 훑고 뜯어보기</text>
+  <text class="ko" x="388" y="284" font-size="14" fill="#55555C">쉽다</text>
+
+  <text class="ko" x="630" y="252" font-size="22" fill="#A9A296">›</text>
+
+  <rect x="656" y="172" width="252" height="150" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="mono" x="680" y="204" font-size="13" font-weight="600" fill="#A9A296">03</text>
+  <text class="ko" x="680" y="232" font-size="20" font-weight="700" fill="#16161A">웹페이지</text>
+  <text class="ko" x="680" y="262" font-size="14" fill="#55555C">“HTML로 출력”.</text>
+  <text class="ko" x="680" y="284" font-size="14" fill="#55555C">인터랙티브하게 나온다</text>
+
+  <text class="ko" x="922" y="252" font-size="22" fill="#A9A296">›</text>
+
+  <rect x="948" y="172" width="180" height="150" rx="12" fill="#B45309"/>
+  <text class="mono" x="972" y="204" font-size="13" font-weight="600" fill="#F3D3AE">04</text>
+  <text class="ko" x="972" y="232" font-size="20" font-weight="700" fill="#FFFFFF">설명 영상</text>
+  <text class="ko" x="972" y="262" font-size="14" fill="#FBE9D4">3b1b 스타일,</text>
+  <text class="ko" x="972" y="284" font-size="14" fill="#FBE9D4">내레이션은 TTS API</text>
+
+  <!-- 왜 작동하나 -->
+  <rect x="72" y="350" width="520" height="152" rx="12" fill="#EFEBE2"/>
+  <text class="ko" x="96" y="382" font-size="15" font-weight="700" letter-spacing="0.08em" fill="#6B6B73">ASD-STE100이란</text>
+  <text class="ko" x="96" y="414" font-size="16" fill="#16161A">항공 정비 문서용으로 만든 통제 언어 규격</text>
+  <text class="mono" x="96" y="448" font-size="15" fill="#45454C">작성 규칙 53개 · 승인 단어 약 900개</text>
+  <text class="ko" x="96" y="476" font-size="14" fill="#55555C">한 단어는 한 뜻, 한 품사 · 능동태 · 절차문 20단어 상한</text>
+
+  <!-- 경고 -->
+  <rect x="616" y="350" width="512" height="152" rx="12" fill="#FBE7E4"/>
+  <text class="ko" x="640" y="382" font-size="15" font-weight="700" letter-spacing="0.08em" fill="#B4332A">다만</text>
+  <text class="ko" x="640" y="414" font-size="16" font-weight="600" fill="#16161A">형식을 올리면 이해는 쉬워지고 검증은 어려워진다</text>
+  <text class="ko" x="640" y="448" font-size="14" fill="#55555C">틀린 내용이 깔끔한 도표에 담기면 더 그럴듯해 보인다</text>
+  <text class="ko" x="640" y="476" font-size="14" fill="#55555C">사다리는 내용을 검증한 뒤에 올라간다</text>
+
+  <text class="ko" x="72" y="556" font-size="15" fill="#45454C">본론은 형식이 아니라 그 앞의 전제다 — 일의 무게중심이 생산에서 감독과 이해로 옮겨간다</text>
+  <text class="ko" x="72" y="588" font-size="14" fill="#8A8A92">출처: @karpathy (2026-10-02) · butteryoon.github.io</text>
+</svg>
