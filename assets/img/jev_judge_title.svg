@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="LLM 심판과 Jev 심판의 구조 비교">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap");
+      .ko { font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#1D4ED8"/>
+
+  <text class="ko" x="72" y="88" font-size="38" font-weight="700" fill="#16161A" letter-spacing="-0.01em">근거는 한 번, 질문은 여러 개</text>
+  <text class="ko" x="72" y="128" font-size="19" fill="#55555C">평가 기준마다 글을 생성하던 자리를, 타입이 정해진 결정으로 바꾼다</text>
+
+  <!-- 왼쪽: LLM 심판 -->
+  <rect x="72" y="176" width="498" height="306" rx="14" fill="#EFEBE2"/>
+  <text class="ko" x="100" y="210" font-size="14" font-weight="700" letter-spacing="0.1em" fill="#6B6B73">기존 · LLM 심판</text>
+  <text class="ko" x="100" y="244" font-size="21" font-weight="700" fill="#16161A">기준마다 글을 생성한다</text>
+
+  <rect x="100" y="268" width="442" height="40" rx="8" fill="#DCD7CC"/>
+  <text class="ko" x="118" y="294" font-size="15" fill="#2F2F35">근거 + 기준① → 텍스트 생성 → 파싱</text>
+  <rect x="100" y="316" width="442" height="40" rx="8" fill="#E2DDD3"/>
+  <text class="ko" x="118" y="342" font-size="15" fill="#2F2F35">근거 + 기준② → 텍스트 생성 → 파싱</text>
+  <rect x="100" y="364" width="442" height="40" rx="8" fill="#E8E4DB"/>
+  <text class="ko" x="118" y="390" font-size="15" fill="#2F2F35">근거 + 기준③ → 텍스트 생성 → 파싱</text>
+
+  <text class="ko" x="100" y="436" font-size="15" fill="#55555C">토큰이 앞 토큰에 의존하므로 순차적이다</text>
+  <text class="ko" x="100" y="462" font-size="15" fill="#55555C">대신 왜 그렇게 판정했는지 설명을 받는다</text>
+
+  <!-- 오른쪽: Jev 심판 -->
+  <rect x="602" y="176" width="526" height="306" rx="14" fill="#1D4ED8"/>
+  <text class="ko" x="630" y="210" font-size="14" font-weight="700" letter-spacing="0.1em" fill="#BBD0FB">Jev 심판</text>
+  <text class="ko" x="630" y="244" font-size="21" font-weight="700" fill="#FFFFFF">근거 하나에 질문을 나눠 붙인다</text>
+
+  <rect x="630" y="268" width="470" height="44" rx="8" fill="#163FA8"/>
+  <text class="mono" x="648" y="296" font-size="15" fill="#DCE7FD">state = { 요청, 정책, 툴 호출, 최종 답변 }</text>
+
+  <path d="M 700 312 L 700 336" stroke="#7FA3F5" stroke-width="2"/>
+  <path d="M 865 312 L 865 336" stroke="#7FA3F5" stroke-width="2"/>
+  <path d="M 1030 312 L 1030 336" stroke="#7FA3F5" stroke-width="2"/>
+
+  <rect x="630" y="340" width="146" height="64" rx="8" fill="#FFFFFF"/>
+  <text class="mono" x="646" y="364" font-size="13" font-weight="600" fill="#1D4ED8">noul</text>
+  <text class="ko" x="646" y="388" font-size="13" fill="#45454C">참일 확률</text>
+
+  <rect x="796" y="340" width="146" height="64" rx="8" fill="#FFFFFF"/>
+  <text class="mono" x="812" y="364" font-size="13" font-weight="600" fill="#1D4ED8">score</text>
+  <text class="ko" x="812" y="388" font-size="13" fill="#45454C">기댓값 + 확신도</text>
+
+  <rect x="962" y="340" width="138" height="64" rx="8" fill="#FFFFFF"/>
+  <text class="mono" x="978" y="364" font-size="13" font-weight="600" fill="#1D4ED8">choice</text>
+  <text class="ko" x="978" y="388" font-size="13" fill="#45454C">보기별 확률</text>
+
+  <text class="ko" x="630" y="436" font-size="15" fill="#DCE7FD">근거를 한 번만 보내고 질문은 서로 독립이다</text>
+  <text class="ko" x="630" y="462" font-size="15" fill="#BBD0FB">대신 설명은 돌아오지 않는다</text>
+
+  <!-- 하단 -->
+  <rect x="72" y="506" width="1056" height="80" rx="12" fill="#FBE7E4"/>
+  <text class="ko" x="100" y="538" font-size="15" font-weight="700" fill="#B4332A">원문이 밝힌 한계</text>
+  <text class="ko" x="100" y="566" font-size="16" fill="#16161A">설명이 필요하거나, 숨은 추론 단계가 여러 개거나, 정해둔 보기 밖의 답이 나와야 하면 여전히 LLM 심판이 낫다</text>
+  <text class="ko" x="1104" y="566" font-size="14" fill="#8A8A92" text-anchor="end">속도·비용 수치는 공개되지 않았다</text>
+</svg>
