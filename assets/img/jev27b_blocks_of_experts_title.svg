@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="JEV-27B의 Blocks of Experts 구조">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap");
+      .ko { font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#6D3B93"/>
+
+  <text class="ko" x="72" y="88" font-size="38" font-weight="700" fill="#16161A" letter-spacing="-0.01em">가중치 하나로 빠른 결정과 긴 추론을 같이</text>
+  <text class="ko" x="72" y="128" font-size="19" fill="#55555C">JEV-27B의 Blocks of Experts — 백본은 얼린 채 0.4%만 새로 학습했다</text>
+
+  <!-- 백본 -->
+  <rect x="72" y="176" width="1056" height="74" rx="12" fill="#EFEBE2"/>
+  <text class="ko" x="100" y="208" font-size="15" font-weight="700" letter-spacing="0.08em" fill="#6B6B73">얼린 백본</text>
+  <text class="mono" x="100" y="234" font-size="17" fill="#16161A">Qwen/Qwen3.8-27B</text>
+  <text class="ko" x="1096" y="222" font-size="15" fill="#6B6B73" text-anchor="end">학습하지 않는다</text>
+
+  <!-- 두 갈래 -->
+  <path d="M 340 250 L 340 282" stroke="#A9A296" stroke-width="2"/>
+  <path d="M 334 274 L 340 284 L 346 274 Z" fill="#A9A296"/>
+  <path d="M 860 250 L 860 282" stroke="#A9A296" stroke-width="2"/>
+  <path d="M 854 274 L 860 284 L 866 274 Z" fill="#A9A296"/>
+
+  <rect x="72" y="292" width="536" height="186" rx="12" fill="#6D3B93"/>
+  <text class="ko" x="100" y="324" font-size="14" font-weight="700" letter-spacing="0.08em" fill="#D6BCEC">SYSTEM 1 · 새로 학습한 부분</text>
+  <text class="ko" x="100" y="356" font-size="21" font-weight="700" fill="#FFFFFF">결정 블록 (LoRA + 디시전 헤드)</text>
+  <text class="ko" x="100" y="388" font-size="15" fill="#EADCF5">참/거짓, 2~16지선다, 0~5점 — 세 가지 형태의 질문에</text>
+  <text class="ko" x="100" y="412" font-size="15" fill="#EADCF5">확률 분포로 답한다. 디코딩도 JSON 파싱도 없다</text>
+  <text class="mono" x="100" y="452" font-size="24" font-weight="600" fill="#FFFFFF">108.9M</text>
+  <text class="ko" x="212" y="452" font-size="15" fill="#D6BCEC">학습 파라미터 · 백본의 0.4%</text>
+
+  <rect x="632" y="292" width="496" height="186" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="660" y="324" font-size="14" font-weight="700" letter-spacing="0.08em" fill="#8A8A92">SYSTEM 2 · 손대지 않은 부분</text>
+  <text class="ko" x="660" y="356" font-size="21" font-weight="700" fill="#16161A">생성 블록 (lm_head)</text>
+  <text class="ko" x="660" y="388" font-size="15" fill="#55555C">기존 대화·코딩 능력이 그대로 남는다</text>
+  <text class="mono" x="660" y="428" font-size="18" font-weight="600" fill="#15803D">HumanEval 78.0%</text>
+  <text class="ko" x="660" y="452" font-size="15" fill="#55555C">학습 전후 동일 · 164개 완성 전부 바이트 일치</text>
+
+  <!-- 하단 수치 -->
+  <rect x="72" y="506" width="340" height="80" rx="10" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="96" y="534" font-size="14" fill="#6B6B73">6개 결정 벤치마크 평균</text>
+  <text class="mono" x="96" y="566" font-size="20" font-weight="600" fill="#16161A">84.07</text>
+  <text class="ko" x="168" y="566" font-size="14" fill="#6B6B73">vs 폐쇄 모델 83.85 (4승 2패)</text>
+
+  <rect x="430" y="506" width="300" height="80" rx="10" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="454" y="534" font-size="14" fill="#6B6B73">결정 1건 중앙값 지연</text>
+  <text class="mono" x="454" y="566" font-size="20" font-weight="600" fill="#16161A">137ms</text>
+  <text class="ko" x="528" y="566" font-size="14" fill="#6B6B73">호스팅 API는 238~301ms</text>
+
+  <rect x="748" y="506" width="380" height="80" rx="10" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="772" y="534" font-size="14" fill="#6B6B73">학습 비용</text>
+  <text class="mono" x="772" y="566" font-size="20" font-weight="600" fill="#16161A">B200 1장 · 9.2시간</text>
+  <text class="ko" x="1104" y="566" font-size="14" fill="#6B6B73" text-anchor="end">Apache-2.0</text>
+</svg>
