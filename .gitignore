@@ -42,3 +42,11 @@ Temporary Items
 *.vs
 *.swp
 _workspace/
+
+### Hermes 에이전트 산출물 ###
+# 스킬 내용을 HTML 로 덤프한 파일이 저장소 루트에 떨어진다(2026-10-03 확인).
+# 커밋되면 사이트에 그대로 공개돼 내부 프롬프트와 경로가 노출되므로 제외한다.
+# 루트의 google*.html / naver*.html / BingSiteAuth.xml 은 검색엔진 인증 파일이니
+# 넓은 패턴(/*.html)으로 막지 말 것.
+/daily-tech-blog-analysis.html
+/daily-nvidia-blog-analysis.html
