@@ -75,7 +75,7 @@ codex_adapter.py
 
 ### 3.1 대화 루프 — conversation_loop.run_conversation
 
-`agent/conversation_loop.py`의 `run_conversation()`(약 880행부터)이 에이전트의 심장이다. 이전 [에이전트 학습 메타글]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)에서 설명한 "관측→추론→행동→결과" 사이클이 여기서 돌아간다. 모듈 docstring과 실제 카운터를 보면 루프 구조가 드러난다.
+`agent/conversation_loop.py`의 `run_conversation()`(약 880행부터)이 에이전트의 심장이다. 이전 [에이전트 학습 메타글]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)에서 설명한 "관측→추론→행동→결과" 사이클이 여기서 돌아간다. 모듈 docstring과 실제 카운터를 보면 루프 구조가 드러난다.
 
 ```text
 $ grep -nE "Main conversation loop|_turn_exit_reason" agent/conversation_loop.py
@@ -137,12 +137,12 @@ scheduler_provider.py
 
 ## 마무리
 
-Hermes 소스는 "거대한 단일 파일"이 아니라 **얇은 CLI 라우터(`subcommands/`) + 두터운 코어(`agent/`) + 플랫폼 격리(`gateway/`) + 백그라운드(`cron/`)** 로 계층화된다. 명령어 하나가 실제로 타는 경로(`skills` → `subcommands/skills.py` → `agent/curator.py`)를 알면, "에이전트가 무슨 일을 하는가"가 추상이 아니라 **디스크상의 구체적 모듈 경로**로 읽힌다. 오늘 쓴 [에이전트 학습 메타글]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)의 "기억 3계층"도 사실 `agent/context_engine.py`(런타임)와 `memories/MEMORY.md`(영속)의 분리를 코드 레벨에서 보는 것과 같다. 다음 글에서는 `conversation_loop.run_conversation()` 내부를 열어 툴 호출 한 번이 실제로 어떤 함수 호출을 거치는지 심층 추적해볼 예정이다.
+Hermes 소스는 "거대한 단일 파일"이 아니라 **얇은 CLI 라우터(`subcommands/`) + 두터운 코어(`agent/`) + 플랫폼 격리(`gateway/`) + 백그라운드(`cron/`)** 로 계층화된다. 명령어 하나가 실제로 타는 경로(`skills` → `subcommands/skills.py` → `agent/curator.py`)를 알면, "에이전트가 무슨 일을 하는가"가 추상이 아니라 **디스크상의 구체적 모듈 경로**로 읽힌다. 오늘 쓴 [에이전트 학습 메타글]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)의 "기억 3계층"도 사실 `agent/context_engine.py`(런타임)와 `memories/MEMORY.md`(영속)의 분리를 코드 레벨에서 보는 것과 같다. 다음 글에서는 `conversation_loop.run_conversation()` 내부를 열어 툴 호출 한 번이 실제로 어떤 함수 호출을 거치는지 심층 추적해볼 예정이다.
 
 ## 참고
 
 - [Hermes Agent GitHub](https://github.com/NousResearch/hermes-agent){:target="_blank"}
 - [Hermes 공식 문서](https://hermes-agent.nousresearch.com/docs/){:target="_blank"}
-- [에이전트 학습 메타글 (관련글)]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)
+- [에이전트 학습 메타글 (관련글)]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)
 - [스킬 오케스트레이션 (관련글)]({{site.baseurl}}/tools/2026/07/25/hermes_orchestration.html)
 - [NVIDIA AI Factory — 통합 평가/트레이스 (관련글)]({{site.baseurl}}/dev/2026/07/24/ai_factory_opensource.html)

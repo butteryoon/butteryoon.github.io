@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "RAG & AI 에이전트 주간 연구 동향 (2026-09-07 ~ 09-13)"
-description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에이전트 프레임워크·평가 분야 주요 논문 요약"
+title: "오염 문서 셋에 정확도 77.9%→43.5% — RAG·에이전트 주간 (09/07~09/13)"
+description: "VikingRAG의 검색 궤적 재사용, 1.9억 문서 규모 Q2D-Web, 검색 오염의 정량 측정이 나왔다. 에이전트를 만드는 일 자체를 벤치마크로 삼은 τ^τ-Bench도 함께 정리한다."
 img: ai_abstract_title.jpg
 date: 2026-09-13 23:00:00 +0900
 last_modified_at: 2026-09-14 09:20:00 +0900

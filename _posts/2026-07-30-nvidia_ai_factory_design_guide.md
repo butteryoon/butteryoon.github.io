@@ -11,7 +11,7 @@ related: llm-infra
 categories: dev
 ---
 
-NVIDIA의 [Enterprise AI Factory Design Guide(공식 백서, 2026-05 최종 갱신)](https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/index.html)는 "데이터 센터를 AI를 핵심 생산 역량으로 하는 시스템으로 전환"하는 전 스택 설계서다. 이 글은 백서의 핵심 섹션을 **실제 문서 구조·용어·수치** 그대로 따라가며 해설하고, 앞서 쓴 [AI Factory 오픈소스]({{site.baseurl}}/dev/2026/07/24/ai_factory_opensource.html), [에이전트 학습]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html), [가드레일 Security]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html), [OKF]({{site.baseurl}}/tools/2026/07/25/hermes_okf_knowledge.html) 글들과 연결한다. (이 글의 초안은 설치된 Hermes 에이전트가 직접 작성했다.)
+NVIDIA의 [Enterprise AI Factory Design Guide(공식 백서, 2026-05 최종 갱신)](https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/index.html)는 "데이터 센터를 AI를 핵심 생산 역량으로 하는 시스템으로 전환"하는 전 스택 설계서다. 이 글은 백서의 핵심 섹션을 **실제 문서 구조·용어·수치** 그대로 따라가며 해설하고, 앞서 쓴 [AI Factory 오픈소스]({{site.baseurl}}/dev/2026/07/24/ai_factory_opensource.html), [에이전트 학습]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html), [가드레일 Security]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html), [OKF]({{site.baseurl}}/tools/2026/07/25/hermes_okf_knowledge.html) 글들과 연결한다. (이 글의 초안은 설치된 Hermes 에이전트가 직접 작성했다.)
 
 <!--more-->
 
@@ -212,7 +212,7 @@ Introduction → Enterprise AI Factory Overview → Agentic AI in the Factory
 | 우리 글 | 백서 대응 섹션 |
 |--------|----------------|
 | **[AI Factory 오픈소스]({{site.baseurl}}/dev/2026/07/24/ai_factory_opensource.html)** | NVIDIA Blueprints, NeMo/NIM 오픈 모델, 오픈소스 생태계 통합 |
-| **[에이전트 학습 메타글]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)** | AgentOps(MLOps→AgentOps), 자기수정 루프, 트레이스 리플레이, 관측 가능성 |
+| **[에이전트 학습 메타글]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)** | AgentOps(MLOps→AgentOps), 자기수정 루프, 트레이스 리플레이, 관측 가능성 |
 | **[가드레일 Security]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)** | Security 컴포넌트, 샌드박스 격리, 제로트러스트/기밀 컴퓨팅, BlueField DPU |
 | **[OKF 지식 번들]({{site.baseurl}}/tools/2026/07/25/hermes_okf_knowledge.html)** | Data Connectors, Artifact Repository, 영구 컨텍스트(가상 워크스페이스) |
 | **[시맨틱 하이라이트]({{site.baseurl}}/dev/2026/07/28/semantic_highlighting_rag.html)** | RAG 파이프라인 블루프린트, Nemotron RAG, 멀티모달 검색·추론·생성 |

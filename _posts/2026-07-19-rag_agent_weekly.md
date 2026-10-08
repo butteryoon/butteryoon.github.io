@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "RAG & AI 에이전트 주간 연구 동향 (2026-07-12 ~ 07-19)"
-description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에이전트 프레임워크·평가 분야 주요 논문 요약"
+title: "검색 정책을 학습하기 시작했다 — RAG·에이전트 주간 동향 (07/12~07/19)"
+description: "RL로 검색 행동을 조율하는 agentic RAG와 도메인 특화 GraphRAG가 강세였다. 벡터 검색은 소형·고효율화로, 에이전트 평가는 정확도 너머 다차원 계측으로 움직인 한 주를 정리한다."
 img: ai_abstract_title.jpg
 date: 2026-07-19 12:00:00 +0900
 last_modified_at: 2026-07-19 12:00:00 +0900

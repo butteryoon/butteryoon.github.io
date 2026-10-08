@@ -1,11 +1,11 @@
 ---
 layout: post
 comments: true
-title: "DGX Spark 64GB, 가격 문턱을 낮춘 로컬 AI 확장 — Sync Cluster Assistant로 두 대 연결"
+title: "DGX Spark 64GB — Sync Cluster로 두 대를 묶는 로컬 AI 확장"
 description: "DGX Spark에 64GB 구성이 추가됐다. 128GB 모델과 같은 칩·OS·소프트웨어 스택에 4,999달러부터 공급되고, ConnectX-7 + Sync Cluster Assistant로 두 대를 묶으면 메모리 128GB, 성능 최대 1.7배."
 img: nvidia_dgx_spark_64gb_title.webp
 date: 2026-10-07 19:00:00 +0900
-last_modified_at: 2026-10-07 19:00:00 +0900
+last_modified_at: 2026-10-08 23:10:39 +0900
 tags: [nvidia, dgx-spark, local-ai, llm-serving, sync-cluster-assistant, connectx-7, hermes-agent]
 related: llm-serving
 categories: [nvidia-analysis, llm-serving]

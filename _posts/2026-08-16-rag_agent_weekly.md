@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "RAG & AI 에이전트 주간 연구 동향 (2026-08-10 ~ 08-16)"
-description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에이전트 프레임워크·평가 분야 주요 논문 요약"
+title: "벡터·그래프·관계형을 한 DB에서 — RAG·에이전트 주간 동향 (08/10~08/16)"
+description: "벡터·그래프·관계형 검색을 단일 DB에서 실행하는 Omni RAG와 하이퍼그래프 증거 체인이 등장했다. 에이전트 쪽은 MCP와 A2A 비교, 권한 모델 등 거버넌스 인프라 연구를 정리한다."
 img: ai_abstract_title.jpg
 date: 2026-08-16 17:20:00 +0900
 last_modified_at: 2026-08-16 17:20:00 +0900

@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "RAG & AI 에이전트 주간 연구 동향 (2026-07-27 ~ 08-02)"
-description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에이전트 프레임워크·평가 분야 주요 논문 요약"
+title: "벡터 검색이 NAND 안으로 내려갔다 — RAG·에이전트 주간 동향 (07/27~08/02)"
+description: "GLM 기반 리트리버가 OOD 일반화에서 우위를 보였고, 벡터 검색 효율화가 인스토리지 가속까지 내려갔다. 에이전트 평가가 능력 점수에서 프로덕션 레디니스로 이동한 한 주를 정리한다."
 img: ai_abstract_title.jpg
 date: 2026-08-04 22:10:00 +0900
 last_modified_at: 2026-08-04 22:10:00 +0900

@@ -95,7 +95,7 @@ https://lmstudio.ai/
 
 | 내 시리즈 | Bionic 관련 인사이트 |
 |-----------|---------------------|
-| **[에이전트 학습]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)** | 에이전트 루프(Plan→Act→Observe)를 **런타임 교체 가능**하게 만든 첫 제품 사례 |
+| **[에이전트 학습]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)** | 에이전트 루프(Plan→Act→Observe)를 **런타임 교체 가능**하게 만든 첫 제품 사례 |
 | **[가드레일/보안]({{site.baseurl}}/tools/2026/07/25/hermes_guardrail_security.html)** | 샌드박스 격리 + ZDR 정책 = 온프렘/규제 환경 도입 시 강력한 근거 |
 | **[OKF(Open Knowledge Format)]({{site.baseurl}}/tools/2026/07/25/hermes_okf_knowledge.html)** | 로컬 코드베이스 인덱싱·검색이 "파일=지식" 접근과 상보적 |
 | **[소스트리 투어]({{site.baseurl}}/dev/2026/07/25/hermes_source_tree.html)** | LM Studio 런타임(ggml/llama.cpp 기반)이 모델 서빙 레이어로 어떻게 쓰이는지 참고 |

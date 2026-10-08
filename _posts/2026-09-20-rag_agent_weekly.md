@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "RAG & AI 에이전트 주간 연구 동향 (2026-09-14 ~ 09-20)"
-description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에이전트 하네스·평가 분야 주요 논문 요약"
+title: "그래프를 만드는 데 LLM을 쓰지 않는다 — RAG·에이전트 주간 (09/14~09/20)"
+description: "그래프 구축에서 LLM 호출을 걷어내는 연구가 나왔다. 에이전트 쪽은 모델이 아니라 하네스 — 토큰 효율·회귀 테스트·검증기 — 에 논문이 몰린 한 주를 정리한다."
 img: ai_abstract_title.jpg
 date: 2026-09-20 17:00:00 +0900
 last_modified_at: 2026-09-20 17:00:00 +0900

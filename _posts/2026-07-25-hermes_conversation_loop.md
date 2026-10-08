@@ -56,7 +56,7 @@ $ grep -nE "def handle_function_call" model_tools.py
 
 ## 3. 실행 → 결과 재투입
 
-`handle_function_call`이 툴 함수를 돌리고 문자열 결과를 돌려주면, `run_conversation`은 그걸 `tool_result` 메시지로 감싸 대화 히스토리에 붙인다. 그러면 다음 턴 LLM은 "툴이 이렇게 답했으니 다음엔?"을 추론한다. 이 반복이 [에이전트 학습 메타글]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)에서 말한 관측→추론→행동→결과 사이클의 코드 레벨 구현이다.
+`handle_function_call`이 툴 함수를 돌리고 문자열 결과를 돌려주면, `run_conversation`은 그걸 `tool_result` 메시지로 감싸 대화 히스토리에 붙인다. 그러면 다음 턴 LLM은 "툴이 이렇게 답했으니 다음엔?"을 추론한다. 이 반복이 [에이전트 학습 메타글]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)에서 말한 관측→추론→행동→결과 사이클의 코드 레벨 구현이다.
 
 ## 4. 턴 완료 훅 — 영속화 지점
 
@@ -94,5 +94,5 @@ LLM 응답 (tool_calls)
 
 - [Hermes Agent GitHub](https://github.com/NousResearch/hermes-agent){:target="_blank"}
 - [소스 트리 투어 (관련글)]({{site.baseurl}}/dev/2026/07/25/hermes_source_tree.html)
-- [에이전트 학습 메타글 (관련글)]({{site.baseurl}}/tools/2026/07/25/hermes_agent_learning.html)
+- [에이전트 학습 메타글 (관련글)]({{site.baseurl}}/dev/2026/07/25/hermes_agent_learning.html)
 - [스킬 오케스트레이션 (관련글)]({{site.baseurl}}/tools/2026/07/25/hermes_orchestration.html)

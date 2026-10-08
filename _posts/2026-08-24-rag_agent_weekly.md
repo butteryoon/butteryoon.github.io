@@ -1,8 +1,8 @@
 ---
 layout: post
 comments: true
-title: "RAG & AI 에이전트 주간 연구 동향 (2026-08-17 ~ 08-23)"
-description: "이번 주 arXiv에 올라온 RAG, 벡터 검색, 리랭킹, 에이전트 프레임워크·평가 분야 주요 논문 요약"
+title: "GraphRAG가 감사 가능해진다 — RAG·에이전트 주간 동향 (08/17~08/23)"
+description: "증거 계보로 출처를 추적하는 LineageRAG, 위협 인텔리전스를 탐지 규칙으로 바꾸는 CTI GraphRAG가 나왔다. 프라이버시 보존 ANN과 시맨틱 캐시 퇴거 정책 비교도 함께 정리한다."
 img: ai_abstract_title.jpg
 date: 2026-08-24 00:05:00 +0900
 last_modified_at: 2026-08-24 01:25:00 +0900

@@ -1,11 +1,11 @@
 ---
 layout: post
 comments: true
-title: "Claude-shaped science: Schwartz가 Claude의 강점에 맞춰 푼 18개 분야 36편의 원고"
+title: "Claude-shaped science — 모델 강점에 맞춰 푼 18개 분야 36편"
 description: "Matthew Schwartz가 Claude를 '원하는 협력자'가 아닌 '실제 협력자'로 대우하며 만든 BootLoops 하네스와, 이를 통해 3개월간 18개 분야에서 36편의 원고를 쓴 경험을 정리한다."
 img: claude-shaped-science_title.webp
 date: 2026-10-05 18:00:00 +0900
-last_modified_at: 2026-10-05 20:00:00 +0900
+last_modified_at: 2026-10-08 23:10:39 +0900
 tags: [anthropic, claude, ai-science, bootloops, research, llm, llm-science]
 related: llm-science
 categories: dev
