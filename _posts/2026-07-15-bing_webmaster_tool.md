@@ -6,8 +6,8 @@ description: "Bing Webmaster Tools에 블로그를 등록하고 사이트맵을 
 img: image-title.jpg
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-15 00:00:00 +0900
-tags: [bing, webmaster, seo, jekyll] # add tag
-related: jekyll
+tags: [bing, webmaster, seo, jekyll, site-register] # add tag
+related: site-register
 categories: tools
 redirect_from:
   - /tools/2026/07/14/bing_webmaster_tool.html

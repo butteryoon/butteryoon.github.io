@@ -6,8 +6,8 @@ description: "NVIDIA 테크니컬 블로그 해설. SemiAnalysis AgentX 벤치�
 img: agentx_title.webp
 date: 2026-08-29 18:01:11 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900
-tags: [nvidia, vera-rubin, blackwell, agentic-ai, agentx, semi-analysis, inference, performance-per-watt, gb300, dynamo, nvlink, moe, llm, llm-serving]
-related: llm-serving
+tags: [nvidia, vera-rubin, blackwell, agentic-ai, agentx, semi-analysis, inference, performance-per-watt, gb300, dynamo, nvlink, moe, llm, serving-stack]
+related: serving-stack
 categories: dev
 ---
 NVIDIA 테크니컬 블로그에 8월 28일 올라온 [「NVIDIA Vera Rubin·Blackwell, 와트당 에이전틱 AI 성능의 새로운 기준을 제시하다」](https://developer.nvidia.com/ko-kr/blog/nvidia-vera-rubin-and-blackwell-set-a-new-standard-for-agentic-ai-performance-per-watt/){:target="_blank"}를 읽고 핵심만 추려 정리했다. 에이전틱 워크로드 특화 벤치마크인 **AgentX(SemiAnalysis)** 실측치로 Vera Rubin NVL72와 GB300 NVL72의 전력 효율 격차를 정량화한 드문 사례다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)

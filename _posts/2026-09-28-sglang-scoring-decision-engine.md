@@ -6,8 +6,8 @@ description: "Avi Chawla의 'Build your own Jev (100% local)' 해설. 고정된 
 img: sglang_scoring_title.webp
 date: 2026-09-28 23:40:00 +0900
 last_modified_at: 2026-09-29 22:30:00 +0900
-tags: [sglang, scoring, classification, local-llm, qwen, inference, logits, jev, llm-serving, llm]
-related: llm-serving
+tags: [sglang, scoring, classification, local-llm, qwen, inference, logits, jev, llm, serving-stack]
+related: serving-stack
 categories: dev
 source_url: https://blog.dailydoseofds.com/p/build-your-own-jev-100-local
 source_date: 2026-09-22

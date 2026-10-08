@@ -6,8 +6,8 @@ description: "증거 계보로 출처를 추적하는 LineageRAG, 위협 인텔�
 img: ai_abstract_title.jpg
 date: 2026-08-24 00:05:00 +0900
 last_modified_at: 2026-08-24 01:25:00 +0900
-tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag]
-related: llm-rag
+tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly-early]
+related: rag-weekly-early
 categories: dev
 ---
 

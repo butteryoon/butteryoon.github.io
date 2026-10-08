@@ -5,8 +5,8 @@ description: "sar를 이용한 리눅스 시스템 기본 항목인 CPU, Memory,
 img: monitoring.jpg
 date: 2018-10-14 09:00:01 +0900
 last_modified_at: 2021-04-25 20:00:01 +0900
-tags: [command-line, linux, top, sar, awk, netstat, ss] # add tag
-related: command-line
+tags: [command-line, linux, top, sar, awk, netstat, ss, sysmon] # add tag
+related: sysmon
 categories: dev
 ---
 

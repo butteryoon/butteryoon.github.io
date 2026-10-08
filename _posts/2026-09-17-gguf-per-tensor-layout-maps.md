@@ -6,8 +6,8 @@ description: "bartowski가 Claude와 함께 1000개 넘는 양자화를 돌려 �
 img: gguf-per-tensor-layout-maps_title.webp
 date: 2026-09-17 18:30:00 +0900
 last_modified_at: 2026-09-17 18:30:00 +0900
-tags: [huggingface, gguf, quantization, llama-cpp, llm, optimization, llm-serving]
-related: llm-serving
+tags: [huggingface, gguf, quantization, llama-cpp, llm, optimization, llm-serving, llm-quant]
+related: llm-quant
 categories: [huggingface-blog, llm, quantization]
 source_url: https://huggingface.co/blog/bartowski/per-tensor-layout-maps-for-gguf-quantization
 source_date: 2026-09-10

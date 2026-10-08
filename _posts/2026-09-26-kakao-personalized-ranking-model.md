@@ -6,8 +6,8 @@ description: "카카오 기술 블로그 해설. 성별·연령 세그먼트 단
 img: kakao_personalized_ranking_title.webp
 date: 2026-09-26 20:20:00 +0900
 last_modified_at: 2026-09-26 20:20:00 +0900
-tags: [kakao, recommendation, ranking, personalization, dcn, gdcn, moe, deep-learning, llm]
-related: moe
+tags: [kakao, recommendation, ranking, personalization, dcn, gdcn, moe, deep-learning, llm, agent-case]
+related: agent-case
 categories: dev
 source_url: https://tech.kakao.com/posts/837
 source_date: 2026-09-23

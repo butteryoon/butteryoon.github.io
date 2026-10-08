@@ -6,8 +6,8 @@ description: "MetaMask 지갑에 Polygon PoS 네트워크를 수동으로 추가
 img: crypto_title.jpg
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-16 02:40:00 +0900
-tags: [MetaMask, Polygon, blockchain, wallet] # add tag
-related: MetaMask
+tags: [MetaMask, Polygon, blockchain, wallet, toolbox] # add tag
+related: toolbox
 categories: tools
 redirect_from:
   - /tools/2026/07/14/metamask_polygon.html

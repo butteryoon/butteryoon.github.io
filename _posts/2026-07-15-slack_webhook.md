@@ -6,8 +6,8 @@ description: "Slack Incoming Webhook을 만들고 curl 한 줄로 채널에 메�
 img: messaging_title.jpg
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-16 02:40:00 +0900
-tags: [slack, webhook, curl]
-related: slack
+tags: [slack, webhook, curl, toolbox]
+related: toolbox
 categories: tools
 redirect_from:
   - /tools/2026/07/14/slack_webhook.html

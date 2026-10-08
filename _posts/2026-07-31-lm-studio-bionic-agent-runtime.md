@@ -6,8 +6,8 @@ description: "LM Studio Bionic의 세 가지 런타임(로컬/LM Link/Secure Clo
 img: tools_title.jpg
 date: 2026-07-31 03:13:00 +0900
 last_modified_at: 2026-08-04 23:00:00 +0900
-tags: [lm-studio, bionic, ai-agent, local-llm, voxtral, zero-data-retention, llm, llm-serving]
-related: llm-serving
+tags: [lm-studio, bionic, ai-agent, voxtral, zero-data-retention, llm, llm-serving, local-ai]
+related: local-ai
 categories: tools
 ---
 

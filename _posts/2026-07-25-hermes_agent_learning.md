@@ -6,8 +6,8 @@ description: "AI 에이전트가 작업 알고리즘을 어떻게 수행하고, 
 img: command-title.webp
 date: 2026-07-25 20:00:00 +0900
 last_modified_at: 2026-07-25 20:00:00 +0900
-tags: [ai agent, hermes, memory, skill, learning, orchestration, llm, nous research, llm-agent]
-related: llm-agent
+tags: [ai agent, hermes, memory, skill, learning, orchestration, llm, nous research, llm-agent, agent-design]
+related: agent-design
 categories: dev
 ---
 

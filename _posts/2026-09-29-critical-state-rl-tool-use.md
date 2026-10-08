@@ -6,8 +6,8 @@ description: "보상이 변한다고 그 턴을 학습해도 되는 건 아니�
 img: critical_state_rl_title.webp
 date: 2026-09-29 21:40:00 +0900
 last_modified_at: 2026-09-29 21:40:00 +0900
-tags: [salesforce, rl, tool-use, multi-turn, bfcl, credit-assignment, ai-agents, llm-agent, llm]
-related: llm-agent
+tags: [salesforce, rl, tool-use, multi-turn, bfcl, credit-assignment, ai-agents, llm-agent, llm, agent-design]
+related: agent-design
 categories: dev
 source_url: https://arxiv.org/abs/2609.24985
 source_date: 2026-09-21

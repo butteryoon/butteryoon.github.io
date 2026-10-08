@@ -6,8 +6,8 @@ description: "Google Chrome DevRel 리드 Addy Osmani가 공개한 agent-skills 
 img: tools_title.jpg
 date: 2026-08-11 23:56:00 +0900
 last_modified_at: 2026-08-12 00:50:00 +0900
-tags: [ai-agent, agent-skills, engineering-workflow, production-grade, sdlc, addy-osmani, claude-code, llm, llm-agent]
-related: llm-agent
+tags: [ai-agent, agent-skills, engineering-workflow, production-grade, sdlc, addy-osmani, claude-code, llm, llm-agent, agent-tooling]
+related: agent-tooling
 categories: tools
 ---
 

@@ -6,8 +6,8 @@ description: "DiffusionGemma는 자기회귀 대신 디퓨전 방식으로 단�
 img: diffusiongemma_rtx_title.webp
 date: 2026-09-28 20:20:00 +0900
 last_modified_at: 2026-09-28 20:20:00 +0900
-tags: [nvidia, diffusiongemma, google-deepmind, local-llm, rtx, dgx-spark, inference-optimization, llm-serving]
-related: llm-serving
+tags: [nvidia, diffusiongemma, google-deepmind, rtx, dgx-spark, inference-optimization, llm-serving, local-ai]
+related: local-ai
 categories: [nvidia-blog, llm-serving, inference-optimization]
 source_url: https://blogs.nvidia.co.kr/blog/rtx-ai-garage-local-gemma-diffusion/
 source_date: 2026-06-12

@@ -6,8 +6,8 @@ description: "벡터·그래프·관계형 검색을 단일 DB에서 실행하�
 img: ai_abstract_title.jpg
 date: 2026-08-16 17:20:00 +0900
 last_modified_at: 2026-08-16 17:20:00 +0900
-tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag]
-related: llm-rag
+tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly-early]
+related: rag-weekly-early
 categories: dev
 ---
 

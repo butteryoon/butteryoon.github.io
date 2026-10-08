@@ -6,8 +6,8 @@ description: "ROSCon 토론토에서 공개된 Isaac ROS 5.0을 정리한다. �
 img: isaac_ros_5_title.webp
 date: 2026-10-08 20:20:00 +0900
 last_modified_at: 2026-10-08 20:20:00 +0900
-tags: [nvidia, isaac-ros, robotics, physical-ai, agentic-ai, jetson, ros, open-source, llm-agent]
-related: llm-agent
+tags: [nvidia, isaac-ros, robotics, physical-ai, agentic-ai, jetson, ros, open-source, llm-agent, agent-case]
+related: agent-case
 categories: [nvidia, robotics, ai-infrastructure]
 source_url: https://blogs.nvidia.co.kr/blog/isaac-ros-5-0-agentic-open-source-robotics/
 source_date: 2026-10-08

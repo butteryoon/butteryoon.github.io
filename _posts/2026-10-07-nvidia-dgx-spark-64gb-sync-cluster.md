@@ -7,7 +7,7 @@ img: nvidia_dgx_spark_64gb_title.webp
 date: 2026-10-07 19:00:00 +0900
 last_modified_at: 2026-10-08 23:10:39 +0900
 tags: [nvidia, dgx-spark, local-ai, llm-serving, sync-cluster-assistant, connectx-7, hermes-agent]
-related: llm-serving
+related: local-ai
 categories: [nvidia-analysis, llm-serving]
 source_url: https://blogs.nvidia.co.kr/blog/local-ai-dgx-spark-64gb-sync/
 source_date: 2026-10-06

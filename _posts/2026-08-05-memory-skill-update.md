@@ -6,8 +6,8 @@ description: "Memory 용량 한도 해결을 위해 불필요 항목 삭제 후 
 img: memory_skill_title.webp
 date: 2026-08-05 01:13:10 +0900
 last_modified_at: 2026-09-11 21:40:00 +0900
-tags: [hermes, memory, skill, blog, automation, workflow, dev] # add tag
-related: dev
+tags: [hermes, memory, skill, blog, automation, workflow, dev, blog-ops] # add tag
+related: blog-ops
 categories: dev
 ---
 

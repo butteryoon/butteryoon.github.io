@@ -6,8 +6,8 @@ description: "Google Cloud의 Gemma 4 MTP(Multi-Token Prediction) 서빙 가이�
 img: tools_title.jpg
 date: 2026-08-15 22:56:00 +0900
 last_modified_at: 2026-08-15 23:55:00 +0900
-tags: [gemma, mtp, multi-token-prediction, vllm, mig, speculative-decoding, llm-serving, google-cloud, llm] # add tag
-related: llm-serving
+tags: [gemma, mtp, multi-token-prediction, vllm, mig, speculative-decoding, llm-serving, google-cloud, llm, llm-quant] # add tag
+related: llm-quant
 categories: tools
 ---
 

@@ -5,8 +5,8 @@ description: "GUI 없이 터미널에서 패킷을 뜨고 분석하는 tshark �
 img: "M_david-clode-o3r7oVPZnZI-unsplash.jpg"
 date: 2019-05-20 00:00:00 +0900
 last_modified_at: 2019-05-20 00:00:00 +0900
-tags: [packet, tshark, wireshark, setcap, dumpcap, command-line] # add tag
-related: command-line
+tags: [packet, tshark, wireshark, setcap, dumpcap, command-line, sysmon] # add tag
+related: sysmon
 categories: dev
 redirect_from:
   - /dev/2019/05/19/pcketdump.html

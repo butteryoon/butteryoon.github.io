@@ -6,8 +6,8 @@ description: "mermaid 렌더링, 썸네일 정비, llms.txt와 JSON-LD 적용까
 img: jekyll-title.png
 date: 2026-07-16 23:20:00 +0900
 last_modified_at: 2026-07-16 23:20:00 +0900
-tags: [jekyll, seo, llms.txt, json-ld, mermaid, claude code] # add tag
-related: jekyll
+tags: [jekyll, seo, llms.txt, json-ld, mermaid, claude code, blog-ops] # add tag
+related: blog-ops
 categories: tools
 ---
 

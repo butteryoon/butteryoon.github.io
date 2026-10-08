@@ -6,8 +6,8 @@ description: "Oracle Cloud 무료 인스턴스(RAM 951MB)에 오픈소스 AI 게
 img: omniroute-oci-title.webp
 date: 2026-09-06 20:40:00 +0900
 last_modified_at: 2026-09-22 21:30:00 +0900
-tags: [omniroute, oracle-cloud, free-tier, ai-gateway, caddy, self-hosting, llm-routing, llm, llm-serving]
-related: llm-serving
+tags: [omniroute, oracle-cloud, free-tier, ai-gateway, caddy, self-hosting, llm-routing, llm, llm-serving, local-ai]
+related: local-ai
 categories: tools
 ---
 

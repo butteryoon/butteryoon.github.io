@@ -6,8 +6,8 @@ description: "Karpathy가 제시한 'microgpt 같은 스펙 + 나머지는 컴�
 img: microgpt_title.webp
 date: 2026-09-01 18:20:00 +0900
 last_modified_at: 2026-09-11 21:10:00 +0900
-tags: [karpathy, twitter, microgpt, compilation, ir, pytorch, ai-agents, abstraction, llm, llm-agent]
-related: llm-agent
+tags: [karpathy, twitter, microgpt, compilation, ir, pytorch, ai-agents, abstraction, llm, llm-agent, agent-research]
+related: agent-research
 categories: dev
 ---
 

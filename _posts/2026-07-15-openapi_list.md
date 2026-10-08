@@ -6,8 +6,8 @@ description: "사이드프로젝트에 바로 쓸 수 있는 무료 OPEN API들�
 img: api_code_title.jpg
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-16 02:40:00 +0900
-tags: [openapi, api]
-related: openapi
+tags: [openapi, api, toolbox]
+related: toolbox
 categories: tools
 redirect_from:
   - /tools/2026/07/14/openapi_list.html

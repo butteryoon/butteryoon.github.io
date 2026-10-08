@@ -6,8 +6,8 @@ description: "GLM 기반 리트리버가 OOD 일반화에서 우위를 보였고
 img: ai_abstract_title.jpg
 date: 2026-08-04 22:10:00 +0900
 last_modified_at: 2026-08-04 22:10:00 +0900
-tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag]
-related: llm-rag
+tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly-early]
+related: rag-weekly-early
 categories: dev
 ---
 

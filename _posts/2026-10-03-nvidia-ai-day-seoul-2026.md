@@ -6,8 +6,8 @@ description: "NVIDIA가 11월 9~10일 서울 코엑스에서 AI Day Seoul 2026�
 img: nvidia_ai_day_seoul_title.webp
 date: 2026-10-03 19:30:00 +0900
 last_modified_at: 2026-10-03 19:30:00 +0900
-tags: [nvidia, ai-day-seoul, physical-ai, agentic-ai, claw, ai-infrastructure, korea, llm-agent]
-related: llm-agent
+tags: [nvidia, ai-day-seoul, physical-ai, agentic-ai, claw, ai-infrastructure, korea, llm-agent, agent-research]
+related: agent-research
 categories: [nvidia, ai-infrastructure, korea]
 source_url: https://blogs.nvidia.co.kr/blog/ai-day-seoul-2026/
 source_date: 2026-10-01

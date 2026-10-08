@@ -6,8 +6,8 @@ description: "시계열 잔차·문서 목차·참조 답안 그래프까지 검
 img: ai_abstract_title.jpg
 date: 2026-09-06 17:30:00 +0900
 last_modified_at: 2026-09-06 17:30:00 +0900
-tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag]
-related: llm-rag
+tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly]
+related: rag-weekly
 categories: dev
 ---
 

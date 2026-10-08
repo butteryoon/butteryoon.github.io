@@ -6,8 +6,8 @@ description: "Karpathy가 제안한 LLM 출력 형식 네 단계(ASD-STE100 통�
 img: llm_output_formats_title.webp
 date: 2026-10-03 12:40:00 +0900
 last_modified_at: 2026-10-03 13:25:00 +0900
-tags: [karpathy, asd-ste100, controlled-language, prompting, documentation, llm-agent, llm]
-related: llm-agent
+tags: [karpathy, asd-ste100, controlled-language, prompting, documentation, llm-agent, llm, agent-design]
+related: agent-design
 categories: dev
 source_url: https://x.com/karpathy/status/2105819303471976479
 source_date: 2026-10-02

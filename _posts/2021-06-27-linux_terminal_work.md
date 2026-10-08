@@ -6,8 +6,8 @@ description: "리눅스서버의 서비스로그 분석을 위한 터미널 환�
 img: powershell_title.jpg
 date: 2021-06-30 20:00:00 +0900
 last_modified_at: 2021-06-30 20:00:00 +0900
-tags: [command-line, bash, alias, egrep, regex, tmux, ss, sar] # add tag
-related: command-line
+tags: [command-line, bash, alias, egrep, regex, tmux, ss, sar, sysmon] # add tag
+related: sysmon
 categories: tools
 ---
 

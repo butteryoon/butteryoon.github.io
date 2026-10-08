@@ -6,8 +6,8 @@ description: "루프 엔지니어링과 그래프 엔지니어링의 차이, 오
 img: multi_agent_network.jpg
 date: 2026-08-02 23:44:00 +0900
 last_modified_at: 2026-08-03 00:07:00 +0900
-tags: [ai-agent, orchestration, graph-engineering, orca, multi-agent, llm, llm-agent]
-related: llm-agent
+tags: [ai-agent, orchestration, graph-engineering, orca, multi-agent, llm, llm-agent, agent-design]
+related: agent-design
 categories: dev
 ---
 

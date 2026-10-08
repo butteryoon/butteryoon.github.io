@@ -6,8 +6,8 @@ description: "VikingRAG의 검색 궤적 재사용, 1.9억 문서 규모 Q2D-Web
 img: ai_abstract_title.jpg
 date: 2026-09-13 23:00:00 +0900
 last_modified_at: 2026-09-14 09:20:00 +0900
-tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag]
-related: llm-rag
+tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly]
+related: rag-weekly
 categories: dev
 ---
 

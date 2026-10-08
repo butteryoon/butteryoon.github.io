@@ -6,8 +6,8 @@ description: "고정 선택지 결정을 생성 없이 처리하는 폐쇄 모�
 img: jev27b_blocks_of_experts_title.webp
 date: 2026-10-06 22:20:00 +0900
 last_modified_at: 2026-10-06 22:45:00 +0900
-tags: [huggingface, jev, decision-model, open-weights, qwen, lora, inference, llm-serving, llm]
-related: llm-serving
+tags: [huggingface, jev, decision-model, open-weights, qwen, lora, inference, llm, serving-stack]
+related: serving-stack
 categories: dev
 source_url: https://huggingface.co/blog/autotrust/autotrustjev-27b-fast-calibrated-decisions-and-ful
 source_date: 2026-09-27

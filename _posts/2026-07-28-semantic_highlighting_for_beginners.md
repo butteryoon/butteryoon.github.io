@@ -6,8 +6,8 @@ description: "RAG에서 왜 검색은 똑똑한데 하이라이트는 멍청한�
 img: command-title.webp
 date: 2026-07-28 19:10:00 +0900
 last_modified_at: 2026-07-28 19:10:00 +0900
-tags: [rag, semantic highlighting, beginner, tutorial, llm, nous research, llm-rag]
-related: llm-rag
+tags: [rag, semantic highlighting, beginner, tutorial, llm, nous research, llm-rag, rag-method]
+related: rag-method
 categories: dev
 ---
 

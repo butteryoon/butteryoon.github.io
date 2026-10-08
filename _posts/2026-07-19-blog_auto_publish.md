@@ -6,8 +6,8 @@ description: "주간 연구 보고서를 요약 글로 자동 발행하는 파�
 img: jekyll-title.png
 date: 2026-07-19 18:30:00 +0900
 last_modified_at: 2026-07-22 00:10:00 +0900
-tags: [claude code, automation, jekyll, routines, task scheduler, ai agent, idea]
-related: jekyll
+tags: [claude code, automation, jekyll, routines, task scheduler, ai agent, idea, blog-ops]
+related: blog-ops
 categories: tools
 ---
 

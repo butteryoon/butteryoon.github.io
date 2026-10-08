@@ -6,8 +6,8 @@ description: "카카오 기술 블로그 해설. 데이터 분석 에이전트�
 img: kakao_context_engineering_title.webp
 date: 2026-10-03 18:00:00 +0900
 last_modified_at: 2026-10-03 18:00:00 +0900
-tags: [kakao-tech, llm, llm-agent, context-engineering, agent, subagent]
-related: llm-agent
+tags: [kakao-tech, llm, llm-agent, context-engineering, agent, subagent, agent-case]
+related: agent-case
 categories: [kakao-tech, llm-agent, ai-research]
 source_url: https://tech.kakao.com/posts/838
 source_date: 2026-10-02

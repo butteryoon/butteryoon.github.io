@@ -6,8 +6,8 @@ description: "그래프 RAG가 도달 가능성과 근거를 분리하기 시작
 img: ai_abstract_title.jpg
 date: 2026-09-27 08:00:00 +0900
 last_modified_at: 2026-09-27 08:00:00 +0900
-tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag]
-related: llm-rag
+tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly]
+related: rag-weekly
 categories: dev
 ---
 

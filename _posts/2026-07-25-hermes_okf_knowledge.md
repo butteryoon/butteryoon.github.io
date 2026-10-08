@@ -6,8 +6,8 @@ description: "구글 Open Knowledge Format(OKF)을 Hermes 에이전트 파이프
 img: api_code_title.jpg
 date: 2026-07-25 18:00:00 +0900
 last_modified_at: 2026-07-25 18:00:00 +0900
-tags: [hermes, okf, knowledge, rag, llm, ai agent, markdown, nous research, llm-rag]
-related: llm-rag
+tags: [hermes, okf, knowledge, rag, llm, ai agent, markdown, nous research, llm-rag, rag-method]
+related: rag-method
 categories: tools
 ---
 

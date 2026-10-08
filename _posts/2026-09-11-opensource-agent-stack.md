@@ -6,8 +6,8 @@ description: "Hermes Agent 설치 → 소스 구조 → Oracle Cloud 무료 인�
 img: agent_stack_title.webp
 date: 2026-09-11 20:00:00 +0900
 last_modified_at: 2026-09-19 22:10:00 +0900
-tags: [hermes, ai-agent, opensource, omniroute, oracle-cloud, llm-routing, llm, llm-serving, command-line]
-related: llm-serving
+tags: [hermes, ai-agent, opensource, omniroute, oracle-cloud, llm-routing, llm, llm-serving, command-line, local-ai]
+related: local-ai
 categories: tools
 ---
 

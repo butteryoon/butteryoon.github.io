@@ -6,8 +6,8 @@ description: "Hugging Face transformers가 GGUF 체크포인트를 from_pretrain
 img: transformers_gguf_title.webp
 date: 2026-09-22 21:30:00 +0900
 last_modified_at: 2026-09-22 21:30:00 +0900
-tags: [huggingface, transformers, gguf, llama-cpp, local-llm, apple-silicon, inference, llm, llm-serving]
-related: llm-serving
+tags: [huggingface, transformers, gguf, llama-cpp, local-llm, apple-silicon, inference, llm, llm-serving, llm-quant]
+related: llm-quant
 categories: dev
 ---
 Hugging Face 블로그의 [「Transformers now runs llama.cpp quants」](https://huggingface.co/blog/transformers-llama-cpp-quants){:target="_blank"}(Marc Sun·Arthur Zucker·Lysandre, 2026-09-22)를 정리했다. 로컬 추론은 llama.cpp 계열(Ollama·LM Studio)이, 학습·평가는 transformers가 맡던 분업이 있었는데 그 경계가 흐려지는 변화다. 며칠 전 정리한 [RTX 로컬 LLM 가이드]({{site.baseurl}}/dev/2026/09/09/rtx-local-llm-guide.html)가 도구별 생태계를 훑었다면, 이번 건은 두 생태계가 같은 파일을 공유하기 시작한 이야기다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 원문·차트 대조 후 전면 재작성해 발행했다.)

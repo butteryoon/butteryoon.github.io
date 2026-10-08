@@ -6,8 +6,8 @@ description: "Apple Developer Program 가입부터 App Store Connect 앱 심사 
 img: apple-title.jpg
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-15 00:00:00 +0900
-tags: [apple, appstore, ios] # add tag
-related: apple
+tags: [apple, appstore, ios, site-register] # add tag
+related: site-register
 categories: tools
 redirect_from:
   - /tools/2026/07/14/apple_appstore_register.html

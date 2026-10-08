@@ -7,7 +7,7 @@ img: nvidia_ifa_local_ai_title.webp
 date: 2026-10-04 18:00:00 +0900
 last_modified_at: 2026-10-04 18:00:00 +0900
 tags: [nvidia, ifa-2026, local-ai, rtx-spark, pair, hermes-agent, llm-serving]
-related: llm-serving
+related: local-ai
 categories: [nvidia-analysis, llm-serving]
 source_url: https://blogs.nvidia.co.kr/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark/
 source_date: 2026-09-08

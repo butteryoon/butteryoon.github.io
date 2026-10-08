@@ -6,8 +6,8 @@ description: "ngrok, Cloudflare Tunnel, Tailscale 등 방화벽 뒤의 PC나 로
 img: cloud-title.webp
 date: 2026-07-15 00:00:00 +0900
 last_modified_at: 2026-07-15 00:00:00 +0900
-tags: [ngrok, tailscale, CloudFlare, tunnel, remote desktop] # add tag
-related: tunnel
+tags: [ngrok, tailscale, CloudFlare, tunnel, remote desktop, toolbox] # add tag
+related: toolbox
 categories: tools
 redirect_from:
   - /tools/2026/07/14/tunneling_tools.html

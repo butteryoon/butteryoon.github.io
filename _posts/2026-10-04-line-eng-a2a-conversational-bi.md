@@ -6,8 +6,8 @@ description: "LY Corporation Game Platform실이 만든 대화형 BI 'ChatGamesi
 img: line_eng_a2a_bi_title.webp
 date: 2026-10-04 18:00:00 +0900
 last_modified_at: 2026-10-04 18:00:00 +0900
-tags: [line-eng, a2a, conversational-bi, ontology-rag, query-guardrail, llm-agent, llm-rag, llm-serving]
-related: llm-agent
+tags: [line-eng, a2a, conversational-bi, ontology-rag, query-guardrail, llm-agent, llm-rag, llm-serving, agent-case]
+related: agent-case
 categories: [line-eng-analysis, llm-agent, llm-rag, llm-serving]
 source_url: https://techblog.lycorp.co.jp/ko/a2a-conversational-bi-app
 source_date: 2026-10-02

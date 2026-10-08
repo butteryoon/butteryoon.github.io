@@ -5,8 +5,8 @@ description: "RFC 문서의 프로토콜 헤더 다이어그램을 그려주는 
 img: protocol_title.png
 date: 2021-05-09 15:00:00 +0900
 last_modified_at: 2026-07-15 16:00:00 +0900
-tags: [command-line, rfc, protocol, diagram] # add tag
-related: command-line
+tags: [command-line, rfc, protocol, diagram, sysmon] # add tag
+related: sysmon
 categories: tools
 ---
 

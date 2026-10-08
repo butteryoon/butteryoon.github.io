@@ -6,8 +6,8 @@ description: "Hermes Agent GitHub 저장소를 클론한 뒤 어디부터 읽을
 img: command-title.webp
 date: 2026-07-25 21:00:00 +0900
 last_modified_at: 2026-07-25 21:00:00 +0900
-tags: [hermes, source code, architecture, agent, cli, github, nous research, llm, llm-agent]
-related: llm-agent
+tags: [hermes, source code, architecture, agent, cli, github, nous research, llm, llm-agent, agent-build]
+related: agent-build
 categories: dev
 ---
 

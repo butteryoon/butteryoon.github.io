@@ -6,8 +6,8 @@ description: "Foundry Toolbox와 MCP를 이용한 Caller-Executor 멀티 에이�
 img: multi_agent_network.jpg
 date: 2026-07-16 01:40:00 +0900
 last_modified_at: 2026-07-16 02:10:00 +0900
-tags: [llm, ai agent, mcp, foundry, langgraph, multi-agent, llm-agent]
-related: llm-agent
+tags: [llm, ai agent, mcp, foundry, langgraph, multi-agent, llm-agent, agent-build]
+related: agent-build
 categories: dev
 redirect_from:
   - /dev/2026/07/15/caller_executor_agent.html

@@ -6,8 +6,8 @@ description: "RFP 분석부터 본문 작성, 최종 검토까지 - 모드별 �
 img: planning_title.jpg
 date: 2026-07-21 22:45:00 +0900
 last_modified_at: 2026-07-21 22:45:00 +0900
-tags: [claude code, llm, 제안서, rfp, automation, prompt engineering, llm-agent, idea]
-related: llm-agent
+tags: [claude code, llm, 제안서, rfp, automation, prompt engineering, llm-agent, idea, agent-build]
+related: agent-build
 categories: tools
 ---
 

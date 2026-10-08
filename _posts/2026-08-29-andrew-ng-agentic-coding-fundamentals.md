@@ -6,8 +6,8 @@ description: "Andrew Ng X 포스트(2026-08-28) 분석. 에이전트 코딩이 �
 img: andrew-ng-agentic-coding.webp
 date: 2026-08-29 13:38:00 +0900
 last_modified_at: 2026-08-29 13:38:00 +0900
-tags: [andrew-ng, agentic-coding, software-engineering, ai-engineering, llm-ops, architecture, data-management, llm, llm-agent]
-related: llm-agent
+tags: [andrew-ng, agentic-coding, software-engineering, ai-engineering, llm-ops, architecture, data-management, llm, llm-agent, agent-design]
+related: agent-design
 categories: dev
 ---
 

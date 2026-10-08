@@ -6,8 +6,8 @@ description: "텍스트 설명만으로 논문 수준의 다이어그램을 생�
 img: diagram_title.jpg
 date: 2026-07-14 22:30:00 +0900
 last_modified_at: 2026-07-16 02:40:00 +0900
-tags: [llm, diagram, architecture, PaperBanana, ai agent, llm-agent]
-related: llm-agent
+tags: [llm, diagram, architecture, PaperBanana, ai agent, llm-agent, agent-tooling]
+related: agent-tooling
 categories: tools
 ---
 

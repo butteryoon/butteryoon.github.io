@@ -6,8 +6,8 @@ description: "Kubernetes 공식 문서 기준으로 upstream(바닐라) Kubernet
 img: cloud-title.webp
 date: 2026-07-31 01:21:00 +0900
 last_modified_at: 2026-08-03 00:35:00 +0900
-tags: [kubernetes, architecture, control-plane, k3s, openshift, devops] # add tag
-related: kubernetes
+tags: [kubernetes, architecture, control-plane, k3s, openshift, devops, toolbox] # add tag
+related: toolbox
 categories: dev
 ---
 

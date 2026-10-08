@@ -4,8 +4,8 @@ title: "Build tshark"
 description: "RHEL 6에서 Wireshark 2.6 소스를 받아 tshark만 빌드한 기록. 의존성 처리와 빌드 옵션을 정리했고, 지금은 배포판 패키지 설치가 낫다는 점을 덧붙였다."
 img: "M_wireshark.jpg"
 date: 2019-04-30 15:32:00 +0900
-tags: [packet, tshark, command-line] # add tag
-related: command-line
+tags: [packet, tshark, command-line, sysmon] # add tag
+related: sysmon
 categories: dev
 last_modified_at: 2026-07-15 15:40:00 +0900
 ---

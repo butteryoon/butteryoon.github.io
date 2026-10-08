@@ -6,8 +6,8 @@ description: "LINE 엔지니어링 블로그의 Tech-Verse 2026 참관기 해설
 img: line_techverse_title.webp
 date: 2026-09-13 22:30:00 +0900
 last_modified_at: 2026-09-13 22:30:00 +0900
-tags: [line, tech-verse, ai-driven-development, agent-harness, mcp, declarative-api, developer-productivity, llm, llm-agent]
-related: llm-agent
+tags: [line, tech-verse, ai-driven-development, agent-harness, mcp, declarative-api, developer-productivity, llm, llm-agent, agent-case]
+related: agent-case
 categories: dev
 ---
 LINE 엔지니어링 블로그에 올라온 [「AI를 전제로 다시 설계하다 — Tech-Verse 2026 참관기」](https://techblog.lycorp.co.jp/ko/tech-verse-2026-ai-driven-development-review){:target="_blank"}(2026-09-11, 한규범·황건구)를 정리했다. 컨퍼런스 요약이라기보다 30년 레거시를 짊어진 조직이 AI 주도 개발을 1년간 몸에 붙인 기록이다. 구호 대신 **실측 수치**(9.24배, 39%, 46배)로 말해서 남겨둘 만했다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 원문 전문 대조 후 발행했다.)
