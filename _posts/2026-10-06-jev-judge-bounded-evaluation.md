@@ -5,7 +5,7 @@ title: "심판도 글을 써야 하나 — Jev로 에이전트 평가 만들기"
 description: "LLM 심판은 평가 기준마다 텍스트를 생성한다. 판정이 몇 개의 정해진 결정뿐이라면 그럴 필요가 있을까. 근거를 한 번만 보내고 독립된 질문을 붙이는 Jev 심판 구조와, 설명을 포기하는 대가를 정리한다."
 img: jev_judge_title.webp
 date: 2026-10-06 23:00:00 +0900
-last_modified_at: 2026-10-06 23:00:00 +0900
+last_modified_at: 2026-10-09 23:20:00 +0900
 tags: [jev, llm-as-judge, evaluation, agent-eval, decision-model, llm-eval, llm]
 related: llm-eval
 categories: dev
@@ -77,9 +77,26 @@ grounded = response["answers"]["grounded"]["noul"]
 - **숨은 추론 단계가 여러 개일 때**
 - **정해둔 보기 밖의 답이 나와야 할 때**
 
-그리고 한 가지 더 짚어 둘 것이 있다. **원문에는 지연 시간이나 비용 수치가 없다.** 구조상 빨라야 한다는 설명은 설득력이 있지만, 얼마나 빨라지는지는 직접 재 봐야 한다.
+그리고 한 가지 더 짚어 둘 것이 있다. **원문에는 지연 시간이나 비용 수치가 없다.** 구조상 빨라야 한다는 설명은 설득력이 있지만, 얼마나 빨라지는지는 직접 재 봐야 한다. 그 수치는 다른 곳에 있었다.
 
-## 5. 읽고 나서 — 설명을 포기하는 비용
+## 5. 수치는 논문에 있었다
+
+발행 후에 찾은 것을 덧붙인다. Carnegie Mellon 연구진(Yubo Li 외)의 [「JEV-as-a-Judge: Accept When Confident, Escalate When Unsure」](https://arxiv.org/abs/2609.26550){:target="_blank"}가 이 구조를 정량화했다.
+
+| 조건 | 결과 |
+|---|---|
+| 판정을 텍스트에서 바로 읽을 수 있을 때 | GPT-6의 **3점 이내** · 요금 **0.36%** · 중앙 지연 **0.15초** |
+| 확신한 판정만 받고 나머지는 에스컬레이션 | 홀드아웃 1,610쌍에서 GPT-6보다 **0.9점 더 정확** · 요금 **41%** |
+| 새 워크로드 2종 사전 지정 실시간 테스트 | GPT-6와 정확도 동일 |
+| 약한 곳 | 스타일 적대적 평가, 참조 없는 산문 평가 |
+
+<details class="evidence"><summary>원문 근거</summary><blockquote>"JEV comes within three points of GPT-6 wherever a verdict can be read off the text, at 0.36% of its fee and a 0.15-second median latency"</blockquote><blockquote>"accepting confident verdicts and escalating the rest is 0.9 points more accurate than GPT-6 on 1,610 held-out pairs at 41% of its fee"</blockquote></details>
+
+두 번째 줄이 중요하다. 바로 아래 절에서 "값싼 결정으로 먼저 거르고 걸린 것만 비싼 설명을 받는" 구성이 자연스러워 보인다고 적었는데, 논문이 측정한 캐스케이드가 정확히 그 구성이다. 그리고 결과가 **싼 대안이 아니라 더 나은 구성**이다 — GPT-6 단독보다 정확하면서 요금은 41%다. 싸게 가려다 정확도를 깎는 거래라고 생각했다면 그 전제가 틀렸다.
+
+세 가지는 유보해 둔다. **저자가 이 글의 원문과는 무관한 별개 연구**이고, 측정 대상도 본문이 설명한 특정 구현이 아니라 Jev 계열 결정 모델이다. 그리고 나는 **초록까지만 확인했다** — 표의 숫자는 초록에 그대로 적힌 값이고, 실험 설계까지 들여다보지는 않았다.
+
+## 6. 읽고 나서 — 설명을 포기하는 비용
 
 이 글은 **"심판이 설명할 필요가 있는가"** 라는 질문으로 읽힌다. 그리고 답은 용도에 따라 갈린다.
 
@@ -93,8 +110,9 @@ grounded = response["answers"]["grounded"]["noul"]
 
 한 가지 조심할 것은 앞 글에서 적은 것과 같다. 확률이 돌아온다고 그 확률이 보정됐다는 뜻은 아니다. 0.9를 임계값으로 쓰려면 자기 데이터로 라벨을 붙여 확인해야 한다.
 
-## 6. 참고 자료
+## 7. 참고 자료
 
+- 논문: [JEV-as-a-Judge: Accept When Confident, Escalate When Unsure](https://arxiv.org/abs/2609.26550){:target="_blank"} — Yubo Li, Yidi Miao, Ramayya Krishnan, Rema Padman
 - 원문: [Build a Jev Judge](https://blog.dailydoseofds.com/p/build-a-jev-judge){:target="_blank"} — Akshay Pachaar, 2026-09-21
 - 소개 트윗(X 아티클): [@akshay_pachaar](https://x.com/akshay_pachaar/status/2102087107410002345){:target="_blank"}
 - 관련 글: [결정 전용 모델이 오픈웨이트로 — autotrust/JEV-27B]({{site.baseurl}}/dev/2026/10/06/jev-27b-open-decision-model.html) · [생성 대신 채점 — SGLang /v1/score]({{site.baseurl}}/dev/2026/09/28/sglang-scoring-decision-engine.html) · [검증기 품질이 환경 개수를 이긴다]({{site.baseurl}}/dev/2026/09/24/river-verifier-quality.html) · [RAGAS 평가 방법론]({{site.baseurl}}/dev/2026/08/29/ragas-evaluation-methodology.html)
