@@ -1,11 +1,11 @@
 ---
 layout: post
 comments: true
-title: "오라클 클라우드 무료 티어에 OmniRoute 셀프호스팅 — RAM 1GB로 AI 게이트웨이 돌리기"
-description: "Oracle Cloud 무료 인스턴스(RAM 951MB)에 오픈소스 AI 게이트웨이 OmniRoute를 올리고 Caddy로 HTTPS를 붙인 구축기. RAM 1GB 미만에서 스왑 없이 돌리다 인스턴스가 종료된 경험과 재구축 과정까지 정리한다."
+title: "OmniRoute 셀프호스팅 설치 — RAM 1GB Oracle Cloud 인스턴스에 AI 게이트웨이 올리기"
+description: "오픈소스 AI 게이트웨이 OmniRoute를 RAM 951MB 인스턴스에 설치하고 Caddy로 HTTPS를 붙이는 과정. 500개 가까운 모델을 OpenAI 호환 엔드포인트 하나로 묶는다. 스왑 없이 돌리다 인스턴스가 종료된 경험과 재구축까지 정리한다."
 img: omniroute-oci-title.webp
 date: 2026-09-06 20:40:00 +0900
-last_modified_at: 2026-09-22 21:30:00 +0900
+last_modified_at: 2026-10-13 00:30:00 +0900
 tags: [omniroute, oracle-cloud, free-tier, ai-gateway, caddy, self-hosting, llm-routing, llm, llm-serving, local-ai]
 related: local-ai
 categories: tools

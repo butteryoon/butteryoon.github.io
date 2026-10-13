@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "오라클 클라우드 프리티어 시작하기."
-description: "오라클 클라우드 프리티어 인스턴스를 만들고 기본 서비스 설정한다."
+title: "오라클 클라우드 프리티어 가입과 무료 서버 만들기"
+description: "오라클 클라우드 상시 무료(Always Free) 계정을 만들고 인스턴스를 띄우기까지. 방화벽(firewalld·iptables) 설정과 duckdns 도메인 연결까지 포함해, 무료 티어로 개인 서버를 쓸 수 있는 상태로 만드는 과정을 정리한다."
 img: cloud-title.webp
 date: 2021-01-18 19:00:00 +0900
-last_modified_at: 2026-09-06 21:40:00 +0900
-tags: [oci, oracle cloud, oracle Linux, firewalld, iptables, tag1] # add tag
+last_modified_at: 2026-10-13 00:30:00 +0900
+tags: [oci, oracle-cloud, free-tier, oracle-linux, firewalld, iptables, duckdns]
 related: oci
 categories: tools
 ---
