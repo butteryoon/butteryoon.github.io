@@ -2,11 +2,11 @@
 layout: post
 comments: true
 title: "REST Client for Visual Studio Code"
-description: "REST Client for Visual Studio Code"
+description: "Postman 없이 VSCode 안에서 HTTP API를 테스트하는 방법. REST Client 확장을 설치하고 .http 파일에 요청을 적어 바로 보내는 과정을, 공인 IP 조회 예제로 정리한다."
 img: vscode-title.jpg
 date: 2023-07-22 11:00:00 +0900
-last_modified_at: 2026-07-15 15:40:00 +0900
-tags: [devtool, Visual Studio Code, vscode, http, restful] # add tag
+last_modified_at: 2026-10-13 01:00:00 +0900
+tags: [devtool, Visual Studio Code, vscode, http, restful]
 related: devtool
 categories: tools
 ---

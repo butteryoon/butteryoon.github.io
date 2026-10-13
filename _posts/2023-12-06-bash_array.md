@@ -2,11 +2,11 @@
 layout: post
 comments: true
 title: "bash Array"
-description: "bash 스크립트로 array 사용하기."
+description: "bash 배열로 쉼표 구분 CSV를 읽는 스크립트. IFS=',' 와 read -ra 로 한 줄씩 배열에 담고 특정 열만 뽑아 쓰는 예제를, 질문을 구체화해 가며 얻은 두 가지 버전으로 비교한다."
 img: command-title.webp
 date: 2023-12-06 01:00:00 +0900
-last_modified_at: 2023-12-06 01:00:00 +0900
-tags: [command-line, bash, script, array, chatgpt, 배열] # add tag
+last_modified_at: 2026-10-13 01:00:00 +0900
+tags: [command-line, bash, script, array, chatgpt, 배열, csv]
 related: command-line
 categories: tools
 redirect_from:
