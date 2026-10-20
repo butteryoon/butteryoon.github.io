@@ -5,7 +5,7 @@ title: "NVIDIA Enterprise AI Factory Design Guide 해설"
 description: "NVIDIA 공식 백서(ai-factory-white-paper)를 바탕으로 AI Factory의 5대 기둥(하드웨어/소프트웨어/에이전트 런타임/블루프린트/에코시스템)을 실제 문서 근거와 함께 해설. 우리 블로그 기존 글들과 연결"
 img: command-title.webp
 date: 2026-07-30 00:47:00 +0900
-last_modified_at: 2026-07-30 00:47:00 +0900
+last_modified_at: 2026-10-20 22:00:00 +0900
 tags: [nvidia, ai factory, agentic ai, enterprise, architecture, blueprint, nvidia ai enterprise, llm, llm-infra]
 related: llm-infra
 categories: dev
@@ -172,6 +172,7 @@ Introduction → Enterprise AI Factory Overview → Agentic AI in the Factory
 ### 6.4 소프트웨어 파트너 통합 카테고리
 - **AgentOps AI Platforms** / **Observability Partners** / **Security Partners**
 - **Enterprise Cloud Native Platforms**: Red Hat OpenShift, SUSE Rancher, Canonical Charmed Kubernetes, Nutanix NCP, VMware Tanzu 등
+  - 이들 배포판이 upstream 쿠버네티스와 무엇이 다른지는 [Upstream Kubernetes 요약]({{site.baseurl}}/dev/2026/07/31/upstream_kubernetes_summary.html)에서 비교했다.
 - **Storage Solution Platforms**: 위 스토리지 파트너들의 쿠버네티스 통합
 
 ---

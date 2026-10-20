@@ -5,7 +5,7 @@ title: "NVIDIA AI Factory의 에이전틱 AI 아키텍처, 오픈소스로 구�
 description: "NVIDIA Enterprise AI Factory 디자인 가이드의 에이전틱 AI 계층 분석과 컴포넌트별 오픈소스 대체 스택 매핑"
 img: multi_agent_network.jpg
 date: 2026-07-24 00:45:00 +0900
-last_modified_at: 2026-07-24 00:45:00 +0900
+last_modified_at: 2026-10-20 22:00:00 +0900
 tags: [ai agent, agentops, on-premise, kubernetes, nvidia, open source, mcp, llm, llm-infra]
 related: llm-infra
 categories: dev
@@ -48,6 +48,8 @@ NVIDIA의 [Enterprise AI Factory 디자인 가이드](https://docs.nvidia.com/ai
 | Cloud Native Platform | K8s 오케스트레이션·GPU 관리·스케줄링 | GPU/Network Operator | **K8s + GPU Operator(오픈소스) + Kueue/Volcano** |
 
 굵게 표시한 항목들은 NVIDIA 가이드 자체가 오픈소스/오픈 표준을 그대로 참조하는 부분이다. 즉 이 아키텍처에서 실제로 "치환"이 필요한 것은 **모델 서빙(NIM→vLLM), 에이전트 프레임워크(NeMo Agent Toolkit→LangGraph), 게이트웨이** 정도다.
+
+여기서 Cloud Native Platform 자리에 들어가는 K8s는 벤더 배포판이 아니라 upstream(바닐라) 쿠버네티스를 전제로 한다. 아키텍처·버전 차이(skew) 정책과 OpenShift·K3s·RKE2 같은 배포판과의 차이는 [Upstream Kubernetes 요약]({{site.baseurl}}/dev/2026/07/31/upstream_kubernetes_summary.html)에 정리해 두었다.
 
 ## 오픈소스 구성도
 
