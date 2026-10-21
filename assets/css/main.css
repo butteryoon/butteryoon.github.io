@@ -1287,3 +1287,39 @@ details.evidence blockquote p { margin: 0; }
 .page-footer .page-share a.share-x:hover    { background-color: #222; color: #fff; }
 .page-footer .page-share a.share-fb:hover   { background-color: #3b8bf5; color: #fff; }
 .page-footer .page-share button.share-copy:hover { background-color: #6d92bb; color: #fff; }
+
+/* 사이드바 검색 입구 (2026-10-21 추가).
+   .sidebar 는 flex column + justify-content:space-between 이라
+   .about 과 footer 사이 빈 공간에 들어간다. 768px 이하에서는
+   .sidebar 가 가로 블록으로 바뀌므로 폭을 제한해 가운데 정렬한다. */
+.sidebar-search {
+  margin: 20px 0 0;
+  padding: 0 4px;
+  /* .sidebar 는 모바일에서 width:100% 인데, 이 테마는 390px 폭에서 문서 자체가
+     뷰포트보다 넓어지는 기존 문제가 있다. 그 폭을 그대로 물려받지 않도록
+     뷰포트 기준으로 묶는다. */
+  max-width: calc(100vw - 28px);
+}
+.sidebar-search input[type="search"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.sidebar-search input[type="search"]:focus {
+  outline: none;
+  border-color: #2a7ae2;
+}
+@media only screen and (max-width: 768px) {
+  .sidebar-search {
+    max-width: calc(100vw - 28px);
+    margin: 14px auto 10px;
+    width: 100%;
+  }
+}

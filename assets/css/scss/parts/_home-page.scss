@@ -196,3 +196,27 @@ a.older-posts:hover {
 a.newer-posts:hover {
   transform: translateX(-5px);
 }
+/* 사이드바 검색 입구 (2026-10-21 추가).
+   주의: 이 scss 는 Jekyll 이 컴파일하지 않는다. head.html 이 읽는 것은
+   미리 컴파일된 assets/css/main.css 다. 소스 일관성을 위해 같은 내용을
+   여기에도 남긴다 — 실제 적용은 main.css 쪽을 고쳐야 한다. */
+.sidebar-search {
+  margin: 20px 0 0;
+  padding: 0 4px;
+  max-width: calc(100vw - 28px);
+  input[type="search"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #333;
+    background-color: $white;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    appearance: none;
+    &:focus {
+      outline: none;
+      border-color: #2a7ae2;
+    }
+  }
+}

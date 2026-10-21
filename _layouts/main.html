@@ -11,6 +11,13 @@ layout: default
       <div class="author-name">{{site.author}}</div>
       <p>{{site.about-author}}</p>
     </div>
+    <!-- 검색 입구. JS 없이 동작하는 평범한 form 이라 이 블록은 색인(search.json)을
+         불러오지 않는다 — 검색 로직은 /search/ 한 곳에만 둔다.
+         .sidebar 가 space-between 이라 header 밖에 두면 중앙에 떠서, 소개글
+         바로 아래에 붙도록 header 안에 넣는다. -->
+    <form class="sidebar-search" action="{{site.baseurl}}/search/" method="get" role="search">
+      <input type="search" name="q" placeholder="글 검색" aria-label="글 검색" autocomplete="off">
+    </form>
   </header> <!-- End Header -->
   <footer>
     <section class="contact">

@@ -1,0 +1,17 @@
+---
+layout: null
+permalink: /search.json
+sitemap: false
+---
+{%- comment -%}
+  검색 색인. 제목·description·태그만 담는다(본문 제외).
+  본문까지 넣으면 2MB 가 넘어 모바일 첫 로드가 무거워진다.
+  jsonify 필터로 따옴표·개행을 이스케이프한다 — 직접 따옴표를 치면
+  제목에 " 가 들어간 글에서 JSON 이 깨진다.
+{%- endcomment -%}
+[
+{%- for post in site.posts -%}
+{%- unless forloop.first -%},{%- endunless -%}
+{"t":{{ post.title | default: "" | jsonify }},"d":{{ post.description | default: "" | jsonify }},"g":{{ post.tags | default: "" | join: " " | jsonify }},"u":{{ post.url | jsonify }},"dt":{{ post.date | date: "%Y-%m-%d" | jsonify }}}
+{%- endfor -%}
+]

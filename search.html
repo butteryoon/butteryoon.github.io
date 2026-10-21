@@ -1,0 +1,159 @@
+---
+layout: main
+title: Search
+permalink: /search/
+sitemap: false
+---
+
+<section class="page-search">
+  <h1>검색</h1>
+  <p class="search-help">제목·설명·태그에서 찾습니다. 여러 낱말을 띄어 쓰면 모두 포함된 글만 나옵니다.</p>
+
+  <form class="search-form" onsubmit="return false;">
+    <input type="search" id="q" name="q" placeholder="예: 쿠버네티스, oracle 프리티어, 에이전트 평가"
+           aria-label="글 검색" autocomplete="off" autofocus>
+  </form>
+
+  <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+  <ul id="search-results" class="search-results"></ul>
+</section>
+
+<style>
+.page-search h1 { margin-bottom: 8px; }
+.search-help { color: #828282; font-size: 14px; margin: 0 0 16px; }
+.search-form input[type="search"] {
+  width: 100%; box-sizing: border-box; padding: 12px 14px;
+  font-size: 16px; border: 1px solid #d0d0d0; border-radius: 4px;
+}
+.search-form input[type="search"]:focus { outline: none; border-color: #2a7ae2; }
+.search-status { color: #828282; font-size: 14px; margin: 14px 0 0; }
+.search-results { list-style: none; margin: 10px 0 0; padding: 0; }
+.search-results li { padding: 14px 0; border-bottom: 1px solid #eee; }
+.search-results .r-title { font-size: 18px; font-weight: 700; line-height: 1.4; }
+.search-results .r-meta { color: #828282; font-size: 13px; margin-top: 4px; }
+.search-results .r-desc { color: #444; font-size: 14px; margin-top: 6px; line-height: 1.6; }
+.search-results mark { background: #fff2a8; padding: 0 1px; }
+</style>
+
+<script>
+(function () {
+  var input  = document.getElementById('q');
+  var out    = document.getElementById('search-results');
+  var status = document.getElementById('search-status');
+  var data   = null;
+  var pending = null;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  // 한국어는 어절 경계가 영어처럼 끊기지 않아 부분 문자열로 찾아야 한다.
+  // "쿠버네" 로 "쿠버네티스" 가 잡히게 하려면 단어 단위 매칭을 쓰면 안 된다.
+  function tokens(q) {
+    return q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  }
+
+  // 이 블로그는 본문이 한국어인데 제목·태그는 영어가 많다(llm, agent, rag ...).
+  // 독자는 한국어로 치므로 그대로 두면 "쿠버네티스" 가 0편으로 나온다.
+  // 같은 줄에 있는 낱말끼리 서로를 대신할 수 있게 한다.
+  var SYN_GROUPS = [
+    ['쿠버네티스', 'kubernetes', 'k8s'], ['에이전트', 'agent'], ['임베딩', 'embedding'],
+    ['벡터', 'vector'], ['리랭킹', '재순위', 'rerank', 'reranking'], ['검색', 'retrieval', 'search'],
+    ['평가', 'evaluation', 'benchmark'], ['서빙', 'serving'], ['양자화', 'quantization'],
+    ['터미널', 'terminal', 'command-line'], ['윈도우', 'windows'], ['리눅스', 'linux'],
+    ['도커', 'docker'], ['파이썬', 'python'], ['오라클', 'oracle'], ['클라우드', 'cloud'],
+    ['보안', 'security', 'safety'], ['모델', 'model'], ['논문', 'arxiv', 'paper'],
+    ['주간', 'weekly'], ['가드레일', 'guardrail'], ['메모리', 'memory'], ['스킬', 'skill'],
+    ['프롬프트', 'prompt'], ['컨텍스트', 'context'], ['지연', 'latency'], ['비용', 'cost'],
+    ['테스트', 'test'], ['자동화', 'automation'], ['색인', 'index'], ['데이터베이스', 'database']
+  ];
+  var SYN = {};
+  SYN_GROUPS.forEach(function (g) {
+    g.forEach(function (w) { SYN[w] = g; });
+  });
+
+  // 토큰 하나가 대응표의 어느 낱말로든 걸리면 적중으로 친다.
+  function hit(hay, tok) {
+    var alts = SYN[tok] || [tok];
+    for (var i = 0; i < alts.length; i++) {
+      if (hay.indexOf(alts[i]) !== -1) return true;
+    }
+    return false;
+  }
+
+  function highlight(text, toks) {
+    var html = esc(text);
+    var words = [];
+    toks.forEach(function (t) {
+      // 대응표로 걸린 경우 실제로 본문에 있는 쪽을 칠해야 표시가 남는다.
+      // "쿠버네티스" 로 찾아 영어 제목이 걸렸으면 "Kubernetes" 를 칠한다.
+      (SYN[t] || [t]).forEach(function (w) { if (w) words.push(w); });
+    });
+    words.sort(function (a, b) { return b.length - a.length; });
+    words.forEach(function (w) {
+      var re = new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      html = html.replace(re, '<mark>$1</mark>');
+    });
+    return html;
+  }
+
+  function render(q) {
+    var toks = tokens(q);
+    if (!toks.length) {
+      out.innerHTML = '';
+      status.textContent = data ? '전체 ' + data.length + '편에서 찾습니다.' : '';
+      return;
+    }
+    var hits = data.filter(function (p) {
+      var hay = (p.t + ' ' + p.d + ' ' + p.g).toLowerCase();
+      return toks.every(function (t) { return hit(hay, t); });
+    });
+    status.textContent = hits.length + '편';
+    if (!hits.length) {
+      out.innerHTML = '<li class="r-desc">찾는 글이 없습니다. ' +
+        '<a href="{{ site.baseurl }}/tags/">태그 목록</a>에서 둘러보세요. ' +
+        '본문은 검색 대상이 아니라서, 글 안에만 나오는 낱말은 찾지 못합니다.</li>';
+      return;
+    }
+    out.innerHTML = hits.map(function (p) {
+      return '<li>' +
+        '<div class="r-title"><a href="{{ site.baseurl }}' + esc(p.u) + '">' +
+          highlight(p.t, toks) + '</a></div>' +
+        '<div class="r-meta">' + esc(p.dt) + (p.g ? ' · ' + highlight(p.g, toks) : '') + '</div>' +
+        '<div class="r-desc">' + highlight(p.d, toks) + '</div>' +
+      '</li>';
+    }).join('');
+  }
+
+  function onInput() {
+    clearTimeout(pending);
+    pending = setTimeout(function () {
+      var q = input.value;
+      render(q);
+      // 뒤로 가기 기록을 더럽히지 않게 replaceState 로 둔다.
+      var url = q ? '?q=' + encodeURIComponent(q) : location.pathname;
+      history.replaceState(null, '', url);
+    }, 150);
+  }
+
+  status.textContent = '색인을 불러오는 중…';
+  fetch('{{ site.baseurl }}/search.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (json) {
+      data = json;
+      input.addEventListener('input', onInput);
+      var q = new URLSearchParams(location.search).get('q') || '';
+      if (q) { input.value = q; }
+      render(q);
+    })
+    .catch(function (e) {
+      status.textContent = '색인을 불러오지 못했습니다 (' + e.message + '). ' +
+        '새로고침하거나 태그 목록을 이용해 주세요.';
+    });
+})();
+</script>
