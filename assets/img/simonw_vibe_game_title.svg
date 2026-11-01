@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g opacity="0.16" stroke="#7aa8ff" stroke-width="1">
+    <path d="M0 470 L160 390 L320 430 L480 340 L640 400 L800 310 L960 370 L1120 300 L1200 340"/>
+    <path d="M0 530 L160 455 L320 495 L480 410 L640 470 L800 380 L960 440 L1120 370 L1200 410"/>
+    <path d="M160 390 L160 455 M320 430 L320 495 M480 340 L480 410 M640 400 L640 470 M800 310 L800 380 M960 370 L960 440 M1120 300 L1120 370"/>
+  </g>
+
+  <rect x="88" y="96" width="96" height="6" rx="3" fill="url(#accent)"/>
+
+  <text x="88" y="168" font-family="IBM Plex Mono" font-weight="500" font-size="26" letter-spacing="3" fill="#5ad1b4">VIBE GAME DEVELOPMENT</text>
+
+  <text x="88" y="268" font-family="IBM Plex Mono" font-weight="600" font-size="58" fill="#f2f5fb">"Make it a LOT more fun"</text>
+
+  <text x="88" y="356" font-family="IBM Plex Sans KR" font-weight="700" font-size="52" fill="#f2f5fb">한 줄이 통했다</text>
+
+  <text x="88" y="424" font-family="IBM Plex Sans KR" font-weight="400" font-size="30" fill="#9db0cc">코드 한 줄 안 보고 만든 게임 4종, 그 안의 프롬프트 패턴</text>
+
+  <g font-family="IBM Plex Sans KR" font-weight="500" font-size="24" fill="#8ea4c6">
+    <rect x="88" y="488" width="196" height="54" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+    <text x="110" y="523">단일 프롬프트</text>
+    <rect x="304" y="488" width="150" height="54" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+    <text x="326" y="523">반복 윤색</text>
+    <rect x="474" y="488" width="150" height="54" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+    <text x="496" y="523">기능 확장</text>
+    <rect x="644" y="488" width="178" height="54" rx="10" fill="none" stroke="#5ad1b4" stroke-width="1.5"/>
+    <text x="666" y="523" fill="#5ad1b4">SPEC 주도</text>
+  </g>
+
+  <text x="1112" y="160" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="22" fill="#6c7f9e">simonwillison.net · 2026-10-28</text>
+</svg>
