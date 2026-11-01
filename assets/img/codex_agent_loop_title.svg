@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0E1726"/>
+      <stop offset="60%" stop-color="#141F33"/>
+      <stop offset="100%" stop-color="#1A2436"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="92" width="88" height="6" rx="3" fill="#6FD3C0"/>
+  <text x="88" y="158" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#6FD3C0">CODEX AGENT LOOP</text>
+  <text x="1112" y="158" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#6B7C94">openai.com · 2026-01-23</text>
+
+  <text x="88" y="248" font-family="IBM Plex Sans KR" font-weight="700" font-size="50" fill="#F1F4F9">프롬프트를 쌓는 순서가</text>
+  <text x="88" y="312" font-family="IBM Plex Sans KR" font-weight="700" font-size="50" fill="#F1F4F9">캐시를 살리고 죽인다</text>
+
+  <text x="88" y="368" font-family="IBM Plex Sans KR" font-weight="400" font-size="27" fill="#93A4BC">Responses API 위의 에이전트 루프 — instructions · tools · input</text>
+
+  <g>
+    <rect x="88" y="424" width="236" height="96" rx="12" fill="#17243A" stroke="#2E4160" stroke-width="1.5"/>
+    <text x="110" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FD9FF">instructions</text>
+    <text x="110" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#8296B0">모델별 지침 고정</text>
+
+    <rect x="344" y="424" width="236" height="96" rx="12" fill="#17243A" stroke="#2E4160" stroke-width="1.5"/>
+    <text x="366" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FD9FF">tools</text>
+    <text x="366" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#8296B0">순서까지 동일하게</text>
+
+    <rect x="600" y="424" width="236" height="96" rx="12" fill="#17243A" stroke="#2E4160" stroke-width="1.5"/>
+    <text x="622" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FD9FF">input</text>
+    <text x="622" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#8296B0">변경은 append 만</text>
+
+    <rect x="856" y="424" width="256" height="96" rx="12" fill="#152E2B" stroke="#2F6B61" stroke-width="1.5"/>
+    <text x="878" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="19" fill="#6FD3C0">/responses/compact</text>
+    <text x="878" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#5E9B92">넘치면 잠재 상태 보존</text>
+  </g>
+
+  <text x="88" y="566" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#5E6F88">previous_response_id 를 쓰지 않는 이유 — 무상태 유지와 ZDR</text>
+</svg>
