@@ -5,7 +5,7 @@ title: "카카오, AI 에이전트용 멀티모달 의사결정 모델 'Kanana-2
 description: 문장 대신 확률·선택·점수로 판단을 돌려주는 3B 멀티모달 Decision 모델. 임베딩 기반이라 선택지 수 제한이 없고, H200 1장에서 판단 1건 약 42ms, Jev 호환 API로 호출한다.
 img: kanana_2_v_decide_title.webp
 date: 2026-11-07 21:00:00 +0900
-last_modified_at: 2026-11-07 21:00:00 +0900
+last_modified_at: 2026-11-08 22:20:00 +0900
 tags: [llm, llm-agent, llm-model, kanana, kakao-tech, decision-model, open-source, multimodal]
 related: llm-agent
 categories: [kakao-tech, llm-model]
@@ -16,7 +16,7 @@ source_date: 2026-11-06
 
 <!--more-->
 
-> **TL;DR:** Kanana-2-v-decide는 카카오의 멀티모달 LLM `kanana-2-v-3b`를 기반으로 학습한 3B Decision 모델이다. Noul(참·거짓 확률), Choice(선택지와 확률), Score(단계 점수) 세 형식으로 답하고 한 요청에 여러 질문을 묶을 수 있다. 선택지를 임베딩으로 따로 계산하기 때문에 선택지 수 제한(d3는 255개)이 없고 순서 쏠림이 없으며 선택지 벡터를 캐시해 재사용한다. H200 1장 기준 판단 1건 약 42ms로 GPT-6 Luna보다 약 43배 빠르다. 모델은 `kakaocorp/kanana-2-v-decide-3b-2611`로 공개됐다. transformers로 바로 부르거나 동봉된 HTTP 서버를 띄워 typesafe-sdk 같은 Jev 호환 클라이언트로 호출할 수 있다.
+> **TL;DR:** Kanana-2-v-decide는 카카오의 멀티모달 LLM `kanana-2-v-3b`를 기반으로 학습한 3B Decision 모델이다. Noul(참·거짓 확률), Choice(선택지와 확률), Score(단계 점수) 세 형식으로 답하고 한 요청에 여러 질문을 묶을 수 있다. 선택지를 임베딩으로 따로 계산하기 때문에 선택지 수 제한(d3는 255개)이 없고 순서 쏠림이 줄며 선택지 벡터를 캐시해 재사용한다. H200 1장 기준 판단 1건 약 42ms로 GPT-6 Luna보다 약 43배 빠르다. 모델은 `kakaocorp/kanana-2-v-decide-3b-2611`로 공개됐다. transformers로 바로 부르거나 동봉된 HTTP 서버를 띄워 typesafe-sdk 같은 Jev 호환 클라이언트로 호출할 수 있다.
 
 ## Decision 모델이란
 
@@ -48,7 +48,7 @@ Kanana-2-v-decide는 카카오의 자체 멀티모달 LLM `kanana-2-v-3b`를 기
 
 <details class="evidence"><summary>원문 근거</summary><blockquote>"H200 GPU 1장을 기준으로 응답 시간 약 42ms로, GPT-6 Luna 대비 약 43배 빠른 응답 속도를 기록했습니다."</blockquote></details>
 
-한 요청에 질문을 여러 개 묶을 수 있다는 점이 실무에서 쓸모 있다. "상품이 깨져서 도착했어요"라는 문의와 사진이 들어오면 파손 여부(Noul), 문의 유형(Choice), 고객 감정(Score)을 한 번에 판단하게 하고 그 결과에 따라 에이전트가 상담 연결이나 교환 시스템으로 넘기는 식이다.
+한 요청에 질문을 여러 개 묶을 수 있다는 점이 실무에서 쓸모 있다. "상품이 깨져서 도착했어요"라는 문의와 사진이 들어오면 파손 여부(Noul), 문의 유형(Choice), 고객 감정(Score)을 한 번에 판단하게 하고 그 결과에 따라 에이전트가 상담 연결이나 교환 시스템으로 넘기는 식이다. 다만 42ms는 판단 1건 기준이다. 저장소 코드는 질문을 배치로 묶지 않고 하나씩 처리하므로, 한 요청에 질문을 N개 넣으면 질문 쪽 연산도 N번 일어난다.
 
 ## 임베딩 기반 구조: 선택지 개수와 순서 제약을 없앤 방법
 
@@ -63,10 +63,16 @@ Kanana-2-v-decide는 **선택지를 임베딩으로 표현해 비교**한다. �
 | 특징 | 설명 |
 | --- | --- |
 | 1. 선택지 개수의 확장성 | 선택지 수에 제한이 없다. 벡터를 추가하면 되므로 ImageNet처럼 class가 1,000개인 분류도 한 번에 할 수 있다 |
-| 2. 선택지 순서의 독립성 | 선택지마다 따로 점수를 매기므로 앞쪽 선택지나 특정 번호를 더 고르는 쏠림이 생기지 않는다 |
+| 2. 선택지 순서의 독립성 | 선택지마다 따로 벡터를 만들어 점수를 매기므로, 선택지 쪽에서는 앞쪽이나 특정 번호를 더 고르는 쏠림이 생기지 않는다 |
 | 3. 임베딩 재사용 | 선택지 벡터를 한 번 계산해 저장해 두고 state가 바뀐 부분만 새로 계산한다. 고정된 분류 체계나 도구 목록으로 많은 요청을 처리할 때 유리하다 |
 
-대가도 있다. 처음 보는 선택지는 최초 한 번 임베딩해야 한다. 원문은 실제 서비스에서는 선택지가 고정되고 사용자 입력만 바뀌는 경우가 많아 선택지 임베딩을 미리 계산해 두면 불필요한 연산을 줄일 수 있다고 설명한다.
+다만 "순서와 완전히 무관"은 아니다. 공개된 저장소 코드 기준으로 기본 설정(`show_criteria=true`)에서는 선택지 목록이 질문 프롬프트 안에도 `Options:` 블록으로 함께 들어간다. 선택지 벡터 쪽은 순서의 영향을 받지 않지만 질문 벡터 q는 영향을 받을 여지가 남는다. 선택지가 255개를 넘으면(`MAX_SHOWN_CHOICES = 255`) 질문 쪽에서는 목록을 자동으로 숨기고, 질문별로 숨기도록 지정할 수도 있다. 순서 민감도가 문제가 되는 분류라면 이 설정을 끄고 비교해 보는 편이 좋다.
+
+구조상 이 모델은 문장을 만들지 못한다. 저장소 코드에 생성용 LM head가 없고, 마지막 토큰의 hidden state를 L2 정규화해 벡터로 쓰는 것이 전부다. Noul도 내부적으로는 Choice와 같은 방식으로 풀린다. 질문마다 `true: Yes. This is true: {질문}`, `false: No. This is false: {질문}` 두 문장을 자동으로 만들어 두고 질문 벡터가 어느 쪽에 더 가까운지 보는 식이다. 판단 전용 모델이라 대화나 요약으로 돌려 쓸 수는 없다.
+
+여기부터는 해석이다. 질문과 선택지 사이에 cross-attention이 없는 bi-encoder 구조이므로, 기본값에서 질문 프롬프트에 선택지 목록을 같이 넣는 것은 이 한계를 보완하려는 설계로 읽힌다.
+
+대가도 있다. 처음 보는 선택지는 최초 한 번 임베딩해야 한다. class가 1,000개인 분류를 처음 돌리면 그 호출에서 선택지 연산이 1,000번 일어난다는 뜻이다. 선택지 캐시는 최대 4,096개까지 LRU로 유지되고 키는 (dtype, device, 토큰 ID)이므로, 분류 체계가 그보다 크면 밀려난 선택지는 다시 계산된다. 원문은 실제 서비스에서는 선택지가 고정되고 사용자 입력만 바뀌는 경우가 많아 선택지 임베딩을 미리 계산해 두면 불필요한 연산을 줄일 수 있다고 설명한다.
 
 | 항목 | Jev | d3 | Kanana-2-v-decide |
 | --- | --- | --- | --- |
@@ -104,6 +110,8 @@ trolley 문제(누구를 구할지 고르는 딜레마) 형식의 안전 평가(
 
 운영 관점에서는 이 부분이 핵심이다. confidence가 정답률과 맞으면 threshold를 정해 확신이 낮은 판단만 사람 검토나 상위 LLM으로 넘길 수 있다.
 
+한 가지 짚어 둘 것은 confidence가 1위 확률 그 자체가 아니라는 점이다. 저장소 코드는 1위 확률에서 나머지 선택지 확률의 평균을 뺀 값(margin)을 confidence로 돌려준다. 선택지가 둘뿐일 때와 열 개일 때 같은 정답이라도 값이 달라진다는 뜻이고, threshold를 선택지 목록과 묶어서 관리해야 하는 이유도 여기에 있다.
+
 ## 최종 성능 평가
 
 비교 대상은 Microsoft-Decision-1, Jev 1.14.0, pplx-decider-flash-v1.2, d3-mini-4B, Solar Decide다. 한국어 중심 자체 평가셋(Kanana Decision Bench)과 공개 평가셋(Decision Index 0.4.1 public)에서 결과는 다음과 같다.
@@ -114,6 +122,8 @@ trolley 문제(누구를 구할지 고르는 딜레마) 형식의 안전 평가(
 <details class="evidence"><summary>원문 근거</summary><blockquote>"Kanana Decision Bench 텍스트는 72.62점으로 Microsoft-Decision-1(71.98점), Jev 1.14.0(71.66점)을 조금 앞섰습니다. Decision Index public 텍스트에서도 61.35점으로 Jev(60.70점)와 pplx-decider-flash-v1.2(60.13점)보다 높은 점수를 기록했습니다."</blockquote></details>
 
 차이가 1점 안팎이라 "압도적"이라기보다는 3B 자체 모델로 상용 Decision 모델과 비슷한 수준에 올라섰다고 읽는 편이 맞다.
+
+수치를 인용할 때는 어느 출처인지 같이 적는 편이 안전하다. 위 점수는 카카오 기술블로그 기준이고, Hugging Face 모델 카드는 같은 항목을 Kanana Decision Bench 텍스트 72.50점, Decision Index public 61.34점(Vision 61.12점, 평균 61.23점)으로 적는다. 비교 대상도 StartLux-Decision-v1.1-2B-Instant, Liquid AI d1-3B, Base Labs Joey-1로 달라 집계 시점과 비교군이 다른 것으로 보인다. 모델 카드 기준으로는 Decision Index public에서 Joey-1이 63.31점으로 더 높아, 모든 지표에서 1위인 모델은 아니다.
 
 ## Kanana-2-v-decide 사용하기
 
@@ -191,10 +201,10 @@ curl -s localhost:8000/v1/systemone -H 'content-type: application/json' -d '{
 모델 카드에서 운영 전에 알아 둘 점을 추렸다.
 
 - 서버는 기본으로 127.0.0.1에만 바인딩된다. `--host`로 외부에 열기 전에 `DECISION_API_KEY`를 설정해 Bearer 인증을 켜야 한다. 요청은 한 번에 하나씩 처리한다.
-- HTTP 서버에 넣는 이미지는 base64 data URL이어야 한다. 비디오 입력은 지원하지 않는다.
+- HTTP 서버에 넣는 이미지는 base64 data URL이어야 한다. 입력은 최대 20,480 토큰, 이미지는 최대 10장까지이고 비디오는 지원하지 않는다.
 - 확률은 주어진 후보 안에서의 상대값이다. 선택지를 추가하거나 바꾸면 분포가 달라지니 threshold를 정했다면 선택지 목록이 바뀔 때 다시 맞춰야 한다.
 - 너무 긴 state는 앞뒤를 남기고 잘린다. 잘리는 대신 거부하게 하려면 서버에 `--strict-inputs`를 준다.
-- 선택지 임베딩은 토큰 ID를 키로 호출 간에 캐시된다.
+- 선택지 임베딩은 (dtype, device, 토큰 ID)를 키로 호출 간에 캐시되며 최대 4,096개까지 LRU로 유지된다.
 
 ## 마치며
 
