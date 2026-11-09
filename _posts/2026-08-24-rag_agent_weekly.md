@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "GraphRAG가 감사 가능해진다 — RAG·에이전트 주간 동향 (08/17~08/23)"
 description: "증거 계보로 출처를 추적하는 LineageRAG, 위협 인텔리전스를 탐지 규칙으로 바꾸는 CTI GraphRAG가 나왔다. 프라이버시 보존 ANN과 시맨틱 캐시 퇴거 정책 비교도 함께 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260824_title.webp
 date: 2026-08-24 00:05:00 +0900
 last_modified_at: 2026-08-24 01:25:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly-early]

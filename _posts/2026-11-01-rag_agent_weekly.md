@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "검색한 것과 읽히는 것은 다르다 — 에이전트·RAG 실무 메모 (10/25~11/01)"
 description: "청크 대신 제목·섹션 경로·표 머리글을 붙인 근거 단위로 리더 컨텍스트를 다시 채우면 같은 토큰 예산에서 정답률이 5~6점 오른다. 이번 주 arXiv에서 고른 일곱 편으로 리더 입력, 에이전트 컨텍스트 관리, 코드 품질 기준선, llms.txt 입력 신뢰에서 바로 바꿀 것을 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20261101_title.webp
 date: 2026-11-01 20:05:00 +0900
 last_modified_at: 2026-11-01 20:05:00 +0900
 tags: [rag, ai agent, llm, chunking, context-management, evaluation, prompt-injection, arxiv, weekly, rag-weekly]

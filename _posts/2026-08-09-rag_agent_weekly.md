@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "고정 top-k를 걷어내고, 평가 비용은 74배 줄이고 — RAG·에이전트 주간 (08/03~08/09)"
 description: "고정 top-k를 LLM 에이전트가 제어하는 다단계 검색으로 대체하는 시도가 몰렸다. 툴 확장이 모델 확장을 이긴다는 비터 레슨 재해석과 평가 비용 74배 절감 연구를 함께 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260809_title.webp
 date: 2026-08-09 18:10:00 +0900
 last_modified_at: 2026-08-12 01:10:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly-early]

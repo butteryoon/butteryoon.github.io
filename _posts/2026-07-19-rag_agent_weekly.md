@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "검색 정책을 학습하기 시작했다 — RAG·에이전트 주간 동향 (07/12~07/19)"
 description: "RL로 검색 행동을 조율하는 agentic RAG와 도메인 특화 GraphRAG가 강세였다. 벡터 검색은 소형·고효율화로, 에이전트 평가는 정확도 너머 다차원 계측으로 움직인 한 주를 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260719_title.webp
 date: 2026-07-19 12:00:00 +0900
 last_modified_at: 2026-07-19 12:00:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly-early]

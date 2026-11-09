@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "소형 크로스인코더가 거대 리랭커를 이겼다 — RAG·에이전트 주간 (08/23~08/30)"
 description: "멀티턴 추론 궤적을 학습·재사용하는 graph RAG, 벡터 스토어 포이즈닝 취약성 증명, 소형 크로스인코더의 역전, 자원·프로세스·경제성을 재는 에이전트 벤치마크 러시를 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260830_title.webp
 date: 2026-08-30 17:30:00 +0900
 last_modified_at: 2026-08-30 17:30:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly]

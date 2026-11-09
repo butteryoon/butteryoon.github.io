@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "닿는 문서와 근거가 되는 문서를 구분한다 — RAG·에이전트 주간 (09/20~09/27)"
 description: "그래프 RAG가 도달 가능성과 근거를 분리하기 시작했다. 임베딩 역전 방어와 저비트 양자화 보증, 법률·의료에 증거 게이트를 거는 설계, 장기 상호작용의 담합 경고를 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260927_title.webp
 date: 2026-09-27 08:00:00 +0900
 last_modified_at: 2026-09-27 08:00:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly]

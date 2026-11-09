@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g opacity="0.13" stroke="#7aa8ff" stroke-width="1" fill="none">
+    <circle cx="150" cy="104" r="6"/>
+    <circle cx="380" cy="56" r="6"/>
+    <circle cx="610" cy="118" r="6"/>
+    <circle cx="840" cy="64" r="6"/>
+    <circle cx="1070" cy="126" r="6"/>
+    <circle cx="838" cy="272" r="6"/>
+    <circle cx="1012" cy="218" r="6"/>
+    <circle cx="1136" cy="330" r="6"/>
+    <circle cx="880" cy="418" r="6"/>
+    <circle cx="1084" cy="452" r="6"/>
+    <circle cx="170" cy="596" r="6"/>
+    <circle cx="400" cy="604" r="6"/>
+    <circle cx="630" cy="598" r="6"/>
+    <circle cx="860" cy="592" r="6"/>
+    <circle cx="1090" cy="600" r="6"/>
+    <path d="M150 104 L380 56"/>
+    <path d="M380 56 L610 118"/>
+    <path d="M610 118 L840 64"/>
+    <path d="M840 64 L1070 126"/>
+    <path d="M838 272 L1012 218"/>
+    <path d="M1012 218 L1136 330"/>
+    <path d="M1136 330 L1084 452"/>
+    <path d="M838 272 L880 418"/>
+    <path d="M880 418 L1084 452"/>
+    <path d="M838 272 L1084 452"/>
+    <path d="M170 596 L400 604"/>
+    <path d="M400 604 L630 598"/>
+    <path d="M630 598 L860 592"/>
+    <path d="M860 592 L1090 600"/>
+    <path d="M840 64 L838 272"/>
+    <path d="M1070 126 L1012 218"/>
+    <path d="M1070 126 L1136 330"/>
+    <path d="M880 418 L860 592"/>
+    <path d="M1084 452 L1090 600"/>
+    <path d="M1084 452 L860 592"/>
+  </g>
+  <rect x="88" y="96" width="96" height="6" rx="3" fill="url(#accent)"/>
+  <text x="88" y="166" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#5ad1b4">RAG · AGENT WEEKLY</text>
+  <text x="1112" y="160" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="22" fill="#6c7f9e">2026-07-12 → 07-19</text>
+  <text x="88" y="262" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">검색 정책을</tspan></text>
+  <text x="88" y="334" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">학습하기 시작했다</tspan></text>
+  <text x="88" y="404" font-weight="400" font-size="28" fill="#9db0cc"><tspan font-family="IBM Plex Sans KR">정적 파이프라인에서 학습된 검색 정책으로</tspan></text>
+  <rect x="88" y="490" width="207" height="56" rx="10" fill="none" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="110" y="526" font-weight="500" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">RL </tspan><tspan font-family="IBM Plex Sans KR">검색 정책</tspan></text>
+  <rect x="315" y="490" width="327" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+  <text x="337" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">도메인 특화 </tspan><tspan font-family="IBM Plex Mono">GraphRAG</tspan></text>
+</svg>

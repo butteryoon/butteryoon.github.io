@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "오염 문서 셋에 정확도 77.9%→43.5% — RAG·에이전트 주간 (09/07~09/13)"
 description: "VikingRAG의 검색 궤적 재사용, 1.9억 문서 규모 Q2D-Web, 검색 오염의 정량 측정이 나왔다. 에이전트를 만드는 일 자체를 벤치마크로 삼은 τ^τ-Bench도 함께 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260913_title.webp
 date: 2026-09-13 23:00:00 +0900
 last_modified_at: 2026-09-14 09:20:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly]

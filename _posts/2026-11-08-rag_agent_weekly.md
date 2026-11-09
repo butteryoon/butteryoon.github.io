@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "영어로만 평가한 에이전트를 한국어로 돌리면 — 에이전트·RAG 실무 메모 (11/01~11/08)"
 description: "τ-bench를 한국어·독일어·터키어·페르시아어로 현지화했더니 리테일 과제에서 영어 대비 pass^4가 최대 61점 떨어졌다. 이번 주 arXiv에서 고른 일곱 편으로 다국어 에이전트 평가, 오프라인 RAG 벡터 무결성, 감독 에이전트 설득 위험, 거래 단위 비용 추적, 에이전트 메모리에서 바로 바꿀 것을 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20261108_title.webp
 date: 2026-11-08 19:30:00 +0900
 last_modified_at: 2026-11-09 01:40:00 +0900
 tags: [rag, ai agent, llm, evaluation, multilingual, agent-memory, context-management, security, finops, arxiv, weekly, rag-weekly]

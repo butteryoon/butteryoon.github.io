@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "벡터 검색이 NAND 안으로 내려갔다 — RAG·에이전트 주간 동향 (07/27~08/02)"
 description: "GLM 기반 리트리버가 OOD 일반화에서 우위를 보였고, 벡터 검색 효율화가 인스토리지 가속까지 내려갔다. 에이전트 평가가 능력 점수에서 프로덕션 레디니스로 이동한 한 주를 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260804_title.webp
 date: 2026-08-04 22:10:00 +0900
 last_modified_at: 2026-08-04 22:10:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly-early]

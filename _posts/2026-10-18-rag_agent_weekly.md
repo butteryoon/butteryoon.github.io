@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "평가가 통과했는데 틀렸다 — 에이전트 평가가 조용히 무너지는 네 가지 방식 (10/11~10/18)"
 description: "에이전트 메모리를 다운스트림 QA로 재면 메모리 연산 정확도 20%가 안 보인다. 가드 벤치마크는 폴드를 바꾸면 F1이 0.901에서 0.495로 떨어진다. 이번 주 arXiv에서 고른 네 편으로 평가 설계에서 바로 바꿀 것을 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20261018_title.webp
 date: 2026-10-18 22:00:00 +0900
 last_modified_at: 2026-10-18 22:00:00 +0900
 tags: [rag, ai agent, llm, evaluation, guardrail, agent-memory, arxiv, weekly, rag-weekly]

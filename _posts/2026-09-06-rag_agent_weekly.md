@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "도구 호출률이 템플릿 하나로 0에서 0.96 — RAG·에이전트 주간 (08/31~09/06)"
 description: "시계열 잔차·문서 목차·참조 답안 그래프까지 검색 메모리로 삼는 흐름이 나왔다. 100개 에이전트 군집의 자발적 부정행위와, 채팅 템플릿 하나로 널뛰는 평가 인프라 문제를 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20260906_title.webp
 date: 2026-09-06 17:30:00 +0900
 last_modified_at: 2026-09-06 17:30:00 +0900
 tags: [rag, ai agent, llm, vector database, reranking, arxiv, weekly, llm-rag, rag-weekly]

@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "반복 검색을 붙이면 '모른다'가 사라진다 — 에이전트·RAG 실무 메모 (10/18~10/25)"
 description: "반복 RAG를 붙이면 정확도는 그대로인데 답이 없는 질문에 '모른다'고 하는 비율이 떨어진다. 온도 0 LLM 심판을 그대로 다시 돌려도 판정의 21.2%가 바뀐다. 이번 주 arXiv에서 고른 일곱 편으로 검색·평가·자기 개선 에이전트에서 바로 바꿀 것을 정리한다."
-img: ai_abstract_title.jpg
+img: rag_weekly_20261025_title.webp
 date: 2026-10-25 22:15:00 +0900
 last_modified_at: 2026-10-25 22:15:00 +0900
 tags: [rag, ai agent, llm, embedding, evaluation, llm-as-judge, abstention, arxiv, weekly, rag-weekly]
