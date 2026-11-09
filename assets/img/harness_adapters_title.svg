@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- 배경 모티프: 하네스 셋이 게이트 하나로 모였다가 다시 갈라진다 -->
+  <g opacity="0.14" stroke="#7aa8ff" stroke-width="1" fill="none">
+    <path d="M0 150 L300 150 L430 315"/>
+    <path d="M0 315 L430 315"/>
+    <path d="M0 480 L300 480 L430 315"/>
+    <path d="M430 315 L1200 315"/>
+    <path d="M770 315 L900 150 L1200 150"/>
+    <path d="M770 315 L900 480 L1200 480"/>
+    <circle cx="430" cy="315" r="9"/>
+    <circle cx="770" cy="315" r="9"/>
+  </g>
+
+  <rect x="88" y="96" width="96" height="6" rx="3" fill="url(#accent)"/>
+
+  <text x="88" y="166" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#5ad1b4">HARNESS ADAPTERS · SAFE RL</text>
+
+  <text x="88" y="268" font-family="IBM Plex Sans KR" font-weight="700" font-size="56" fill="#f2f5fb">하네스마다 LoRA 하나</text>
+
+  <text x="88" y="348" font-family="IBM Plex Sans KR" font-weight="700" font-size="56" fill="#f2f5fb">툴 콜은 프록시가 먼저 본다</text>
+
+  <text x="88" y="416" font-family="IBM Plex Sans KR" font-weight="400" font-size="29" fill="#9db0cc">베이스 모델 하나에 어댑터 셋, 규칙 기반 툴 콜 검사</text>
+
+  <g font-size="24" fill="#8ea4c6">
+    <rect x="88" y="490" width="212" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+    <text x="110" y="526" font-family="IBM Plex Mono" font-weight="500">rank 32 LoRA</text>
+
+    <rect x="320" y="490" width="208" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+    <text x="342" y="526" font-family="IBM Plex Sans KR" font-weight="500"><tspan font-family="IBM Plex Mono">10~20ms</tspan> 검사</text>
+
+    <rect x="548" y="490" width="196" height="56" rx="10" fill="none" stroke="#5ad1b4" stroke-width="1.5"/>
+    <text x="570" y="526" font-family="IBM Plex Mono" font-weight="500" fill="#5ad1b4">$90 → $5</text>
+  </g>
+
+  <!-- 우측 개념도: 하네스 셋 → safeagents → 베이스 모델 하나 -->
+  <g>
+    <g font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#9db0cc">
+      <rect x="860" y="178" width="124" height="42" rx="8" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+      <text x="880" y="206">pi</text>
+      <rect x="860" y="232" width="190" height="42" rx="8" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+      <text x="880" y="260">opencode</text>
+      <rect x="860" y="286" width="166" height="42" rx="8" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+      <text x="880" y="314">hermes</text>
+    </g>
+
+    <g stroke="#5ad1b4" stroke-width="1.5" fill="none" opacity="0.8">
+      <path d="M984 199 L1104 199"/>
+      <path d="M1050 253 L1104 253"/>
+      <path d="M1026 307 L1104 307"/>
+      <path d="M1104 199 L1104 372"/>
+    </g>
+
+    <rect x="860" y="372" width="244" height="46" rx="8" fill="none" stroke="#5ad1b4" stroke-width="2"/>
+    <text x="982" y="402" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="21" fill="#5ad1b4">safeagents</text>
+
+    <g stroke="#7aa8ff" stroke-width="1.5" opacity="0.8">
+      <path d="M982 418 L982 452"/>
+    </g>
+
+    <rect x="860" y="452" width="244" height="46" rx="8" fill="none" stroke="#7aa8ff" stroke-width="2"/>
+    <text x="982" y="482" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="21" fill="#7aa8ff">vLLM · base</text>
+  </g>
+
+  <text x="1112" y="574" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#6c7f9e">huggingface.co · 2026-11-06</text>
+</svg>
