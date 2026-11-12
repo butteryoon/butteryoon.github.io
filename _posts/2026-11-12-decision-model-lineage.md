@@ -5,7 +5,7 @@ title: "결정 모델 다섯 편 묶어 읽기 — 확률이 무엇에 보정됐
 description: "Jev에서 시작해 JEV-27B·Kanana-2-v-decide·Gemini Decisions API까지 9월 말부터 11월까지 다섯 갈래가 나왔다. 넷 모두 확률을 돌려주지만 그 확률이 맞춰진 기준은 전부 다르다. 보정 기준점·선택지 상한·지연 측정 경계 세 축으로 다시 읽는다."
 img: decision_model_lineage_title.webp
 date: 2026-11-12 21:50:00 +0900
-last_modified_at: 2026-11-12 21:50:00 +0900
+last_modified_at: 2026-11-12 23:25:00 +0900
 tags: [decision-model, jev, calibration, llm, llm-agent, sglang, kanana, gemini, serving-stack]
 related: serving-stack
 categories: dev
