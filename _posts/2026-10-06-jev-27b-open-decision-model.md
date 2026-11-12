@@ -5,7 +5,7 @@ title: "결정 전용 모델이 오픈웨이트로 — autotrust/JEV-27B"
 description: "고정 선택지 결정을 생성 없이 처리하는 폐쇄 모델 Jev의 오픈웨이트 대안이 나왔다. 백본을 얼린 채 0.4%만 학습해 빠른 결정과 기존 생성 능력을 한 가중치에 담은 Blocks of Experts 구조를 정리한다."
 img: jev27b_blocks_of_experts_title.webp
 date: 2026-10-06 22:20:00 +0900
-last_modified_at: 2026-10-06 22:45:00 +0900
+last_modified_at: 2026-11-12 23:15:00 +0900
 tags: [huggingface, jev, decision-model, open-weights, qwen, lora, inference, llm, serving-stack]
 related: serving-stack
 categories: dev
@@ -92,6 +92,8 @@ HumanEval 점수가 78.0%로 같은 정도가 아니라 **164개 완성 결과�
 | 학습 비용 | 0 | 불가 | B200 1장 9.2시간 |
 | 배포 | 자체 호스팅 | API 호출 | 자체 호스팅 (H100 1장) |
 | 라이선스 | 쓰는 모델에 따름 | 해당 없음 | Apache-2.0 |
+
+> **덧붙임 (2026-11-12):** 이 표를 쓴 뒤로 결정 모델이 둘 더 나왔다. 카카오의 [Kanana-2-v-decide]({{site.baseurl}}/kakao-tech/llm-model/2026/11/07/kanana-2-v-decide.html)와 [Gemini Decisions API]({{site.baseurl}}/dev/2026/11/12/gemini-decisions-api.html)다. 다섯 갈래를 보정 기준점·선택지 상한·지연 측정 경계 세 축으로 다시 묶은 글은 [결정 모델 다섯 편 묶어 읽기]({{site.baseurl}}/dev/2026/11/12/decision-model-lineage.html)에 있다.
 
 ### 갈리는 지점 하나 — 보정을 누가 하는가
 
