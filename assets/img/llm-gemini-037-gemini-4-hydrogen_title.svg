@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g opacity="0.12" stroke="#7aa8ff" stroke-width="1" fill="none">
+    <path d="M300 96 L1180 96"/>
+    <circle cx="960" cy="96" r="5"/>
+    <path d="M300 158 L1180 158"/>
+    <circle cx="1030" cy="158" r="5"/>
+    <path d="M820 220 L1180 220"/>
+    <circle cx="1100" cy="220" r="5"/>
+    <path d="M820 410 L1180 410"/>
+    <circle cx="960" cy="410" r="5"/>
+    <path d="M820 472 L1180 472"/>
+    <circle cx="1030" cy="472" r="5"/>
+    <path d="M820 534 L1180 534"/>
+    <circle cx="1100" cy="534" r="5"/>
+  </g>
+  <rect x="88" y="96" width="96" height="6" rx="3" fill="url(#accent)"/>
+  <text x="88" y="166" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#5ad1b4">LLM CLI · GEMINI 4</text>
+  <text x="1112" y="160" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="22" fill="#6c7f9e">simonwillison.net · 2026-11-12</text>
+  <text x="88" y="262" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">llm-gemini 0.37</tspan></text>
+  <text x="88" y="334" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Gemini 4 Hydrogen </tspan><tspan font-family="IBM Plex Sans KR">가격과 실측</tspan></text>
+  <text x="88" y="404" font-weight="400" font-size="28" fill="#9db0cc"><tspan font-family="IBM Plex Mono">12</tspan><tspan font-family="IBM Plex Sans KR">월 </tspan><tspan font-family="IBM Plex Mono">1</tspan><tspan font-family="IBM Plex Sans KR">일 </tspan><tspan font-family="IBM Plex Mono">Carbon·Argon </tspan><tspan font-family="IBM Plex Sans KR">인상 전에 보는 가격표와 호출당 비용</tspan></text>
+  <rect x="88" y="490" width="351" height="56" rx="10" fill="none" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="110" y="526" font-weight="500" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">Hydrogen </tspan><tspan font-family="IBM Plex Sans KR">$</tspan><tspan font-family="IBM Plex Mono">1.50/</tspan><tspan font-family="IBM Plex Sans KR">$</tspan><tspan font-family="IBM Plex Mono">7.50</tspan></text>
+  <rect x="459" y="490" width="322" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+  <text x="481" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Carbon·Argon </tspan><tspan font-family="IBM Plex Sans KR">$</tspan><tspan font-family="IBM Plex Mono">2→</tspan><tspan font-family="IBM Plex Sans KR">$</tspan><tspan font-family="IBM Plex Mono">4</tspan></text>
+  <rect x="801" y="490" width="274" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
+  <text x="823" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">3.99</tspan><tspan font-family="IBM Plex Sans KR">센트 · </tspan><tspan font-family="IBM Plex Mono">19</tspan><tspan font-family="IBM Plex Sans KR">초</tspan></text>
+</svg>
