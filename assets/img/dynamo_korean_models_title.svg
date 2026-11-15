@@ -13,30 +13,39 @@
 
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <g opacity="0.12" stroke="#7aa8ff" stroke-width="1" fill="none">
-    <path d="M300 96 L1180 96"/>
-    <circle cx="960" cy="96" r="5"/>
-    <path d="M300 158 L1180 158"/>
-    <circle cx="1030" cy="158" r="5"/>
-    <path d="M820 220 L1180 220"/>
-    <circle cx="1100" cy="220" r="5"/>
-    <path d="M820 410 L1180 410"/>
-    <circle cx="960" cy="410" r="5"/>
-    <path d="M820 472 L1180 472"/>
-    <circle cx="1030" cy="472" r="5"/>
-    <path d="M820 534 L1180 534"/>
-    <circle cx="1100" cy="534" r="5"/>
-  </g>
-  <rect x="88" y="96" width="96" height="6" rx="3" fill="url(#accent)"/>
-  <text x="88" y="166" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#5ad1b4">NVIDIA · DYNAMO RECIPES</text>
-  <text x="1112" y="160" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="22" fill="#6c7f9e">NVIDIA 기술 블로그 · 2026-11-09</text>
-  <text x="88" y="262" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">한국 오픈 모델 </tspan><tspan font-family="IBM Plex Mono">4</tspan><tspan font-family="IBM Plex Sans KR">종</tspan></text>
-  <text x="88" y="334" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">B200 </tspan><tspan font-family="IBM Plex Sans KR">배포 레시피</tspan></text>
-  <text x="88" y="404" font-weight="400" font-size="28" fill="#9db0cc"><tspan font-family="IBM Plex Mono">NVFP4·FP8 KV </tspan><tspan font-family="IBM Plex Sans KR">캐시·</tspan><tspan font-family="IBM Plex Mono">speculative decoding</tspan><tspan font-family="IBM Plex Sans KR">을 한 벌로 고정</tspan></text>
-  <rect x="88" y="490" width="202" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-  <text x="110" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">A.X K2 688B</tspan></text>
-  <rect x="310" y="490" width="288" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-  <text x="332" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">K-EXAONE 2.0 750B</tspan></text>
-  <rect x="618" y="490" width="216" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-  <text x="640" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Motif 3 314B</tspan></text>
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">DYNAMO RECIPES</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">NVIDIA · 2026-11-09</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">한국 오픈 모델 </tspan><tspan font-family="IBM Plex Mono">4</tspan><tspan font-family="IBM Plex Sans KR">종을 </tspan><tspan font-family="IBM Plex Mono">B200</tspan><tspan font-family="IBM Plex Sans KR">에 올리는 레시피</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">네 레시피가 똑같이 깔고 가는 최적화 스택</tspan></text>
+  <rect x="88" y="206" width="1032" height="55" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="220" width="4" height="27" rx="2" fill="#3b4d72"/>
+  <text x="122" y="240" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">가중치</tspan></text>
+  <text x="199" y="241" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">NVFP4 </tspan><tspan font-family="IBM Plex Sans KR">체크포인트 (</tspan><tspan font-family="IBM Plex Mono">W4A4)</tspan></text>
+  <text x="1100" y="241" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">어텐션·라우터는 </tspan><tspan font-family="IBM Plex Mono">FP8, </tspan><tspan font-family="IBM Plex Sans KR">임베딩·</tspan><tspan font-family="IBM Plex Mono">LM head</tspan><tspan font-family="IBM Plex Sans KR">는 </tspan><tspan font-family="IBM Plex Mono">BF16</tspan></text>
+  <rect x="88" y="275" width="1032" height="55" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="289" width="4" height="27" rx="2" fill="#3b4d72"/>
+  <text x="122" y="309" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">캐시</tspan></text>
+  <text x="196" y="310" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">FP8 KV </tspan><tspan font-family="IBM Plex Sans KR">캐시</tspan></text>
+  <text x="1100" y="310" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">긴 문맥에서 캐시 메모리를 줄인다</tspan></text>
+  <rect x="88" y="344" width="1032" height="55" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <rect x="102" y="358" width="4" height="27" rx="2" fill="#5ad1b4"/>
+  <text x="122" y="378" font-weight="600" font-size="19" fill="#5ad1b4"><tspan font-family="IBM Plex Sans KR">조율</tspan></text>
+  <text x="196" y="379" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">NVIDIA Dynamo</tspan></text>
+  <text x="1100" y="379" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Mono">prefill·decode </tspan><tspan font-family="IBM Plex Sans KR">분리, </tspan><tspan font-family="IBM Plex Mono">KV-aware </tspan><tspan font-family="IBM Plex Sans KR">라우팅, </tspan><tspan font-family="IBM Plex Mono">NIXL/UCX </tspan><tspan font-family="IBM Plex Sans KR">전송</tspan></text>
+  <rect x="88" y="413" width="1032" height="55" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="427" width="4" height="27" rx="2" fill="#3b4d72"/>
+  <text x="122" y="447" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">실행</tspan></text>
+  <text x="196" y="448" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">vLLM </tspan><tspan font-family="IBM Plex Sans KR">런타임</tspan></text>
+  <text x="1100" y="448" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">모델 실행을 맡고 </tspan><tspan font-family="IBM Plex Mono">Dynamo</tspan><tspan font-family="IBM Plex Sans KR">와 연동한다</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">baseline </tspan><tspan font-family="IBM Plex Sans KR">대비 처리량</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">1.43~3.67</tspan><tspan font-family="IBM Plex Sans KR">배</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">SLA · p50 TTFT 5</tspan><tspan font-family="IBM Plex Sans KR">초</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">50 tok/s</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">공개 레시피</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">4</tspan><tspan font-family="IBM Plex Sans KR">종</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">K8s </tspan><tspan font-family="IBM Plex Sans KR">매니페스트</tspan></text>
 </svg>
