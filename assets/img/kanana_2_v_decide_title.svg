@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">DECISION MODEL</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">tech.kakao.com · 2026-11-06</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">선택지를 임베딩으로 빼니 </tspan><tspan font-family="IBM Plex Mono">255</tspan><tspan font-family="IBM Plex Sans KR">개 상한이 사라졌다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">카카오 </tspan><tspan font-family="IBM Plex Mono">Kanana-2-v-decide 3B </tspan><tspan font-family="IBM Plex Sans KR">— 문장 대신 확률 · 선택 · 점수</tspan></text>
+  <rect x="88" y="221" width="504" height="234" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="265" font-weight="600" font-size="24" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">d3 </tspan><tspan font-family="IBM Plex Sans KR">— 답 코드 </tspan><tspan font-family="IBM Plex Mono">head</tspan></text>
+  <path d="M108 283 L572 283" stroke="#30425f" stroke-width="1"/>
+  <circle cx="112" cy="309" r="3" fill="#5ad1b4"/>
+  <text x="126" y="315" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">프롬프트에 선택지를 나열한다</tspan></text>
+  <circle cx="112" cy="341" r="3" fill="#44587e"/>
+  <text x="126" y="347" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">선택지 </tspan><tspan font-family="IBM Plex Mono">255</tspan><tspan font-family="IBM Plex Sans KR">개 상한</tspan></text>
+  <circle cx="112" cy="373" r="3" fill="#44587e"/>
+  <text x="126" y="379" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">순서가 결과를 흔든다</tspan></text>
+  <circle cx="112" cy="405" r="3" fill="#44587e"/>
+  <text x="126" y="411" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">질문마다 전체를 다시 읽는다</tspan></text>
+  <rect x="616" y="221" width="504" height="234" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="636" y="265" font-weight="600" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">Kanana-2-v-decide</tspan></text>
+  <path d="M636 283 L1100 283" stroke="#30425f" stroke-width="1"/>
+  <circle cx="640" cy="309" r="3" fill="#5ad1b4"/>
+  <text x="654" y="315" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">선택지를 임베딩으로 비교한다</tspan></text>
+  <circle cx="640" cy="341" r="3" fill="#44587e"/>
+  <text x="654" y="347" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">선택지 수 제한 없음</tspan></text>
+  <circle cx="640" cy="373" r="3" fill="#44587e"/>
+  <text x="654" y="379" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">순서 쏠림이 줄어든다</tspan></text>
+  <circle cx="640" cy="405" r="3" fill="#44587e"/>
+  <text x="654" y="411" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">선택지 벡터를 캐시해 재사용</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">판단 </tspan><tspan font-family="IBM Plex Mono">1</tspan><tspan font-family="IBM Plex Sans KR">건 · </tspan><tspan font-family="IBM Plex Mono">H200 1</tspan><tspan font-family="IBM Plex Sans KR">장</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">약 </tspan><tspan font-family="IBM Plex Mono">42ms</tspan></text>
+  <text x="400" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">한국어 리뷰</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">GPT-6 Luna </tspan><tspan font-family="IBM Plex Sans KR">대비</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">약 </tspan><tspan font-family="IBM Plex Mono">43</tspan><tspan font-family="IBM Plex Sans KR">배</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">카카오 측정</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">판단 형식</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">3</tspan><tspan font-family="IBM Plex Sans KR">가지</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">Noul·Choice·Score</tspan></text>
+</svg>

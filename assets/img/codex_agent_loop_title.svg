@@ -1,40 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0E1726"/>
-      <stop offset="60%" stop-color="#141F33"/>
-      <stop offset="100%" stop-color="#1A2436"/>
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
     </linearGradient>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <rect x="88" y="92" width="88" height="6" rx="3" fill="#6FD3C0"/>
-  <text x="88" y="158" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#6FD3C0">CODEX AGENT LOOP</text>
-  <text x="1112" y="158" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#6B7C94">openai.com · 2026-01-23</text>
-
-  <text x="88" y="248" font-family="IBM Plex Sans KR" font-weight="700" font-size="50" fill="#F1F4F9">프롬프트를 쌓는 순서가</text>
-  <text x="88" y="312" font-family="IBM Plex Sans KR" font-weight="700" font-size="50" fill="#F1F4F9">캐시를 살리고 죽인다</text>
-
-  <text x="88" y="368" font-family="IBM Plex Sans KR" font-weight="400" font-size="27" fill="#93A4BC">Responses API 위의 에이전트 루프 — instructions · tools · input</text>
-
-  <g>
-    <rect x="88" y="424" width="236" height="96" rx="12" fill="#17243A" stroke="#2E4160" stroke-width="1.5"/>
-    <text x="110" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FD9FF">instructions</text>
-    <text x="110" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#8296B0">모델별 지침 고정</text>
-
-    <rect x="344" y="424" width="236" height="96" rx="12" fill="#17243A" stroke="#2E4160" stroke-width="1.5"/>
-    <text x="366" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FD9FF">tools</text>
-    <text x="366" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#8296B0">순서까지 동일하게</text>
-
-    <rect x="600" y="424" width="236" height="96" rx="12" fill="#17243A" stroke="#2E4160" stroke-width="1.5"/>
-    <text x="622" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FD9FF">input</text>
-    <text x="622" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#8296B0">변경은 append 만</text>
-
-    <rect x="856" y="424" width="256" height="96" rx="12" fill="#152E2B" stroke="#2F6B61" stroke-width="1.5"/>
-    <text x="878" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="19" fill="#6FD3C0">/responses/compact</text>
-    <text x="878" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#5E9B92">넘치면 잠재 상태 보존</text>
-  </g>
-
-  <text x="88" y="566" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#5E6F88">previous_response_id 를 쓰지 않는 이유 — 무상태 유지와 ZDR</text>
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">AGENT LOOP</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">openai.com · 2026-01-23</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">사용자 메시지 앞에 네 항목이 고정 순서로 깔린다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Codex </tspan><tspan font-family="IBM Plex Sans KR">가 </tspan><tspan font-family="IBM Plex Mono">Responses API </tspan><tspan font-family="IBM Plex Sans KR">의 </tspan><tspan font-family="IBM Plex Mono">input </tspan><tspan font-family="IBM Plex Sans KR">을 채우는 순서</tspan></text>
+  <rect x="88" y="256" width="184" height="164" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="292" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">developer</tspan></text>
+  <text x="108" y="322" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">샌드박스 설명</tspan></text>
+  <text x="108" y="358" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">shell </tspan><tspan font-family="IBM Plex Sans KR">툴에만</tspan></text>
+  <text x="108" y="381" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">적용</tspan></text>
+  <rect x="300" y="256" width="184" height="164" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="320" y="292" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">developer</tspan></text>
+  <text x="320" y="322" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">추가 지침</tspan></text>
+  <text x="320" y="358" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">config.toml </tspan><tspan font-family="IBM Plex Sans KR">값</tspan></text>
+  <path d="M279 338 L284 338" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M293 338 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="512" y="256" width="184" height="164" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="532" y="292" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">user</tspan></text>
+  <text x="532" y="322" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">사용자 지침</tspan></text>
+  <text x="532" y="358" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">AGENTS.md ·</tspan></text>
+  <text x="532" y="381" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">스킬 메타</tspan></text>
+  <path d="M491 338 L496 338" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M505 338 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="724" y="256" width="184" height="164" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="744" y="292" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">user</tspan></text>
+  <text x="744" y="322" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">환경 컨텍스트</tspan></text>
+  <text x="744" y="358" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">실행 환경 정보</tspan></text>
+  <path d="M703 338 L708 338" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M717 338 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="936" y="256" width="184" height="164" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="956" y="292" font-weight="500" font-size="17" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">user</tspan></text>
+  <text x="956" y="322" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">사용자 메시지</tspan></text>
+  <text x="956" y="358" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">여기서 시작</tspan></text>
+  <path d="M915 338 L920 338" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M929 338 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Codex </tspan><tspan font-family="IBM Plex Sans KR">가 쓰는 필드</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">3</tspan><tspan font-family="IBM Plex Sans KR">개</tspan></text>
+  <text x="400" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">instructions </tspan><tspan font-family="IBM Plex Sans KR">외</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">previous_response_id</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">안 쓴다</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">무상태 · </tspan><tspan font-family="IBM Plex Mono">ZDR</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">컨텍스트가 넘치면</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">compact </tspan><tspan font-family="IBM Plex Sans KR">교체</tspan></text>
 </svg>

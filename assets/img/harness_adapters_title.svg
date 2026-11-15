@@ -13,67 +13,43 @@
 
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <!-- 배경 모티프: 하네스 셋이 게이트 하나로 모였다가 다시 갈라진다 -->
-  <g opacity="0.14" stroke="#7aa8ff" stroke-width="1" fill="none">
-    <path d="M0 150 L300 150 L430 315"/>
-    <path d="M0 315 L430 315"/>
-    <path d="M0 480 L300 480 L430 315"/>
-    <path d="M430 315 L1200 315"/>
-    <path d="M770 315 L900 150 L1200 150"/>
-    <path d="M770 315 L900 480 L1200 480"/>
-    <circle cx="430" cy="315" r="9"/>
-    <circle cx="770" cy="315" r="9"/>
-  </g>
-
-  <rect x="88" y="96" width="96" height="6" rx="3" fill="url(#accent)"/>
-
-  <text x="88" y="166" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#5ad1b4">HARNESS ADAPTERS · SAFE RL</text>
-
-  <text x="88" y="268" font-family="IBM Plex Sans KR" font-weight="700" font-size="56" fill="#f2f5fb">하네스마다 LoRA 하나</text>
-
-  <text x="88" y="348" font-family="IBM Plex Sans KR" font-weight="700" font-size="56" fill="#f2f5fb">툴 콜은 프록시가 먼저 본다</text>
-
-  <text x="88" y="416" font-family="IBM Plex Sans KR" font-weight="400" font-size="29" fill="#9db0cc">베이스 모델 하나에 어댑터 셋, 규칙 기반 툴 콜 검사</text>
-
-  <g font-size="24" fill="#8ea4c6">
-    <rect x="88" y="490" width="212" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-    <text x="110" y="526" font-family="IBM Plex Mono" font-weight="500">rank 32 LoRA</text>
-
-    <rect x="320" y="490" width="208" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-    <text x="342" y="526" font-family="IBM Plex Sans KR" font-weight="500"><tspan font-family="IBM Plex Mono">10~20ms</tspan> 검사</text>
-
-    <rect x="548" y="490" width="196" height="56" rx="10" fill="none" stroke="#5ad1b4" stroke-width="1.5"/>
-    <text x="570" y="526" font-family="IBM Plex Mono" font-weight="500" fill="#5ad1b4">$90 → $5</text>
-  </g>
-
-  <!-- 우측 개념도: 하네스 셋 → safeagents → 베이스 모델 하나 -->
-  <g>
-    <g font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#9db0cc">
-      <rect x="860" y="178" width="124" height="42" rx="8" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-      <text x="880" y="206">pi</text>
-      <rect x="860" y="232" width="190" height="42" rx="8" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-      <text x="880" y="260">opencode</text>
-      <rect x="860" y="286" width="166" height="42" rx="8" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-      <text x="880" y="314">hermes</text>
-    </g>
-
-    <g stroke="#5ad1b4" stroke-width="1.5" fill="none" opacity="0.8">
-      <path d="M984 199 L1104 199"/>
-      <path d="M1050 253 L1104 253"/>
-      <path d="M1026 307 L1104 307"/>
-      <path d="M1104 199 L1104 372"/>
-    </g>
-
-    <rect x="860" y="372" width="244" height="46" rx="8" fill="none" stroke="#5ad1b4" stroke-width="2"/>
-    <text x="982" y="402" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="21" fill="#5ad1b4">safeagents</text>
-
-    <g stroke="#7aa8ff" stroke-width="1.5" opacity="0.8">
-      <path d="M982 418 L982 452"/>
-    </g>
-
-    <rect x="860" y="452" width="244" height="46" rx="8" fill="none" stroke="#7aa8ff" stroke-width="2"/>
-    <text x="982" y="482" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="21" fill="#7aa8ff">vLLM · base</text>
-  </g>
-
-  <text x="1112" y="574" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#6c7f9e">huggingface.co · 2026-11-06</text>
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">HARNESS ADAPTERS</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">huggingface.co · 2026-11-06</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">체크포인트 </tspan><tspan font-family="IBM Plex Mono">9</tspan><tspan font-family="IBM Plex Sans KR">개 평가가 </tspan><tspan font-family="IBM Plex Mono">90</tspan><tspan font-family="IBM Plex Sans KR">달러에서 </tspan><tspan font-family="IBM Plex Mono">5</tspan><tspan font-family="IBM Plex Sans KR">달러로</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">하네스마다 </tspan><tspan font-family="IBM Plex Mono">rank 32 LoRA </tspan><tspan font-family="IBM Plex Sans KR">— 베이스 가중치는 </tspan><tspan font-family="IBM Plex Mono">vLLM </tspan><tspan font-family="IBM Plex Sans KR">에 한 번만 올린다</tspan></text>
+  <rect x="88" y="221" width="504" height="234" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="108" y="265" font-weight="600" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Sans KR">어댑터 </tspan><tspan font-family="IBM Plex Mono">9</tspan><tspan font-family="IBM Plex Sans KR">개 · 베이스 한 벌</tspan></text>
+  <path d="M108 283 L572 283" stroke="#30425f" stroke-width="1"/>
+  <circle cx="112" cy="309" r="3" fill="#5ad1b4"/>
+  <text x="126" y="315" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">약 </tspan><tspan font-family="IBM Plex Mono">5</tspan><tspan font-family="IBM Plex Sans KR">달러</tspan></text>
+  <circle cx="112" cy="341" r="3" fill="#44587e"/>
+  <text x="126" y="347" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">H200 </tspan><tspan font-family="IBM Plex Sans KR">잡 하나</tspan></text>
+  <circle cx="112" cy="373" r="3" fill="#44587e"/>
+  <text x="126" y="379" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">1</tspan><tspan font-family="IBM Plex Sans KR">시간 안에 평가</tspan></text>
+  <circle cx="112" cy="405" r="3" fill="#44587e"/>
+  <text x="126" y="411" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">베이스는 한 번만 올린다</tspan></text>
+  <rect x="616" y="221" width="504" height="234" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="636" y="265" font-weight="600" font-size="24" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">가중치를 병합해 개별 서빙</tspan></text>
+  <path d="M636 283 L1100 283" stroke="#30425f" stroke-width="1"/>
+  <circle cx="640" cy="309" r="3" fill="#5ad1b4"/>
+  <text x="654" y="315" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">약 </tspan><tspan font-family="IBM Plex Mono">90</tspan><tspan font-family="IBM Plex Sans KR">달러</tspan></text>
+  <circle cx="640" cy="341" r="3" fill="#44587e"/>
+  <text x="654" y="347" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">체크포인트마다 한 벌</tspan></text>
+  <circle cx="640" cy="373" r="3" fill="#44587e"/>
+  <text x="654" y="379" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">같은 평가를 </tspan><tspan font-family="IBM Plex Mono">9</tspan><tspan font-family="IBM Plex Sans KR">번</tspan></text>
+  <circle cx="640" cy="405" r="3" fill="#44587e"/>
+  <text x="654" y="411" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">모델을 하나씩 올린다</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">safeagents </tspan><tspan font-family="IBM Plex Sans KR">툴 콜 검사</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">10~20ms</tspan></text>
+  <text x="400" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">규칙 기반</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">가드를 켠 비용</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">+0.0 </tspan><tspan font-family="IBM Plex Sans KR">± </tspan><tspan font-family="IBM Plex Mono">4.1</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">pass</tspan><tspan font-family="IBM Plex Sans KR">@</tspan><tspan font-family="IBM Plex Mono">1</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">어댑터 </tspan><tspan font-family="IBM Plex Mono">rank</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">32</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">GRPO</tspan></text>
 </svg>
