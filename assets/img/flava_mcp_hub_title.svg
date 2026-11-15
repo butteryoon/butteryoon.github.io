@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">MCP PLATFORM</text>
+  <text x="1112" y="90" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#6c7f9e">techblog.lycorp.co.jp · 2026-10-26</text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">인증을 팀마다 짜지 말고 한 겹에서 끝낸다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">MCP </tspan><tspan font-family="IBM Plex Sans KR">서버 </tspan><tspan font-family="IBM Plex Mono">650</tspan><tspan font-family="IBM Plex Sans KR">개 이상이 지나는 네 층</tspan></text>
+  <rect x="88" y="206" width="1032" height="55" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <rect x="102" y="220" width="4" height="27" rx="2" fill="#5ad1b4"/>
+  <text x="122" y="240" font-weight="600" font-size="19" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">1</tspan><tspan font-family="IBM Plex Sans KR">층</tspan></text>
+  <text x="196" y="241" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Connection</tspan></text>
+  <text x="1100" y="241" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Mono">MCP Connector </tspan><tspan font-family="IBM Plex Sans KR">— </tspan><tspan font-family="IBM Plex Mono">OIDC · </tspan><tspan font-family="IBM Plex Sans KR">토큰 캐시 · 갱신 · </tspan><tspan font-family="IBM Plex Mono">Bearer </tspan><tspan font-family="IBM Plex Sans KR">주입</tspan></text>
+  <rect x="88" y="275" width="1032" height="55" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="289" width="4" height="27" rx="2" fill="#3b4d72"/>
+  <text x="122" y="309" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">2</tspan><tspan font-family="IBM Plex Sans KR">층</tspan></text>
+  <text x="196" y="310" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Proxy</tspan></text>
+  <text x="1100" y="310" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Mono">MCP Gateway </tspan><tspan font-family="IBM Plex Sans KR">— 라우팅 · </tspan><tspan font-family="IBM Plex Mono">CORS · </tspan><tspan font-family="IBM Plex Sans KR">전송 규약</tspan></text>
+  <rect x="88" y="344" width="1032" height="55" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="358" width="4" height="27" rx="2" fill="#3b4d72"/>
+  <text x="122" y="378" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">3</tspan><tspan font-family="IBM Plex Sans KR">층</tspan></text>
+  <text x="196" y="379" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Authorization</tspan></text>
+  <text x="1100" y="379" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">토큰을 먼저 검사하고 사내 인증을 한곳에서 검증</tspan></text>
+  <rect x="88" y="413" width="1032" height="55" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="427" width="4" height="27" rx="2" fill="#3b4d72"/>
+  <text x="122" y="447" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">4</tspan><tspan font-family="IBM Plex Sans KR">층</tspan></text>
+  <text x="196" y="448" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Monitoring</tspan></text>
+  <text x="1100" y="448" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">도구 호출 · 인증 결과 · 지연 수집</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">플랫폼 위 </tspan><tspan font-family="IBM Plex Mono">MCP </tspan><tspan font-family="IBM Plex Sans KR">서버</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">650</tspan><tspan font-family="IBM Plex Sans KR">개 이상</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">인증 준비 시간</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">1</tspan><tspan font-family="IBM Plex Sans KR">주일 </tspan><tspan font-family="IBM Plex Mono">→ 5</tspan><tspan font-family="IBM Plex Sans KR">분</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">내부 추정</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Gateway </tspan><tspan font-family="IBM Plex Sans KR">재작성</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Rust → Go</tspan></text>
+</svg>

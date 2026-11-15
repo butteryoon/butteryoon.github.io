@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">ENCODER</text>
+  <text x="1112" y="90" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#6c7f9e">huggingface.co · 2026-10-14</text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">분류와 검색은 반대 방향의 마스킹을 원한다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">그래서 비율마다 </tspan><tspan font-family="IBM Plex Mono">LM </tspan><tspan font-family="IBM Plex Sans KR">헤드를 따로 뒀다 — </tspan><tspan font-family="IBM Plex Mono">UltraBERT 150M · 380M</tspan></text>
+  <rect x="88" y="211" width="1032" height="68" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="110" y="254" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">한 배치에 </tspan><tspan font-family="IBM Plex Mono">5% </tspan><tspan font-family="IBM Plex Sans KR">와 </tspan><tspan font-family="IBM Plex Mono">50% </tspan><tspan font-family="IBM Plex Sans KR">마스킹을 </tspan><tspan font-family="IBM Plex Mono">4:1</tspan><tspan font-family="IBM Plex Sans KR">로 섞는다</tspan></text>
+  <text x="1098" y="254" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">인코더 본체는 공유</tspan></text>
+  <path d="M340 285 L340 290" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M340 299 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="88" y="305" width="504" height="159" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="341" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">5% MASKING HEAD</tspan></text>
+  <text x="108" y="367" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">분류 쪽을 끌어올린다</tspan></text>
+  <text x="108" y="402" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">마스킹이 낮을수록 </tspan><tspan font-family="IBM Plex Mono">GLUE·SQuAD </tspan><tspan font-family="IBM Plex Sans KR">가 좋아진다. </tspan><tspan font-family="IBM Plex Mono">1.3B</tspan></text>
+  <text x="108" y="425" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">교사 증류도 이쪽에만 효과가 있었다</tspan></text>
+  <path d="M868 285 L868 290" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M868 299 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="616" y="305" width="504" height="159" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="636" y="341" font-weight="500" font-size="17" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">50% MASKING HEAD</tspan></text>
+  <text x="636" y="367" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">검색 쪽을 끌어올린다</tspan></text>
+  <text x="636" y="402" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">모든 크기에서 </tspan><tspan font-family="IBM Plex Mono">BEIR </tspan><tspan font-family="IBM Plex Sans KR">가 가장 높다. 같은 증류를</tspan></text>
+  <text x="636" y="425" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">걸면 </tspan><tspan font-family="IBM Plex Mono">47.2 </tspan><tspan font-family="IBM Plex Sans KR">에서 </tspan><tspan font-family="IBM Plex Mono">46.5 </tspan><tspan font-family="IBM Plex Sans KR">로 떨어진다</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">MTEB eng v2 </tspan><tspan font-family="IBM Plex Sans KR">— </tspan><tspan font-family="IBM Plex Mono">Embed-150M</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">67.24</tspan></text>
+  <text x="400" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">200M </tspan><tspan font-family="IBM Plex Sans KR">이하 </tspan><tspan font-family="IBM Plex Mono">1</tspan><tspan font-family="IBM Plex Sans KR">위</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">32K </tspan><tspan font-family="IBM Plex Sans KR">패스키 정확도</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">99%</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">헤드 분리 </tspan><tspan font-family="IBM Plex Mono">150M </tspan><tspan font-family="IBM Plex Sans KR">— </tspan><tspan font-family="IBM Plex Mono">GLUE/BEIR</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">89.4 / 45.1</tspan></text>
+</svg>
