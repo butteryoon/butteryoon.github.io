@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">LOCAL VOICE AGENT</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">huggingface.co · 2026-10-30</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">워크스테이션 한 대에서 듣고 생각하고 말한다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Nemotron Voice Agent </tspan><tspan font-family="IBM Plex Sans KR">캐스케이드로 만든 로컬 음성 캐릭터</tspan></text>
+  <rect x="88" y="253" width="237" height="169" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="289" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">듣기</tspan></text>
+  <text x="108" y="319" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Nemotron</tspan></text>
+  <text x="108" y="347" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Speech ASR</tspan></text>
+  <text x="108" y="383" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">스트리밍 · 영어 </tspan><tspan font-family="IBM Plex Mono">0.6B</tspan></text>
+  <rect x="353" y="253" width="237" height="169" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="373" y="289" font-weight="500" font-size="17" fill="#5ad1b4"><tspan font-family="IBM Plex Sans KR">생각</tspan></text>
+  <text x="373" y="319" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Bolt E4B 4GB</tspan></text>
+  <text x="373" y="355" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">4</tspan><tspan font-family="IBM Plex Sans KR">비트 양자화 · 성격</tspan></text>
+  <text x="373" y="378" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">LoRA</tspan></text>
+  <path d="M332 337 L337 337" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M346 337 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="618" y="253" width="237" height="169" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="638" y="289" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">말하기</tspan></text>
+  <text x="638" y="319" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Magpie TTS</tspan></text>
+  <text x="638" y="347" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Zeroshot</tspan></text>
+  <text x="638" y="383" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">참조 음성 샘플 하나로</tspan></text>
+  <path d="M597 337 L602 337" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M611 337 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="883" y="253" width="237" height="169" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="903" y="289" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">입 모양</tspan></text>
+  <text x="903" y="319" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Audio2Face-3D</tspan></text>
+  <text x="903" y="355" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">언리얼 엔진 </tspan><tspan font-family="IBM Plex Mono">5</tspan></text>
+  <text x="903" y="378" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">애니메이션</tspan></text>
+  <path d="M862 337 L867 337" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M876 337 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">발화 </tspan><tspan font-family="IBM Plex Mono">→ </tspan><tspan font-family="IBM Plex Sans KR">소리, 생성 시 중앙값</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">1.70</tspan><tspan font-family="IBM Plex Sans KR">초</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">미리 만들어 둔 응답</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">0.72</tspan><tspan font-family="IBM Plex Sans KR">초</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">GPU </tspan><tspan font-family="IBM Plex Sans KR">분리</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">2</tspan><tspan font-family="IBM Plex Sans KR">장</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">언어 · 그래픽</tspan></text>
+</svg>

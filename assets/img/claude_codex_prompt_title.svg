@@ -1,44 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#15122A"/>
-      <stop offset="60%" stop-color="#1B1836"/>
-      <stop offset="100%" stop-color="#221C40"/>
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
     </linearGradient>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <rect x="88" y="92" width="88" height="6" rx="3" fill="#A78BFA"/>
-  <text x="88" y="158" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#A78BFA">PROMPT ASSEMBLY</text>
-  <text x="1112" y="158" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="21" fill="#7A7496">Codex → Claude</text>
-
-  <text x="88" y="248" font-family="IBM Plex Sans KR" font-weight="700" font-size="50" fill="#F2F0F8">Codex의 캐시 미스는</text>
-  <text x="88" y="312" font-family="IBM Plex Sans KR" font-weight="700" font-size="50" fill="#F2F0F8">Claude에서 400 에러다</text>
-
-  <text x="88" y="368" font-family="IBM Plex Sans KR" font-weight="400" font-size="27" fill="#A29CBE">캐시 프리픽스 렌더 순서 — 툴 배열이 가장 앞에 온다</text>
-
-  <g>
-    <rect x="88" y="424" width="230" height="96" rx="12" fill="#2A2352" stroke="#5B4BA0" stroke-width="2"/>
-    <text x="110" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#C4B5FD">tools</text>
-    <text x="110" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#9B93BC">프리픽스 맨 앞</text>
-
-    <text x="340" y="480" text-anchor="middle" font-family="IBM Plex Mono" font-weight="400" font-size="24" fill="#6B6490">→</text>
-
-    <rect x="362" y="424" width="230" height="96" rx="12" fill="#1F1B3C" stroke="#3B3463" stroke-width="1.5"/>
-    <text x="384" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FA8D9">system</text>
-    <text x="384" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#86809F">최상위는 고정</text>
-
-    <text x="614" y="480" text-anchor="middle" font-family="IBM Plex Mono" font-weight="400" font-size="24" fill="#6B6490">→</text>
-
-    <rect x="636" y="424" width="250" height="96" rx="12" fill="#1F1B3C" stroke="#3B3463" stroke-width="1.5"/>
-    <text x="658" y="462" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="#9FA8D9">messages</text>
-    <text x="658" y="496" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#86809F">append 만 허용</text>
-
-    <rect x="916" y="424" width="196" height="96" rx="12" fill="#3A2318" stroke="#8A5230" stroke-width="1.5"/>
-    <text x="938" y="466" font-family="IBM Plex Mono" font-weight="600" font-size="27" fill="#F0A868">400</text>
-    <text x="938" y="499" font-family="IBM Plex Sans KR" font-weight="400" font-size="18" fill="#B88A64">프리픽스 검사 위반</text>
-  </g>
-
-  <text x="88" y="566" font-family="IBM Plex Sans KR" font-weight="400" font-size="19" fill="#625C80">append-only 는 권고가 아니라 요건이다 — Claude 5.1 이상</text>
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">PROMPT ASSEMBLY</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">공식 문서 대조 · </tspan><tspan font-family="IBM Plex Mono">2026-11-02</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Codex</tspan><tspan font-family="IBM Plex Sans KR">의 캐시 미스가 </tspan><tspan font-family="IBM Plex Mono">Claude</tspan><tspan font-family="IBM Plex Sans KR">에서는 </tspan><tspan font-family="IBM Plex Mono">400 </tspan><tspan font-family="IBM Plex Sans KR">에러다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">같은 문제, 다른 해법 — 관례로 남았나 </tspan><tspan font-family="IBM Plex Mono">API </tspan><tspan font-family="IBM Plex Sans KR">기능으로 박혔나</tspan></text>
+  <rect x="88" y="206" width="504" height="264" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="250" font-weight="600" font-size="24" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Codex / Responses API</tspan></text>
+  <path d="M108 268 L572 268" stroke="#30425f" stroke-width="1"/>
+  <circle cx="112" cy="294" r="3" fill="#5ad1b4"/>
+  <text x="126" y="300" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">캐시는 암묵적</tspan></text>
+  <circle cx="112" cy="326" r="3" fill="#44587e"/>
+  <text x="126" y="332" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">모델별 지침이 세 번째 항목</tspan></text>
+  <circle cx="112" cy="358" r="3" fill="#44587e"/>
+  <text x="126" y="364" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">append-only </tspan><tspan font-family="IBM Plex Sans KR">는 권고</tspan></text>
+  <circle cx="112" cy="390" r="3" fill="#44587e"/>
+  <text x="126" y="396" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">encrypted_content </tspan><tspan font-family="IBM Plex Sans KR">로 이월</tspan></text>
+  <circle cx="112" cy="422" r="3" fill="#44587e"/>
+  <text x="126" y="428" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">툴 목록 변경 = 비싼 캐시 미스</tspan></text>
+  <rect x="616" y="206" width="504" height="264" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="636" y="250" font-weight="600" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">Claude / Messages API</tspan></text>
+  <path d="M636 268 L1100 268" stroke="#30425f" stroke-width="1"/>
+  <circle cx="640" cy="294" r="3" fill="#5ad1b4"/>
+  <text x="654" y="300" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">렌더 순서 </tspan><tspan font-family="IBM Plex Mono">tools → system → messages</tspan></text>
+  <circle cx="640" cy="326" r="3" fill="#44587e"/>
+  <text x="654" y="332" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">breakpoint </tspan><tspan font-family="IBM Plex Sans KR">를 직접 찍는다</tspan></text>
+  <circle cx="640" cy="358" r="3" fill="#44587e"/>
+  <text x="654" y="364" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">append-only </tspan><tspan font-family="IBM Plex Sans KR">는 </tspan><tspan font-family="IBM Plex Mono">400 </tspan><tspan font-family="IBM Plex Sans KR">으로 강제</tspan></text>
+  <circle cx="640" cy="390" r="3" fill="#44587e"/>
+  <text x="654" y="396" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">컴팩션은 읽을 수 있는 요약 + 서명</tspan></text>
+  <circle cx="640" cy="422" r="3" fill="#44587e"/>
+  <text x="654" y="428" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">tools </tspan><tspan font-family="IBM Plex Sans KR">를 안 건드리고 툴을 더한다</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">breakpoint </tspan><tspan font-family="IBM Plex Sans KR">상한</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">요청당 </tspan><tspan font-family="IBM Plex Mono">4</tspan><tspan font-family="IBM Plex Sans KR">개</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">최소 캐시 프리픽스</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">512 </tspan><tspan font-family="IBM Plex Sans KR">토큰</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">Opus 5.5</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">컨텍스트 초과 레버</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">3</tspan><tspan font-family="IBM Plex Sans KR">가지</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">Claude </tspan><tspan font-family="IBM Plex Sans KR">쪽</tspan></text>
 </svg>

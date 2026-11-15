@@ -13,30 +13,45 @@
 
   <rect width="1200" height="630" fill="url(#bg)"/>
 
-  <g opacity="0.12" stroke="#7aa8ff" stroke-width="1" fill="none">
-    <path d="M300 96 L1180 96"/>
-    <circle cx="960" cy="96" r="5"/>
-    <path d="M300 158 L1180 158"/>
-    <circle cx="1030" cy="158" r="5"/>
-    <path d="M820 220 L1180 220"/>
-    <circle cx="1100" cy="220" r="5"/>
-    <path d="M820 410 L1180 410"/>
-    <circle cx="960" cy="410" r="5"/>
-    <path d="M820 472 L1180 472"/>
-    <circle cx="1030" cy="472" r="5"/>
-    <path d="M820 534 L1180 534"/>
-    <circle cx="1100" cy="534" r="5"/>
-  </g>
-  <rect x="88" y="96" width="96" height="6" rx="3" fill="url(#accent)"/>
-  <text x="88" y="166" font-family="IBM Plex Mono" font-weight="500" font-size="25" letter-spacing="3" fill="#5ad1b4">HUGGING FACE · ON-DEVICE AGENT</text>
-  <text x="1112" y="160" text-anchor="end" font-family="IBM Plex Mono" font-weight="400" font-size="22" fill="#6c7f9e">huggingface.co · 2026-11-11</text>
-  <text x="88" y="262" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">BotPsy-0.8B</tspan></text>
-  <text x="88" y="334" font-weight="700" font-size="52" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">온디바이스 툴 콜링 모델</tspan></text>
-  <text x="88" y="404" font-weight="400" font-size="28" fill="#9db0cc"><tspan font-family="IBM Plex Mono">Qwen3.5-0.8B </tspan><tspan font-family="IBM Plex Sans KR">기반 · </tspan><tspan font-family="IBM Plex Mono">Apache 2.0 · GGUF Q8_0 0.81GB</tspan></text>
-  <rect x="88" y="490" width="317" height="56" rx="10" fill="none" stroke="#5ad1b4" stroke-width="1.5"/>
-  <text x="110" y="526" font-weight="500" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">BFCL v4 23.4 → 44.0</tspan></text>
-  <rect x="425" y="490" width="274" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-  <text x="447" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">llama.cpp · vLLM</tspan></text>
-  <rect x="719" y="490" width="231" height="56" rx="10" fill="none" stroke="#3b4d72" stroke-width="1.5"/>
-  <text x="741" y="526" font-weight="500" font-size="24" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">thinking mode</tspan></text>
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">ON-DEVICE TOOL CALLING</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">huggingface.co · 2026-11-11</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">0.8B</tspan><tspan font-family="IBM Plex Sans KR">가 </tspan><tspan font-family="IBM Plex Mono">2.5</tspan><tspan font-family="IBM Plex Sans KR">배 큰 모델을 여섯 중 다섯에서 앞선다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Qwen3.5-0.8B </tspan><tspan font-family="IBM Plex Sans KR">를 툴 콜링용으로 후속 학습한 </tspan><tspan font-family="IBM Plex Mono">BotPsy-0.8B</tspan></text>
+  <rect x="88" y="206" width="504" height="264" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="250" font-weight="600" font-size="24" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Qwen3.5-0.8B-Think </tspan><tspan font-family="IBM Plex Sans KR">— 베이스</tspan></text>
+  <path d="M108 268 L572 268" stroke="#30425f" stroke-width="1"/>
+  <circle cx="112" cy="294" r="3" fill="#44587e"/>
+  <text x="126" y="300" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">BFCL v4   23.4</tspan></text>
+  <circle cx="112" cy="326" r="3" fill="#44587e"/>
+  <text x="126" y="332" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">ACEBench   30.1</tspan></text>
+  <circle cx="112" cy="358" r="3" fill="#44587e"/>
+  <text x="126" y="364" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">τ-</tspan><tspan font-family="IBM Plex Mono">bench   23.2</tspan></text>
+  <circle cx="112" cy="390" r="3" fill="#44587e"/>
+  <text x="126" y="396" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">ToolSandbox   30.5</tspan></text>
+  <circle cx="112" cy="422" r="3" fill="#44587e"/>
+  <text x="126" y="428" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">BFCL </tspan><tspan font-family="IBM Plex Sans KR">멀티턴   </tspan><tspan font-family="IBM Plex Mono">7.5</tspan></text>
+  <rect x="616" y="206" width="504" height="264" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="636" y="250" font-weight="600" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">BotPsy-0.8B</tspan></text>
+  <path d="M636 268 L1100 268" stroke="#30425f" stroke-width="1"/>
+  <circle cx="640" cy="294" r="3" fill="#44587e"/>
+  <text x="654" y="300" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">BFCL v4   44.0</tspan></text>
+  <circle cx="640" cy="326" r="3" fill="#44587e"/>
+  <text x="654" y="332" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">ACEBench   58.7</tspan></text>
+  <circle cx="640" cy="358" r="3" fill="#44587e"/>
+  <text x="654" y="364" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">τ-</tspan><tspan font-family="IBM Plex Mono">bench   51.5</tspan></text>
+  <circle cx="640" cy="390" r="3" fill="#44587e"/>
+  <text x="654" y="396" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">ToolSandbox   64.6</tspan></text>
+  <circle cx="640" cy="422" r="3" fill="#44587e"/>
+  <text x="654" y="428" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">BFCL </tspan><tspan font-family="IBM Plex Sans KR">멀티턴   </tspan><tspan font-family="IBM Plex Mono">46.1</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">권장 </tspan><tspan font-family="IBM Plex Mono">GGUF </tspan><tspan font-family="IBM Plex Sans KR">— </tspan><tspan font-family="IBM Plex Mono">Q8_0</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">0.81GB</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">BFCL v4 </tspan><tspan font-family="IBM Plex Sans KR">환각 테스트</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">86.1</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">비교 중 </tspan><tspan font-family="IBM Plex Mono">1</tspan><tspan font-family="IBM Plex Sans KR">위</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">템플릿 기본값 주의</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">thinking </tspan><tspan font-family="IBM Plex Sans KR">켜기</tspan></text>
 </svg>

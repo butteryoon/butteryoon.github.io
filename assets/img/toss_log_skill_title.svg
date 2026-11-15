@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">AI SKILL · DATAOPS</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">toss.tech · 2026-10-23</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">형식 규칙은 스킬에 박지 말고 </tspan><tspan font-family="IBM Plex Mono">CLI</tspan><tspan font-family="IBM Plex Sans KR">에 맡긴다</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">토스 로그 정의 자동화 — 스킬 · </tspan><tspan font-family="IBM Plex Mono">CLI · </tspan><tspan font-family="IBM Plex Sans KR">플랫폼 </tspan><tspan font-family="IBM Plex Mono">3</tspan><tspan font-family="IBM Plex Sans KR">계층 분업</tspan></text>
+  <rect x="88" y="206" width="1032" height="78" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="220" width="4" height="50" rx="2" fill="#3b4d72"/>
+  <text x="122" y="252" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">판단·안내</tspan></text>
+  <text x="233" y="253" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">로그 정의 스킬</tspan></text>
+  <text x="1100" y="253" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">불확실하면 사람에게 묻는다</tspan></text>
+  <rect x="88" y="298" width="1032" height="78" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <rect x="102" y="312" width="4" height="50" rx="2" fill="#5ad1b4"/>
+  <text x="122" y="344" font-weight="600" font-size="19" fill="#5ad1b4"><tspan font-family="IBM Plex Sans KR">형식 검증</tspan></text>
+  <text x="233" y="345" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">lctl (</tspan><tspan font-family="IBM Plex Sans KR">로그센터 </tspan><tspan font-family="IBM Plex Mono">CLI)</tspan></text>
+  <text x="1100" y="345" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">저장 전 실시간 검사 · 규칙 변경 자동 반영</tspan></text>
+  <rect x="88" y="390" width="1032" height="78" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <rect x="102" y="404" width="4" height="50" rx="2" fill="#3b4d72"/>
+  <text x="122" y="436" font-weight="600" font-size="19" fill="#6c7f9e"><tspan font-family="IBM Plex Sans KR">강제·거부</tspan></text>
+  <text x="233" y="437" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">로그센터</tspan></text>
+  <text x="1100" y="437" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Sans KR">위반 명세의 발행을 거절한다</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">스킬 실행 흐름</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">6</tspan><tspan font-family="IBM Plex Sans KR">단계</tspan></text>
+  <text x="400" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">규칙 확인 </tspan><tspan font-family="IBM Plex Mono">→ </tspan><tspan font-family="IBM Plex Sans KR">등록</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">품질을 가른 것</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">도메인 맥락</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">규칙이 아니라</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">스킬을 만든 사람</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">DOM </tspan><tspan font-family="IBM Plex Sans KR">본인</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">비개발 직군</tspan></text>
+</svg>
