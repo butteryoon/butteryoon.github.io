@@ -5,7 +5,7 @@ title: "llm-gemini 0.37: Gemini 4 Hydrogen을 CLI에서 쓰기 전에 볼 가격
 description: "Simon Willison의 llm-gemini 0.37이 Gemini 4 Hydrogen을 지원한다. 설치와 키 설정, thinking_level 옵션을 README 기준으로 정리하고, 12월 1일 Carbon·Argon 가격 인상 전후의 가격표와 같은 프롬프트를 세 모델에 돌린 실측 비용·시간을 함께 본다."
 img: llm-gemini-037-gemini-4-hydrogen_title.webp
 date: 2026-11-13 19:30:00 +0900
-last_modified_at: 2026-11-13 19:30:00 +0900
+last_modified_at: 2026-11-15 18:55:00 +0900
 tags: [llm-serving, llm, gemini, gemini-4-hydrogen, llm-gemini, simon-willison, pricing]
 related: llm-serving
 categories: tools
