@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">HUGGING FACE · ASR</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">huggingface.co · 2026-11-12</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">SOV-Transcribe-1, </tspan><tspan font-family="IBM Plex Sans KR">오픈 가중치 </tspan><tspan font-family="IBM Plex Mono">ASR </tspan><tspan font-family="IBM Plex Sans KR">비교</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Salesforce 4B </tspan><tspan font-family="IBM Plex Sans KR">활성 음성 모델 · </tspan><tspan font-family="IBM Plex Mono">Apache 2.0 · vLLM </tspan><tspan font-family="IBM Plex Sans KR">서빙</tspan></text>
+  <rect x="88" y="237" width="328" height="202" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="108" y="281" font-weight="600" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">SOV-Transcribe-1</tspan></text>
+  <path d="M108 299 L396 299" stroke="#30425f" stroke-width="1"/>
+  <circle cx="112" cy="325" r="3" fill="#5ad1b4"/>
+  <text x="126" y="331" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">AA-WER 2.28%</tspan></text>
+  <circle cx="112" cy="357" r="3" fill="#44587e"/>
+  <text x="126" y="363" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">HALAS 25.69%</tspan></text>
+  <circle cx="112" cy="389" r="3" fill="#44587e"/>
+  <text x="126" y="395" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">활성 </tspan><tspan font-family="IBM Plex Mono">4B</tspan></text>
+  <rect x="440" y="237" width="328" height="202" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="460" y="281" font-weight="600" font-size="24" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Nemotron 3.5</tspan></text>
+  <path d="M460 299 L748 299" stroke="#30425f" stroke-width="1"/>
+  <circle cx="464" cy="325" r="3" fill="#44587e"/>
+  <text x="478" y="331" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">AA-WER 2.81%</tspan></text>
+  <circle cx="464" cy="357" r="3" fill="#44587e"/>
+  <text x="478" y="363" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">HALAS 31.59%</tspan></text>
+  <circle cx="464" cy="389" r="3" fill="#44587e"/>
+  <text x="478" y="395" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">활성 </tspan><tspan font-family="IBM Plex Mono">4B</tspan></text>
+  <rect x="792" y="237" width="328" height="202" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="812" y="281" font-weight="600" font-size="24" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Voxtral Small</tspan></text>
+  <path d="M812 299 L1100 299" stroke="#30425f" stroke-width="1"/>
+  <circle cx="816" cy="325" r="3" fill="#44587e"/>
+  <text x="830" y="331" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">AA-WER 2.77%</tspan></text>
+  <circle cx="816" cy="357" r="3" fill="#44587e"/>
+  <text x="830" y="363" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">HALAS 27.35%</tspan></text>
+  <circle cx="816" cy="389" r="3" fill="#44587e"/>
+  <text x="830" y="395" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">24B</tspan></text>
+  <rect x="88" y="498" width="506" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">엔티티 복구</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">93.4%</tspan></text>
+  <text x="576" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">VoiceCodeBench</tspan></text>
+  <rect x="614" y="498" width="506" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="632" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">키워드 </tspan><tspan font-family="IBM Plex Mono">F1</tspan></text>
+  <text x="632" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">71.9→96.8</tspan></text>
+  <text x="1102" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">Earnings-22</tspan></text>
+</svg>
