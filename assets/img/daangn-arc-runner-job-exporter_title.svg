@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">KARROT SRE · GITHUB ACTIONS ARC</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">medium.com/daangn · 2026-11-17</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">ARC </tspan><tspan font-family="IBM Plex Sans KR">러너 모니터링 공백 메우기</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">러너-잡 매핑과 대기 잡을 보는 익스포터, 바이너리 셋</tspan></text>
+  <rect x="88" y="223" width="1032" height="68" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="110" y="266" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">action-runner-job-exporter</tspan></text>
+  <text x="1098" y="266" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Mono">ARC </tspan><tspan font-family="IBM Plex Sans KR">내장 메트릭은 집계 개수만</tspan></text>
+  <path d="M252 297 L252 302" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M252 311 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="88" y="317" width="328" height="136" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="108" y="353" font-weight="500" font-size="17" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">01</tspan></text>
+  <text x="108" y="379" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Collector</tspan></text>
+  <text x="108" y="414" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">러너 파드 ↔ 잡 매핑</tspan></text>
+  <path d="M604 297 L604 302" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M604 311 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="440" y="317" width="328" height="136" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="460" y="353" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">02</tspan></text>
+  <text x="460" y="379" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Webhook</tspan></text>
+  <text x="460" y="414" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">대기 잡 추적</tspan></text>
+  <path d="M956 297 L956 302" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M956 311 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="792" y="317" width="328" height="136" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="812" y="353" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">03</tspan></text>
+  <text x="812" y="379" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">StateStore</tspan></text>
+  <text x="812" y="414" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">S3 </tspan><tspan font-family="IBM Plex Sans KR">스냅샷</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">스냅샷</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">8 → 0.66MiB</tspan></text>
+  <text x="400" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">톰스톤 </tspan><tspan font-family="IBM Plex Mono">1h</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">컨트롤러 워커</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">2 → 5</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">큐 </tspan><tspan font-family="IBM Plex Mono">669 → 233</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">대기 잡</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">380 → 168</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">약 </tspan><tspan font-family="IBM Plex Mono">10</tspan><tspan font-family="IBM Plex Sans KR">분</tspan></text>
+</svg>
