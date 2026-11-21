@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">HUGGING FACE · OPEN WEIGHTS</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">RadixArk · 2026-11-18</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">RL</tspan><tspan font-family="IBM Plex Sans KR">만으로 후처리해 터미널 벤치마크를 두 배로</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">SFT</tspan><tspan font-family="IBM Plex Sans KR">도 증류도 없이 강화학습만 돌린 </tspan><tspan font-family="IBM Plex Mono">Qwen3.8-27B </tspan><tspan font-family="IBM Plex Sans KR">파생 모델</tspan></text>
+  <rect x="88" y="221" width="504" height="234" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="265" font-weight="600" font-size="24" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Qwen3.8-27B · </tspan><tspan font-family="IBM Plex Sans KR">베이스</tspan></text>
+  <path d="M108 283 L572 283" stroke="#30425f" stroke-width="1"/>
+  <circle cx="112" cy="309" r="3" fill="#5ad1b4"/>
+  <text x="126" y="315" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Terminal Bench 4.1  5.6</tspan></text>
+  <circle cx="112" cy="341" r="3" fill="#44587e"/>
+  <text x="126" y="347" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">SWE Bench Pro v2  91.3</tspan></text>
+  <circle cx="112" cy="373" r="3" fill="#44587e"/>
+  <text x="126" y="379" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">IFBench  79.5</tspan></text>
+  <circle cx="112" cy="405" r="3" fill="#44587e"/>
+  <text x="126" y="411" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">GPQA Diamond  89.2</tspan></text>
+  <rect x="616" y="221" width="504" height="234" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="636" y="265" font-weight="600" font-size="24" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">DaisyRose-27B</tspan></text>
+  <path d="M636 283 L1100 283" stroke="#30425f" stroke-width="1"/>
+  <circle cx="640" cy="309" r="3" fill="#5ad1b4"/>
+  <text x="654" y="315" font-weight="600" font-size="18" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Terminal Bench 4.1  12.0</tspan></text>
+  <circle cx="640" cy="341" r="3" fill="#44587e"/>
+  <text x="654" y="347" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">SWE Bench Pro v2  94.7</tspan></text>
+  <circle cx="640" cy="373" r="3" fill="#44587e"/>
+  <text x="654" y="379" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">IFBench  82.4</tspan></text>
+  <circle cx="640" cy="405" r="3" fill="#44587e"/>
+  <text x="654" y="411" font-weight="400" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">GPQA Diamond  90.7</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">학습 · </tspan><tspan font-family="IBM Plex Mono">63,000 GPU-</tspan><tspan font-family="IBM Plex Sans KR">시간</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">18</tspan><tspan font-family="IBM Plex Sans KR">일 · </tspan><tspan font-family="IBM Plex Mono">144 H200</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">선별 태스크</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">1,200</tspan><tspan font-family="IBM Plex Sans KR">개</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">가중치 </tspan><tspan font-family="IBM Plex Mono">3</tspan><tspan font-family="IBM Plex Sans KR">종</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Apache 2.0</tspan></text>
+</svg>
