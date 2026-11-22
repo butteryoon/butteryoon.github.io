@@ -1,21 +1,23 @@
 ---
 layout: post
 comments: true
-title: "Neovim에서 .http 파일로 LLM API 테스트하기 — kulala.nvim 버전 고정과 GLiNER PII 한국어 보정"
-description: "Neovim 0.12 vim.pack에 kulala.nvim을 붙여 .http 파일로 LLM API를 호출한다. 최신 버전이 요구하는 라이선스 토큰을 피해 v5.3.4로 고정하는 법, 변수 따옴표가 부르는 400과 labels 고정 enum이 부르는 422, 응답 속 JSON 문자열을 한 번 더 파싱해야 하는 이유, 그리고 한국어 이름 범위를 post-request 스크립트로 다듬은 기록을 정리한다."
+title: "Neovim으로 LLM REST API 테스트하기 — kulala.nvim 설치부터 응답 후처리까지"
+description: "Neovim 0.12 vim.pack에 kulala.nvim을 붙여 .http 파일로 LLM REST API를 호출하는 환경을 만든다. 최신 버전이 요구하는 라이선스 토큰을 피해 v5.3.4로 고정하는 법, 변수 처리와 요청 실패를 읽는 법, 응답 직후 후처리를 붙이는 법을 PII 탐지 API를 예제로 삼아 정리한다."
 img: kulala_http_pii_title.webp
 date: 2026-11-23 00:50:00 +0900
-last_modified_at: 2026-11-23 01:55:00 +0900
+last_modified_at: 2026-11-23 02:20:00 +0900
 tags: [neovim, kulala, http, rest-api, llm, pii, gliner, nvidia-nim, lua, python, toolbox]
 related: toolbox
 categories: tools
 ---
 
-API를 두드려 보는 일은 결국 셸에서 `curl` 한 줄로 끝나는데, 그 한 줄은 어디에도 남지 않는다. `.http` 파일은 다르다. 요청이 저장소에 함께 커밋되고, 변수로 환경을 갈아 끼우고, diff가 남는다. Neovim에서 그 파일을 그대로 실행해 주는 플러그인이 [kulala.nvim](https://github.com/dont-be-evil-company/kulala.nvim){:target="_blank"}이다. 그런데 2026년 11월 지금 문서대로 설치하면 **라이선스 토큰부터 요구받는다.** 이 글은 그 함정을 피해 환경을 세우고, 실제로 LLM API 하나(개인정보 탐지 모델 `fastino/gliner2-pii`)를 붙여 쓰면서 걸린 오류를 순서대로 정리한다. 앞서 쓴 [Windows에서 Neovim 0.12 설정 다시 짜기]({{site.baseurl}}/tools/2026/10/25/neovim-windows-vimpack-nerdfont.html)의 `vim.pack` 환경을 그대로 이어 쓴다. (이 글은 Windows PC에서 직접 실행해 확인한 기록을 Claude가 공개 문서와 대조해 정리했다.)
+API를 두드려 보는 일은 결국 셸에서 `curl` 한 줄로 끝나는데, 그 한 줄은 어디에도 남지 않는다. `.http` 파일은 다르다. 요청이 저장소에 함께 커밋되고, 변수로 환경을 갈아 끼우고, diff가 남는다. Neovim에서 그 파일을 그대로 실행해 주는 플러그인이 [kulala.nvim](https://github.com/dont-be-evil-company/kulala.nvim){:target="_blank"}이다. 그런데 2026년 11월 지금 문서대로 설치하면 **라이선스 토큰부터 요구받는다.** 이 글은 그 함정을 피해 **에디터 안에서 LLM REST API를 테스트하는 환경을 세우는 과정**이다 — 설치와 버전 고정, `.http` 변수 처리, 실패한 요청을 읽는 법, 응답 직후 후처리를 붙이는 법 순서로 간다. 손에 잡히는 예제가 있어야 하므로 개인정보 탐지 API 하나(`fastino/gliner2-pii`)를 **실습 대상으로** 삼았고, 뒤쪽의 라벨 enum·응답 파싱·한국어 후보정은 그것을 실제로 붙여 보면서 나온 기록이다. 앞서 쓴 [Windows에서 Neovim 0.12 설정 다시 짜기]({{site.baseurl}}/tools/2026/10/25/neovim-windows-vimpack-nerdfont.html)의 `vim.pack` 환경을 그대로 이어 쓴다. (이 글은 Windows PC에서 직접 실행해 확인한 기록을 Claude가 공개 문서와 대조해 정리했다.)
 
 <!--more-->
 
-> **TL;DR:** ① kulala.nvim 최신 8.x는 비공개로 전환된 `kulala-core` 바이너리를 쓰고 **모든 Kulala 도구에 라이선스 토큰을 요구한다.** 토큰 없이 쓰려면 코어 도입 직전 버전인 `v5.3.4`로 고정한다. ② `.http`에서 `@name="값"`처럼 따옴표를 값에 넣고 본문에서 `"{% raw %}{{name}}{% endraw %}"`으로 또 감싸면 따옴표가 중복돼 `400 request body is not valid JSON`이 난다. ③ `gliner2-pii`의 `labels`는 **42개 고정 enum**이고 목록 밖 값이 하나만 섞여도 요청 전체가 `422`로 거부되는데, **응답 본문에는 허용 목록이 들어 있지 않다.** ④ 응답은 chat.completion 형태라 `choices[0].message.content`를 **한 번 더 JSON 파싱**해야 엔티티가 나온다. ⑤ 이 모델의 학습 데이터 7개 언어에 **한국어는 없고**, 실제로 한국어 이름은 "김민준 대리가"처럼 직함·조사까지 범위에 들어온다. post-request 스크립트로 범위를 다듬었지만 라벨 자체가 틀린 경우(`홍길동입니다` → `city`)는 못 고친다.
+> **TL;DR — 환경:** ① kulala.nvim 최신 8.x는 비공개로 전환된 `kulala-core` 바이너리를 쓰고 **모든 Kulala 도구에 라이선스 토큰을 요구한다.** 토큰 없이 쓰려면 코어 도입 직전 버전인 `v5.3.4`로 고정한다. ② `.http`에서 `@name="값"`처럼 따옴표를 값에 넣고 본문에서 `"{% raw %}{{name}}{% endraw %}"`으로 또 감싸면 따옴표가 중복돼 `400 request body is not valid JSON`이 난다.
+>
+> **TL;DR — 실습 대상(PII 탐지 API):** ③ `gliner2-pii`의 `labels`는 **42개 고정 enum**이고 목록 밖 값이 하나만 섞여도 요청 전체가 `422`로 거부되는데, **응답 본문에는 허용 목록이 들어 있지 않다.** ④ 응답은 chat.completion 형태라 `choices[0].message.content`를 **한 번 더 JSON 파싱**해야 엔티티가 나온다. ⑤ 이 모델의 학습 데이터 7개 언어에 **한국어는 없고**, 실제로 한국어 이름은 "김민준 대리가"처럼 직함·조사까지 범위에 들어온다. post-request 스크립트로 범위를 다듬었지만 라벨 자체가 틀린 경우(`홍길동입니다` → `city`)는 못 고친다.
 
 ## 설치 — 최신 버전은 라이선스 토큰을 요구한다
 
