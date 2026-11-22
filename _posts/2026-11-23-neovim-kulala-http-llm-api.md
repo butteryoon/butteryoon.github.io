@@ -5,7 +5,7 @@ title: "Neovim에서 .http 파일로 LLM API 테스트하기 — kulala.nvim 버
 description: "Neovim 0.12 vim.pack에 kulala.nvim을 붙여 .http 파일로 LLM API를 호출한다. 최신 버전이 요구하는 라이선스 토큰을 피해 v5.3.4로 고정하는 법, 변수 따옴표가 부르는 400과 labels 고정 enum이 부르는 422, 응답 속 JSON 문자열을 한 번 더 파싱해야 하는 이유, 그리고 한국어 이름 범위를 post-request 스크립트로 다듬은 기록을 정리한다."
 img: kulala_http_pii_title.webp
 date: 2026-11-23 00:50:00 +0900
-last_modified_at: 2026-11-23 00:50:00 +0900
+last_modified_at: 2026-11-23 01:55:00 +0900
 tags: [neovim, kulala, http, rest-api, llm, pii, gliner, nvidia-nim, lua, python, toolbox]
 related: toolbox
 categories: tools
@@ -15,7 +15,7 @@ API를 두드려 보는 일은 결국 셸에서 `curl` 한 줄로 끝나는데, 
 
 <!--more-->
 
-> **TL;DR:** ① kulala.nvim 최신 8.x는 비공개로 전환된 `kulala-core` 바이너리를 쓰고 **모든 Kulala 도구에 라이선스 토큰을 요구한다.** 토큰 없이 쓰려면 코어 도입 직전 버전인 `v5.3.4`로 고정한다. ② `.http`에서 `@name="값"`처럼 따옴표를 값에 넣고 본문에서 `"{{name}}"`으로 또 감싸면 따옴표가 중복돼 `400 request body is not valid JSON`이 난다. ③ `gliner2-pii`의 `labels`는 **42개 고정 enum**이고 목록 밖 값이 하나만 섞여도 요청 전체가 `422`로 거부되는데, **응답 본문에는 허용 목록이 들어 있지 않다.** ④ 응답은 chat.completion 형태라 `choices[0].message.content`를 **한 번 더 JSON 파싱**해야 엔티티가 나온다. ⑤ 이 모델의 학습 데이터 7개 언어에 **한국어는 없고**, 실제로 한국어 이름은 "김민준 대리가"처럼 직함·조사까지 범위에 들어온다. post-request 스크립트로 범위를 다듬었지만 라벨 자체가 틀린 경우(`홍길동입니다` → `city`)는 못 고친다.
+> **TL;DR:** ① kulala.nvim 최신 8.x는 비공개로 전환된 `kulala-core` 바이너리를 쓰고 **모든 Kulala 도구에 라이선스 토큰을 요구한다.** 토큰 없이 쓰려면 코어 도입 직전 버전인 `v5.3.4`로 고정한다. ② `.http`에서 `@name="값"`처럼 따옴표를 값에 넣고 본문에서 `"{% raw %}{{name}}{% endraw %}"`으로 또 감싸면 따옴표가 중복돼 `400 request body is not valid JSON`이 난다. ③ `gliner2-pii`의 `labels`는 **42개 고정 enum**이고 목록 밖 값이 하나만 섞여도 요청 전체가 `422`로 거부되는데, **응답 본문에는 허용 목록이 들어 있지 않다.** ④ 응답은 chat.completion 형태라 `choices[0].message.content`를 **한 번 더 JSON 파싱**해야 엔티티가 나온다. ⑤ 이 모델의 학습 데이터 7개 언어에 **한국어는 없고**, 실제로 한국어 이름은 "김민준 대리가"처럼 직함·조사까지 범위에 들어온다. post-request 스크립트로 범위를 다듬었지만 라벨 자체가 틀린 경우(`홍길동입니다` → `city`)는 못 고친다.
 
 ## 설치 — 최신 버전은 라이선스 토큰을 요구한다
 
@@ -92,7 +92,7 @@ end
 
 ## 변수 — 쓸 만한 것과, 따옴표가 부르는 400
 
-`.http` 파일은 변수를 여러 층으로 받는다. 파일 안에서 `@name = 값`으로 정의해 `{{name}}`으로 쓰고, 환경별 값은 `http-client.env.json`(기본 `dev`, 상위 폴더와 병합)에 두고, 비밀값은 git에서 뺀 `http-client.private.env.json`이나 `.env`·시스템 환경변수로 분리한다. `### 이름`으로 요청에 이름을 붙이면 다음 요청에서 `{{이름.response.body.$.json.token}}`처럼 **이전 응답 값을 그대로 참조**할 수 있고, `{{$uuid}}` `{{$timestamp}}` `{{$date}}` `{{$randomInt}}` 같은 내장 변수도 있다.
+`.http` 파일은 변수를 여러 층으로 받는다. 파일 안에서 `@name = 값`으로 정의해 `{% raw %}{{name}}{% endraw %}`으로 쓰고, 환경별 값은 `http-client.env.json`(기본 `dev`, 상위 폴더와 병합)에 두고, 비밀값은 git에서 뺀 `http-client.private.env.json`이나 `.env`·시스템 환경변수로 분리한다. `### 이름`으로 요청에 이름을 붙이면 다음 요청에서 `{% raw %}{{이름.response.body.$.json.token}}{% endraw %}`처럼 **이전 응답 값을 그대로 참조**할 수 있고, `{% raw %}{{$uuid}}{% endraw %}` `{% raw %}{{$timestamp}}{% endraw %}` `{% raw %}{{$date}}{% endraw %}` `{% raw %}{{$randomInt}}{% endraw %}` 같은 내장 변수도 있다.
 
 httpbin.org로 세 요청을 만들어 `run_all`로 돌려 환경 변수·private 변수·`$uuid`·응답 참조가 모두 동작하는 것을 확인했다. 로그인 요청에서 만든 `$uuid` 토큰과 다음 요청의 `Bearer` 값이 정확히 일치했다. `# @prompt`/`# @secret` 입력과 `prod` 환경 전환은 **검증하지 않았다.**
 
@@ -102,7 +102,7 @@ httpbin.org로 세 요청을 만들어 `run_all`로 돌려 환경 변수·privat
 @content="JEV 모델 동향 조사"
 ```
 
-이렇게 정의하면 따옴표가 **값의 일부**가 된다. 본문에서 `"content":"{{content}}"`처럼 한 번 더 감싸면 `""JEV 모델 동향 조사""`가 되어 JSON이 깨진다.
+이렇게 정의하면 따옴표가 **값의 일부**가 된다. 본문에서 `"content":"{% raw %}{{content}}{% endraw %}"`처럼 한 번 더 감싸면 `""JEV 모델 동향 조사""`가 되어 JSON이 깨진다.
 
 ```json
 {"error":{"message":"request body is not valid JSON","type":"invalid_request_error","param":null,"code":"invalid_json"}}
@@ -169,12 +169,12 @@ tax_id, tax_number, transaction_date, username
 ### GLiNER PII
 
 POST https://integrate.api.nvidia.com/v1/chat/completions
-Authorization: Bearer {{NVIDIA_API_KEY}}
+Authorization: Bearer {% raw %}{{NVIDIA_API_KEY}}{% endraw %}
 Content-Type: application/json
 
 {
     "model": "fastino/gliner2-pii",
-    "messages": [{"role":"user","content":"{{content}}"}],
+    "messages": [{"role":"user","content":"{% raw %}{{content}}{% endraw %}"}],
     "labels": ["person","email","phone_number","country","city"],
     "threshold": 0.4,
     "chunk_length": 384,
