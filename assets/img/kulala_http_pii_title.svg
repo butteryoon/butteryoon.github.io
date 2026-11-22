@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="kulala.nvim 으로 .http 요청을 실행해 GLiNER PII 응답을 후처리하는 경로와 걸린 함정 셋">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap");
+      .ko { font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#15635A"/>
+
+  <text class="ko" x="72" y="88" font-size="38" font-weight="700" fill="#16161A" letter-spacing="-0.01em">에디터에서 요청 한 번으로 마스킹까지</text>
+  <text class="ko" x="72" y="128" font-size="19" fill="#55555C">Neovim 에서 <tspan class="mono">.http</tspan> 로 LLM API 를 두드린다 — 가는 길에 걸린 함정 셋</text>
+
+  <!-- 파이프라인 -->
+  <rect x="72" y="166" width="228" height="104" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="96" y="196" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#8A8A92">에디터</text>
+  <text class="mono" x="96" y="226" font-size="16" font-weight="600" fill="#16161A">search_api.http</text>
+  <text class="ko" x="96" y="254" font-size="14" fill="#55555C">변수와 요청을 파일로</text>
+
+  <path d="M 308 218 L 340 218" stroke="#15635A" stroke-width="2"/>
+  <path d="M 332 212 L 342 218 L 332 224 Z" fill="#15635A"/>
+
+  <rect x="348" y="166" width="228" height="104" rx="12" fill="#15635A"/>
+  <text class="ko" x="372" y="196" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#9CD3C9">플러그인 · 버전 고정</text>
+  <text class="mono" x="372" y="226" font-size="16" font-weight="600" fill="#FFFFFF">kulala.nvim v5.3.4</text>
+  <text class="ko" x="372" y="254" font-size="14" fill="#CDE8E3">v8 은 라이선스 토큰 요구</text>
+
+  <path d="M 584 218 L 616 218" stroke="#15635A" stroke-width="2"/>
+  <path d="M 608 212 L 618 218 L 608 224 Z" fill="#15635A"/>
+
+  <rect x="624" y="166" width="228" height="104" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="648" y="196" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#8A8A92">모델 API</text>
+  <text class="mono" x="648" y="226" font-size="15" font-weight="600" fill="#16161A">fastino/gliner2-pii</text>
+  <text class="ko" x="648" y="254" font-size="14" fill="#55555C">라벨 <tspan class="mono">42</tspan>개 · 언어 <tspan class="mono">7</tspan>개</text>
+
+  <path d="M 860 218 L 892 218" stroke="#15635A" stroke-width="2"/>
+  <path d="M 884 212 L 894 218 L 884 224 Z" fill="#15635A"/>
+
+  <rect x="900" y="166" width="228" height="104" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="924" y="196" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#8A8A92">응답 직후 실행</text>
+  <text class="mono" x="924" y="226" font-size="16" font-weight="600" fill="#16161A">&gt; pii_post.lua</text>
+  <text class="ko" x="924" y="254" font-size="14" fill="#55555C">범위 보정 후 마스킹</text>
+
+  <!-- 함정 셋 -->
+  <rect x="72" y="300" width="336" height="122" rx="12" fill="#FFFFFF" stroke="#E8CFC9"/>
+  <text class="ko" x="96" y="330" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#B4332A">함정 1 · 요청 본문</text>
+  <text class="ko" x="96" y="360" font-size="17" font-weight="700" fill="#16161A">변수 값에 따옴표를 넣으면</text>
+  <text class="ko" x="96" y="385" font-size="14" fill="#55555C">본문에서 또 감싸 따옴표가 중복된다</text>
+  <text class="mono" x="96" y="411" font-size="15" font-weight="600" fill="#B4332A">400 invalid_json</text>
+
+  <rect x="432" y="300" width="336" height="122" rx="12" fill="#FFFFFF" stroke="#E8CFC9"/>
+  <text class="ko" x="456" y="330" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#B4332A">함정 2 · 라벨</text>
+  <text class="ko" x="456" y="360" font-size="17" font-weight="700" fill="#16161A"><tspan class="mono">labels</tspan> 는 고정 enum 이다</text>
+  <text class="ko" x="456" y="385" font-size="14" fill="#55555C">목록 밖 값 하나에 요청 전체가 거부</text>
+  <text class="mono" x="456" y="411" font-size="15" font-weight="600" fill="#B4332A">422 <tspan class="ko" font-weight="400" fill="#55555C">— 응답에 목록은 없다</tspan></text>
+
+  <rect x="792" y="300" width="336" height="122" rx="12" fill="#FFFFFF" stroke="#E8CFC9"/>
+  <text class="ko" x="816" y="330" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#B4332A">함정 3 · 응답</text>
+  <text class="ko" x="816" y="360" font-size="17" font-weight="700" fill="#16161A">내용이 JSON 문자열이다</text>
+  <text class="mono" x="816" y="385" font-size="13" fill="#55555C">choices[0].message.content</text>
+  <text class="ko" x="816" y="411" font-size="15" font-weight="600" fill="#16161A">한 번 더 파싱해야 <tspan class="mono">entities</tspan></text>
+
+  <!-- 결과 -->
+  <rect x="72" y="452" width="690" height="140" rx="12" fill="#FFFFFF" stroke="#E2DED4"/>
+  <text class="ko" x="96" y="482" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#8A8A92">후처리 전후 · 가상 데이터</text>
+  <text class="ko" x="96" y="522" font-size="14" fill="#8A8A92">입력</text>
+  <text class="ko" x="150" y="522" font-size="15" fill="#55555C">박지훈 과장과 최수아 사원이 연락처 <tspan class="mono">010-1234-5678</tspan></text>
+  <text class="ko" x="96" y="562" font-size="14" fill="#8A8A92">결과</text>
+  <text class="mono" x="150" y="562" font-size="15" font-weight="600" fill="#15803D">[person]<tspan class="ko" font-weight="400" fill="#16161A"> 과장과 </tspan>[person]<tspan class="ko" font-weight="400" fill="#16161A"> 사원이 연락처 </tspan>[phone_number]</text>
+
+  <rect x="786" y="452" width="342" height="140" rx="12" fill="#EFEBE2"/>
+  <text class="ko" x="810" y="482" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#6B6B73">학습 데이터 언어</text>
+  <text class="ko" x="810" y="510" font-size="13" fill="#55555C">영어 · 프랑스어 · 스페인어 · 독일어</text>
+  <text class="ko" x="810" y="532" font-size="13" fill="#55555C">이탈리아어 · 포르투갈어 · 네덜란드어</text>
+  <text class="ko" x="810" y="570" font-size="19" font-weight="700" fill="#B4332A">한국어는 없다</text>
+</svg>
