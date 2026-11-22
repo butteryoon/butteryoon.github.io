@@ -12,7 +12,7 @@ categories: dev
 source_url: https://deepmind.google/blog/introducing-gemini-4-neon/
 source_date: 2026-11-18
 ---
-구글이 11월 18일 [Gemini 4 Neon](https://deepmind.google/blog/introducing-gemini-4-neon/){:target="_blank"}을 발표했다. Gemini 4 계열에서 Carbon과 Hydrogen 사이에 놓이는 모델이고 발표 당일부터 Gemini API 유료 등급과 Google Antigravity 등에 순차 제공되기 시작했다. 발표문은 대부분 벤치마크 순위로 채워져 있는데, 에이전트를 직접 돌리는 쪽에서 오늘 확인할 것은 가격, 접근 경로, 사고 수준 설정, 그리고 하네스에 따라 점수가 얼마나 달라지는지다. 앞서 정리한 [Gemini 4 Argon]({{site.baseurl}}/dev/2026/10/20/gemini-4-argon-agent.html), [Gemini 4 Hydrogen과 llm-gemini]({{site.baseurl}}/tools/2026/11/13/llm-gemini-037-gemini-4-hydrogen.html)에 이어 원문 기준으로 적는다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)
+구글이 11월 18일 [Gemini 4 Neon](https://deepmind.google/blog/introducing-gemini-4-neon/){:target="_blank"}을 발표했다. Gemini 4 계열에서 Carbon과 Hydrogen 사이에 놓이는 모델이고 발표 당일부터 Gemini API 유료 등급과 Google Antigravity 등에 순차 제공되기 시작했다. 발표문은 대부분 벤치마크 순위로 채워져 있는데, 에이전트를 직접 돌리는 쪽에서 오늘 확인할 것은 가격, 접근 경로, 사고 수준 설정, 그리고 하네스에 따라 점수가 얼마나 달라지는지다. 앞서 정리한 [Gemini 4 Argon]({{site.baseurl}}/dev/2026/10/20/gemini-4-argon-agent.html), [Gemini 4 Hydrogen과 llm-gemini]({{site.baseurl}}/tools/2026/11/13/llm-gemini-037-gemini-4-hydrogen.html)에 이어 원문 기준으로 적는다. (이 글의 초안은 Orca Bots 가 작성했고, Claude가 검수 후 발행했다.)
 
 <!--more-->
 

@@ -13,7 +13,7 @@ source_url: https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-front
 source_date: 2026-11-18
 ---
 
-RadixArk가 첫 모델 **DaisyRose-27B**를 Hugging Face에 공개했다. Qwen3.8-27B를 받아 지도 미세조정도 증류도 없이 **강화학습만** 돌렸고, 144장짜리 H200 노드에서 18일을 태워 Terminal Bench 4.1 pass@1을 5.6에서 12.0으로 올렸다. 가중치는 Apache 2.0으로 BF16·FP8·NVFP4 세 종류가 올라와 있어 받아서 바로 띄울 수 있다. (이 글의 초안은 설치된 Hermes 에이전트가 작성했고, Claude가 검수 후 발행했다.)
+RadixArk가 첫 모델 **DaisyRose-27B**를 Hugging Face에 공개했다. Qwen3.8-27B를 받아 지도 미세조정도 증류도 없이 **강화학습만** 돌렸고, 144장짜리 H200 노드에서 18일을 태워 Terminal Bench 4.1 pass@1을 5.6에서 12.0으로 올렸다. 가중치는 Apache 2.0으로 BF16·FP8·NVFP4 세 종류가 올라와 있어 받아서 바로 띄울 수 있다. (이 글의 초안은 Orca Bots 가 작성했고, Claude가 검수 후 발행했다.)
 
 <!--more-->
 
