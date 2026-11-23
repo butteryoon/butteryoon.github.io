@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">HUGGING FACE · LOCAL LLM</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">huggingface.co · 2026-11-20</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Inkling 2 Mini </tspan><tspan font-family="IBM Plex Sans KR">로컬 실행 정리</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">체크포인트 하나, 런타임별 실행 경로와 에이전트 사용 제약</tspan></text>
+  <rect x="88" y="208" width="1032" height="68" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="110" y="251" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">Inkling 2 Mini </tspan><tspan font-family="IBM Plex Sans KR">체크포인트</tspan></text>
+  <text x="1098" y="251" font-weight="400" font-size="18" fill="#8ea4c6" text-anchor="end"><tspan font-family="IBM Plex Mono">Apache 2.0 · NVFP4 + MXFP8</tspan></text>
+  <path d="M252 282 L252 287" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M252 296 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="88" y="302" width="328" height="165" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="108" y="338" font-weight="500" font-size="17" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">GGUF</tspan></text>
+  <text x="108" y="364" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">llama.cpp · Llama</tspan></text>
+  <text x="108" y="393" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">App</tspan></text>
+  <text x="108" y="428" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">IQ4_NL · Q8_0</tspan></text>
+  <path d="M604 282 L604 287" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M604 296 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="440" y="302" width="328" height="165" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="460" y="338" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">PYTHON</tspan></text>
+  <text x="460" y="364" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">transformers · MLX</tspan></text>
+  <text x="460" y="399" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">reasoning_effort </tspan><tspan font-family="IBM Plex Sans KR">기본 </tspan><tspan font-family="IBM Plex Mono">high</tspan></text>
+  <path d="M956 282 L956 287" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M956 296 l-5.5 -9 l11 0 z" fill="#4d6490"/>
+  <rect x="792" y="302" width="328" height="165" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="812" y="338" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">SERVING</tspan></text>
+  <text x="812" y="364" font-weight="600" font-size="23" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">SGLang</tspan></text>
+  <text x="812" y="399" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">DSpark </tspan><tspan font-family="IBM Plex Sans KR">추측 디코딩</tspan></text>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">체크포인트</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">약 </tspan><tspan font-family="IBM Plex Mono">20GB</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">권장 메모리</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">32GB </tspan><tspan font-family="IBM Plex Sans KR">이상</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">컨텍스트 창</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">최대 </tspan><tspan font-family="IBM Plex Mono">1M </tspan><tspan font-family="IBM Plex Sans KR">토큰</tspan></text>
+</svg>
