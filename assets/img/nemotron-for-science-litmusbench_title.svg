@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a2e"/>
+      <stop offset="55%" stop-color="#17233d"/>
+      <stop offset="100%" stop-color="#241a38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5ad1b4"/>
+      <stop offset="100%" stop-color="#7aa8ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="88" y="50" width="72" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="92" font-family="IBM Plex Mono" font-weight="500" font-size="22" letter-spacing="3" fill="#5ad1b4">NVIDIA · NEMO GYM</text>
+  <text x="1112" y="90" font-weight="400" font-size="21" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Mono">blogs.nvidia.co.kr · 2026-11-23</tspan></text>
+  <text x="88" y="140" font-weight="700" font-size="40" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">LitmusBench v0.2</tspan><tspan font-family="IBM Plex Sans KR">와 </tspan><tspan font-family="IBM Plex Mono">NeMo Gym </tspan><tspan font-family="IBM Plex Sans KR">평가</tspan></text>
+  <text x="88" y="178" font-weight="400" font-size="23" fill="#8ea4c6"><tspan font-family="IBM Plex Mono">Nemotron for Science</tspan><tspan font-family="IBM Plex Sans KR">에서 지금 받아 쓸 수 있는 것</tspan></text>
+  <rect x="88" y="267" width="314" height="141" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="108" y="303" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">DATA</tspan></text>
+  <text x="108" y="333" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">LitmusBench v0.2</tspan></text>
+  <text x="108" y="369" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">문항 + 정규식 + 정답</tspan></text>
+  <rect x="446" y="267" width="314" height="141" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="466" y="303" font-weight="500" font-size="17" fill="#6c7f9e"><tspan font-family="IBM Plex Mono">ROLLOUT</tspan></text>
+  <text x="466" y="333" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Sans KR">모델 응답</tspan></text>
+  <text x="466" y="369" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">문항당 롤아웃 </tspan><tspan font-family="IBM Plex Mono">5</tspan><tspan font-family="IBM Plex Sans KR">회</tspan></text>
+  <path d="M409 337 L430 337" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M439 337 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="804" y="267" width="314" height="141" rx="12" fill="#17304a" stroke="#5ad1b4" stroke-width="1.5"/>
+  <text x="824" y="303" font-weight="500" font-size="17" fill="#5ad1b4"><tspan font-family="IBM Plex Mono">VERIFY</tspan></text>
+  <text x="824" y="333" font-weight="600" font-size="22" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">litmus_agent</tspan></text>
+  <text x="824" y="369" font-weight="400" font-size="17" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">보상 </tspan><tspan font-family="IBM Plex Mono">1.0 </tspan><tspan font-family="IBM Plex Sans KR">또는 </tspan><tspan font-family="IBM Plex Mono">0.0</tspan></text>
+  <path d="M767 337 L788 337" stroke="#4d6490" stroke-width="1.6" fill="none"/>
+  <path d="M797 337 l-9 -5.5 l0 11 z" fill="#4d6490"/>
+  <rect x="88" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="106" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">학습</tspan></text>
+  <text x="106" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">47,118</tspan></text>
+  <text x="400" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">문항</tspan></text>
+  <rect x="438" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="456" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">평가</tspan></text>
+  <text x="456" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">2,056</tspan></text>
+  <text x="750" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">문항</tspan></text>
+  <rect x="788" y="498" width="330" height="88" rx="12" fill="#16223a" stroke="#2a3a5c" stroke-width="1.5"/>
+  <text x="806" y="530" font-weight="500" font-size="18" fill="#8ea4c6"><tspan font-family="IBM Plex Sans KR">크기</tspan></text>
+  <text x="806" y="568" font-weight="700" font-size="29" fill="#f2f5fb"><tspan font-family="IBM Plex Mono">64 MB</tspan></text>
+  <text x="1100" y="568" font-weight="400" font-size="17" fill="#6c7f9e" text-anchor="end"><tspan font-family="IBM Plex Sans KR">영어</tspan></text>
+</svg>
